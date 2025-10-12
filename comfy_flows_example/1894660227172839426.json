@@ -1,0 +1,1489 @@
+{
+  "last_link_id": 62,
+  "nodes": [
+    {
+      "outputs": [
+        {
+          "name": "block_swap_args",
+          "slot_index": 0,
+          "links": [
+            56
+          ],
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        20,
+        false,
+        false,
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoBlockSwap",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        130
+      ],
+      "pos": [
+        190.92202758789062,
+        -334.3497314453125
+      ],
+      "id": 39,
+      "properties": {
+        "Node name for S&R": "WanVideoBlockSwap",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 0
+    },
+    {
+      "outputs": [
+        {
+          "name": "wan_t5_model",
+          "slot_index": 0,
+          "links": [
+            15
+          ],
+          "label": "wan_t5_model",
+          "type": "WANTEXTENCODER",
+          "localized_name": "wan_t5_model"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "umt5-xxl-enc-bf16.safetensors",
+        "bf16",
+        "offload_device",
+        "disabled"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadWanVideoT5TextEncoder",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        377.1661376953125,
+        130
+      ],
+      "pos": [
+        224.15325927734375,
+        -34.481563568115234
+      ],
+      "id": 11,
+      "properties": {
+        "Node name for S&R": "LoadWanVideoT5TextEncoder",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 1
+    },
+    {
+      "outputs": [
+        {
+          "name": "vae",
+          "slot_index": 0,
+          "links": [
+            43,
+            48
+          ],
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "Wan2_1_VAE_bf16.safetensors",
+        "fp32"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoVAELoader",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        1687.4093017578125,
+        -582.2750854492188
+      ],
+      "id": 38,
+      "properties": {
+        "Node name for S&R": "WanVideoVAELoader",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 2
+    },
+    {
+      "outputs": [
+        {
+          "name": "torch_compile_args",
+          "slot_index": 0,
+          "links": [],
+          "label": "torch_compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "torch_compile_args"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "inductor",
+        false,
+        "default",
+        false,
+        64,
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoTorchCompileSettings",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        390.5999755859375,
+        178
+      ],
+      "pos": [
+        124.67726135253906,
+        -627.7935180664062
+      ],
+      "id": 35,
+      "properties": {
+        "Node name for S&R": "WanVideoTorchCompileSettings",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 3
+    },
+    {
+      "outputs": [],
+      "color": "#3a3a3a",
+      "shape": 1,
+      "widgets_values": [
+        "<div class=\"startPage\">\n  <div class=\"hoverContainer\">\n    <a href=\"https://aix.studio\">\n      <span class=\"size-smallButton style-input\">🗃️ AIX官网</span>\n    </a>\n    <a href=\"https://t.zsxq.com/7F90A\">\n      <span class=\"size-smallButton style-input\">🪲 知识星球</span>\n    </a>\n    <a href=\"https://space.bilibili.com/385085361\">\n      <span class=\"size-smallButton style-input\">☕ B站首页</span>\n    </a>\n  </div>\n</div>",
+        "markdown",
+        "\r\n\r\n* {\r\n    font-family: Arial;\r\n  }\r\n\r\n\r\n  .startPage {\r\n    position: absolute;\r\n    width:auto;\r\n    z-index: 0;\r\n    transition: transform 0.3s ease;\r\n  }\r\n\r\n  .startPage:hover {\r\n    transform: translateY(-1%);\r\n  }\r\n\r\n  .hoverContainer {\r\n    background: black;\r\n    border-radius: 27px;\r\n    padding: 50px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    margin: 12px auto;\r\n    position: relative;\r\n  }\r\n\r\n  .header {\r\n    padding-bottom: 24px;\r\n    margin-bottom: 24px;\r\n    border-bottom: 1px solid #3e3e3e;\r\n    width: 200%;\r\n    height: 72px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n  }\r\n\r\n  .header_discrip {\r\n    font-size: 21px;\r\n    font-weight: 200;\r\n    color: #6f6f6f;\r\n  }\r\n\r\n  .size-smallButton {\r\n    font-size: 21px;\r\n    border-radius: 12px;\r\n    height: 48px;\r\n    min-width: 48px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    width: 100%;\r\n    cursor: pointer;\r\n  }\r\n\r\n  .style-input {\r\n    background: #2a2a2b;\r\n    padding: 12px;\r\n    transition: background 0.3s;\r\n  }\r\n\r\n  .style-input:hover {\r\n    background: #3b3b3c;\r\n  }\r\na:not(:first-child) {\r\n      margin-left:8px;}\r\n  a {\r\n    color: #b6b6b7;\r\n  }\r\n\r\n  a:hover,\r\n  a:hover .header_discrip {\r\n    color: #dddddd !important;\r\n  }",
+        "one_dark"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note Plus (mtb)",
+      "mode": 0,
+      "bgcolor": "#262626",
+      "size": [
+        656,
+        128
+      ],
+      "pos": [
+        -580,
+        -527
+      ],
+      "id": 47,
+      "properties": {},
+      "order": 4
+    },
+    {
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            54,
+            58
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        true,
+        272,
+        272,
+        144,
+        128
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 43,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "samples",
+          "link": 33,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoDecode",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        174
+      ],
+      "pos": [
+        1692.973876953125,
+        -404.8614501953125
+      ],
+      "id": 28,
+      "properties": {
+        "Node name for S&R": "WanVideoDecode",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 17
+    },
+    {
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            29
+          ],
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "Wan2_1-T2V-14B_fp8_e4m3fn.safetensors",
+        "bf16",
+        "fp8_e4m3fn",
+        "offload_device",
+        "sageattn"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "compile_args"
+        },
+        {
+          "shape": 7,
+          "name": "block_swap_args",
+          "link": 56,
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        },
+        {
+          "shape": 7,
+          "name": "lora",
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        },
+        {
+          "shape": 7,
+          "name": "vram_management_args",
+          "label": "vram_management_args",
+          "type": "VRAM_MANAGEMENTARGS",
+          "localized_name": "vram_management_args"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoModelLoader",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        477.4410095214844,
+        226.43276977539062
+      ],
+      "pos": [
+        673.3211669921875,
+        -346.5819091796875
+      ],
+      "id": 22,
+      "properties": {
+        "Node name for S&R": "WanVideoModelLoader",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 12
+    },
+    {
+      "outputs": [
+        {
+          "name": "text_embeds",
+          "slot_index": 0,
+          "links": [
+            30
+          ],
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "1 beautiful girl is walk in the forest,and check the paper",
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+        true,
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "inputs": [
+        {
+          "name": "t5",
+          "link": 15,
+          "label": "t5",
+          "type": "WANTEXTENCODER",
+          "localized_name": "t5"
+        },
+        {
+          "shape": 7,
+          "name": "model_to_offload",
+          "label": "model_to_offload",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model_to_offload"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoTextEncode",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        420.30511474609375,
+        261.5306701660156
+      ],
+      "pos": [
+        760,
+        -21
+      ],
+      "id": 16,
+      "properties": {
+        "Node name for S&R": "WanVideoTextEncode",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 13
+    },
+    {
+      "outputs": [
+        {
+          "name": "image_embeds",
+          "slot_index": 0,
+          "links": [
+            42
+          ],
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        768,
+        512,
+        85
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "control_embeds",
+          "label": "control_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "control_embeds"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoEmptyEmbeds",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        591,
+        375
+      ],
+      "id": 37,
+      "properties": {
+        "Node name for S&R": "WanVideoEmptyEmbeds",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 5
+    },
+    {
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            55
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        2,
+        "down",
+        false,
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "image_1",
+          "link": 53,
+          "label": "image_1",
+          "type": "IMAGE",
+          "localized_name": "image_1"
+        },
+        {
+          "name": "image_2",
+          "link": 54,
+          "label": "image_2",
+          "type": "IMAGE",
+          "localized_name": "image_2"
+        }
+      ],
+      "flags": {},
+      "type": "ImageConcatMulti",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        210,
+        150
+      ],
+      "pos": [
+        1783,
+        28
+      ],
+      "id": 45,
+      "properties": {
+        "Node name for S&R": "ImageConcatMulti",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 18
+    },
+    {
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "Filenames",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "WanVideo2_1_T2V",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "WanVideo2_1_T2V_00005_ibgpr_1743431100.mp4",
+            "workflow": "WanVideo2_1_T2V_00002.png",
+            "fullpath": "F:\\AI-video-onekey-20250227\\ComfyUI\\output\\WanVideo2_1_T2V_00002.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 16
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 16,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 55,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "type": "VHS_VideoCombine",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        774.731689453125,
+        1330.3089599609375
+      ],
+      "pos": [
+        2232,
+        -159
+      ],
+      "id": 30,
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 20
+    },
+    {
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "Filenames",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "WanVideo2_1_T2V",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "WanVideo2_1_T2V_00004_uludz_1743431096.mp4",
+            "workflow": "WanVideo2_1_T2V_00002.png",
+            "fullpath": "F:\\AI-video-onekey-20250227\\ComfyUI\\output\\WanVideo2_1_T2V_00002.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 16
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 16,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 58,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "type": "VHS_VideoCombine",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        774.731689453125,
+        827.1544799804688
+      ],
+      "pos": [
+        3039,
+        -140
+      ],
+      "id": 55,
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 19
+    },
+    {
+      "outputs": [
+        {
+          "name": "exp_args",
+          "links": [
+            59
+          ],
+          "label": "exp_args",
+          "type": "EXPERIMENTALARGS",
+          "localized_name": "exp_args"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "",
+        true,
+        false,
+        0
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoExperimentalArgs",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        327.5999755859375,
+        130
+      ],
+      "pos": [
+        777.7393188476562,
+        -744.6864013671875
+      ],
+      "id": 56,
+      "properties": {
+        "Node name for S&R": "WanVideoExperimentalArgs",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 7
+    },
+    {
+      "outputs": [
+        {
+          "name": "feta_args",
+          "links": [
+            60
+          ],
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        2,
+        0,
+        1
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoEnhanceAVideo",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        1228.6964111328125,
+        -767.4934692382812
+      ],
+      "id": 57,
+      "properties": {
+        "Node name for S&R": "WanVideoEnhanceAVideo",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 8
+    },
+    {
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            50
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        true,
+        272,
+        272,
+        144,
+        128,
+        0,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 48,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "image",
+          "link": 52,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "shape": 7,
+          "name": "mask",
+          "label": "mask",
+          "type": "MASK",
+          "localized_name": "mask"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoEncode",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        242
+      ],
+      "pos": [
+        1298,
+        261
+      ],
+      "id": 42,
+      "properties": {
+        "Node name for S&R": "WanVideoEncode",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 15
+    },
+    {
+      "outputs": [
+        {
+          "name": "teacache_args",
+          "links": [
+            61
+          ],
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        0.20000000000000004,
+        1,
+        -1,
+        "offload_device",
+        true,
+        "e"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoTeaCache",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        178
+      ],
+      "pos": [
+        803.8790283203125,
+        -572.4771728515625
+      ],
+      "id": 58,
+      "properties": {
+        "Node name for S&R": "WanVideoTeaCache",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 9
+    },
+    {
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            33
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        15,
+        6,
+        5,
+        1057359483639288,
+        "fixed",
+        true,
+        "dpm++",
+        0,
+        0.5,
+        false,
+        "comfy"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 29,
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "text_embeds",
+          "link": 30,
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        },
+        {
+          "name": "image_embeds",
+          "link": 42,
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "samples",
+          "link": 50,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "shape": 7,
+          "name": "feta_args",
+          "link": 60,
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        },
+        {
+          "shape": 7,
+          "name": "context_options",
+          "label": "context_options",
+          "type": "WANVIDCONTEXT",
+          "localized_name": "context_options"
+        },
+        {
+          "shape": 7,
+          "name": "teacache_args",
+          "link": 61,
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        },
+        {
+          "shape": 7,
+          "name": "flowedit_args",
+          "label": "flowedit_args",
+          "type": "FLOWEDITARGS",
+          "localized_name": "flowedit_args"
+        },
+        {
+          "shape": 7,
+          "name": "slg_args",
+          "link": 62,
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        },
+        {
+          "shape": 7,
+          "name": "loop_args",
+          "label": "loop_args",
+          "type": "LOOPARGS",
+          "localized_name": "loop_args"
+        },
+        {
+          "shape": 7,
+          "name": "experimental_args",
+          "link": 59,
+          "label": "experimental_args",
+          "type": "EXPERIMENTALARGS",
+          "localized_name": "experimental_args"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoSampler",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        619
+      ],
+      "pos": [
+        1293.8531494140625,
+        -535.5869140625
+      ],
+      "id": 27,
+      "properties": {
+        "Node name for S&R": "WanVideoSampler",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 16
+    },
+    {
+      "outputs": [
+        {
+          "name": "slg_args",
+          "links": [
+            62
+          ],
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "9",
+        0.20000000000000004,
+        0.7000000000000002
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoSLG",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        1621.2308349609375,
+        -760.9647827148438
+      ],
+      "id": 59,
+      "properties": {
+        "Node name for S&R": "WanVideoSLG",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 10
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            52,
+            53
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "width",
+          "label": "width",
+          "type": "INT",
+          "localized_name": "width"
+        },
+        {
+          "name": "height",
+          "label": "height",
+          "type": "INT",
+          "localized_name": "height"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        768,
+        512,
+        "nearest-exact",
+        false,
+        2,
+        0,
+        0,
+        "center"
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 51,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "shape": 7,
+          "name": "get_image_size",
+          "label": "get_image_size",
+          "type": "IMAGE",
+          "localized_name": "get_image_size"
+        },
+        {
+          "widget": {
+            "name": "width_input"
+          },
+          "shape": 7,
+          "name": "width_input",
+          "label": "width_input",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height_input"
+          },
+          "shape": 7,
+          "name": "height_input",
+          "label": "height_input",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "type": "ImageResizeKJ",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        266
+      ],
+      "pos": [
+        936.3966064453125,
+        365.4049987792969
+      ],
+      "id": 44,
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 14
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            51
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "frame_count",
+          "label": "frame_count",
+          "type": "INT",
+          "localized_name": "frame_count"
+        },
+        {
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "name": "video_info",
+          "label": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "localized_name": "video_info"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": {
+        "custom_height": 0,
+        "force_rate": 0,
+        "custom_width": 0,
+        "select_every_nth": 1,
+        "frame_load_cap": 85,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "custom_height": 0,
+            "filename": "929ed6254c4edb4ca0e9251ab2e749d68b7be1667252563d8ab0c53de1956a7e.mp4",
+            "force_rate": 0,
+            "custom_width": 0,
+            "select_every_nth": 1,
+            "frame_load_cap": 85,
+            "format": "video/mp4",
+            "skip_first_frames": 0,
+            "type": "input"
+          }
+        },
+        "video": "929ed6254c4edb4ca0e9251ab2e749d68b7be1667252563d8ab0c53de1956a7e.mp4",
+        "skip_first_frames": 0,
+        "force_size": "Disabled",
+        "choose video to upload": "image"
+      },
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "type": "VHS_LoadVideo",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        247.455078125,
+        404.7481689453125
+      ],
+      "pos": [
+        133.9931640625,
+        224.54104614257812
+      ],
+      "id": 43,
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 11
+    },
+    {
+      "outputs": [],
+      "color": "#223",
+      "widgets_values": [
+        "num_frames：总帧数，一般不超过85帧\nwidth和height比例按照原视频参考，不要横版搞成竖版的尺寸\nwidth是宽度\nheght是高度\n\n注意上面2个节点尺寸改成一样的\n\n默认用的是个大分辨率的768*512也可以竖版512*768，预计4分21秒\n如果觉得太长了改成512*384或者384*512，速度飞快",
+        [
+          false,
+          true
+        ]
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note _O",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        470,
+        539
+      ],
+      "id": 53,
+      "properties": {
+        "Node name for S&R": "Note _O",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 6
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": true,
+    "node_versions": {
+      "ComfyUI-VideoHelperSuite": "124c913ccdd8a585734ea758c35fa1bab8499c99"
+    },
+    "ds": {
+      "offset": [
+        -1049.8489083221464,
+        35.91380749735279
+      ],
+      "scale": 0.8769226950000019
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 240,
+      "flags": {},
+      "id": 1,
+      "title": "B站、Youtube：T8star-Aix",
+      "bounding": [
+        -355,
+        -1200,
+        4168,
+        309
+      ]
+    }
+  ],
+  "links": [
+    [
+      15,
+      11,
+      0,
+      16,
+      0,
+      "WANTEXTENCODER"
+    ],
+    [
+      29,
+      22,
+      0,
+      27,
+      0,
+      "WANVIDEOMODEL"
+    ],
+    [
+      30,
+      16,
+      0,
+      27,
+      1,
+      "WANVIDEOTEXTEMBEDS"
+    ],
+    [
+      33,
+      27,
+      0,
+      28,
+      1,
+      "LATENT"
+    ],
+    [
+      42,
+      37,
+      0,
+      27,
+      2,
+      "WANVIDIMAGE_EMBEDS"
+    ],
+    [
+      43,
+      38,
+      0,
+      28,
+      0,
+      "VAE"
+    ],
+    [
+      48,
+      38,
+      0,
+      42,
+      0,
+      "WANVAE"
+    ],
+    [
+      50,
+      42,
+      0,
+      27,
+      3,
+      "LATENT"
+    ],
+    [
+      51,
+      43,
+      0,
+      44,
+      0,
+      "IMAGE"
+    ],
+    [
+      52,
+      44,
+      0,
+      42,
+      1,
+      "IMAGE"
+    ],
+    [
+      53,
+      44,
+      0,
+      45,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      28,
+      0,
+      45,
+      1,
+      "IMAGE"
+    ],
+    [
+      55,
+      45,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      56,
+      39,
+      0,
+      22,
+      1,
+      "BLOCKSWAPARGS"
+    ],
+    [
+      58,
+      28,
+      0,
+      55,
+      0,
+      "IMAGE"
+    ],
+    [
+      59,
+      56,
+      0,
+      27,
+      10,
+      "EXPERIMENTALARGS"
+    ],
+    [
+      60,
+      57,
+      0,
+      27,
+      4,
+      "FETAARGS"
+    ],
+    [
+      61,
+      58,
+      0,
+      27,
+      6,
+      "TEACACHEARGS"
+    ],
+    [
+      62,
+      59,
+      0,
+      27,
+      8,
+      "SLGARGS"
+    ]
+  ],
+  "id": "aac59320-b8d0-4e52-b3c2-6bd390b77971",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 59,
+  "revision": 0
+}

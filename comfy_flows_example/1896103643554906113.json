@@ -1,0 +1,1439 @@
+{
+  "last_link_id": 208,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            57
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "pos": [
+        -1224.7723368774791,
+        -147.34477621643842
+      ],
+      "widgets_values": [
+        "flux1-dev.sft",
+        "fp8_e4m3fn"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 12,
+      "type": "UNETLoader",
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "*",
+          "label": "输出",
+          "type": "*"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "pos": {
+        "0": 293.60711669921875,
+        "1": 146.33987426757812,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "widgets_values": [
+        "张树"
+      ],
+      "inputs": [
+        {
+          "name": "INT",
+          "link": 111,
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 77,
+      "type": "SetNode",
+      "properties": {
+        "previousName": "张树"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "*",
+          "label": "输出",
+          "type": "*"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "pos": {
+        "0": -909,
+        "1": -1193,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "widgets_values": [
+        "原图"
+      ],
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "link": 113,
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 79,
+      "type": "SetNode",
+      "properties": {
+        "previousName": "原图"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            101
+          ],
+          "label": "字符串",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 271.8685607910156,
+        "1": 66.97835540771484
+      },
+      "pos": [
+        -695.056083518065,
+        516.4942978563802
+      ],
+      "widgets_values": [
+        "High quality,8k,HUD，photograph，"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 63,
+      "type": "String",
+      "properties": {
+        "Node name for S&R": "String"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "JoyPipeline",
+          "links": [
+            77
+          ],
+          "label": "JoyPipeline",
+          "type": "JoyPipeline"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "pos": [
+        -705.056083518065,
+        616.4942978563802
+      ],
+      "widgets_values": [
+        "unsloth/Meta-Llama-3.1-8B-bnb-4bit"
+      ],
+      "flags": {},
+      "id": 66,
+      "type": "Joy_caption_load",
+      "properties": {
+        "Node name for S&R": "Joy_caption_load"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            76
+          ],
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 273.7627258300781,
+        "1": 168.00003051757812
+      },
+      "pos": [
+        -685.056083518065,
+        716.4942978563802
+      ],
+      "widgets_values": [
+        "A descriptive caption for this image",
+        1024,
+        0.7,
+        false
+      ],
+      "inputs": [
+        {
+          "name": "joy_pipeline",
+          "link": 77,
+          "slot_index": 0,
+          "label": "joy_pipeline",
+          "type": "JoyPipeline"
+        },
+        {
+          "name": "image",
+          "link": 133,
+          "label": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 65,
+      "type": "Joy_caption",
+      "properties": {
+        "Node name for S&R": "Joy_caption"
+      },
+      "order": 20
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            120
+          ],
+          "label": "字符串",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 497.06744384765625,
+        "1": 471.6492004394531
+      },
+      "pos": [
+        -1215.056083518066,
+        416.4942978563813
+      ],
+      "widgets_values": [
+        "",
+        ". This photograph showcases a young Asian woman seated in the driver's seat of a red convertible car, with the car parked on a dark, possibly nighttime, street. The woman has light skin, long, straight, blonde hair, and a slim, petite build. She is wearing a strapless, tight-fitting dress with a vibrant, abstract print featuring bold lines and colors, primarily orange and yellow, reminiscent of a street sign. Her dress accentuates her small breasts and reveals her legs, which are crossed casually. She has a confident expression on her face, with her lips slightly parted. The interior of the car is luxurious, with red leather seats and a sleek, modern dashboard. The background shows a few blurred lights, possibly from other cars or buildings, indicating a bustling urban area. The overall ambiance of the image is one of elegance and modernity, with a hint of rebellion in the subject's pose."
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 76,
+          "label": "文本",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 64,
+      "type": "ShowText|pysssss",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 21
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            119
+          ],
+          "label": "字符串",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 279.1476745605469,
+        "1": 58
+      },
+      "pos": [
+        -695.056083518065,
+        426.49429785638125
+      ],
+      "widgets_values": [
+        "Perfect hands，Perfect feet,"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 62,
+      "type": "String",
+      "properties": {
+        "Node name for S&R": "String"
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "slot_index": 0,
+          "links": [
+            106
+          ],
+          "label": "浮点",
+          "type": "FLOAT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "pos": [
+        -269.180550273531,
+        -144.88117540984442
+      ],
+      "widgets_values": [
+        0.8,
+        0,
+        1,
+        0.001
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 25,
+      "type": "FloatSlider",
+      "properties": {
+        "Node name for S&R": "FloatSlider"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            205
+          ],
+          "label": "字符串",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 261.9834899902344
+      },
+      "pos": [
+        -363.00036621093733,
+        421.37689600217556
+      ],
+      "widgets_values": [
+        "append",
+        "no",
+        "",
+        "",
+        "",
+        ". This photograph showcases a young Asian woman seated in the driver's seat of a red convertible car, with the car parked on a dark, possibly nighttime, street. The woman has light skin, long, straight, blonde hair, and a slim, petite build. She is wearing a strapless, tight-fitting dress with a vibrant, abstract print featuring bold lines and colors, primarily orange and yellow, reminiscent of a street sign. Her dress accentuates her small breasts and reveals her legs, which are crossed casually. She has a confident expression on her face, with her lips slightly parted. The interior of the car is luxurious, with red leather seats and a sleek, modern dashboard. The background shows a few blurred lights, possibly from other cars or buildings, indicating a bustling urban area. The overall ambiance of the image is one of elegance and modernity, with a hint of rebellion in the subject's pose.Perfect hands，Perfect feet,High quality,8k,HUD，photograph，"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text_a"
+          },
+          "name": "text_a",
+          "link": 120,
+          "label": "文本_A",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "text_b"
+          },
+          "name": "text_b",
+          "link": 119,
+          "label": "文本_B",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "text_c"
+          },
+          "name": "text_c",
+          "link": 101,
+          "label": "文本_C",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 61,
+      "type": "StringFunction|pysssss",
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "order": 22
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "int",
+          "slot_index": 0,
+          "links": [
+            111,
+            207
+          ],
+          "label": "整数",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "pos": [
+        133.60714245065495,
+        129.33995464340038
+      ],
+      "widgets_values": [
+        1
+      ],
+      "flags": {},
+      "id": 76,
+      "type": "Primitive integer [Crystools]",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "color": "rgba(38, 73, 116, 0.7)",
+      "pos": [
+        -1157,
+        303
+      ],
+      "widgets_values": [
+        true,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "anything",
+          "link": 64,
+          "label": "anything",
+          "type": "*"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 47,
+      "type": "LayerUtility: PurgeVRAM",
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM"
+      },
+      "order": 19
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            208
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "pos": [
+        -1225,
+        -27
+      ],
+      "widgets_values": [
+        "Flux洗图神器.safetensors",
+        0.4
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 57,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {},
+      "id": 52,
+      "type": "LoraLoaderModelOnly",
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            63,
+            64,
+            203
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "pos": [
+        -1230,
+        217
+      ],
+      "widgets_values": [
+        "Flux手部稳定器.safetensors",
+        0.8
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 208,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {},
+      "id": 54,
+      "type": "LoraLoaderModelOnly",
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "pos": [
+        -1229,
+        90
+      ],
+      "widgets_values": [
+        "Flux洗图神器.safetensors",
+        0.4
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {},
+      "id": 91,
+      "type": "LoraLoaderModelOnly",
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "slot_index": 0,
+          "links": [
+            201
+          ],
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": [
+        210,
+        102
+      ],
+      "pos": [
+        -889,
+        -146
+      ],
+      "widgets_values": [
+        "simple",
+        30,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 63,
+          "label": "模型",
+          "type": "MODEL"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "link": 106,
+          "label": "降噪",
+          "type": "FLOAT"
+        }
+      ],
+      "flags": {},
+      "id": 24,
+      "type": "BasicScheduler",
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "order": 18
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "VAE",
+          "links": [
+            152,
+            198
+          ],
+          "type": "VAE"
+        }
+      ],
+      "size": [
+        210,
+        84.86402554967054
+      ],
+      "pos": [
+        -671,
+        -130
+      ],
+      "widgets_values": [
+        "ae.sft"
+      ],
+      "flags": {},
+      "id": "10",
+      "type": "VAELoader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "links": [
+            200
+          ],
+          "label": "采样器",
+          "type": "SAMPLER"
+        }
+      ],
+      "size": [
+        210,
+        100.82697240407032
+      ],
+      "pos": [
+        -889,
+        0
+      ],
+      "widgets_values": [
+        "euler"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 29,
+      "type": "KSamplerSelect",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CLIP",
+          "links": [
+            204
+          ],
+          "label": "CLIP",
+          "type": "CLIP"
+        }
+      ],
+      "size": [
+        271.69588249930143,
+        130
+      ],
+      "pos": [
+        -884,
+        138
+      ],
+      "widgets_values": [
+        "sd3/t5xxl_fp16.safetensors",
+        "sd3/clip_l.safetensors",
+        "flux",
+        "default"
+      ],
+      "flags": {},
+      "id": "18",
+      "type": "DualCLIPLoader",
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            122
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "pos": [
+        -684,
+        -9
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 202,
+          "label": "Latent",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "link": 152,
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "flags": {},
+      "id": 40,
+      "type": "VAEDecode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 24
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "denoised_output_0",
+          "links": [
+            202
+          ],
+          "label": "denoised_output_0",
+          "type": "LATENT"
+        }
+      ],
+      "size": [
+        253.60000610351562,
+        238
+      ],
+      "pos": [
+        -600,
+        67
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "pixels_0",
+          "link": 197,
+          "label": "pixels_0",
+          "type": "IMAGE"
+        },
+        {
+          "name": "vae_1",
+          "link": 198,
+          "label": "vae_1",
+          "type": "VAE"
+        },
+        {
+          "name": "noise_2",
+          "link": 199,
+          "label": "noise_2",
+          "type": "NOISE"
+        },
+        {
+          "name": "sampler_3",
+          "link": 200,
+          "label": "sampler_3",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas_4",
+          "link": 201,
+          "label": "sigmas_4",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "model_5",
+          "link": 203,
+          "label": "model_5",
+          "type": "MODEL"
+        },
+        {
+          "name": "clip_6",
+          "link": 204,
+          "label": "clip_6",
+          "type": "CLIP"
+        },
+        {
+          "name": "text_7",
+          "link": 205,
+          "label": "text_7",
+          "type": "STRING"
+        },
+        {
+          "name": "image_8",
+          "link": 206,
+          "label": "image_8",
+          "type": "IMAGE"
+        },
+        {
+          "name": "batch_size_9",
+          "link": 207,
+          "label": "batch_size_9",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "id": 90,
+      "type": "RHHiddenNodes",
+      "properties": {
+        "Node name for S&R": "RHHiddenNodes",
+        "info": "Z0FBQUFBQm54Rlk1WmdyWkxEVEpRMHMzOUY4MGZWQ2VNemYxOXZmZ1RPV2dBTTZvZUM0VENzZW40a21kX2JmalE5aFJQbVZ3emhjY3UwVlQ3dlRjRWhFZU02bllodFNkN0VsSW84b1JnWjc4cFl4R3BqbUthVGxCUDFvemMtUDEweXNXbzhUbmlHdEk1V21kaTdpdTFKNG41SmxnMGE3TVp5aXhPVjEtN2lhSXR5SGFSWnZxLWs5SnFERFREUTRZWWdDZllTM0E2ZUlXeHlTM0VUcjN5eURCSEI2UC1iSTNBa3RfeDIyN20xaEp5eUpHSWpjR1B2aGxWeFJ6aFdFT0JDeHBjYVhZZ1BMVHZRYWZHYTFhaGRiNTlUM0pmUG1pdGloUTN6bGdDZHB3OGFFa3lkaUp6N1R1ZTZmVEpRcEVZVC05OTkxLUNhWGdPd3lQT1hRbVQ1X051LU9XRTBodlR2Nlpzb2FNZnlPWGdYdmdTblVocmVvSGJKVHZuY0tqbG1iUzJ0RXlZNS1RX0l5cXRhQW9XWnRGb3lUbGNyYURjUlhsUnZGUEJYZ2tFSndQc05sa0RxeG1qamFua0NCSmxBcUdIRE96Q3Vib1BiT0FBamM1OUpFSzJGWXFfR3pRNnZoczRSX3JhZEZUa0NfRTkwSHZaYzFJZ1otYWxtalVjbi1zSzRCQm1oQ0tYbHl0TmFWTW16Mm4ySTZRN2dDanpGYm0tb2s4WVBUc0V3ekdSS1lhbUtIaFo1YWU5WWhWSXdXVjFsR0J1MUZUcElUX3M0RWJPNHhwM2ZOVVhEdExrVVpRZzd5b29iNWJBc3loTGo4d29nSEZRZjZtTjBWQ1M0dEh2Z1g2bFI0VXRyUG9pbkJyeDBCLW9XLWZGWEVqUlhVTVBxY3RUcWpibDZBNm91dzNCa0x4eEVPbzN4azRySmxQMDc1T1Q0ZDNka2FyN3ZkejVrMUt6T1RLVjZ0Zk5ONmNZMnBzc2Z0QV9VQlYyX09lNkRDbzdaNWctRHFrSHhNaDU2bGZBdkd1VGEtbGFPTVREZDJzT1lHRzVEcEVMeG5mSnl5LVV2VVhrSGJyMXg4M0pBc1dlMktaendhdF9LRFhsZkdrMlRpNG5qdTRGamdXT1pyd0JxZjc2V01WNVVRV1k2SnRZdVl4UTBqc1FRUE5UaXM0V1FWZlo4X2hfOEp0eDc2ZTFGNm1DZ0JkVU1zS3NqeDFNYmlBN3owcXVJM1ZBakxFUnlYVVBjVFJwb3FyMTY5ckhFWG9URnRvSDdWZ0x2OVNhNDhpWW1GbmxJNnlYSXJtb21IRVRVS0JtVzRIN25rWnBEOVM1bTRiTm5LWjRFaGktbEFsdnM3YmhWVE42azdWZl9XQmRsZDRfRjFoNXR5dGJVLU1Rc1N4cnJMYks5NVVBMFAyam85VW9hamM4RFZQNFNieDNzMS0tTWIzMEc1c19rcjB5YUE0dDZFbUdHZXJmbV83ZWpUNF9CYm1xTjhaUEhNN3Y1Rk81dHJnSXFLajVMUWRpUnp0MllwX0pZcTBkbzJDU3BKakotY0tiVlB1ckpxQ0kyaFdUWEF0dmNmdmJWZFBHYTBTcjhwYW5rOV9TM3h0dEpVaDZDSEx2SWsyd0QyT2pyUkZjSmI4RFotMllVZG02bTdQU0x0SjkxNkVHWDdMdnhEZFZtdzdYb1VzMmdUaEQ3TEIxLWlkc2h3M1FfclBzYVhyVnlUMTAxbWs0Skh3RWxyUFpKWnp5SUVndWtfWG1HcE04Q05oZ045M21aeVBBVnhQc3dCMl9QbUZmTkpxM002MmxLbjMwRkQwNlFtTlpvTEt5S3M3RUktVzRyNjdKVFhURDN2cDMxalVPcGl3YTYxOGxZV2EwNEg1SGk0MTc5Z1JpcXIzb3Y4TTNoNzlZa3I3MFpiaG1mTXhJbktIdjN5VFhoWUctMVJleEtFTUJHYlpBZDlnR2docGk3UGJ1dWpNWkhldzBXT2Y4UkdvVkNwbU4wUGp0WUE1Rk81a0ZGWER2dVNMSUUyOGNxSmZxZzNvclZVVjNWWU1jWFNXaE9iOFZ0Ykx4NGVUVzJHdDctUzJDZ2VPaUZYQ3NqQ3M3VkZlV002OGQyLWdGSVlYSjhucGhJRWlMOEZVdXFWdy1mSEZvUEI0SGV0N29CSUk2MWlFWTZiZUNnWEpxV1BmWmo4S2wwNGtCeGhXMHdQUHhTMVViRWE2dEdHWkNPUHB0empoS1JEQlUwY1QyT3Q4ZVZSUkxDdHFCWWFodkhBSm9zeGJvSmUxb0VjT2lBUXZTUEM4RXNmd05ROVhwcXNpNFNXX1p3UngxMWRiSWRTei13R0VyWTBha3pIc0pZa1dadVoyUWNaMFFEMEkzOEtLOE4xU3hHbGF2dXBLRWp3azh6MkhwMTM2SXZjSVh1V2Q1NzBBaE1JUkdib09OWG8yUTIxWTVTaEMyUGVKd1J4YXdtckpxcnZrZDlWemVNTVNWR185bTQ4SmVSWHNRbEE4LVoxWEpldEdjb2FGbC1iY1o3Si1aTTFOZVZhTmdjYTNxeUR3SmszNlkzbDB0NldDZ0ZCQlZ5bnBoSzJfUWtwZ1ZBRXV0U1MwUTRNakhDM1NkX2ZjV19BRkF6YVRlTmx2TWloUzZyZmRVODlaQnlnRFVOQ1ZrZEYyTHppcC1RNG1UM2VfOW9EcFJVN1VjUzctemY2TFl5RjdDTzd2Ulg2UXpiaFRiQkEzUF9KSVVFOTJRYXBINVY4OTBLVER0RDMzWGEtcW11ejlCQTkyLWZuVER5RFlKaVUwcGJjczliSlh0MzJuamR6VTlCWVBTWnMycVFmVDFJbWdQMzhtNXN3Z01JX2IyMF9UT3lvUXJCOWFGOWtlVmRkZE1aRU5qLXZPMWpDdEZDbWZ2cTFtMG5FTkxOSHJoRkFqVUxOc0dtMjAtZ1ZiX3FrZUJLOWJBcU1LSHJZM3liRWJ3azRtOXFfOGxvT1BaTFlIc1Z1cDIxcTlWOV9XN1dkTzZnUnJ2N2RmcVYzQ2RwVWxUWjd0M3RralBQNUR1Vk4zYnVYOHBwVjdfeUdrRE84Z2swQV9pUF9UY0trUjBLUmlpYWNWODBQSDVfcXhBN01lUGJCWXV5cE12cDZYMjlHOFJNM2NCRTVabnh1SVMzVHJwb2N0czZuM3B5RndkVW0tb1dXaHVBa3Z2R3pNTGhHUHdfS1Q3ZFRwc2llOVlLRmxVTmFIcElyaEprWkJFRHpfQ2d5M1pGZ3VmU2w2X21sMlNkdV9fNEhmcWNEQUVOSkRiV0lKTkxydE9fLTRfcHFwcjBmSmhfd2xwNmpsdVNnRERFTXlpTmJwbWJYNjR6ZTAzZlkyM3dJTEdLVnB3NmN1cU9PMkFQb3NUMU4xLWlwQlZONUVqQy1FWVhoSWdJOUtmRWRhZGFZaEZneHNSXzFCWmNvN2xOZ1VVcEktZE1nNkc5blNkeXp5amJZTmFYV2dCVHJ5VTZRMTZVTTlIUGVybFNwUlctMU8xRnZiZnNZNmxGRGVBN0lQdTdVQ1NOVERhbDdYNnRvaVhjOGVtN25ZM016Z2tsdHNZYUhRLVZsQzNIQlZIVVJNUV81cUdEWXNhTE84R3ZFTUxOdmxUT1U0T0Rldzd3b0NSSVlRUkVtUDhpM1ZuS3FGdXdUVExldzV3TTZzR2VfZE1JMllJeWtsMkMwYld5X0tBdHo1LWlhNFNpUFMxc2ZVWU5oYndNMjVDS0ZYU0FvR293ai1YUjd4UzNiUmZ2dDVFSEVrUUg4Q1NfMGFtdkY5R0VuckpnWTZmdkFJakkyRnpBVWtaaEdrQ3dNZ1VQOUZmcmlBS2F3Vm5lNzQySUN5OWlpbzA4VzFCWkRXSkRhWFVycUVHY2dhZkhKNnRtcWxTUFpBdjFDdEdTWUlHZXhVd0RnVGNsTldDNTNFOV9qZ0RRcU5QUzhYb0x4TWVDbUV4a1d1Z1BjUkpuSmVoRTh1RzdMR3JkUndXVlVzak5oTGNmVHNDQVRuSTZuU1g2bHBacEdicGVzTDVZNmpaRlZQbEtzM19JUGZiR3dYYW1tWlNibExkWDA2aG5MTE0xcGRuQjdEZ3dESjVwOVg4bDhkY1AxWHNsOHhiaUV3NWt0UTNxQ2VZVERZRkt6aXlwWTFuMy1ZZ2pWeEN2ODUyV084b2M2anR4VkppTmhpSWhOYUYzb01CVmJxSnhrWXhRb1lVVEw0RS12T1BaUFpZbzI3ODdUN0VsLUk1dzBRS3FHUU5maUZySFlSNmFsdXRNUmgxemNDX2pEdlNtZUN3OGg4RWdPTTFsQnZxRW51NVZWNWdlWnVMWldUTHdRSm5uZTlpNEZzNF80U0hPTXpDZW9YVHFMRk9ScExGMDJMTXNQVUdDU01hWmF5N1pzS1JNVXlobnF1eC12WnBUYUVrZEt0WEVJZWQ0MTM1VHNlNVU2dTRfRE8xT0ZMOFQyR3NOdGZaOUJYQ0ZhX240aEVYWjl3Y1BiS2hyZVVGQk9la1lwZ2RFVmNWcVI0c3c0TkRKcnQwUGVJLXhhc3BpZk1ubGpuX2Vmc1VPTUYwcEU4RExiUXl3M3A1UVo3SzVGaG1LbS1ia3N5UjZpM2tuUFlYVXdaNXB5VHRjN0E0aVM2cDB0NnFfbVRwVWNkNWZNMXhVQnRsVjBHSm1sSldyZGg4WG0tcl9GaEZ4MGVySU9yc1prTkNDbFR3LXBnRHNyaTUyNlRTd0dSVUZQOW5XbjIzRThWUTdYYko1VFJrS2RZWEd4Nmw2RkZaUnRmOTNaZFNKZXJ4NjYxd2FTMDVFVVdQYWdzbk4yY19kUXM5bjFUdjltQW1DaHlTSThfZ1h3U0JkR3JOeDcyUE0zc1JVeHBCNUhReXdFOVBpNTVhZktfNXVTTVhXZ0dCOFNNOS1wWlktdmxlems2VmNkVFAySkVMUVY4MGtIVmRXbGQwbGVYc3NiZzhOMTVNY1dXdVprbktTUWRHZXh5UnV5MjRyV2djMWxSOHBKOWpubXMtMWoxMVZsSTc1ODROTjlrNVpad0xGT1dzSkxHUWFobklsUTFBU05YMzFQM0hybjUya0xiZDNTNXJxYVdQYTM2bktwUml4a19uYmRybnRRekhZdm5iMUJBeHZHN1dSdlpfTGRjUnAtbUFnMW12eTF3cjB4SlF0SnNrRTVaTDdoZ2RMQTFGM2pfUWJDSHprT1VEcGdXbWFKbHJWR2twSEw0MEZpX2JBQ3pTVTBSZ0dHWXdUTk9sZEFFX005c1FLTVVQWmY4UDZyNFpibzNNeVNUWGVoWWlPTFhSTnpBOG04aWZaQ3lydjBNWC1zSDFUTWxQaEZ3Qk1MNDNzQWQ4dVp3YVNzOHlEMU9qMGVBcTl4UTVmc3g2Q2d6QmF4TlI3VzJ5bDNKbkQwUG5DQmM3VjE3RmVEV3pPUmRNWm8xYjJKUWdQc0k1V0lvSXdYXzdrNXRPc2l0QzVpbnppaVczbkxtSHFEU1BCVl91YkJ2UkNWcnFoZjJ2OGhwVWUyUkZJZXgzT2kxUEtSNnU3ajF0U3ZpZkRxLVA5WnFIaktXUGxuUElUdUZjNFFfTTdBWG9XS1pPQXlSWFlmWWd0NlJyZlQ3N2J1OEs5Xy0zVElveDJpVFd3MVB4aXlsNGZIb1ZuZ21vd2NrNmtmdTZVX0ZxLXRSRXM5alBEZXBRZzZvZlBLeHpQNTNnLTJnZk52azRYUWZaUUdTdHVmZ1lNTGtva1FIRHhaSEdsVjR2dVk0QlF3eE5kVXI2Y2FVdGpLU3V4V2V1Q280UzVqQloyeUV2dlQ5dktJRHVRaFNqWHhxeWI5VkFqRVdYX0xoRXpVd1NvVnduaEhuSnhzd0liQWRPeWctNXR4ZGYtMXFVZFBXUnJzc1kxSkQzTGNCMFd4UE5DQURERDNkeWdwMDlZUEQ1T0ZmYWtWeE55TGp5bkhjOFpzUlZPYVZBTXFaU09VenlrR0RCMXg3eXFnTVFiWlRpaDhRZmlYX056X1ktQ0tUM0N5dU9lRGRpQjdjYlJ0Z0FYRlhINl9BSk4wR1ZjVEdoYUQzS2E5Zm9uZllGRFpuc1N1RGdxank0aHFGQ0JoNUREYV9Zc0JIaVIyeDMwb19BVGtuZ3BVU01yWGlCbE5HX1B3WnhrUk04VFk0V0JaVG5LM1RwNHlYY2ZkVlo1NjkxWXFfaDA0WTZfNy1UWWw0OWZuNFFJbXB6cHJSLWVlbzVwV2EwSGJsZEx2VXhPcG1DaXNsQmF1ZzhFeXpncm85M29peE1mLUo0by1DUVFqWjlJellPNFVTWDViamN3N1IzOE9vUkRuMjRxT0FHLWROcDU0NVZTUmRTNDlVazVsUmx3U2tPRGpwTWVtNnlMMkQtUDVyQVR5ODdlUS0zUXBEekJfY0dYN0hSbDZDNWxRVVNqODNBSUl1R2Z1eW5BZU1UUURNTUVxbzBuc0JZTUhzWHduYjZETlBvdHNKMzQ4X2ZVd1hsM3ZMSHlyQ0puTW9hMnc0aU5MeWdzbjl2NjJPSDg1bl91bE1la2VMdWZlendkQkNPcEZhdDVmWG9PWlB2YVM3Z24zcXJQSkpkSVRVa1kyYlJPZGF3Qmd4MkRRampFRTVUUkJNRjd1Vlk1aUJpR2ZHS1ZOM3pQbFpoUWozbDFJNExpVXl5OXlnWDgxU0NTRmVUNVJSeWtwZHlQVlJ1NzhOeWR1dlh1djBGMlc4aUM4djZEWDVTR0toSWxzT09McHloeGk2Sk1WaGxKZmYyLVF3NEdfWFk3SnBfcGYtWF82Z0FRNWplaVdVZGtFSWdGeG4tLXNIQUVSRTdnbl90VE5pYmJwSUtWZVExRmRvWUpZNG9SWGZtaEFFV2hpazR6OTViaWpaUmFleHhnamxCdGFZSllsbjZMeHkwTUlvY3ZtUk45azlnVnl5c3hEZnFCT21yMDFfSTNkV3JfYWl6bldSeGlVbGVsOUdFSmowSXJSdFdvZUM5SVFBMElscmtUTm9kSVYwUGpTcVBmaFNfenc3M0xwUUF4dDNqUldJM3FVODdIZDlFMHBCM3h1aFhBVnM3amRvbkhhTzNRaHZvUUlTclBtTU01QlNINVpxeHlNc3U5b0JZMmJ0bW9SZmZtS1lzLXNsM2gyR25EUmo0UnBhU05jRDFLS1AteWtDdERuTWV4ZzZFQ3d5Njdwa1BzdEFvMkhlMnc1SElGZTRENnFLVm9sRk9TNGNOOGpCcVRSWWg1VFNuZ2x5ejJIS2l5TUc4WlMyNXU0NG40TFZRcmNKODROX1hRX083LVN0MDRpYmZmejg1TkU5YWNwdnNYWnhIcE1pVm45OWxQRFZEeVdFV3JpSW5pSFZqRGJOZ3JxdzZlaDNscDlaU0dQbGxiVndoT0RmU2pHSTVzRkgxT2ttUWIyT0kyOXVvZDA1WkFWcjRIUFJ2MFJmMno1Y3J0NllEcGRRZFNBLTI3Ymw2Sks0Njh0VmF1a2lraEtoYVJyVkVGc3Ffczh1V2habmRnTmVKcHBocEZaeUhNeWRWWU8tRmNLUXdWUlBVTHZBUjV6TVRBQUVuV2x5YmVNUGduTTJUSy1mV1ZrQV94WmxCUjlPRUFBSjNGRV9jck9sYk11LS1sTUNyZmRtLVVDUEE1LThQZk4zWjJHbmswdnN6TDZUbDdnNzN3aXdIdFY5SjhhTkZCekQ5VThDN1lyOHBGejNIYnpBRVBPTG82eFpEci02N0J4dHc5WGMzZUZWRDFmYkdiOVlINVJUbTBuSFRpeXl0V2hQZUViV2NRaFBOdFhzVFRicTJNVTA1ZEdVMGlWOGoyZ0ZSTnNqXzFya25qYVZ1SGhwZ2VXMHZnWG5vYzVXWDhGdmVuUUNsSV92ZlU3c3l1LTVVbm1qTHY2NmplTEUwb0JPbkpMaFR2Vng2cXZDNFJKMnRvX2djZFZyNzB1Z0FoOS1xTF9sZjAzbEpadjRkSmFDMkVwSndxZkUxNlAtUDFIdHZUOUJqcjkzUU9CcVVka1JOVW1famthVVdacmtXVkRkY19yYVpPd2dzRmNQSFJLMG9uamV3MEt6Qy1xMF92X2VfYzdwZzlUSVZyOXJ0VGhqaUxhSlZ2MDhFZHFrM3ZYUEFDd1dKeEhDbnZTaThleGJOMDhoSkVEYWl6RDNNR3N6YS01TlB1Q08ybHJSeDNfbVJrNmg5SlJza0pUOXAzN2d6UWEydGpMdlZ4b3BfdEFUc0VVd0hCYTJsUWp6VFVxMjBrS1U4T3JXbDlxcHY3T2YyT2x2VjdaQV9tRHZJYUNvU2J1SVVDYlVzYndGOE9RSEZ2NzFGVmlMVTV0VU1Md1Q5WTBUSXpfWUdKNUtZaDM2ZGZMdV82ei0tV09WcnU3MVVNUFpVVWlEdkk0MGxYV3lWaUhVU2RuY3YxVWZBa0JUY2txcTAwYjV2U2FiZHhDczYzZDBQWHFCMmM1YzA0WDFfZThFS1dXaFQyN2tzZGFqd0hwbG9DSlpMZ1p2M1luU2JoemNFY3F6Q2F1UlJ3VWIzemNuYzYxa21ZRHhaTl9pNUdmSHRyV3hIZi1kN3BOTi1oTVRvUUNZalZ3a0lsMTc1TGFxdThKa2J6a3RQWGI4WV9RMDNraFdocTNBSC1relhRYVBWNndNN3dONUNSc0pKZDNEVXpMMXFWRjUzU19ZVUJTVTBZTlFhZU5xVjR0S1U3S29pUVE2Z1JmVUFENWVfZVExNzVaLXVpU091RzNTOUZKdVRyR09MNXpiZGhwVU9fN3Fzd3Q1WWZqN1NOX1MxclpUQTZwc1c4MkVKS1BFM1lZVVFFUGN1MEpEaEVldk95WjdrcWNTaWlIaUhjdE41VThscDAtUW81ckdQb2tmYVhoR0d6YlhJMEFQLXRsTGlXV3h1NFBpT01zOFU2VFBEY2tEZE8tU0xTNjNWQnRFRFVJR2dMdTBreUYybG9xUzY1LVJvUVRqUXpqbU1SUWtZWldMM19BUmpJTVpOT1lBSXU1MTNBNnNaRGh2MFZJRkJZZUNkdl9PSmtDbnh3WHh1V3NmUnB3VTNwcWxIUEU4ZEM4bmIzeXFqcWdZTlBTMHNDQ3hQTEJWNXpJQXM4ZHJVQkFDUFlwTmlna0JqMHRsODRfSnU5LVFaeEkwQm9odEE1am1Hc3dZcDU1Zlh4aEF2eWt5SmFzQnZldk1RaWdaQ0FvUWpDQ19heUhndk9wNGV4ZHgzX201bXlNSXhKdlV3T0hKTjNrVWFsQVFzdTJVQzYzV0RYMDR4ajhvbmhONE9INzBJQzlUOERad18zVUNKbkZueHIyWFlkQnl1NHZCMldTNkR4M1hsUUFJdG5tT1g3RWt3RGFWdjJldllXbG1fMm1ELW4xMTJhekxBeElaaEdvUHJQZmZ1YS0zMTFVUFdiUU8yRHcyN0JXYWhSb2VhRzR2UTJhNkl0eFhwbFA5SHI1Yl9OZHk4Uk5hUVNBbzV3aHItYlBPR09CQVlIcFpqUXdhNXRnM2lLNW9KbUlrREVwR0JHT0RtSkRGQ19sRmoxOXNDQ1ZUTUNHVkdxaWlTM180Tm9QLXQ2YUxXOFFXTUVLMlphM2syMDBJNUVkS2VsOU5Ld3czQWpkUmlWNFhEYVlTT0JRVG5FZWhPbVRnR2g2VDFHUk5CUUJ2N242dGFqc1lXckIzYUlSSDhsRWpvLVFXV3IzU085bGZhdTRKS1BncXBXS2J0TmRUNmJiOUNFQXVjYnNUbGR2cG84OUhQMFRaQVkxSnVRbWJiYUZDVTJXQ1I1eExQcC1oREVFSkRiNFhMdmozM2F5ZDZDMHY5WlBkaG4zU1BJOE8tTUhha09nb1NaNjZEMy1TRld4cWtWQ1BnSzk3U3pDZ2ppMVBLNVVsTDBRZGdyclVzQ19qYTEwMjlKbnl1YW9LWFNBMFc2NkprVExURllocF9NZ3pndjM4MVRMblY3a3k5MnpaYVVhT2RINW5mWGxuc1VwVDBNcGcwZjA0SGYtM1JKMjB3aEgz",
+        "ref_info": "Z0FBQUFBQm54Rlk1Mzg1YmF0bFJFOEJUY0ZYdThyc2x2Y0d5ZGJ1MTJWZm5xdmh4VURKdXZEd3NObUp4VFc2b2l0UkFLZ0o3UllPUldBSjdmNWpwN0UweERZT3hFVnBsUEE9PQ=="
+      },
+      "order": 23
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "NOISE",
+          "slot_index": 0,
+          "links": [
+            199
+          ],
+          "label": "噪波生成",
+          "type": "NOISE"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "pos": [
+        100.65776729124211,
+        -133.21929686889604
+      ],
+      "widgets_values": [
+        686928613767307,
+        "randomize"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 46,
+      "type": "RandomNoise",
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "links": [
+            130
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "pos": [
+        -244,
+        83
+      ],
+      "widgets_values": [
+        "nearest-exact",
+        1.5
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 139,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": "75",
+      "type": "ImageScaleBy",
+      "properties": {
+        "Node name for S&R": "ImageScaleBy"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "IMAGE",
+          "links": [
+            133,
+            197,
+            206
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 154
+      },
+      "pos": [
+        -249,
+        198
+      ],
+      "widgets_values": [
+        1280,
+        2048,
+        0,
+        0,
+        "no"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 130,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": "3",
+      "type": "ConstrainImage|pysssss",
+      "properties": {
+        "Node name for S&R": "ConstrainImage|pysssss"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "size": [
+        700.0253633876569,
+        942.9022910226903
+      ],
+      "pos": [
+        -576,
+        -1202
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 122,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 49,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 25
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            113,
+            139
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK"
+        }
+      ],
+      "size": {
+        "0": 695.304443359375,
+        "1": 955.585693359375
+      },
+      "pos": [
+        -1276,
+        -1212
+      ],
+      "widgets_values": [
+        "a040f67e04234979b4ddd0fe44e19c3e437310ffc7e99cc44a8d7ada027d8bb7.png",
+        "image"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 1,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 11
+    }
+  ],
+  "extra": {
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": {
+        "0": 1821.079516182132,
+        "1": 1406.2153439017818
+      },
+      "scale": 0.5989500000000031
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "FLUX",
+      "locked": false,
+      "bounding": [
+        -1244,
+        -228,
+        948,
+        552
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "张树",
+      "locked": false,
+      "bounding": [
+        122,
+        49,
+        358,
+        183
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "反推",
+      "locked": false,
+      "bounding": [
+        -1248,
+        333,
+        1150,
+        562
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "相似度",
+      "locked": false,
+      "bounding": [
+        -286,
+        -228,
+        356,
+        249
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "图像尺寸",
+      "locked": false,
+      "bounding": [
+        -289,
+        22,
+        396,
+        341
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "随机种子",
+      "locked": false,
+      "bounding": [
+        76,
+        -225,
+        366,
+        249
+      ]
+    }
+  ],
+  "links": [
+    [
+      44,
+      10,
+      0,
+      40,
+      1,
+      "VAE"
+    ],
+    [
+      45,
+      10,
+      0,
+      42,
+      1,
+      "VAE"
+    ],
+    [
+      46,
+      10,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      57,
+      12,
+      0,
+      52,
+      0,
+      "MODEL"
+    ],
+    [
+      63,
+      54,
+      0,
+      24,
+      0,
+      "MODEL"
+    ],
+    [
+      64,
+      54,
+      0,
+      47,
+      0,
+      "*"
+    ],
+    [
+      76,
+      65,
+      0,
+      64,
+      0,
+      "STRING"
+    ],
+    [
+      77,
+      66,
+      0,
+      65,
+      0,
+      "JoyPipeline"
+    ],
+    [
+      101,
+      63,
+      0,
+      61,
+      2,
+      "STRING"
+    ],
+    [
+      106,
+      25,
+      0,
+      24,
+      1,
+      "FLOAT"
+    ],
+    [
+      111,
+      76,
+      0,
+      77,
+      0,
+      "*"
+    ],
+    [
+      113,
+      1,
+      0,
+      79,
+      0,
+      "*"
+    ],
+    [
+      119,
+      62,
+      0,
+      61,
+      1,
+      "STRING"
+    ],
+    [
+      120,
+      64,
+      0,
+      61,
+      0,
+      "STRING"
+    ],
+    [
+      122,
+      40,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      130,
+      "75",
+      0,
+      "3",
+      0,
+      "IMAGE"
+    ],
+    [
+      133,
+      "3",
+      0,
+      65,
+      1,
+      "IMAGE"
+    ],
+    [
+      139,
+      1,
+      0,
+      "75",
+      0,
+      "IMAGE"
+    ],
+    [
+      152,
+      "10",
+      0,
+      40,
+      1,
+      "VAE"
+    ],
+    [
+      197,
+      "3",
+      0,
+      90,
+      0,
+      "IMAGE"
+    ],
+    [
+      198,
+      "10",
+      0,
+      90,
+      1,
+      "VAE"
+    ],
+    [
+      199,
+      46,
+      0,
+      90,
+      2,
+      "NOISE"
+    ],
+    [
+      200,
+      29,
+      0,
+      90,
+      3,
+      "SAMPLER"
+    ],
+    [
+      201,
+      24,
+      0,
+      90,
+      4,
+      "SIGMAS"
+    ],
+    [
+      202,
+      90,
+      0,
+      40,
+      0,
+      "LATENT"
+    ],
+    [
+      203,
+      54,
+      0,
+      90,
+      5,
+      "MODEL"
+    ],
+    [
+      204,
+      "18",
+      0,
+      90,
+      6,
+      "CLIP"
+    ],
+    [
+      205,
+      61,
+      0,
+      90,
+      7,
+      "STRING"
+    ],
+    [
+      206,
+      "3",
+      0,
+      90,
+      8,
+      "IMAGE"
+    ],
+    [
+      207,
+      76,
+      0,
+      90,
+      9,
+      "INT"
+    ],
+    [
+      208,
+      52,
+      0,
+      54,
+      0,
+      "MODEL"
+    ]
+  ],
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 91
+}

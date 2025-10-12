@@ -1,0 +1,276 @@
+{
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "pipeline",
+          "links": [
+            1
+          ],
+          "label": "pipeline",
+          "type": "QWEN_PIPELINE",
+          "localized_name": "pipeline"
+        }
+      ],
+      "size": [
+        186.96835327148438,
+        26
+      ],
+      "pos": [
+        308.0531005859375,
+        245.4638671875
+      ],
+      "widgets_values": [],
+      "inputs": [],
+      "flags": {},
+      "id": 2,
+      "type": "QwenImageModelLoader",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "QwenImageModelLoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image",
+          "links": [
+            2
+          ],
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "size": [
+        442.6666259765625,
+        480
+      ],
+      "pos": [
+        566,
+        243
+      ],
+      "widgets_values": [
+        "夜晚的麦田在星空中延展，天空中布满旋转的黄色、蓝色星云，像梵高的《星月夜》一样充满流动感，麦田里有几棵扭曲的树木，远处有一座小小的农舍，整体色彩浓烈，笔触奔放，保留油画的肌理感，画面充满生命力。",
+        1664,
+        928,
+        20,
+        4,
+        409252962904261,
+        "randomize",
+        "auto",
+        "3:4",
+        "",
+        true
+      ],
+      "inputs": [
+        {
+          "name": "pipeline",
+          "link": 1,
+          "label": "pipeline",
+          "type": "QWEN_PIPELINE",
+          "localized_name": "pipeline"
+        },
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "label": "prompt",
+          "type": "STRING",
+          "localized_name": "prompt"
+        },
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "label": "width",
+          "type": "INT",
+          "localized_name": "width"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "label": "height",
+          "type": "INT",
+          "localized_name": "height"
+        },
+        {
+          "widget": {
+            "name": "num_inference_steps"
+          },
+          "name": "num_inference_steps",
+          "label": "num_inference_steps",
+          "type": "INT",
+          "localized_name": "num_inference_steps"
+        },
+        {
+          "widget": {
+            "name": "true_cfg_scale"
+          },
+          "name": "true_cfg_scale",
+          "label": "true_cfg_scale",
+          "type": "FLOAT",
+          "localized_name": "true_cfg_scale"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "label": "seed",
+          "type": "INT",
+          "localized_name": "seed"
+        },
+        {
+          "widget": {
+            "name": "language"
+          },
+          "name": "language",
+          "label": "language",
+          "type": "COMBO",
+          "localized_name": "language"
+        },
+        {
+          "widget": {
+            "name": "aspect_ratio"
+          },
+          "name": "aspect_ratio",
+          "label": "aspect_ratio",
+          "type": "COMBO",
+          "localized_name": "aspect_ratio"
+        },
+        {
+          "widget": {
+            "name": "negative_prompt"
+          },
+          "shape": 7,
+          "name": "negative_prompt",
+          "label": "negative_prompt",
+          "type": "STRING",
+          "localized_name": "negative_prompt"
+        },
+        {
+          "widget": {
+            "name": "enhance_prompt"
+          },
+          "shape": 7,
+          "name": "enhance_prompt",
+          "label": "enhance_prompt",
+          "type": "BOOLEAN",
+          "localized_name": "enhance_prompt"
+        }
+      ],
+      "flags": {},
+      "id": 1,
+      "type": "RH_QwenImageGenerator",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "RH_QwenImageGenerator"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        648.5966186523438,
+        634.9124145507812
+      ],
+      "pos": [
+        1050.2281494140625,
+        242.91226196289062
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 2,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "label": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "filename_prefix"
+        }
+      ],
+      "flags": {},
+      "id": 3,
+      "type": "SaveImage",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 2
+    }
+  ],
+  "extra": {
+    "links_added_by_ue": [],
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": [
+        -219.3408214329504,
+        -28.649440615553317
+      ],
+      "scale": 0.7972024500000015
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 100,
+      "flags": {},
+      "id": 1,
+      "title": "通义千问Qwen-image-文生图",
+      "bounding": [
+        298.0531005859375,
+        63,
+        1465.5084228515625,
+        875.2632446289062
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      0,
+      "QWEN_PIPELINE"
+    ],
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "id": "55ee457a-ec0e-4b16-b877-98bcdb736a44",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 3,
+  "revision": 0
+}

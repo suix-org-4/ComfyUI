@@ -1,0 +1,834 @@
+{
+  "last_link_id": 119,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            97
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 269.3859558105469,
+        "1": 150
+      },
+      "pos": [
+        1231.9537353515625,
+        122.3594970703125
+      ],
+      "widgets_values": [
+        128,
+        32,
+        32,
+        8
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 94,
+          "label": "samples",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "link": 95,
+          "label": "vae",
+          "type": "VAE"
+        }
+      ],
+      "flags": {},
+      "id": 49,
+      "type": "VAEDecodeTiled",
+      "properties": {
+        "Node name for S&R": "VAEDecodeTiled"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "label": "OPT_CONNECTION",
+          "type": "*"
+        }
+      ],
+      "size": {
+        "0": 370.9796447753906,
+        "1": 164.7895050048828
+      },
+      "pos": {
+        "0": -110,
+        "1": -378,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "inputs": [],
+      "flags": {},
+      "id": 63,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "properties": {
+        "customSortAlphabet": "",
+        "matchColors": "",
+        "sort": "position",
+        "matchTitle": "",
+        "showNav": true,
+        "toggleRestriction": "default"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "Filenames",
+          "type": "VHS_FILENAMES"
+        }
+      ],
+      "size": [
+        352.16375732421875,
+        508.0172211269163
+      ],
+      "pos": [
+        1533.7283935546875,
+        7.746679306030273
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "wan-cf-pl",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": false,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "wan-cf-pl_00003_ztjux_1740702135_ofkgl_1740702136.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 16
+          },
+          "muted": false
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 16,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 97,
+          "label": "images",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE"
+        },
+        {
+          "widget": {
+            "name": "frame_rate"
+          },
+          "name": "frame_rate",
+          "link": 119,
+          "slot_index": 4,
+          "label": "frame_rate",
+          "type": "FLOAT"
+        }
+      ],
+      "flags": {},
+      "id": 50,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 14
+    },
+    {
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            52
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "color": "#322",
+      "widgets_values": [
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "link": 75,
+          "label": "clip",
+          "type": "CLIP"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "CLIPTextEncode",
+      "mode": 0,
+      "bgcolor": "#533",
+      "size": {
+        "0": 425.27801513671875,
+        "1": 180.6060791015625
+      },
+      "pos": [
+        565,
+        391
+      ],
+      "id": 7,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "slot_index": 0,
+          "links": [
+            95
+          ],
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "size": {
+        "0": 356.5354919433594,
+        "1": 62.561405181884766
+      },
+      "pos": [
+        19,
+        372
+      ],
+      "widgets_values": [
+        "wan_2.1_vae_Comfy-Org.safetensors"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 39,
+      "type": "VAELoader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            91
+          ],
+          "label": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "pos": [
+        48,
+        508
+      ],
+      "widgets_values": [
+        832,
+        480,
+        33,
+        1
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 115,
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 116,
+          "label": "height",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "length"
+          },
+          "name": "length",
+          "link": 117,
+          "label": "length",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "id": 40,
+      "type": "EmptyHunyuanLatentVideo",
+      "properties": {
+        "Node name for S&R": "EmptyHunyuanLatentVideo"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "int",
+          "slot_index": 0,
+          "links": [
+            115
+          ],
+          "label": "int",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 213.15518188476562,
+        "1": 58
+      },
+      "pos": [
+        -692.0993273761607,
+        275.5672142620172
+      ],
+      "widgets_values": [
+        848
+      ],
+      "flags": {},
+      "id": 67,
+      "type": "Primitive integer [Crystools]",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "int",
+          "slot_index": 0,
+          "links": [
+            116
+          ],
+          "label": "int",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "pos": [
+        -691.0993273761607,
+        393.5672142620172
+      ],
+      "widgets_values": [
+        480
+      ],
+      "flags": {},
+      "id": 68,
+      "type": "Primitive integer [Crystools]",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "int",
+          "slot_index": 0,
+          "links": [
+            117
+          ],
+          "label": "int",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "pos": [
+        -695.0993273761607,
+        504.56721426201693
+      ],
+      "widgets_values": [
+        33
+      ],
+      "flags": {},
+      "id": 69,
+      "type": "Primitive integer [Crystools]",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "int",
+          "slot_index": 0,
+          "links": [
+            118
+          ],
+          "label": "int",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "pos": [
+        -690.0993273761607,
+        616.5672142620167
+      ],
+      "widgets_values": [
+        16
+      ],
+      "flags": {},
+      "id": 70,
+      "type": "Primitive integer [Crystools]",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "slot_index": 0,
+          "links": [
+            74,
+            75
+          ],
+          "label": "CLIP",
+          "type": "CLIP"
+        }
+      ],
+      "size": {
+        "0": 390,
+        "1": 106
+      },
+      "pos": [
+        67,
+        196
+      ],
+      "widgets_values": [
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan",
+        "default"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 38,
+      "type": "CLIPLoader",
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            94
+          ],
+          "label": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "pos": [
+        923,
+        373
+      ],
+      "widgets_values": [
+        814615850081691,
+        "randomize",
+        30,
+        6,
+        "uni_pc",
+        "simple",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 92,
+          "label": "model",
+          "type": "MODEL"
+        },
+        {
+          "name": "positive",
+          "link": 46,
+          "label": "positive",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "negative",
+          "link": 52,
+          "label": "negative",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "latent_image",
+          "link": 91,
+          "label": "latent_image",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {},
+      "id": 3,
+      "type": "KSampler",
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "FLOAT",
+          "links": [
+            119
+          ],
+          "label": "FLOAT",
+          "type": "FLOAT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "pos": [
+        -344.0993273761611,
+        270.5672142620172
+      ],
+      "widgets_values": [
+        0
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "a"
+          },
+          "name": "a",
+          "link": 118,
+          "label": "a",
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 71,
+      "type": "CM_IntToFloat",
+      "properties": {
+        "Node name for S&R": "CM_IntToFloat"
+      },
+      "order": 9
+    },
+    {
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            46
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "45度俯视固定镜头，中景，浅景深，晨光穿过梧桐斑驳洒落。画面中央的橘猫穿着围裙，稳稳举刀切黄瓜，尾巴随着切菜节奏轻晃。背景灶台炊烟缭绕上升，阳光斜射在木案与老铁锅上泛起温暖光晕。\n"
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "link": 74,
+          "label": "clip",
+          "type": "CLIP"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "type": "CLIPTextEncode",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "pos": [
+        580,
+        120
+      ],
+      "id": 6,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            92
+          ],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "size": [
+        447.16601267377246,
+        82
+      ],
+      "pos": [
+        42,
+        24
+      ],
+      "widgets_values": [
+        "wan2.1_t2v_14B_bf16_Comfy-Org.safetensors",
+        "fp8_e4m3fn"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 37,
+      "type": "UNETLoader",
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "order": 7
+    }
+  ],
+  "extra": {
+    "workspace_info": {
+      "saveLock": false,
+      "id": "aac7d8d3-8011-4cea-9009-8a9e515d8555"
+    },
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": {
+        "0": 1009.3240715333994,
+        "1": 450.47340231997106
+      },
+      "scale": 0.7247295000000004
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "文生视频",
+      "locked": false,
+      "bounding": [
+        3,
+        -87,
+        1898,
+        847
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "参数区",
+      "locked": false,
+      "bounding": [
+        -743,
+        -75,
+        643,
+        868
+      ]
+    }
+  ],
+  "links": [
+    [
+      46,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      52,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      74,
+      38,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      75,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      91,
+      40,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      92,
+      37,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      94,
+      3,
+      0,
+      49,
+      0,
+      "LATENT"
+    ],
+    [
+      95,
+      39,
+      0,
+      49,
+      1,
+      "VAE"
+    ],
+    [
+      97,
+      49,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ],
+    [
+      115,
+      67,
+      0,
+      40,
+      0,
+      "INT"
+    ],
+    [
+      116,
+      68,
+      0,
+      40,
+      1,
+      "INT"
+    ],
+    [
+      117,
+      69,
+      0,
+      40,
+      2,
+      "INT"
+    ],
+    [
+      118,
+      70,
+      0,
+      71,
+      0,
+      "INT"
+    ],
+    [
+      119,
+      71,
+      0,
+      50,
+      4,
+      "FLOAT"
+    ]
+  ],
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 71
+}

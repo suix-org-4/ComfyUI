@@ -1,0 +1,707 @@
+{
+  "last_link_id": 113,
+  "nodes": [
+    {
+      "outputs": [],
+      "color": "#432",
+      "shape": 4,
+      "widgets_values": [
+        "本地部署+整合包 网盘：https://pan.quark.cn/s/43c0dcea10d7（手机端转存官方赠送1T网盘空间）\n\nB站：艾橘溪。https://space.bilibili.com/486814801\n\n如有疑问，可联系作者技术指导：\n由于程序插件环境搭建、效果调试等非常耗时间耗精力，因此如需远程技术指导，需微信付费技术指导。加微信：abinsz，备注：Ai指导"
+      ],
+      "inputs": [],
+      "flags": {
+        "pinned": true
+      },
+      "type": "Note",
+      "title": "视频教学",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        721.3619995117188,
+        124.11187744140625
+      ],
+      "pos": [
+        25513.900390625,
+        -1487.01708984375
+      ],
+      "id": 60,
+      "properties": {
+        "text": ""
+      },
+      "order": 0
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            112
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "MASK",
+          "type": "MASK",
+          "localized_name": "MASK"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "91c26e1aadc1a68d1c24cb512f8b038f1a5db38eb41c052b132c7571a3d6fd83.png",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadImage",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": [
+        299.0689392089844,
+        503.6846923828125
+      ],
+      "pos": [
+        25577,
+        -896
+      ],
+      "id": 56,
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            109
+          ],
+          "label": "model",
+          "type": "MODEL_SONIC",
+          "localized_name": "model"
+        },
+        {
+          "name": "dtype",
+          "links": [
+            111
+          ],
+          "label": "dtype",
+          "type": "DTYPE",
+          "localized_name": "dtype"
+        }
+      ],
+      "size": [
+        370.1314697265625,
+        150
+      ],
+      "pos": [
+        25549,
+        -1110
+      ],
+      "widgets_values": [
+        "unet.pth",
+        1.3,
+        true,
+        "fp16"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 108,
+          "label": "model",
+          "type": "MODEL",
+          "localized_name": "model"
+        }
+      ],
+      "flags": {},
+      "id": 59,
+      "type": "SONICTLoader",
+      "properties": {
+        "Node name for S&R": "SONICTLoader"
+      },
+      "order": 6
+    },
+    {
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "links": [
+            101,
+            105
+          ],
+          "label": "AUDIO",
+          "type": "AUDIO",
+          "localized_name": "AUDIO"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "71daf0e7b52ae09c2a2016a0baea3ca85efed70dc5bab37f4894a0944a4a788a.mp3",
+        "",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadAudio",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        320,
+        136
+      ],
+      "pos": [
+        25907,
+        -893
+      ],
+      "id": 55,
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            108
+          ],
+          "label": "MODEL",
+          "type": "MODEL",
+          "localized_name": "MODEL"
+        },
+        {
+          "name": "CLIP_VISION",
+          "slot_index": 1,
+          "links": [
+            103
+          ],
+          "label": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "localized_name": "CLIP_VISION"
+        },
+        {
+          "name": "VAE",
+          "slot_index": 2,
+          "links": [
+            104
+          ],
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "size": [
+        369.6000061035156,
+        98
+      ],
+      "pos": [
+        25551,
+        -1257
+      ],
+      "widgets_values": [
+        "svd_xt_1_1.safetensors"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 54,
+      "type": "ImageOnlyCheckpointLoader",
+      "properties": {
+        "Node name for S&R": "ImageOnlyCheckpointLoader"
+      },
+      "order": 3
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "右击选择：Save preview 保存视频\n\n鼠标放在视频上，能听到音乐。\n\nB站艾橘溪!"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "title": "保存视频",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        267.7874450683594,
+        113.53233337402344
+      ],
+      "pos": [
+        26579,
+        -461
+      ],
+      "id": 62,
+      "properties": {
+        "text": ""
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "data_dict",
+          "slot_index": 0,
+          "links": [
+            107
+          ],
+          "label": "data_dict",
+          "type": "SONIC_PREDATA",
+          "localized_name": "data_dict"
+        },
+        {
+          "name": "bbox",
+          "label": "bbox",
+          "type": "BBOX"
+        }
+      ],
+      "size": [
+        320,
+        186
+      ],
+      "pos": [
+        25953,
+        -1198
+      ],
+      "widgets_values": [
+        576,
+        500,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "link": 103,
+          "label": "clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "clip_vision"
+        },
+        {
+          "name": "vae",
+          "link": 104,
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "audio",
+          "link": 105,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "name": "image",
+          "link": 113,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "weight_dtype",
+          "link": 111,
+          "label": "weight_dtype",
+          "type": "DTYPE",
+          "localized_name": "weight_dtype"
+        }
+      ],
+      "flags": {},
+      "id": 58,
+      "type": "SONIC_PreData",
+      "title": "SONIC_PreData aijuxi",
+      "properties": {
+        "Node name for S&R": "SONIC_PreData"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image",
+          "links": [
+            113
+          ],
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "mask",
+          "label": "mask",
+          "type": "MASK",
+          "localized_name": "mask"
+        },
+        {
+          "name": "original_size",
+          "label": "original_size",
+          "type": "BOX",
+          "localized_name": "original_size"
+        },
+        {
+          "name": "width",
+          "links": [],
+          "label": "width",
+          "type": "INT",
+          "localized_name": "width"
+        },
+        {
+          "name": "height",
+          "links": [],
+          "label": "height",
+          "type": "INT",
+          "localized_name": "height"
+        }
+      ],
+      "size": [
+        336,
+        330
+      ],
+      "color": "rgba(38, 73, 116, 0.7)",
+      "pos": [
+        25927.154296875,
+        -695.9708862304688
+      ],
+      "widgets_values": [
+        "original",
+        1,
+        1,
+        "crop",
+        "lanczos",
+        "16",
+        "longest",
+        1024,
+        "#000000"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "image",
+          "link": 112,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "shape": 7,
+          "name": "mask",
+          "label": "mask",
+          "type": "MASK",
+          "localized_name": "mask"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 63,
+      "type": "LayerUtility: ImageScaleByAspectRatio V2",
+      "properties": {
+        "Node name for S&R": "LayerUtility: ImageScaleByAspectRatio V2"
+      },
+      "order": 5
+    },
+    {
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "Filenames",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "Sonic/aijuxi",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "aijuxi_00002-audio_ckzeq_1748441945.mp4",
+            "workflow": "aijuxi_00002.png",
+            "fullpath": "/data/ComfyUI/personal/c6dfe31db93b9cf020b1e2ad68cc7935/output/Sonic/aijuxi_00002-audio.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "Sonic",
+            "type": "output",
+            "frame_rate": 25
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 25,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "images",
+          "link": 100,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "link": 101,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "frame_rate"
+          },
+          "name": "frame_rate",
+          "link": 102,
+          "label": "frame_rate",
+          "type": "FLOAT"
+        }
+      ],
+      "flags": {},
+      "type": "VHS_VideoCombine",
+      "title": "Video Combine 🎥🅥🅗🅢 aijuxi",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": [
+        301.7446594238281,
+        848.87939453125
+      ],
+      "pos": [
+        26257,
+        -894
+      ],
+      "id": 57,
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image",
+          "slot_index": 0,
+          "links": [
+            100
+          ],
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "fps",
+          "slot_index": 1,
+          "links": [
+            102
+          ],
+          "label": "fps",
+          "type": "FLOAT",
+          "localized_name": "fps"
+        }
+      ],
+      "size": [
+        277.2896423339844,
+        174
+      ],
+      "pos": [
+        26305,
+        -1203
+      ],
+      "widgets_values": [
+        1009106220,
+        "randomize",
+        25,
+        1,
+        25
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 109,
+          "label": "model",
+          "type": "MODEL_SONIC",
+          "localized_name": "model"
+        },
+        {
+          "name": "data_dict",
+          "link": 107,
+          "label": "data_dict",
+          "type": "SONIC_PREDATA",
+          "localized_name": "data_dict"
+        }
+      ],
+      "flags": {},
+      "id": 52,
+      "type": "SONICSampler",
+      "title": "SONICSampler aijuxi",
+      "properties": {
+        "Node name for S&R": "SONICSampler"
+      },
+      "order": 8
+    }
+  ],
+  "extra": {
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false,
+    "ds": {
+      "offset": [
+        -25286.369823579942,
+        1225.519070912264
+      ],
+      "scale": 0.9646149645000008
+    }
+  },
+  "groups": [
+    {
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {},
+      "id": 1,
+      "title": "卡通人物图片说话唱歌=生成10秒大概8分钟（4090显卡）=B站艾橘溪",
+      "bounding": [
+        25510,
+        -1343,
+        1109,
+        390
+      ]
+    }
+  ],
+  "links": [
+    [
+      100,
+      52,
+      0,
+      57,
+      0,
+      "IMAGE"
+    ],
+    [
+      101,
+      55,
+      0,
+      57,
+      1,
+      "AUDIO"
+    ],
+    [
+      102,
+      52,
+      1,
+      57,
+      4,
+      "FLOAT"
+    ],
+    [
+      103,
+      54,
+      1,
+      58,
+      0,
+      "CLIP_VISION"
+    ],
+    [
+      104,
+      54,
+      2,
+      58,
+      1,
+      "VAE"
+    ],
+    [
+      105,
+      55,
+      0,
+      58,
+      2,
+      "AUDIO"
+    ],
+    [
+      107,
+      58,
+      0,
+      52,
+      1,
+      "SONIC_PREDATA"
+    ],
+    [
+      108,
+      54,
+      0,
+      59,
+      0,
+      "MODEL"
+    ],
+    [
+      109,
+      59,
+      0,
+      52,
+      0,
+      "MODEL_SONIC"
+    ],
+    [
+      111,
+      59,
+      1,
+      58,
+      4,
+      "DTYPE"
+    ],
+    [
+      112,
+      56,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      113,
+      63,
+      0,
+      58,
+      3,
+      "IMAGE"
+    ]
+  ],
+  "id": "086eda6b-0289-4249-9548-f8c6ba3d270b",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 63,
+  "revision": 0
+}

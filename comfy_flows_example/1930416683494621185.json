@@ -1,0 +1,2621 @@
+{
+  "last_link_id": 138,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        5294.02099609375,
+        623.5491333007812
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "WANVAE",
+          "link": 1,
+          "label": "输入",
+          "type": "*",
+          "color_on": "",
+          "localized_name": "anything"
+        }
+      ],
+      "flags": {},
+      "id": 1,
+      "type": "Anything Everywhere",
+      "properties": {
+        "color_restricted": 0,
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0
+      },
+      "order": 23
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        5294.02099609375,
+        519.8510131835938
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "WANTEXTENCODER",
+          "link": 2,
+          "label": "输入",
+          "type": "*",
+          "color_on": "",
+          "localized_name": "anything"
+        }
+      ],
+      "flags": {},
+      "id": 2,
+      "type": "Anything Everywhere",
+      "properties": {
+        "color_restricted": 0,
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0
+      },
+      "order": 24
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            9
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "pos": [
+        5246.97607421875,
+        1341.135986328125
+      ],
+      "widgets_values": [
+        true,
+        272,
+        272,
+        144,
+        128
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "samples",
+          "link": 7,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "flags": {},
+      "id": 9,
+      "type": "WanVideoDecode",
+      "properties": {
+        "Node name for S&R": "WanVideoDecode",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 36
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "节点核心作用：长视频注意力机制优化"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        304.65478515625,
+        88
+      ],
+      "pos": [
+        4453.26513671875,
+        2152.828369140625
+      ],
+      "id": 11,
+      "properties": {},
+      "order": 0
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "节点核心作用：分块处理"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        305.66668701171875,
+        88
+      ],
+      "pos": [
+        4448.2060546875,
+        1722.2373046875
+      ],
+      "id": 12,
+      "properties": {},
+      "order": 1
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "节点核心作用：超分修复"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        299.2250671386719,
+        88
+      ],
+      "pos": [
+        4450.22998046875,
+        1419.50830078125
+      ],
+      "id": 13,
+      "properties": {},
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            8
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        5250.2998046875,
+        1745.163330078125
+      ],
+      "widgets_values": [
+        0.30000000000000004
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 9,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "flags": {},
+      "id": 14,
+      "type": "ImageCASharpening+",
+      "properties": {
+        "Node name for S&R": "ImageCASharpening+"
+      },
+      "order": 38
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "feta_args",
+          "links": [
+            12
+          ],
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        }
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        4447.16552734375,
+        1269.317626953125
+      ],
+      "widgets_values": [
+        1.5000000000000002,
+        0.25000000000000006,
+        0.7500000000000001
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 29,
+      "type": "CogVideoEnhanceAVideo",
+      "properties": {
+        "Node name for S&R": "CogVideoEnhanceAVideo"
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "slg_args",
+          "links": [
+            14
+          ],
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        }
+      ],
+      "size": [
+        312.2355041503906,
+        106
+      ],
+      "pos": [
+        4448.12744140625,
+        1571.7991943359375
+      ],
+      "widgets_values": [
+        "8",
+        0.20000000000000004,
+        0.7000000000000002
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 30,
+      "type": "WanVideoSLG",
+      "properties": {
+        "Node name for S&R": "WanVideoSLG"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "exp_args",
+          "links": [
+            15
+          ],
+          "label": "exp_args",
+          "type": "EXPERIMENTALARGS",
+          "localized_name": "exp_args"
+        }
+      ],
+      "size": [
+        327.5999755859375,
+        226
+      ],
+      "pos": [
+        4446.15380859375,
+        1880.1915283203125
+      ],
+      "widgets_values": [
+        "",
+        true,
+        true,
+        0,
+        false,
+        0.9500000000000002,
+        1.1500000000000001,
+        20
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 31,
+      "type": "WanVideoExperimentalArgs",
+      "properties": {
+        "Node name for S&R": "WanVideoExperimentalArgs"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        5294.02099609375,
+        744.5194702148438
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "CLIP_VISION",
+          "link": 29,
+          "label": "输入",
+          "type": "*",
+          "color_on": "#A8DADC",
+          "localized_name": "anything"
+        }
+      ],
+      "flags": {},
+      "id": 34,
+      "type": "Anything Everywhere",
+      "properties": {
+        "color_restricted": 0,
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0
+      },
+      "order": 22
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "links": [
+            28
+          ],
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        }
+      ],
+      "size": [
+        277.20001220703125,
+        46
+      ],
+      "pos": [
+        3757.62109375,
+        407.23236083984375
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 3,
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "block_swap_args",
+          "link": 4,
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        }
+      ],
+      "flags": {},
+      "id": 4,
+      "type": "WanVideoSetBlockSwap",
+      "properties": {
+        "Node name for S&R": "WanVideoSetBlockSwap"
+      },
+      "order": 26
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "links": [
+            3
+          ],
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        }
+      ],
+      "size": [
+        330,
+        254
+      ],
+      "pos": [
+        3374.724609375,
+        405.9566955566406
+      ],
+      "widgets_values": [
+        "Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors",
+        "bf16",
+        "fp8_e4m3fn",
+        "offload_device",
+        "sageattn"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "compile_args"
+        },
+        {
+          "shape": 7,
+          "name": "block_swap_args",
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        },
+        {
+          "shape": 7,
+          "name": "lora",
+          "link": 30,
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        },
+        {
+          "shape": 7,
+          "name": "vram_management_args",
+          "label": "vram_management_args",
+          "type": "VRAM_MANAGEMENTARGS",
+          "localized_name": "vram_management_args"
+        },
+        {
+          "shape": 7,
+          "name": "vace_model",
+          "label": "vace_model",
+          "type": "VACEPATH",
+          "localized_name": "vace_model"
+        },
+        {
+          "shape": 7,
+          "name": "fantasytalking_model",
+          "label": "fantasytalking_model",
+          "type": "FANTASYTALKINGMODEL",
+          "localized_name": "fantasytalking_model"
+        }
+      ],
+      "flags": {},
+      "id": 37,
+      "type": "WanVideoModelLoader",
+      "properties": {
+        "Node name for S&R": "WanVideoModelLoader"
+      },
+      "order": 21
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "block_swap_args",
+          "links": [
+            4
+          ],
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        }
+      ],
+      "size": [
+        390.1325988769531,
+        158.50436401367188
+      ],
+      "pos": [
+        2473.758056640625,
+        420.9361877441406
+      ],
+      "widgets_values": [
+        30,
+        false,
+        false,
+        true,
+        15
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 7,
+      "type": "WanVideoBlockSwap",
+      "properties": {
+        "Node name for S&R": "WanVideoBlockSwap"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "lora",
+          "links": [
+            30
+          ],
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        }
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        2911.482666015625,
+        447.2825622558594
+      ],
+      "widgets_values": [
+        "matrix_shot.safetensors",
+        1,
+        false
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "prev_lora",
+          "label": "prev_lora",
+          "type": "WANVIDLORA",
+          "localized_name": "prev_lora"
+        },
+        {
+          "shape": 7,
+          "name": "blocks",
+          "label": "blocks",
+          "type": "SELECTEDBLOCKS",
+          "localized_name": "blocks"
+        }
+      ],
+      "flags": {},
+      "id": 32,
+      "type": "WanVideoLoraSelect",
+      "properties": {
+        "Node name for S&R": "WanVideoLoraSelect"
+      },
+      "order": 7
+    },
+    {
+      "outputs": [
+        {
+          "name": "image_embeds",
+          "links": [
+            11
+          ],
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        }
+      ],
+      "color": "#323",
+      "widgets_values": [
+        832,
+        480,
+        81,
+        0,
+        1,
+        1,
+        true,
+        false,
+        false
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "shape": 7,
+          "name": "clip_embeds",
+          "link": 32,
+          "label": "clip_embeds",
+          "type": "WANVIDIMAGE_CLIPEMBEDS",
+          "localized_name": "clip_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "start_image",
+          "link": 61,
+          "label": "start_image",
+          "type": "IMAGE",
+          "localized_name": "start_image"
+        },
+        {
+          "shape": 7,
+          "name": "end_image",
+          "label": "end_image",
+          "type": "IMAGE",
+          "localized_name": "end_image"
+        },
+        {
+          "shape": 7,
+          "name": "control_embeds",
+          "label": "control_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "control_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "temporal_mask",
+          "label": "temporal_mask",
+          "type": "MASK",
+          "localized_name": "temporal_mask"
+        },
+        {
+          "shape": 7,
+          "name": "extra_latents",
+          "label": "extra_latents",
+          "type": "LATENT",
+          "localized_name": "extra_latents"
+        },
+        {
+          "shape": 7,
+          "name": "realisdance_latents",
+          "label": "realisdance_latents",
+          "type": "REALISDANCELATENTS",
+          "localized_name": "realisdance_latents"
+        },
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 64,
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 65,
+          "label": "height",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "num_frames"
+          },
+          "name": "num_frames",
+          "link": 36,
+          "label": "num_frames",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoImageToVideoEncode",
+      "mode": 0,
+      "bgcolor": "#535",
+      "size": [
+        344.0400085449219,
+        430.6169128417969
+      ],
+      "pos": [
+        4009.363037109375,
+        1122.317138671875
+      ],
+      "id": 39,
+      "properties": {
+        "Node name for S&R": "WanVideoImageToVideoEncode"
+      },
+      "order": 40
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image_embeds",
+          "links": [
+            32
+          ],
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_CLIPEMBEDS",
+          "localized_name": "image_embeds"
+        }
+      ],
+      "size": [
+        327.5999755859375,
+        262
+      ],
+      "pos": [
+        3644.223876953125,
+        1000.6524658203125
+      ],
+      "widgets_values": [
+        1.0000000000000002,
+        1,
+        "center",
+        "average",
+        true,
+        0,
+        0.5000000000000001
+      ],
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "label": "clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "clip_vision"
+        },
+        {
+          "name": "image_1",
+          "link": 60,
+          "label": "image_1",
+          "type": "IMAGE",
+          "localized_name": "image_1"
+        },
+        {
+          "shape": 7,
+          "name": "image_2",
+          "label": "image_2",
+          "type": "IMAGE",
+          "localized_name": "image_2"
+        },
+        {
+          "shape": 7,
+          "name": "negative_image",
+          "link": 38,
+          "label": "negative_image",
+          "type": "IMAGE",
+          "localized_name": "negative_image"
+        }
+      ],
+      "flags": {},
+      "id": 41,
+      "type": "WanVideoClipVisionEncode",
+      "properties": {
+        "cnr_id": "ComfyUI-WanVideoWrapper",
+        "ver": "d9b1f4d1a5aea91d101ae97a54714a5861af3f50",
+        "Node name for S&R": "WanVideoClipVisionEncode"
+      },
+      "order": 41
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            60
+          ],
+          "type": "IMAGE"
+        }
+      ],
+      "color": "#2a363b",
+      "widgets_values": [
+        "图像"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "GetNode",
+      "mode": 0,
+      "bgcolor": "#3f5159",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        3482.4384765625,
+        1050.5118408203125
+      ],
+      "id": 52,
+      "properties": {},
+      "order": 8
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            61
+          ],
+          "type": "IMAGE"
+        }
+      ],
+      "color": "#2a363b",
+      "widgets_values": [
+        "图像"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "GetNode",
+      "mode": 0,
+      "bgcolor": "#3f5159",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        3854.755126953125,
+        1339.651123046875
+      ],
+      "id": 53,
+      "properties": {},
+      "order": 9
+    },
+    {
+      "outputs": [
+        {
+          "name": "INT",
+          "links": [
+            64
+          ],
+          "type": "INT"
+        }
+      ],
+      "color": "#1b4669",
+      "widgets_values": [
+        "宽"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "GetNode",
+      "mode": 0,
+      "bgcolor": "#29699c",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        3693.759033203125,
+        1310.311279296875
+      ],
+      "id": 56,
+      "properties": {},
+      "order": 10
+    },
+    {
+      "outputs": [
+        {
+          "name": "INT",
+          "links": [
+            65
+          ],
+          "type": "INT"
+        }
+      ],
+      "color": "#1b4669",
+      "widgets_values": [
+        "高"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "GetNode",
+      "mode": 0,
+      "bgcolor": "#29699c",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        3693.79443359375,
+        1357.316650390625
+      ],
+      "id": 57,
+      "properties": {},
+      "order": 11
+    },
+    {
+      "outputs": [
+        {
+          "name": "*",
+          "label": "输出",
+          "type": "*"
+        }
+      ],
+      "color": "#1b4669",
+      "widgets_values": [
+        "宽"
+      ],
+      "inputs": [
+        {
+          "name": "INT",
+          "link": 74,
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "SetNode",
+      "mode": 0,
+      "bgcolor": "#29699c",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        3258.448486328125,
+        1386.704833984375
+      ],
+      "id": 68,
+      "properties": {
+        "previousName": "宽"
+      },
+      "order": 30
+    },
+    {
+      "outputs": [
+        {
+          "name": "*",
+          "label": "输出",
+          "type": "*"
+        }
+      ],
+      "color": "#1b4669",
+      "widgets_values": [
+        "高"
+      ],
+      "inputs": [
+        {
+          "name": "INT",
+          "link": 73,
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "SetNode",
+      "mode": 0,
+      "bgcolor": "#29699c",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        3257.605224609375,
+        1346.2877197265625
+      ],
+      "id": 67,
+      "properties": {
+        "previousName": "高"
+      },
+      "order": 31
+    },
+    {
+      "outputs": [
+        {
+          "name": "*",
+          "label": "输出",
+          "type": "*"
+        }
+      ],
+      "color": "#2a363b",
+      "widgets_values": [
+        "图像"
+      ],
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "link": 72,
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "SetNode",
+      "mode": 0,
+      "bgcolor": "#3f5159",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        3254.66650390625,
+        1302.9635009765625
+      ],
+      "id": 51,
+      "properties": {
+        "previousName": "图像"
+      },
+      "order": 27
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        254.52239990234375,
+        328.861083984375
+      ],
+      "pos": [
+        2975.1181640625,
+        1311.123046875
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 76,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "flags": {},
+      "id": 50,
+      "type": "PreviewImage",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "order": 28
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "Filenames",
+          "links": [],
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        726.58837890625,
+        1290.1177978515625
+      ],
+      "pos": [
+        5650.7490234375,
+        648.3136596679688
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "AnimateDiff",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "AnimateDiff_00010_pgebk_1749164853.mp4",
+            "workflow": "AnimateDiff_00010.png",
+            "fullpath": "/data/ComfyUI/personal/05710eb46f60072c2b77ca2bb3e2bf79/output/AnimateDiff_00010.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 16
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 16,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 8,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 10,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 37
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            72,
+            76,
+            137
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "width",
+          "links": [
+            74
+          ],
+          "label": "宽度",
+          "type": "INT",
+          "localized_name": "width"
+        },
+        {
+          "name": "height",
+          "links": [
+            73
+          ],
+          "label": "高度",
+          "type": "INT",
+          "localized_name": "height"
+        }
+      ],
+      "size": [
+        315,
+        218
+      ],
+      "pos": [
+        2951.404296875,
+        1031.859130859375
+      ],
+      "widgets_values": [
+        0,
+        640,
+        "lanczos",
+        "keep proportion",
+        "always",
+        2
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 75,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "flags": {},
+      "id": 66,
+      "type": "ImageResize+",
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "order": 25
+    },
+    {
+      "outputs": [
+        {
+          "name": "INT",
+          "links": [
+            36
+          ],
+          "label": "INT",
+          "type": "INT",
+          "localized_name": "整数"
+        }
+      ],
+      "color": "#322",
+      "widgets_values": [
+        49
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "JWInteger",
+      "title": "帧数",
+      "mode": 0,
+      "bgcolor": "#533",
+      "size": [
+        351.0487976074219,
+        110.666259765625
+      ],
+      "pos": [
+        3462.5986328125,
+        1510.7078857421875
+      ],
+      "id": 35,
+      "properties": {
+        "Node name for S&R": "JWInteger"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        5294.02099609375,
+        402.208740234375
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "WANVIDEOMODEL",
+          "link": 28,
+          "label": "输入",
+          "type": "*",
+          "color_on": "",
+          "localized_name": "anything"
+        }
+      ],
+      "flags": {},
+      "id": 33,
+      "type": "Anything Everywhere",
+      "properties": {
+        "color_restricted": 0,
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0
+      },
+      "order": 32
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "links": [
+            29
+          ],
+          "label": "CLIP视觉",
+          "type": "CLIP_VISION",
+          "localized_name": "CLIP视觉"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        4700.39990234375,
+        746.74853515625
+      ],
+      "widgets_values": [
+        "clip_vision_h.safetensors"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 40,
+      "type": "CLIPVisionLoader",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "CLIPVisionLoader"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "vae",
+          "links": [
+            1
+          ],
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        }
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        4328.94873046875,
+        626.416748046875
+      ],
+      "widgets_values": [
+        "wan_2.1_vae.safetensors",
+        "bf16"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 3,
+      "type": "WanVideoVAELoader",
+      "properties": {
+        "Node name for S&R": "WanVideoVAELoader"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "wan_t5_model",
+          "links": [
+            2
+          ],
+          "label": "wan_t5_model",
+          "type": "WANTEXTENCODER",
+          "localized_name": "wan_t5_model"
+        }
+      ],
+      "size": [
+        352.79998779296875,
+        130
+      ],
+      "pos": [
+        3870.7734375,
+        522.6881103515625
+      ],
+      "widgets_values": [
+        "umt5_xxl_fp16.safetensors",
+        "bf16",
+        "offload_device",
+        "fp8_e4m3fn"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 36,
+      "type": "LoadWanVideoT5TextEncoder",
+      "properties": {
+        "Node name for S&R": "LoadWanVideoT5TextEncoder"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            75
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK",
+          "localized_name": "遮罩"
+        }
+      ],
+      "size": [
+        514.0014038085938,
+        608.567138671875
+      ],
+      "pos": [
+        2420.8701171875,
+        1030.7154541015625
+      ],
+      "widgets_values": [
+        "3d3b80c23df81edfd02ab611f8dec1426d1ababc33885fa14f20ee6527f32d77.webp",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 69,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 18
+    },
+    {
+      "outputs": [
+        {
+          "name": "samples",
+          "links": [
+            7
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "color": "#323",
+      "widgets_values": [
+        20,
+        6.000000000000001,
+        5.000000000000001,
+        382999608593301,
+        "randomize",
+        true,
+        "unipc",
+        0,
+        1,
+        false,
+        "comfy"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "text_embeds",
+          "link": 10,
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        },
+        {
+          "name": "image_embeds",
+          "link": 11,
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "samples",
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "shape": 7,
+          "name": "feta_args",
+          "link": 12,
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        },
+        {
+          "shape": 7,
+          "name": "context_options",
+          "label": "context_options",
+          "type": "WANVIDCONTEXT",
+          "localized_name": "context_options"
+        },
+        {
+          "shape": 7,
+          "name": "teacache_args",
+          "link": 13,
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        },
+        {
+          "shape": 7,
+          "name": "flowedit_args",
+          "label": "flowedit_args",
+          "type": "FLOWEDITARGS",
+          "localized_name": "flowedit_args"
+        },
+        {
+          "shape": 7,
+          "name": "slg_args",
+          "link": 14,
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        },
+        {
+          "shape": 7,
+          "name": "loop_args",
+          "label": "loop_args",
+          "type": "LOOPARGS",
+          "localized_name": "loop_args"
+        },
+        {
+          "shape": 7,
+          "name": "experimental_args",
+          "link": 15,
+          "label": "experimental_args",
+          "type": "EXPERIMENTALARGS",
+          "localized_name": "experimental_args"
+        },
+        {
+          "shape": 7,
+          "name": "sigmas",
+          "label": "sigmas",
+          "type": "SIGMAS",
+          "localized_name": "sigmas"
+        },
+        {
+          "shape": 7,
+          "name": "unianimate_poses",
+          "label": "unianimate_poses",
+          "type": "UNIANIMATE_POSE",
+          "localized_name": "unianimate_poses"
+        },
+        {
+          "shape": 7,
+          "name": "fantasytalking_embeds",
+          "label": "fantasytalking_embeds",
+          "type": "FANTASYTALKING_EMBEDS",
+          "localized_name": "fantasytalking_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "uni3c_embeds",
+          "label": "uni3c_embeds",
+          "type": "UNI3C_EMBEDS",
+          "localized_name": "uni3c_embeds"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoSampler",
+      "mode": 0,
+      "bgcolor": "#535",
+      "size": [
+        371.6619567871094,
+        737.5919189453125
+      ],
+      "pos": [
+        4840.28369140625,
+        1078.3157958984375
+      ],
+      "id": 15,
+      "properties": {
+        "Node name for S&R": "WanVideoSampler"
+      },
+      "order": 39
+    },
+    {
+      "outputs": [
+        {
+          "name": "text_embeds",
+          "links": [
+            10
+          ],
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "女孩脱下身上的外衣",
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+        true
+      ],
+      "inputs": [
+        {
+          "name": "t5",
+          "label": "t5",
+          "type": "WANTEXTENCODER",
+          "localized_name": "t5"
+        },
+        {
+          "shape": 7,
+          "name": "model_to_offload",
+          "label": "model_to_offload",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model_to_offload"
+        },
+        {
+          "widget": {
+            "name": "positive_prompt"
+          },
+          "name": "positive_prompt",
+          "link": 120,
+          "label": "positive_prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "WanVideoTextEncode",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": [
+        437.79327392578125,
+        306.2936706542969
+      ],
+      "pos": [
+        4156.51806640625,
+        2191.91943359375
+      ],
+      "id": 18,
+      "properties": {
+        "Node name for S&R": "WanVideoTextEncode"
+      },
+      "order": 34
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "links": [
+            120,
+            121
+          ],
+          "label": "字符串",
+          "type": "*",
+          "localized_name": "STRING"
+        },
+        {
+          "name": "show_help",
+          "label": "显示帮助",
+          "type": "STRING",
+          "localized_name": "show_help"
+        }
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        3227.90380859375,
+        1956.5137939453125
+      ],
+      "widgets_values": [
+        "",
+        "",
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text1"
+          },
+          "shape": 7,
+          "name": "text1",
+          "link": 138,
+          "label": "文本1",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "text2"
+          },
+          "shape": 7,
+          "name": "text2",
+          "link": 119,
+          "label": "文本2",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 83,
+      "type": "CR Text Concatenate",
+      "properties": {
+        "Node name for S&R": "CR Text Concatenate"
+      },
+      "order": 33
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "links": [
+            90,
+            119
+          ],
+          "label": "字符串",
+          "type": "STRING",
+          "localized_name": "字符串"
+        }
+      ],
+      "size": [
+        400,
+        116.86225891113281
+      ],
+      "pos": [
+        2595.026611328125,
+        2088.52099609375
+      ],
+      "widgets_values": [
+        "Shoot around this character with a smoothly rotating lens to show a 360-degree view of the character and provide an all-round perspective."
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 75,
+      "type": "Text Multiline",
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "order": 20
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "label": "字符串",
+          "type": "STRING",
+          "localized_name": "字符串"
+        }
+      ],
+      "size": [
+        350.11083984375,
+        274.6872253417969
+      ],
+      "pos": [
+        3657.728271484375,
+        1933.6806640625
+      ],
+      "widgets_values": [
+        "",
+        "b4ll3t t1m3 bullet time shotA man in a tailored suit lounges on a luxurious sofa, casually holding a phone in one hand while exhaling smoke from a cigarette. The scene captures a moment of relaxed authority, as he seems to be contemplating a situation while surrounded by his silent, ominous bodyguards standing in the background. This scene employs “bullet time” cinematography, dramatically slowing down the action. The man’s confident posture and the swirling smoke are frozen in time, highlighting the tension of the moment. The ambiance is dark and moody, with rich textures and dim lighting that suggest an air of intrigue and power.Shoot around this character with a smoothly rotating lens to show a 360-degree view of the character and provide an all-round perspective."
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 121,
+          "label": "文本",
+          "type": "STRING",
+          "localized_name": "文本"
+        }
+      ],
+      "flags": {},
+      "id": 84,
+      "type": "ShowText|pysssss",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 35
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "p0",
+          "links": [
+            138
+          ],
+          "label": "p0",
+          "type": "*",
+          "localized_name": "p0"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        2628.66943359375,
+        1931.3099365234375
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "ref_image_0",
+          "link": 137,
+          "label": "ref_image_0",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 88,
+      "type": "RHHiddenNodes",
+      "properties": {
+        "Node name for S&R": "RHHiddenNodes",
+        "info": "Z0FBQUFBQm9RN0czQURMdTlPekJ6Q2RqTWNlRmxTWndvUVhQVlR3MmNBOXZlUVhJVWFFblRwRUhVb1E1OTh5bGtvZWNjSkNyUmVOTUl3ajJyek9nR0l2U1EtTF94cjBBTHozRDBnRFJrNWFhdUZNWkNLVE50cEtHRTNMaHlKVHFCR3VnM3h3SktBSTRvTWVfbW9aZUppM0E0YXpOOEMzZUJkOWp6N0Y1NFZiRVZfMElGWFpMZEh5amxISVJjd243VlNkRk1qbWhJS0w1dUpTam5DQ1c3X01Ib1BEMnFKTHU3LVFEanpDWFptVTVQSzZ4MkhvNjRZeTg0elB0UFpwZk91UFRLaW56UUNWWGVmU0dnZnBvdFVYSnVZZEYtd3JBUEZjVFhQNVY5Q05UanRidGNiaUV0YjhPR3U4NGtDVzUxRjhoUXp4NFJ6TlNpNTlWNEZGOHQ2OTYtT1lsNkJwQmlKNy1WYlNlS1g3UlJiOHZoODdvQTFITmhvbWU2bmlzcTJjei1SVUpZZE5zRmJzLUtjVzh4dnA3SnNCa0E5M1NPc3M1QmxJRG5jeU96YndOMGdwdS1zUUR4MktMVC1MRjd3ejJmNU9ZeE4wSk9QSExLaFlqQW13VklQdzF1Vk90OWF4anp1VG9XZy1VN3ZLUG1seUZjWmFSMmtSS3BJcHU2OWJHTGVnQ0tIRTc0dTNWN0Zzc3hpSTNjaDdmN0pVT3pDZDNqSUp4ZXduODhtNGFtbkp2ZS10bmU5Zi1OX0FtNDVaQWRnb1pMQXhHWWZFM1FsbEQ2dTFpSWo4SXFkZWZHbDdiVDBaNWdEUEtuQXJaVzJCVE9XS09hMGRTbFdSTHZ3VWpSWnJXVVlFQlRtaUl1djNQQi1WOU1QcnAtMHlSSG1WVmZuZWNRMEhxWkk1SHlkQ1dJMVF4bU9WQko1NE5FNFJ6SVoyWjgzZVUybUptby1ybUU3cUVoVzF3QUdQSVBCSjBKSW9uWDRfQVM2SzJGeElVTnZuVHN1MzJwc0RPNllFX1JpZ0psUnVpeF9STUdGVVdkR0IzbnZoTmQ1bTh5UEk3OFZBb1ZNbERMUThfQ1FOV3BMMmgyNjVPYUxlbkhHUFRTalVpWEx0b19aTjlDTjFjZ3piaEtYWklnTlR3R0JfRXB6OFBPbjdoek9BeGlmOHM2WnFoNzdNVzJHYjdEZW1XWTFoQUZ4UVItU2gtSDl2TnRhY2wxTDBPNndWeVFuekIwQ0Jmdi1YSDIweUFKSW9EWjEwSkcwQUo3MFJhSWNhcXJfMzhNOHYtQUZjZXNjZEhyMFN6X0NWTU1CRFNtWENiSTdsQWlVZEpkRUtLTHFHOXdmQk1nMEwxaXhRdGpqV2hERjRnSGZwaWdiTWlhZ0ZTZGlETXNXd1h1MzNqektlbW9MY21LN3RjbG90eFk5WldkTG9pYU82bmlmaW40S3BMUzIzanJuOWxPMDhaVDFmelFVTUlRWERISTV1TDRLZ21Zbkg2M25RV2NOdEE5Y044RUJYRUpjV0dKNWNYcVFRZHNmazNsd1k1YnRPYkhsQ1RFUjZIYThiR3JzcFhLc0xmR0pVNDZBeVdLOWNxTjEwNXc5SFNzM2tEaGxaSlJ1TUlRNWdKVnBwdDJkUzdEQ1JCX0JYMEtjVC1WS04xX0s3VnV0QnRYRnZfQUY4bURvZmNaUVg2b1BYcE9pajVTTUpqc1lSTVBmQ0hvUFFXRnZQa21BVnEtSHJYMnplQ0xIMHJ0Tlh6Wm9lSk9KRkU0TjF5Z3ZtTFpZQk9WNlp4bW56ZEw0dFo1bk1NUG1VejN0UE1RZUdmX3BVOHlsd1pCaVk0US1rZVlOTEo2bFcwWHZMaksyTUxtVjh1aXREa0NxUUZ3OGl5Q3l6Z1JndUxhWGMxYTdPVXluX0Y1djNkaWJTOGM1OVZhdWJTZmtDdWlMX2hZODNKYmR4czc2c2RuMmRlTnVyT3k0c0RFT3ZobXZEbEo0cU1vaDlLaDYwNEJ2TEJ3MTl1Ri1uNDdMenJ3UUlTY1piUGlpSWUwd1ZMY0lYalVfVTF6eWJPb0VRdi10bzVDYUpxMFAyQ1J4MDNTelo1YV9XeHRsQXNaRk1WeXBpMC0yU2htM3FncEpCN0NZdlZtQks2Yl9BS3BGNG5VWVlURUlHTWZKQ20zal9SanhzbmdGVk9XeTd3WjUxOFpXT1NsTWp1T3dlV20wSERBSmRfU0JOZjBnZ3NUaVVVWkJPbTFhZ01wU0xYSFp5dG41ZEN6U3RjMElKQ0M2TFhUZ1N5ZkQ0QWs4OUNPWHRiOWY1R1l2R1JTTGZiYmx1UXAyMmNWbVlKQTNJMjZra2tVWTBwUUFPMnM2bnJNUEdkREtzZWN5NmN6ZFRnT21wSmhyUEY2VGtISzBmYnV0MVpac29iTFpScU5sdkNNM2R2ekFYbGN6bnZPNTVhUGFjNWo3Q1FNeE1oX3FxVTZZakRUZ2U2M19maE9Reng5bEZNUEJPN3Z4cGl4bmtrcG9WSUVLUmxXUzNkYUFRckRDWXFqUmtDQXVINWVfbzBWUk4tTUZjdTdyLVlZZU8zSEtHSGo4eGd0bGZveEh2SzNNbDRiM1hDc3lkaUR0NlpHT21ibjFYVFVyRXZnOFp2MjJfLUtnQlJUOEg4OXhRb2d6cXQzcGhGYUpUNXBwajJmNk9oTG1ONEZQS2owc0R6MzRNQ3BpdlI3ajhUS0VpOGp4dVBzbWFKcnFxRUs3UkVfZlNCck03OVgtWjBiT3hBbEZXVGlINHZGdUJRemVJOUoyWU1XZDRabXFGbWRxSWN3TFMyUjNBWURaaGVRTHE2N3ZLLVY1bGFxS3pldDJkdFlrNEdUUUxTWm1wZE40Tmg0M2tBVnR5Mno0YUdTSVdITkc1YlhvcEFwSTV3ZGo0enJXeXY1UlFpSDJpcXFxYVpwSVNxQ1dsM2VoMUlhQmlZQURSZTU0VnVCSW81MDRqT2lFZVdZOE5yWUlTTFR2ei1QUWJCSjlnalZlZWhjbmNKaU5JZ0wwdjQxbmVqQ0tERHhFNm9sS2MydXNfQkVBUF9EOHJMUFE1U1VXYUpiLVlsb1FQbFN0aEh2cl9NaUZzVXotN1NkOUQyZm54NUt1VDRFSTRrOE1WMDI4N2d0dGlQNG96YTNSckZCaTEzNmlkZ3BVMzVIcEdBOTAySnRYcXJYX2xDeXRnVUdHT2h2NTRjMElELWh5S3JZWHNLUndxSzBHMTl4c3U2bV8tNW51NVpXSHRHZWVreFFMM1BTb0wzNkdWSzZYV3VyTHhDcllZa3NnQWhVWWlGTEszNllLT3JnSlk4MXlvMUh5Z0hjRTNHMXZ0cGxpTU5fZjF6MUdRcUR5VWZMWDVUZDE3b0tWSUJfTEpBWTZnS3lzVm1HLXl1M2VzTlBENG1LNVdROXRXaTRXekp6NXV5MWFmV2hYN1JIUDNQU1lWVUI4d213eHdpZnduakdOZFBiQWp6ckdWTnU5aEhRRldqOVBocktROUdpUVMwZkYwNEx5LU5UcUpFSWFuS3loTnFPODFHa3ZaT3dBdFpFdDFkYzNjc2dUdlpZV3pEX1NqeHFvelkyTGtidWw3U2t4eWlGVDVPczJLbFhoaXFXbThWXzJTRkpRSE5RQ2otQ0x3R25hMGJYclVlTl9XcXpqaGZBT3lFUFJ4WGN4S2IwMnFfY0ZQdDZYc0IzNE9hUnYwUEZrYzRxNF9CWjJtNE9IQnVmNFhaOGhCa284QmNNQVRsUWRlcFpqN1U2aE5ibjRVZ2JoTFhKZWo1bGFobjdZcVNNVTJPR0ZOdWh3NHVaRkxNckxjQTFrQTdIMVgzX29JSFFncXRIU25NeWRkWVRCcVF5eER1OV9LY0UyOG9sUkRmdXBwZ3J5SnNxckJ3eUtYZ2pZMndLMXU4a3Z0MzZXRDhHMm9NTkJNOVdFVWlCN3hiMVp4ZXp2UTJ0eDNGcDZCaG05cHBvRC1EUF9RaVZxR2pFQUJtbDQtbnpMNVlBNndtZXF0YlVRWWpUVlF1NllmV1BuNXVBQVMtMXp6U2U5QXc4d3ZjOHNJdHplLWQtLURJelpNcUpYXzlVVmtMS3NwdVU0TFlDaXBTWFF5NWg0cG5sQnYwQTkzTTBKWEp5SXI4X1oxcGJEUEZoNlVEdTJuSEZoYWFfOExVdVdWaUU4NkVzTnM2T2MtYXJRNjJTMHE1cGlCek9IWFhTRzVjN09ENFR5V05Jc2xUU0hJSnB3Z0xLckw0MEFqV0VhRkM2b2pzZVk0Z3FmSkNxclpRS3dMUTB4dFpLeXQyaXJJc2U3VFJ1ZFpzTUoxbGl2VXZPRWVRNGxNMFAwV3htcF9vYnVVNlhCb2dXWFlYTmpZcE93RDN6NEJZaFEyNkJPaXlMZkc2QjVOdzVxal9Cb3JEMC11b1dsZHAxVGZZbnZkWi1VdXNoeHVHRVBTOEZ6SXRZTmtKMHBQcVlObEtXbzktLUg4WjYtOFZ5c1dka2xiaVRZRlNWYzlXSkZpMnFaNU9aUjd2UTRuUExBUHgteDMwdUc5RGlzQlJqUG83dk9yVnBHZV9wX2tjUU5WS0puX1p0QXF2QkVqX3ctTVZxZE5rR1N6aHgyZTU4Y1hEclJCNUc1bHJqZG9mWjZIWUwtU0l6aTVFRU94d3pENFlndWJQc01OYmE1MlBTVmNBMHJXSnBjbW5JNm9jMkdacHQtRHp0X1ZNU3d6LTkxVktzZmM2YkVySmJfVEx2RUpPUWtKUUE3cG56OEFVeXZqRG5WNUY1SmlsaERDOUZLOW03Q19VSkVlcTdoZ2FrREZkSjBzc1hLUVAySjA0OTdnaHRVdFpqcDh2OTNWaDA4MC1ISWt2R3R6clBUdEJaaHBQaUp1UmZlRndFcjF1RU11UjlBRFl6NURTN1EtdWFEbzJXYW9SOW5PT1FVVUR0U0tQTjFxUEZrZEN4WFNhT3RQV05IVWhOLXJJaEZyQmpqdlZuUlAwR1FBa25vZ0JVazZXN3VZRExVVU9qYS10cDhuRmtmUWJLNHFoNm5wSU1OWjRIV09zWXhab0tfS0FqNGpHX09rTzV4cVYyX3BnWXhHWlpGZ19QVkFZb0gwREJ1QXZWa2ZwTE8wZ2xIUXFoWUZWb3ZybWd3Q2dFOHlzMV8zekltSFUyeGVEM0dWSlNQejl0QWc2SkhqSzgwZE83ZkdnWUU2OE1oZ3I0VDhnQzBfWENWNTFESFFXMkhMNHgxV1RTM0xEaG80R2F4eVVueTQ2cFZWRE5VejFZX29RNGJqZzZJSmpjSV9Ha2FPcHFIOXoxR0h3UlNuZlAyNS1RbVo5TG4tQjRUQ1FNZERIYmYzelpnZG5ERjVfWlNCOUotQkpnMlVPVEk1NlhlSk5hNTA0WTAyeWRkWkNLaWRWZG1pTDNUQmpXeXV3dVhOek5uSnhkNjZCRHozWDBuY2RHM2FTZFF3UVFIM3d5YjJPSWk5MS1QUkxDRnhOS3hha040a210QUxUeE02S1ZVRHFMeEpqWmdtUk8yMVpYOW84ckt0SFZDUTg3dWVzcW5Tc0xyc3lkdUZsZUpuNXo4Sm9Wa2RfVE5EY3VCckVOWWFtRjg4a1JVV1dQaGVyeXZMZDlwbUlQSDdWTEFkeEJBM0s3ay1vdzlwQzdiSW00SmNxbW9EbEJweHc5WnlCRHVpdXB3eGEyc0tUNlBSV3VJdXlFSlJjSVpuTWJOQWVWa19TblhwZWtBY2Jyc0lXQ3dKcWcwdkZvVHFEY1FUdy1DbzJ2NDFZVVlGZFR0dmNsY082TDRWeUJoeWJHZzAxbERRcmtlM09ONzhfNnZ6a0VabmFUQmlCUkhpbHlyWm1zV0psbEQ4N3luVkcxTkxCcDc2dDl6YzNSRkpzVS1kS0hrcnltWHJOTF9DdFhROG9QaFZfMkdtbVR0QVNzRHR0T2R3OUxFaFZKa1A2N2FrZ0UxSTFrUEtCZEJWQ1k3ZENvV0ppQS1jbTM0N2tlX2wyb3lIdDRnMXRKdFdNRmM5ZHhWbFN5VTJKN055QzRTbjNBNWM5UWJTN2tHMDdkMTZxS3NXa05GX1ZxbHlrMTR1a1VZdWhiMVJIQTJ1WEFjVENlaUZPVFJ2MDRqV1I4cFB6czhsS1ZSWDFwaUQ5eUl2RExhMzB0amo3aGE0WDg0UmtoR2wwVFpDZ0dPbjc5SHNuYV9MbkxkNHRPUUx5OWY0U0VERlNoQW5OaFdzV3ZsVXFlV3Ryd29tTVY0TFE5QXVqRlMyUmZHeldYMmtFdGtHZzJIU1lqbU9oYTl6RzNvTVE5MWk2UjN2VFBHc2djSkZBX1RhQmNHSHpmSENVT3R1ZnBHcktVcmJHVC12RHlyOG41NUxVMGc4Z2diNmlKTDcweXloV01sVEs2ZVNGYmJ1emVWTWtoR0ZxRUJOUk5sUk92YmVfZFhCQWp6VFlVdUxJbW5oWTh5SlhsWUNNc3ZhRU5XTExCMjR1MUdDR0E3d0dHRW05OHBxb1loR3FtTEMtN214Um8xQ2xlSV9RQUc5a0dQMkhBWWlZT0JCclVUaEFoOVJIbEZYd0RCeXB3ZzYxSUNTekNvUldPVXh5bGdjZE1tQjQ5MG9GM1pMWWt6WExWT0YtR0twOWtLcTRkbUJoQW9jPQ==",
+        "ref_info": "Z0FBQUFBQm9RN0czR3VxSldVQURqOXpzUFhsRDRiWHBnQWg4cjZJZHBDOGg3QUNIS3NhVHlnY1Z0aExvZ1lmTGtFNkw2c2F2M1VnRXZSZ1o1Q0gyNHdIalJuZy1rSGRuYUE9PQ=="
+      },
+      "order": 29
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "想要更高的质量，模型可以换成720P，当然，图像的尺寸也要相应的放大。运行时长和480p其实差不多，不过加载模型比较慢。"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        286.9786376953125,
+        155.45159912109375
+      ],
+      "pos": [
+        3393.518798828125,
+        713.0955200195312
+      ],
+      "id": 74,
+      "properties": {},
+      "order": 12
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "teacache_args",
+          "slot_index": 0,
+          "links": [
+            13
+          ],
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        }
+      ],
+      "size": [
+        351.4438171386719,
+        178
+      ],
+      "pos": [
+        4436.84912109375,
+        1005.676025390625
+      ],
+      "widgets_values": [
+        0.10000000000000002,
+        1,
+        -1,
+        "offload_device",
+        "true",
+        "e"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 28,
+      "type": "WanVideoTeaCache",
+      "properties": {
+        "Node name for S&R": "WanVideoTeaCache"
+      },
+      "order": 19
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "所有参数已调至最优，直接运行即可。\n\n如果你使用720p模型的话，关闭增益三件套。"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        332.55126953125,
+        215.28335571289062
+      ],
+      "pos": [
+        4855.9892578125,
+        1882.9415283203125
+      ],
+      "id": 8,
+      "properties": {},
+      "order": 13
+    }
+  ],
+  "extra": {
+    "ue_links": [
+      {
+        "controller": 1,
+        "upstream": "3",
+        "downstream_slot": 0,
+        "downstream": 9,
+        "upstream_slot": 0,
+        "type": "WANVAE"
+      },
+      {
+        "controller": 1,
+        "upstream": "3",
+        "downstream_slot": 0,
+        "downstream": 39,
+        "upstream_slot": 0,
+        "type": "WANVAE"
+      },
+      {
+        "controller": 34,
+        "upstream": "40",
+        "downstream_slot": 0,
+        "downstream": 41,
+        "upstream_slot": 0,
+        "type": "CLIP_VISION"
+      },
+      {
+        "controller": 33,
+        "upstream": "4",
+        "downstream_slot": 0,
+        "downstream": 15,
+        "upstream_slot": 0,
+        "type": "WANVIDEOMODEL"
+      },
+      {
+        "controller": 2,
+        "upstream": "36",
+        "downstream_slot": 0,
+        "downstream": 18,
+        "upstream_slot": 0,
+        "type": "WANTEXTENCODER"
+      },
+      {
+        "controller": 33,
+        "upstream": "4",
+        "downstream_slot": 1,
+        "downstream": 18,
+        "upstream_slot": 0,
+        "type": "WANVIDEOMODEL"
+      }
+    ],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "groupNodes": {
+      "1": {
+        "external": [
+          [
+            4,
+            0,
+            "STRING"
+          ]
+        ],
+        "nodes": [
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "name": "STRING",
+                "links": [],
+                "label": "字符串",
+                "type": "STRING",
+                "localized_name": "字符串"
+              }
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "pos": [
+              2906.090087890625,
+              2046.631591796875
+            ],
+            "widgets_values": [
+              "Shoot around this character with a smoothly rotating lens to show a 360-degree view of the character and provide an all-round perspective."
+            ],
+            "inputs": [],
+            "flags": {},
+            "index": 0,
+            "id": -1,
+            "type": "Text Multiline",
+            "properties": {
+              "Node name for S&R": "Text Multiline"
+            },
+            "order": 20
+          },
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "name": "STRING",
+                "links": [],
+                "label": "字符串",
+                "type": "STRING",
+                "localized_name": "字符串"
+              }
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "pos": [
+              2518.383544921875,
+              1770.8223876953125
+            ],
+            "widgets_values": [
+              "b4ll3t t1m3 bullet time shot"
+            ],
+            "inputs": [],
+            "flags": {},
+            "index": 1,
+            "id": -1,
+            "type": "Text Multiline",
+            "properties": {
+              "Node name for S&R": "Text Multiline"
+            },
+            "order": 21
+          },
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "name": "describe",
+                "links": [],
+                "label": "describe",
+                "type": "STRING",
+                "localized_name": "describe"
+              }
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "pos": [
+              2519.930419921875,
+              2035.982666015625
+            ],
+            "widgets_values": [
+              "严格按照我的撰写公式来描述图像内容，公式是：[主体描述] + [动作状态] + [核心特效] + [视觉效果] + [环境/氛围]。例如：主体描述“一名球员高高跃起”，动作状态“准备将球灌进篮筐里，在半空中被定格，他手中的篮球也停留在飞行的半途中。”，核心特效“这一场景运用了 “子弹时间” 拍摄特效，动作被极大程度地放慢。”，动作状态“这名球员充满动感的姿势和手中的篮球都被凝固住。”，环境/氛围“周围的场景因为这一特效而略显模糊。其中，核心特效“这一场景运用了 “子弹时间” 拍摄特效，动作被极大程度地放慢。”这条提示词保持不变，全部用英文输出。"
+            ],
+            "inputs": [
+              {
+                "name": "ref_image",
+                "label": "ref_image",
+                "type": "IMAGE",
+                "localized_name": "ref_image"
+              }
+            ],
+            "flags": {},
+            "index": 2,
+            "id": -1,
+            "type": "RH_Captioner",
+            "properties": {
+              "Node name for S&R": "RH_Captioner"
+            },
+            "order": 30
+          },
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "name": "STRING",
+                "links": [],
+                "label": "字符串",
+                "type": "*",
+                "localized_name": "STRING"
+              },
+              {
+                "name": "show_help",
+                "label": "显示帮助",
+                "type": "STRING",
+                "localized_name": "show_help"
+              }
+            ],
+            "size": [
+              315,
+              126
+            ],
+            "pos": [
+              3033.0478515625,
+              1852.4149169921875
+            ],
+            "widgets_values": [
+              [
+                "16",
+                0
+              ],
+              [
+                "24",
+                0
+              ],
+              ""
+            ],
+            "inputs": [
+              {
+                "widget": {
+                  "name": "text1"
+                },
+                "shape": 7,
+                "name": "text1",
+                "type": "STRING"
+              },
+              {
+                "widget": {
+                  "name": "text2"
+                },
+                "shape": 7,
+                "name": "text2",
+                "type": "STRING"
+              }
+            ],
+            "flags": {},
+            "index": 3,
+            "id": -1,
+            "type": "CR Text Concatenate",
+            "properties": {
+              "Node name for S&R": "CR Text Concatenate"
+            },
+            "order": 34
+          },
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "name": "STRING",
+                "links": [],
+                "label": "字符串",
+                "type": "*",
+                "localized_name": "STRING"
+              },
+              {
+                "name": "show_help",
+                "label": "显示帮助",
+                "type": "STRING",
+                "localized_name": "show_help"
+              }
+            ],
+            "size": [
+              315,
+              126
+            ],
+            "pos": [
+              3346.1962890625,
+              1981.409423828125
+            ],
+            "widgets_values": [
+              [
+                "16",
+                0
+              ],
+              [
+                "24",
+                0
+              ],
+              ""
+            ],
+            "inputs": [
+              {
+                "widget": {
+                  "name": "text1"
+                },
+                "shape": 7,
+                "name": "text1",
+                "type": "STRING"
+              },
+              {
+                "widget": {
+                  "name": "text2"
+                },
+                "shape": 7,
+                "name": "text2",
+                "type": "STRING"
+              }
+            ],
+            "flags": {},
+            "index": 4,
+            "id": -1,
+            "type": "CR Text Concatenate",
+            "properties": {
+              "Node name for S&R": "CR Text Concatenate"
+            },
+            "order": 35
+          }
+        ],
+        "links": [
+          [
+            null,
+            0,
+            2,
+            0,
+            66,
+            "IMAGE"
+          ],
+          [
+            1,
+            0,
+            3,
+            0,
+            "16",
+            "STRING"
+          ],
+          [
+            2,
+            0,
+            3,
+            1,
+            "24",
+            "STRING"
+          ],
+          [
+            3,
+            0,
+            4,
+            0,
+            "70",
+            "*"
+          ],
+          [
+            0,
+            0,
+            4,
+            1,
+            75,
+            "STRING"
+          ]
+        ]
+      }
+    },
+    "ds": {
+      "offset": [
+        -1905.3744379443679,
+        -54.82019610688571
+      ],
+      "scale": 0.3380916604057104
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      },
+      "id": 1,
+      "title": "模型区",
+      "bounding": [
+        2396.867919921875,
+        293.6062927246094,
+        3199.4384765625,
+        601.3653564453125
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      },
+      "id": 2,
+      "title": "注入灵魂",
+      "bounding": [
+        2397.263671875,
+        1702.154541015625,
+        1989.17041015625,
+        567.2808837890625
+      ]
+    },
+    {
+      "color": "#f22626",
+      "font_size": 48,
+      "flags": {
+        "pinned": true
+      },
+      "id": 3,
+      "title": "最终结果",
+      "bounding": [
+        5609.21142578125,
+        291.956787109375,
+        803.0836181640625,
+        1974.2762451171875
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      },
+      "id": 4,
+      "title": "提质三件套和主节点",
+      "bounding": [
+        4392.78466796875,
+        901.4258422851562,
+        1204.7037353515625,
+        1365.3297119140625
+      ]
+    },
+    {
+      "color": "#20bc22",
+      "font_size": 48,
+      "flags": {
+        "pinned": true
+      },
+      "id": 5,
+      "title": "上传图像",
+      "bounding": [
+        2396.591552734375,
+        905.8307495117188,
+        987.7498779296875,
+        786.8395385742188
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      },
+      "id": 6,
+      "title": "视觉编码",
+      "bounding": [
+        3393.1884765625,
+        903.7620849609375,
+        994.524169921875,
+        788.7683715820312
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      1,
+      0,
+      "WANVAE"
+    ],
+    [
+      2,
+      36,
+      0,
+      2,
+      0,
+      "WANTEXTENCODER"
+    ],
+    [
+      3,
+      37,
+      0,
+      4,
+      0,
+      "WANVIDEOMODEL"
+    ],
+    [
+      4,
+      7,
+      0,
+      4,
+      1,
+      "BLOCKSWAPARGS"
+    ],
+    [
+      7,
+      15,
+      0,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      8,
+      14,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      9,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      18,
+      0,
+      15,
+      1,
+      "WANVIDEOTEXTEMBEDS"
+    ],
+    [
+      11,
+      39,
+      0,
+      15,
+      2,
+      "WANVIDIMAGE_EMBEDS"
+    ],
+    [
+      12,
+      29,
+      0,
+      15,
+      4,
+      "FETAARGS"
+    ],
+    [
+      13,
+      28,
+      0,
+      15,
+      6,
+      "TEACACHEARGS"
+    ],
+    [
+      14,
+      30,
+      0,
+      15,
+      8,
+      "SLGARGS"
+    ],
+    [
+      15,
+      31,
+      0,
+      15,
+      10,
+      "EXPERIMENTALARGS"
+    ],
+    [
+      28,
+      4,
+      0,
+      33,
+      0,
+      "WANVIDEOMODEL"
+    ],
+    [
+      29,
+      40,
+      0,
+      34,
+      0,
+      "CLIP_VISION"
+    ],
+    [
+      30,
+      32,
+      0,
+      37,
+      2,
+      "WANVIDLORA"
+    ],
+    [
+      32,
+      41,
+      0,
+      39,
+      1,
+      "WANVIDIMAGE_CLIPEMBEDS"
+    ],
+    [
+      36,
+      35,
+      0,
+      39,
+      10,
+      "INT"
+    ],
+    [
+      60,
+      52,
+      0,
+      41,
+      1,
+      "IMAGE"
+    ],
+    [
+      61,
+      53,
+      0,
+      39,
+      2,
+      "IMAGE"
+    ],
+    [
+      64,
+      56,
+      0,
+      39,
+      8,
+      "INT"
+    ],
+    [
+      65,
+      57,
+      0,
+      39,
+      9,
+      "INT"
+    ],
+    [
+      72,
+      66,
+      0,
+      51,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      66,
+      2,
+      67,
+      0,
+      "*"
+    ],
+    [
+      74,
+      66,
+      1,
+      68,
+      0,
+      "*"
+    ],
+    [
+      75,
+      69,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      76,
+      66,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ],
+    [
+      119,
+      75,
+      0,
+      83,
+      1,
+      "STRING"
+    ],
+    [
+      120,
+      83,
+      0,
+      18,
+      2,
+      "STRING"
+    ],
+    [
+      121,
+      83,
+      0,
+      84,
+      0,
+      "STRING"
+    ],
+    [
+      137,
+      66,
+      0,
+      88,
+      0,
+      "IMAGE"
+    ],
+    [
+      138,
+      88,
+      0,
+      83,
+      0,
+      "STRING"
+    ]
+  ],
+  "id": "eed18a5c-e434-473c-b2e0-6be034327fb2",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 88,
+  "revision": 0
+}

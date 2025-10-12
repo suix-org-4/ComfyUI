@@ -1,0 +1,294 @@
+{
+  "last_link_id": 36,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            14,
+            18,
+            22,
+            29,
+            34
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK",
+          "localized_name": "遮罩"
+        }
+      ],
+      "size": [
+        467.89154052734375,
+        535.3126220703125
+      ],
+      "pos": [
+        1617.58544921875,
+        152.19729614257812
+      ],
+      "widgets_values": [
+        "1a3f527cc891b46fe8847c8f2314c84765f88699ef3dfedd52fbd7a1c6af408d.png",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 2,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "prompt",
+          "links": [
+            5,
+            15,
+            19,
+            23,
+            30,
+            33
+          ],
+          "label": "提示词",
+          "type": "STRING",
+          "localized_name": "prompt"
+        }
+      ],
+      "size": [
+        448.3620300292969,
+        200
+      ],
+      "pos": [
+        1618.9837646484375,
+        737.3372192382812
+      ],
+      "widgets_values": [
+        "一只胖嘟嘟的鸭子穿着彩色泳裤，站在热闹的街头冰淇淋摊前，兴奋地指着一个色彩斑斓的冰淇淋甜筒，展现出一刻犹豫不决的瞬间。场景中有闪亮的彩色招牌和闪闪发光的冰淇淋柜台。风格：高饱和度、甜美鲜艳的色彩，幽默的皮克斯风格夸张表情和动态姿势，充满奇趣和玩乐氛围。"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 7,
+      "type": "SeargePromptText",
+      "properties": {
+        "Node name for S&R": "SeargePromptText"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "frames",
+          "links": [
+            35
+          ],
+          "label": "frames",
+          "type": "IMAGE",
+          "localized_name": "frames"
+        },
+        {
+          "name": "fps",
+          "links": [
+            36
+          ],
+          "label": "fps",
+          "type": "FLOAT",
+          "localized_name": "fps"
+        }
+      ],
+      "size": [
+        400,
+        354
+      ],
+      "pos": [
+        2187.65576171875,
+        224.34371948242188
+      ],
+      "widgets_values": [
+        "",
+        3,
+        30,
+        148,
+        "randomize",
+        25,
+        10,
+        true,
+        1,
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "ref_image",
+          "link": 34,
+          "label": "ref_image",
+          "type": "IMAGE",
+          "localized_name": "ref_image"
+        },
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "link": 33,
+          "label": "prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 23,
+      "type": "RunningHub_FramePack_F1",
+      "properties": {
+        "Node name for S&R": "RunningHub_FramePack_F1"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        419.164794921875,
+        334
+      ],
+      "pos": [
+        2676.830078125,
+        190.1597900390625
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "AnimateDiff",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {}
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 8,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 35,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "frame_rate"
+          },
+          "name": "frame_rate",
+          "link": 36,
+          "label": "frame_rate",
+          "type": "FLOAT",
+          "localized_name": "帧率"
+        }
+      ],
+      "flags": {},
+      "id": 3,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 3
+    }
+  ],
+  "extra": {
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": [
+        -1709.099540613145,
+        40.476384218173536
+      ],
+      "scale": 1.1671841070450024
+    }
+  },
+  "groups": [],
+  "links": [
+    [
+      33,
+      7,
+      0,
+      23,
+      1,
+      "STRING"
+    ],
+    [
+      34,
+      2,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      23,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      36,
+      23,
+      1,
+      3,
+      4,
+      "FLOAT"
+    ]
+  ],
+  "id": "5799ee70-937b-4060-919c-53fe4371f525",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 23,
+  "revision": 0
+}

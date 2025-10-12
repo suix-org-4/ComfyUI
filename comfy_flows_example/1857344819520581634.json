@@ -1,0 +1,946 @@
+{
+  "last_link_id": 24,
+  "nodes": [
+    {
+      "outputs": [
+        {
+          "name": "describe",
+          "slot_index": 0,
+          "links": [
+            7,
+            11
+          ],
+          "label": "describe",
+          "type": "STRING",
+          "localized_name": "describe"
+        }
+      ],
+      "color": "#476947",
+      "widgets_values": [
+        "Please provide a detailed description of this image. If any characters in the image are familiar to you, such as celebrities, movie characters, or animated figures, please directly use their names. The description should be as detailed as possible, but should not exceed 100 words."
+      ],
+      "inputs": [
+        {
+          "name": "ref_image",
+          "link": 4,
+          "label": "ref_image",
+          "type": "IMAGE",
+          "localized_name": "ref_image"
+        },
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "label": "prompt",
+          "type": "STRING",
+          "localized_name": "prompt"
+        }
+      ],
+      "flags": {},
+      "type": "RH_Captioner",
+      "mode": 0,
+      "bgcolor": "#335533",
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -701.1423950195312,
+        -177.13528442382812
+      ],
+      "id": 6,
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "RH_Captioner"
+      },
+      "order": 5
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "可以在这个位置输入你想反推的主要内容。（比如，反推这张图像人物的穿着打扮，反推图像的背景等）"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        396.9808044433594,
+        88
+      ],
+      "pos": [
+        -703.8223876953125,
+        83.71705627441406
+      ],
+      "id": 7,
+      "properties": {
+        "widget_ue_connectable": {},
+        "text": ""
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "translation",
+          "links": [
+            5
+          ],
+          "label": "translation",
+          "type": "STRING",
+          "localized_name": "translation"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -692.58349609375,
+        268.4643859863281
+      ],
+      "widgets_values": [
+        "",
+        1952,
+        "randomize",
+        "auto"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "link": 11,
+          "label": "prompt",
+          "type": "STRING",
+          "localized_name": "prompt"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "label": "seed",
+          "type": "INT",
+          "localized_name": "seed"
+        },
+        {
+          "widget": {
+            "name": "advanced_options"
+          },
+          "shape": 7,
+          "name": "advanced_options",
+          "label": "advanced_options",
+          "type": "COMBO",
+          "localized_name": "advanced_options"
+        }
+      ],
+      "flags": {},
+      "id": 10,
+      "type": "RH_Translator",
+      "properties": {
+        "widget_ue_connectable": {
+          "prompt": true
+        },
+        "Node name for S&R": "RH_Translator"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            4,
+            8
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "MASK",
+          "type": "MASK",
+          "localized_name": "MASK"
+        }
+      ],
+      "size": [
+        318.59649658203125,
+        327.8259582519531
+      ],
+      "pos": [
+        -1066.329345703125,
+        -185.45028686523438
+      ],
+      "widgets_values": [
+        "79a51001d328367cc9d89408a61b370645858539b5b47e77b8df5baff548fce1.png",
+        "image"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "image"
+          },
+          "name": "image",
+          "label": "image",
+          "type": "COMBO",
+          "localized_name": "image"
+        },
+        {
+          "widget": {
+            "name": "upload"
+          },
+          "name": "upload",
+          "label": "upload",
+          "type": "IMAGEUPLOAD",
+          "localized_name": "choose file to upload"
+        }
+      ],
+      "flags": {},
+      "id": 8,
+      "type": "LoadImage",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        315,
+        270
+      ],
+      "pos": [
+        -1073.5699462890625,
+        226.3849639892578
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 8,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "label": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "filename_prefix"
+        }
+      ],
+      "flags": {},
+      "id": 12,
+      "type": "SaveImage",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 6
+    },
+    {
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            15,
+            19
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "color": "#476947",
+      "widgets_values": [
+        "这张图片展现了一个沐浴在柔和金色阳光中的奇趣微型农场场景。中央是一个软木塞封口的玻璃奶瓶，瓶身标有\"Shin ran ran you play play AI\"字样，高耸于正在吃草的黑白花奶牛和小人偶之上。身着蓝色服装的人偶仿佛是照料奶牛的农夫或孩童。旁边坐落着小巧的木制谷仓，四周环绕着葱郁青草与斑驳枝叶。背景中梦幻的光影与虚化效果营造出超现实的梦境感，凸显出超大奶瓶与精致微缩模型之间的鲜明对比。"
+      ],
+      "inputs": [
+        {
+          "name": "text",
+          "link": 5,
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "flags": {},
+      "type": "ShowText|pysssss",
+      "mode": 0,
+      "bgcolor": "#335533",
+      "size": [
+        397.18890380859375,
+        211.11329650878906
+      ],
+      "pos": [
+        -272.58349609375,
+        267.1352844238281
+      ],
+      "id": 9,
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 10
+    },
+    {
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            16,
+            18
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "color": "#476947",
+      "widgets_values": [
+        "The image showcases a whimsical miniature farm scene bathed in soft, golden-hued sunlight. A glass milk bottle with a cork stopper and the text \"Shin ran ran you play play AI\" is central, towering over tiny figurines and grazing Holstein cows. The figurines, dressed in blue, appear to be farmers or children tending to the cows. A small wooden barn sits nearby, surrounded by lush green grass and dappled foliage. The magical lighting and bokeh in the background add a surreal, dreamlike quality, emphasizing the contrast between the oversized bottle and the delicate miniatures."
+      ],
+      "inputs": [
+        {
+          "name": "text",
+          "link": 7,
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "flags": {},
+      "type": "ShowText|pysssss",
+      "mode": 0,
+      "bgcolor": "#335533",
+      "size": [
+        397.18890380859375,
+        211.11329650878906
+      ],
+      "pos": [
+        -267.71533203125,
+        -178.2598876953125
+      ],
+      "id": 11,
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text",
+          "links": [
+            23
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        478.8042907714844,
+        88
+      ],
+      "pos": [
+        -688.0140991210938,
+        733.4270629882812
+      ],
+      "widgets_values": [
+        "翻译文本     Translate text\n\n"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 20,
+      "type": "JjkText",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "JjkText"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text",
+          "links": [
+            22
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        478.8042907714844,
+        88
+      ],
+      "pos": [
+        -688.0140991210938,
+        633.4270629882812
+      ],
+      "widgets_values": [
+        "解析图像-文本     Parsing image-text\n\n"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 19,
+      "type": "JjkText",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "JjkText"
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text",
+          "links": [
+            20
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        339.0192565917969,
+        178
+      ],
+      "pos": [
+        -598.0140991210938,
+        593.4270629882812
+      ],
+      "widgets_values": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text1"
+          },
+          "name": "text1",
+          "link": 22,
+          "label": "text1",
+          "type": "STRING",
+          "localized_name": "text1"
+        },
+        {
+          "widget": {
+            "name": "text2"
+          },
+          "name": "text2",
+          "link": 18,
+          "label": "text2",
+          "type": "STRING",
+          "localized_name": "text2"
+        },
+        {
+          "widget": {
+            "name": "text3"
+          },
+          "name": "text3",
+          "link": 21,
+          "label": "text3",
+          "type": "STRING",
+          "localized_name": "text3"
+        },
+        {
+          "widget": {
+            "name": "text4"
+          },
+          "name": "text4",
+          "link": 23,
+          "label": "text4",
+          "type": "STRING",
+          "localized_name": "text4"
+        },
+        {
+          "widget": {
+            "name": "text5"
+          },
+          "name": "text5",
+          "link": 19,
+          "label": "text5",
+          "type": "STRING",
+          "localized_name": "text5"
+        },
+        {
+          "widget": {
+            "name": "text6"
+          },
+          "name": "text6",
+          "label": "text6",
+          "type": "STRING",
+          "localized_name": "text6"
+        }
+      ],
+      "flags": {},
+      "id": 16,
+      "type": "TextCombinerSix",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "TextCombinerSix"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text",
+          "links": [
+            21
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        478.8042907714844,
+        88
+      ],
+      "pos": [
+        -688.0140991210938,
+        683.4270629882812
+      ],
+      "widgets_values": [
+        "\n\n\n"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 18,
+      "type": "JjkText",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "JjkText"
+      },
+      "order": 4
+    },
+    {
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            24
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "color": "#476947",
+      "widgets_values": [
+        "解析图像-文本     Parsing image-text\n\nThe image showcases a whimsical miniature farm scene bathed in soft, golden-hued sunlight. A glass milk bottle with a cork stopper and the text \"Shin ran ran you play play AI\" is central, towering over tiny figurines and grazing Holstein cows. The figurines, dressed in blue, appear to be farmers or children tending to the cows. A small wooden barn sits nearby, surrounded by lush green grass and dappled foliage. The magical lighting and bokeh in the background add a surreal, dreamlike quality, emphasizing the contrast between the oversized bottle and the delicate miniatures.\n\n\n翻译文本     Translate text\n\n这张图片展现了一个沐浴在柔和金色阳光中的奇趣微型农场场景。中央是一个软木塞封口的玻璃奶瓶，瓶身标有\"Shin ran ran you play play AI\"字样，高耸于正在吃草的黑白花奶牛和小人偶之上。身着蓝色服装的人偶仿佛是照料奶牛的农夫或孩童。旁边坐落着小巧的木制谷仓，四周环绕着葱郁青草与斑驳枝叶。背景中梦幻的光影与虚化效果营造出超现实的梦境感，凸显出超大奶瓶与精致微缩模型之间的鲜明对比。"
+      ],
+      "inputs": [
+        {
+          "name": "text",
+          "link": 20,
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "flags": {},
+      "type": "ShowText|pysssss",
+      "mode": 0,
+      "bgcolor": "#335533",
+      "size": [
+        369.094482421875,
+        283.5462951660156
+      ],
+      "pos": [
+        -234.92111206054688,
+        593.4849243164062
+      ],
+      "id": 17,
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        295.2300720214844,
+        82
+      ],
+      "pos": [
+        205.2957763671875,
+        594.5906372070312
+      ],
+      "widgets_values": [
+        "",
+        "合并文本"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 24,
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        },
+        {
+          "widget": {
+            "name": "output_name"
+          },
+          "name": "output_name",
+          "label": "output_name",
+          "type": "STRING",
+          "localized_name": "output_name"
+        }
+      ],
+      "flags": {},
+      "id": 21,
+      "type": "ShellAgentPluginOutputText",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShellAgentPluginOutputText"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        295.2300720214844,
+        82
+      ],
+      "pos": [
+        225.244384765625,
+        271.4397277832031
+      ],
+      "widgets_values": [
+        "",
+        "翻译文本"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 15,
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        },
+        {
+          "widget": {
+            "name": "output_name"
+          },
+          "name": "output_name",
+          "label": "output_name",
+          "type": "STRING",
+          "localized_name": "output_name"
+        }
+      ],
+      "flags": {},
+      "id": 14,
+      "type": "ShellAgentPluginOutputText",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShellAgentPluginOutputText"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        295.2300720214844,
+        82
+      ],
+      "pos": [
+        190.34329223632812,
+        -174.86895751953125
+      ],
+      "widgets_values": [
+        "",
+        "解析文本"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 16,
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        },
+        {
+          "widget": {
+            "name": "output_name"
+          },
+          "name": "output_name",
+          "label": "output_name",
+          "type": "STRING",
+          "localized_name": "output_name"
+        }
+      ],
+      "flags": {},
+      "id": 13,
+      "type": "ShellAgentPluginOutputText",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShellAgentPluginOutputText"
+      },
+      "order": 9
+    }
+  ],
+  "extra": {
+    "links_added_by_ue": [],
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": [
+        1189.1820072143425,
+        48.23769315625848
+      ],
+      "scale": 1.0610764609500123
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 1,
+      "title": "解析图像-文本     Parsing image-text",
+      "bounding": [
+        -711.1423950195312,
+        -255.07290649414062,
+        1254.095947265625,
+        297.9263000488281
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 2,
+      "title": "翻译文本     Translate text",
+      "bounding": [
+        -702.58349609375,
+        193.5352325439453,
+        1249.107666015625,
+        294.7132873535156
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 3,
+      "title": "Group",
+      "bounding": [
+        -698.0140991210938,
+        519.8270874023438,
+        1243.7244873046875,
+        370.973876953125
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      8,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      10,
+      0,
+      9,
+      0,
+      "STRING"
+    ],
+    [
+      7,
+      6,
+      0,
+      11,
+      0,
+      "STRING"
+    ],
+    [
+      8,
+      8,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      6,
+      0,
+      10,
+      0,
+      "STRING"
+    ],
+    [
+      15,
+      9,
+      0,
+      14,
+      0,
+      "STRING"
+    ],
+    [
+      16,
+      11,
+      0,
+      13,
+      0,
+      "STRING"
+    ],
+    [
+      18,
+      11,
+      0,
+      16,
+      1,
+      "STRING"
+    ],
+    [
+      19,
+      9,
+      0,
+      16,
+      4,
+      "STRING"
+    ],
+    [
+      20,
+      16,
+      0,
+      17,
+      0,
+      "STRING"
+    ],
+    [
+      21,
+      18,
+      0,
+      16,
+      2,
+      "STRING"
+    ],
+    [
+      22,
+      19,
+      0,
+      16,
+      0,
+      "STRING"
+    ],
+    [
+      23,
+      20,
+      0,
+      16,
+      3,
+      "STRING"
+    ],
+    [
+      24,
+      17,
+      0,
+      21,
+      0,
+      "STRING"
+    ]
+  ],
+  "id": "9314a0e5-3dfc-49ea-8bd6-700e619ce435",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 22,
+  "revision": 0
+}

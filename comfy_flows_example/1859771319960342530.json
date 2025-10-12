@@ -1,0 +1,1723 @@
+{
+  "last_link_id": 431,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            193
+          ],
+          "label": "字符串",
+          "type": "STRING",
+          "localized_name": "字符串"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -2525.474609375,
+        -809.1229248046875
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 96,
+      "type": "TextInput_",
+      "properties": {
+        "Node name for S&R": "TextInput_"
+      },
+      "order": 0
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            235
+          ],
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "shape": 3,
+          "name": "CLIP",
+          "slot_index": 1,
+          "links": [
+            64
+          ],
+          "label": "CLIP",
+          "type": "CLIP",
+          "localized_name": "CLIP"
+        },
+        {
+          "shape": 3,
+          "name": "VAE",
+          "slot_index": 2,
+          "links": [
+            269
+          ],
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "1.3.fp16.safetensors"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "CheckpointLoaderSimple",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        98
+      ],
+      "pos": [
+        -1414.561767578125,
+        -467.5040588378906
+      ],
+      "id": 31,
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "order": 1
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            301,
+            320
+          ],
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "shape": 3,
+          "name": "CLIP",
+          "slot_index": 1,
+          "links": [
+            268,
+            368,
+            370
+          ],
+          "label": "CLIP",
+          "type": "CLIP",
+          "localized_name": "CLIP"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "tcd_lora_weights.safetensors",
+        1,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 235,
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "clip",
+          "link": 64,
+          "label": "CLIP",
+          "type": "CLIP",
+          "localized_name": "CLIPCLIP"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "LoraLoader",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        -1033.31787109375,
+        -460.2637023925781
+      ],
+      "id": 45,
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "p0",
+          "links": [
+            322
+          ],
+          "label": "p0",
+          "type": "*",
+          "localized_name": "p0"
+        }
+      ],
+      "size": [
+        210,
+        98
+      ],
+      "pos": [
+        -867.31787109375,
+        -449.2637023925781
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "model_0",
+          "link": 320,
+          "label": "model_0",
+          "type": "MODEL"
+        },
+        {
+          "name": "image_1",
+          "link": 321,
+          "label": "image_1",
+          "type": "IMAGE"
+        },
+        {
+          "name": "image_2",
+          "link": 323,
+          "label": "image_2",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 122,
+      "type": "RHHiddenNodes",
+      "properties": {
+        "Node name for S&R": "RHHiddenNodes",
+        "info": "Z0FBQUFBQm5ZQ0VzSFp0NjRNZ0tndXdOc2FsSzZ3ZkFQU0x4UVBHUEFXQ0pydzY5dUxlaS1NenBScVI3dUhxRWtsOWNHVFBWZ212V1NZT0o0T0VaOWRJWml1aEhfUktyanJjTTBYTmZKVXl5QnN5b0cxb1ktWHJJdERyZEp2RDZ6WDBzNFpTNENyeHEtbDdDXzZEdVFnbXBRbDg5eDFzZERuRXFkWm56LUp2T0V2T3VHa1E4aV9SUm1HQ2VQV2ZVNmpoLTB5MExtcHhYaFhTYWstTHRyTndxWDhla2lEdHczaWlSeE9RdEZ6VXNYNWdIWTVJOVJSUDhhZERfQUltVFBaYWJuUzBqNHRiQkQzS2M0ZXB2OXd3YTBSN3F5MU9CM2FGRExQQ04yUGNqSG9tRHFuOHVaSGhzS1F1aloySVZFdW81OWN6SUdjaUl2d2NNdFVFTUhGaEZnNl9VLWZCSXBRS3JLZGVNUjVCRFhoRVlHNXpjUXFfYjQ5bndRcUZqd240VkV6cEFaUlRTNFA2UjVub1lZZHJMT1A5OU9QTElfOVNRNDNMSWYzV01YWTh3VGJYZjc4TW5OQWRoS0ZfLVI4MkdqNWdCOTlJM0xLS1B2VFlLZXdyb0VtTS1xNkFSM0xBWlY3Q1hNQXg2MGhMb3BQSmRFbEtSSEtuTC00aWVheGw2SzBDRlB2WUVfc3NvS2xWTXF3d184NXc0U1Y1UTZYTXhhZElpNm9QSFZjYnFOUTVCakxGc0U4Z1lYWTc3QUpXWTFIc29fVjkybUdER24wdDk3Y0xrd0hWV1BOUnd2dkVsVDc1emtVV0xTMFRQdWVlbEJTN0haQVBBQjFmQUtvUEJTYkpJWlplNjd0TkYzTG1QTEZZQ3lIRnBna0w0UjZQTEFobk9FTnhyQUNyREtLLVA2Y1pSZ2RjQmhSdFhXcHJUSl94Q0xmTUlXZFlIaGpHNW1vbV81SWtRQjFxRkhZRVN3NHB5dmszM3BiUmx6aUYxdGJlclYxYjJlaVNtUXBOcWM1TV9DUzlkQ3NXd1pJQ3VhaXkyMUJLMHgxa1RmMnhCNDFSQ2xmT2s2TnN2bEMwc1hsX2tfUlB2QVlDend2bUYyTTlaU1RhWF91MWdLSVZEMU56X1FrYkpiZGhvMTRHZU1JLUFGUC1wNE9KbzFRX21QbG9hMFZUd3FHMGw3V1NHa29lRXdfeU5fd2NiUnVjazdtWXVwVVFMZ2JDam8xU2ZWQkZsUFhxUkk1RWlXN2lhcGxJQWU0R1Bta3hWTGVyN1JEN0N5eU1QRFFDU0g5U1B5SmVKYThiUERKZ200NmlQbENod3hDRE1YVWZ2Z3pzajU3Sk5JaUJVb1ZzWFJzdWo5cDR1a2RUNVdPWlBmbWliaE1HRHBhcjJ2cFNJeWpYS0xpRVpYLVExVEdJeDJXSmRfOU56ajJfOElvdTdkR3JmRDRHck9TMms0X2NhYTZ1ci00WDRNUFR2NUNWOG93TEtOenNjVm4td0Q0R0dUWjJmX2E5cV91TGJPVms0TmhiMUN6NGJnM1J2LUxUNlFac2luYVVwcFhIOWpXTVAxMmJIbW9ZNFFlRndsN1p2UEtBelV6TXZUZHNSeU55cnRpalk3eDlsZVY5bTRUT1ROUnR3Q1pQWHlPM2t1bWkzczA3Y1Z4UHRjUHhLN2ZjdGRBcnRYZ3BpcjVLZ0xWcC13UXBuQmJyQWFZMDNIZS1WOHg0RkdDZWpBRmt6QmcxMldxRnNkQlNEc1pKZlVsUEE3eGg3c0xCTDVmcGRJOEpYdnhwYUNFaGkyOG5McVVFS3dDbjk3U2ZCWkpnQUFIR3hRYzkwMmR5anlpd08yOXhMOXcyQ2xlVkxIazFscXlsNEFtT2NPS3N5ZkktNUZYdHJINXBWV3lxN3VweEI5MW1rWVFRR0lndjRKQmtKLTFVMGlfaEloUlRDT0hnb3BUUC1rZC1qYUYwS0NXRU54ajJQSGdnXzJseDdlZEUtRTEtMmx4SjNiM3QxQVVTUm1aejZaRnNBeXp0aFFsWFN6ODRIRUYyMEJ1NlpEM1k2YU9YYjdUeXFhcVgzM1p6eTFLTWtzTWNvVjV3Z05MWG1kcm56VjVVLU5hS2trVlowSGpheXVYdE92Wm5ITG1JU20zcGRzMGxnVzNNNDI5UlJBMVc2cUZreWgzTzFBX2ZIRlplbWsyeC1qTzRibmV0d2F5T1dobkRmS2VpX0dVU1ZZVTI5djhvQkw3Ylowa0swNUdUTVZpNl9SQklfemxVMnJuV2FranlPQkpBcThGVEpEQ3RKVVNNdlpkRmtlcjQzN1p2RTBuTDA3aVJXSXcwZXhuam0xSEpuUjkyeHhucVJnMWQ3VkdTNV96bkVDTGtXdHZrVGVqbkRWdVROc0FUaGpaUXE4b0pHdzNzUGFNZkx2LTNvVU5qZmNlNHBVZm9xS1MySlpILWs3YWZaMzFzV0gzREFGOU1XNWdiY2p6NWpfOXptbjRWZS1qZFZidVg5OVZ0SjZXOU50a1lYVkI2bXc2RENNLTl6RUVGSS1iOEFEcndqVUxocEZ1ZGlzdDVQUVhwYW0wM1BUdmpuSkpvSGE1WHEtMUVFRmJwMTE2OG51R29NUXFyQ3hva3FSVl8tSllERXZJVnFQZHkzSWY1SW1HYUhJZ3pCaGVhd0xvbWlUY2hWUG12aWdTM1o5MmctVGJJTFYyVWxDcy1aWWR6M1c1a0hURUlLQ0V0Zlg4dlhGUHlST2FCSEwzRVZPa2xCT1VNVmFHZENwenhvNkVjN0xvWFlJQkFVSHdBbDBzcjdBQjJsYzhpeE9OX3Q3X0dQc0dqY3pJbl9hWVNJMndrMHBXVWlqaTBZZUlPTzdJVjRieERtQndtWm1rSkd1eWlraEV1VGhGcWVGVFpNc1lfWFNaUTNyVnVEN3g0TnUxVHoyUXRfdWdTeTI5M3gtVG5fY2tGalBMbGFPU0VQR3JZUFkyVGlLRHZvSnVVY0pDTXpHem5EVXNfVmZBOFdwR1Rxc2w0TFBZWW9SU0NUMDVPSHRlTWlVN3lqMGlqRVpBeThDQm1TOUoyUWlyTGJ2ZElNUnF5cGNoTk5XNVU5NE5uNzZ0TUFVSEE5dENTS2NkLV93dGUySTR4T19iMC1mYWd1ejk4eVJRYUR3M1ZickZGcDdaek0wVWdLenNSbUZMbVpIeFNaRlZvbjVBMVpFQktTMWJZLUFJWG1vajUwQjBSUlpobWpQdzBfZFhJQVRZYnJSRDBUWEExLXJTTl9IRTkwczRIeHF4UzN3dHVHaUpjZmRDYnJzNE04amZhSXJRQU5BUmdmckY2ZFU5S25KeUxpVjdnbzZmZXM3N0RwUUNZSUROdjdpSzRLYWdnTkpSb01tQ1Rfa0NURHl1eVdnY0FlZWJCcWZ6Q0hYaHpPSXNUUEczeldWMFFrb3pWNUh4ZmJzcXFhOGVpSGc4RHBISGVpTWNrU2tmNzc2Yi1qeDRlaWtZaW16RTR4V2tCSmhxcnBsS0psQnZ4MWV3UndTR081cU5tOVlqSEJRdWUxRkVmbmxlRHlvV0Ric3FxTUpWV2xLdWZ2N05tN2ZtVUs2dTZpUWpxNEM4QkIzZ3BsM0FXNkxmc25MVGltcldJby04WHdHT09PQWg4Y0tUR0NtVHUxRnBaM0REaV9vSmUxOGk1ZlVzTTQwbVppTUxPSjRQVUJGQkRBWHJvY2RxcTd6ZmVDczM2R3BDel9ac25LTnRfMU15amtGcXVkQkJYRHZuRWNLZ29LU2NOOF90dHMtYVZabi1Ta0h6Q29iMWxnTzZacDE2VzktdTdSaTBRcVJ2ajRRMk9oYXExZzA0ekhnMjVMM3FaMWNaNWJyVmoxYkRveGRLVG5sWWxjMW8zcmpaekU0UndTVi10S2o2MHlJenFNcVh3RDJnVVA0VHl3cDF4NzNIRTlDN0VvVmFsV25SRG5WVWQzbkM5WFYwM2ctNzFHREY1dlVNM1dzVXFBUzYtUmNndTlobzhjUlozM1BUZl9ZUFlCaVpjZkpVbjBWRGVMT1pCZWNxVUYzbWR5MFFrYTF5OGd5dnhqdTRBM2drWlJ1dWQ5a3h6LWwzOVM3c1VWTVdCQkg1VF9faVp2dWlYOU5fTEJYNXNldHRlQmg4TkowSVF1bEhWQVpxcjZURmpOcEJiTTRzVEIxMFA2TU9PVTVNVVQ2UHVDa0gxZUdNVHZvZ1JIbldpSXdxbWhjM0UxaER3S1VEbWFEd3d3UUVwY2M5d3h5NW5mUEZGTDd2eDVBdWYzUl94ZFVialRDQUctYkVEcGRoWTB3ZlhCSnN0ZVJnTmRMRzJUME5kZjNQNEotSTJPVTFiNnRQMngzQnVPc3FWVmFkT3NJN1FDaXF5dzdjQTU5bFNSWG11ZU80NTZLekR5Q2NfemtQdFczczc1WFBmVzVLY0xqVU54UUUyR1dpcEN5ZGVsN0I5SEN1eVcxSG01OFdwTEVySmJEWTlpbkw3Qi0tODBnb0VLRjdVUmR6dVp2cE8wZE5mcE1rV003MmxlRXEyT2d2ejJzVVRsZVVseHdXdGpZWWlmeVJCcFh6RTg5RWNyNFJNLUx0QjdBdHVURXpFcThZVWJwMnEwSDFFWm5pdEdSbzFCTUE1eGtaYzdGTzl6RUhPZ3JZV21ZUDg5NzJxVVlIeEJIWV9md3FZWlFDRlJxVjZfa2xOTXZ3aC16MlFCVVJpVGRfVTQ2eV9ORWdfTlVqaWp3eG9XV2hJa245aENwend1a3NRWDAybG5zb1RmOGNJNV9uZmRuMHpMSlYyZkZHV3UzT1B2MHpxSHlQYjR0ZHBKWW9Ub3N6WDduUlN5YUFzd2RUeGMzNi1jV0Vtd0Roc3JnQ0NSSzJENG5DcjFGaXZMeFU1VDg2UkZJemppaXl2YUc3TDRSUFBRQXFfYnhZYWQ4bTFpTG9NWUdkUTBaMVpCeHVnWWlpcFBYa3FSNmpWcTlRQTF3Vk43d0xvMTJ3X0FYR3lUNDMxSnVCMFNjMDNYSjUwY0pGdEtYWThDazJVMllhRldjRk9KbUxTQVg5eDRQUTFDVjAtLURrMmYzM0pCUVRUaWdGcGZlVl95ckpTb0kydU5PWEdvdi1PQVRhdTlCVWV5VDRpeUhCa29ydTAtb2JTWkstcEZJZ2JEU2MzVGlFMTlHc19pOXdhLVVVbTM0QVRkTjd5emRJTXJ4X0JuZ0tVdmNLRjJKY2J4U3o2WC1UU2F2VERZVTZqNnBuOU1tLWhGdXl1X0xQMFlrVDdLd1l5Tm1fSU9OUFRvQWRuV2xZeW9lNTdBS18tcjRIMF9QQVpEalZYUTdCUmNJVVV2eXVRb2ozbkNldnM3MC1TUksyUk90VmFoZGlFbUxRX0FOUGhUM3BTZnVGNDZDVmYxMHdDbmc5aWk1ZFVxV2tpc0NnQXlPbEg1aGpITUxUZTdPWTlzTThUWlJ4MWRrSGQ5ZWsxeW94ZlBLNDlTVElFUEcxNE12MTFtaGp0Y2lpaFN0U1p4cV82ZG1xMHQ4UWVVdFNrZUx6cDlacy1GTENDLUtwWFpETkZlTXc5Tk5yMFBFSVRHaU5MTDA3a3N3bjQzeEpTTGlVWGcyR0w4ejRueDh2QkhSc0pUeG1jT3dMc1R3d1cyUnJTUHJjNHBKbWpERmNtcjZoWnhoZ2JmLXZLWmtTTTFLc0RGcWlRUTgzR2VaSXI4S19mUFRfWGxSdWhXSTBjZ0ZZMElMc3EyUFdZUU16bjRjRG9BTGExakw5ZEUxaTFtMWc3VjFDVnpyZktfTW5BSXBSdnE2dWZ5MUdxc1RCdEhxQ2wyN1BGUHNneTQ0djRncEpJNF9KSDNWUHZISFN1TElxTVhPUWUtVUMzYk1ZN1N0VFF4eGxhRjU3Z0I2a1ZkSE15OUh3TG4xYm4yZk5tTkJOcHZhOGlqcUpuYW14WUFsSGlRckQyY3NwQ2M2UkNvV05uMTVGaS1VMmN5Yzc1M2Z2SU02d01pLXpuVTBpb0xySW5TenpBTV9hR3JnUmNsMjlrNkdTZUt4UEstMVVzZERoLXdPSlNyeVNud2FndzVkd0t3enJBYllQdmNOREtnYU5wQU5wZXFGVFcxYi1lSF9pVkRORDRfQmdXWGR1RHE5dUJOOEhCU3I2WkE4aXdvdlFhZ0Y5TUJLSG5ES3VTLUlJZjc1U3E0UWVMYUxqLVpLWnNKZDM0dzBldHFoZ0VhWW1nS2FxWXVSTE93N3QxQWlTRFh2aU95NmhNNWlPY1NaN0FNU1BoaFpoNmNPSWg5d21MMHQtMUJ6dklpbGJQT2FBajAyWTBuOWZZdWd2MmVaZENPX2RIcFp2UDVFRnlyUG50dFM3VEZSN2xtLTFMc0NWWnBYX3huTE40Q1YyamNSa2dXQ2JTRnZnZWtDc3JRaTlYajdkdU9zNlQ5cUVwUWVNS0hCZVdUZ1FjXzZDSGtuNlpybGxxSUI1QVRzRkQ4bUhIZlV5TjBTUGhwRWlaUkZVU2xHM1RkVDVlSWNpWTBOTlN6dFZRQkxDb3NsNWFxMVE5OTJFR3BpaXl1SDRfYlNWdzNWV1BPZnRIWkVsUXBlbzZfck1QOHBSUHp5LUpBdEpIMTRIZXBzNzBmNUtuVnE3V1dVazFoLW5jZE83U1gtUkRKa0lrdmNfdTM4WW15UzhkRHBpLW1EekZJdDR4ZDNwdHAwWHhiZjZFYzJhczhyUU1CWkZZcFFkcTJXWi1UNDNkV2hUaE9iM0xTSm9MWFVhN2Y1NG5RTUNqaEFVNEF0VllSWU9FTTFkOVR2WFptWmFyMEpHTXM5c3o5eWpuaGR2SEJ2dnVvc1RNemFoeURxcFljUk5EcGVFOUVjVEZjWWp5Tk9xNklvbENWN3pmcWpxS1ptaXVIUk42MjI1S292TEgzRmk3X0hNZFdKRzE3NlJpY0lVNk5NZ0RLa0hIekZ3MHN6eFVwRmRQMDRNVmJwdlNqVUREcnN5dWY5MWZ5SDZ6NHJfLXd6eGl6MEU3NG92U1VLS1hLWEZJVWJBMHNIb3ZHc3JXa01PbmMzU2dNR3JTLUNTMTBqQXRPZW9lQ1p2MG9xU2pxdkUyaEhIMFZueDQ4Z2xkWjNaTDBnSGNLRldhREF4R3U1cGlyR1EwXzJRSFNwX0lDOExERENPalRHM3pzbFUtNFpMQm1Oa2xsUUVvWjBYY3ktZTBKbEZGM1B0M3Y2QzYtY1JFLWhUZjdhb2h0eGJMTS1qWkd6aVloV2puSGN3dld3Tnl2RUZ6Z09ZbEo4WTFHVFdpVTNJOWw0UGhXMnZDU0huV1A4Y24yazlpZ2xrbE1EYUk5aGU4b2tiQVA0eHRoajZEUUpodmZvcTJqc2F4RTFFcF9mQzg0T1EyM0FjV05CUXRzNzREbXBDR0llWVo1VzcwV0VsUVF0SzNGLXhKdGZxWllHVzVsdjFnMmI4VUZqWU9ib2tRUnc4T2RZV0xjdWpIcnM1YXhyR3gyeG1xVGd1N3ZIcXpBWTg1NW95VlpfY0F6NXQzSU93QVE3Q1R2b0s4amNnM0VtdkR0YmtnU0tUdmFzS1B1TC1xRm53OE5TQXh1ekdKUW5kSEcta2hkXzRoeV9wTEgwY1BrTjRlemluODRWVVlTWXMxYVVqbFU4alc2QXRZaGZCamFlOXdvU3FJTGJWQUYyb3JrNG1taF95TTJfajc4VWkwa3BZdVo3dFBSek02OHdvWi1RVW1DTHM2NXJXVEVvV1pQNEZsRVFHZDBEbGdMZk1oejczYVplQjdvWTd2VGJ4T1dyX3Fud1gwMU82QVB3TGw3Q0J4WFZfQjlRdmttRi1FWm5qeVdsSUU1OTUxU1NVZHJFYTR3cDUxZjdVYVJPN3NDdFlmak51S1BLdXFzM3I3T3ZiY3BQUUxWVXJFaTZPVDUtYXBqNzBZaW9uWTNiNDdWdERJZkdRLV9HX0dfZ3Jpd3gxVlRQWUlVUGtZcGNTNmRfWml6YjlGRWpwNkxJYnFCRVlsV1g5Z0J4dTB3RG4welhGOHYyQUlreGNUV2RueFNia0x0MjlvQW5yMHRiWlRwa3BEcGpON25Ib1FBZXFDMmZVTkJ1dUZNTzhLeDZmOVBwUHNSeldseXphUktxNTh6LW1qMllmbnJ2MnM5MnJSZGdrem9lalVQVFhBTDg0dHgwNU1LcEZxdFFVbUpGbjMxOU5xOTBjazZIMHB5a2Q3THBGMnlSTFZKcW84RlVBb0dqcEdjMUJWZHI0MUlwU0J0b1JXSnh5bndpM25CYmJfNldVZGVQY1gwNUg3RlNGT0ZxWWVWdEx0bVRXV25sdlpvRmluMlZISmN3aVpxT3M1Z2VXek1GQ2tiN1A5Y19Fd0dwOEpWMXF3bDZzYXhGVXgyTUV1ZzdqRnJONE5ORFN4aWNkU195QmdHUmRfNWlYWHVZLUprQUJZa090UmJma2xSQlBrTXZES3hxTWJKVWF3cnJ0U185ZW94RmNUd0hpc3JMOUFhelRMejVsaVdEMXBKZXpUWTZZN2J0OFBvcHllVmVaMHFDRHlEbmx3TmlCQkotZDVEUzRKQ0NrRWZFNDU1X1Q5WlBBMDVJT0EtT21NQ0xqOGVoc3hwd2Y2dmwyMjdPTUZXTjhLMjl1dnhSUGl3NEtZR2kxWUZBTnpxekVKVHdUdmF2dVlmcDZxc3ZzVUwxaFBXaFFSM2ozLUowVnhRMW55SExpazhHaWZLZ25OLWhud1phY0hUQjBNQkFjTHNUYlZ3enFDTHpmbTRDUVFLX0l5bVJkQ0Q2dmhrcHJzaXhQOE5Md0FfaUZUdld1WG1jRzdDT2o4aEt2VHpNV3ZfT0R5NUgwaDdiQXo0Z0RIeXRjdFZqdGZLRWNoYmJRZU1mRnB4SWFGd3NHeDhEemdHLXEtN3FGRkJYenN5V0NnR29EMFM2RTRuanJVTFk5WXVkWHRPYkxTcnRuTHUyT0tJcEpnV3IxVXh4X2dGdmJKQXo5b2UwejhyY21aQjhncWNyby1RWHZ0dkpBdlRHcXVqWmkwU2RLel9pNTNNTERScVRuQ2xsaUN2NVhYWkM3ek45SjVIZ3NaLUJVTDJRM3o0Qkl4czVjTVJ6WWRWTGdsUWVtTkI3VFJKa0VBU3gtcjI1bzBweFlwMjRyREVXS0FtdkNyb1R5VUxSSTlLb0xTdXNGc3dlaFhEWS1PMmZJNjhOdXRQLWFPMm1zYktyZGlpRm0tSjRvN1VIUlI2SUMzSkdrTXlkQ044WVdoYTJES1J4ZmdGSFhYUlByeElVN2MwZjlvUXBOc2xHczJWS3VCTHNNVFRIelAxR2tMdktXcUxnQ3k1Zjg4OEFNRk10SEtPd0E5Z2ZSTmNZRG5XaHZRNTZyb044bFYtTEY5Vk80NXBJQng0RmxuTmhYWERhVnlGdXdKZ21VSmE2NjZSRnlFZU5jT3dsVlFydlA4Q1M2YVFTT25yMENGSTI0UloyUV9RVHRkdHlNb2dPVEladUVsX3I0WGQtS2QxYlI3S0tmX0dzQ3U5eVA3VXVxSE95aEdUckZfeWZvVGd2YVR2cUZxRnBkMTAtSE96WDY3M281cklZcWxndmRuYThCX2dQajlUNGlsYkMyamZWczJURVphQWFWb2U1SXZwdGR3NmRNYS1WdzgwdkhacWNmay1vSHZDdmFKdlRKZV8xSmZHRHpzSDgxTWFmTk1zY1JYcUFPRkNJZW1PY3B5YXF3X0prc3YxeUhybWRxNGJpcnhoeXM1V1Y3U3RuWExYREd6MjdaSzdJaHlJeUEzVGt1V3JmQUtZdzcweUl0Ti12OGU1WVl6MmJMak9HSElZMHZYVjFRSG9rTUNGT0F2VE9KRldNNzEwMUtuaHVWZmc5WWFIMDJ1Y0hUQ0MybHdWZExtSFotSWlpMnVRa0ljUnd1YmVWczBPRWdNdEN2OE1DdWVXMHVEVHdnZWk2VUFLaDJNcEFVUk5nRlczbkZpR25BZ1c2TThJblZIUENVLUY0bG5EenBWSS1xQ3Jza1MzMmw0XzJjNUZRVkVUUVN2dExCeFZmQzBwSm1KSmhmQ1NDXzdjT1NFYjBUMVFnVjdqRWZ3bWRab0pKa3ZVbTU3M2xqbzVyT0V3dkQ2OUIwaElkTjFObzZKYnJGbmRqWWlZLW5rT19EZnlqY2Vxb29JQ0xsaXdBLXZYRHJEeE5vNzBoMTdUS3BGaE4wVHE3N0QyeGx4SHVLN19BYUN5MGhvZWdHcjlhTDdlNHoxdFFSbzJBQ21LMHR0ZTJWSmpWSVpicVRyZ2ZMNktjMl9BbjN4RTV5amMxaEZ4blJtQ1VfYW9sdjI2VnNVYlFfTUpicnhZWW5uc3Zxd2dNU0VWUEZQNWZmcW9MQVJBWW5sUVBoRFpBNDRBLVNEM2hTdE5TYS05MU1wTWZCWmZoaE9BYlY4aHVIOWFndzhxcWV5RGpCYmVXQmwtdWVOaDJtSmJqUDZ0ODR6Y05ITERFd29rakRYbTBTSWN4My0tNlM0eTdHeE5hZnlhdTZ1bGJ5bDEzOWxzcUpsRzJ1UzlJRHo1Ymx2X0pnbkFxR3lZcm1oS2FaRUl0U0RCV19aM2FUNU1hd1JiR2NLYWxhUVBPekxEZHFicjlmRGx3QVlxb1NqYUEyVThTY1Q4RmUwUm5tOGhuRnhBY1BGTEN0Y2x4eGlCODZUcFYxcHJBOEx3MmNTQzNwU2lLVW4yOFc3V3FjM19sV3E1UENiZ0Frb2JyZVl1eWQ3MWwwOEEwUFI3aXM3MkxVbFZoa2cwTXRGd2dMQ1Jlb2dyUG5TTVYyTkJNc3dzX1pselpncDdsdXB6OGlTM0E4YnNLYUlNWUk5bmZEQUF6R0h6ajROYl9aX0dCdkpSMDFiQzJsN2xSalJhamg2VkpkWFR4VXBUcVdXVmdUTXZiNFF1ZEJJM2tueTdUWmFhalFMakVHclZPRjA1SmZQZ0tHZHRGSXNjSjFMV0xEVXRSdWdQT2wxMHhpUVhKSHlRRTVEN3EwN0VGTFlqQ09GVTRkaDVBOFUxQ3I2MXNCd2REblhPeWk2OTFZOXRFdGxfdXZsQ1NsczFacFVCNjVXU09BRHRQb2RFazNRNldjSU82Y2UzbzZoREc3RFU5eHQyUTRvSmhxalc2ZzBrNzN5aXk5WE1CZC1ReDZIWTZRZ1BQV3doYzJJNE45WFM1NFNnQlR5UTlsVVZUQTlXcnlZNmJCa0ZDelF5Z2NnTVc3cWJoY0hFbGV4OUNqWUtra0VYY3FVX3Q3RzJYSlZrWlFGd1g1NFc2R2JOeE41Z2gwN2FEMlpZaEItcWJwWkU1dU1tSzlGUXVCOTFUU0FPUWpvcElGU2tReDFaWnp4OVd2TU55MHJqaU1JN0FKVWlRTFJnZ3RtQUFIZzFhVG1QcnNPRTBpc3JXWHc5MnlVamhOSEpUemhCTW1SU3RMWGkxaTEtZTgwOHdJa0tOMWNKOVdHSzBOU29DdG1qVkRPZ01uU2NzSlN6RzI1NlBZbzZpMmZaWHgyeVhQa003eERHRW16RWdGLWhoUS03aVBSWHg0OUdpSFByQzZnb3NaU0pPdVM4eWRRWVB4SDk1eHVqaGoyNWtTMTZ6Tl9hQ0pid2QzaDNpOXlndVdLVnFuOWJaM19BTnNoM19ZR1BqWEFMeUd0azNwZVh0VDVVbTZUeW9zcVpib1F6eTFGMlpPN1V3TmswNGRSVmRUUHNvdnc5NGN3Y2gtc1NmYmRla2E2aGNINFN4TjdKYmd4bS1WYmVldldOdGZMaGtrcHh4UFdTSGlvMkxOSUF4bURkN3BMQ0hwaWFxMVhDUVB4bVpqUnE0bWowX29YaWMxQk04OEIxM3gxSzh1YmJBVVJBanJpSXU0R25DdFh4MUo5elhiRlNfVUYyYnJybXd4WXpXWUdka3lHSmVpSUk4bklEdnQ3Wl9qeEpYZ2pYaGZENHB4ekJyZVIybzF5cTdsd2htZUFvam9NdHdEN0UwZVZxNGY5VlN2cWRncGZmTmhKd3NpZnJTd3MwYm9OV0FfLVkzWElpc2xHdU5JS0pXRjRiTEZpNVZLX1RfcDZDcmstTXV6N2lHbHVJakN4LVJ3d1p0bl9qQ2RZTTZFTTRRTEF2a1BIMlROUnRWZlZXWVVCUjEyT1hZMEJhZlM5T1RQTVdZcUVaeWNzZUJkZDVKaWcwZUZraDN4NVc4SUJ1bFlkcVgxY1FBaXpNaXExRmF5QlJEMUlGSUVJRkFuTWZZZnV4OGVPSTk5b3lMUDlYb0lhcVVJdk9XbWY0NE4wemlSdThua0FRUTg5eklvaHZEWEh5eklKd3dKOFdxNFZodG44RDZpMzZvZz09",
+        "ref_info": "Z0FBQUFBQm5ZQ0VzamJUaUMwSVQxYnhXS1Z2QWlBSktWNHA0R1lZWVVWQy1VcHZpOW1CQVJwMUxGeVJCVXlkMWNJQ1Y0a20xdHd4RWVsNUU5eEk5R1NUTkR2VWRIbE9LWnc9PQ=="
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "p0",
+          "links": [
+            374
+          ],
+          "label": "p0",
+          "type": "*",
+          "localized_name": "p0"
+        },
+        {
+          "name": "negative_1",
+          "links": [
+            375
+          ],
+          "label": "negative_1",
+          "type": "CONDITIONING"
+        }
+      ],
+      "size": [
+        210,
+        158
+      ],
+      "pos": [
+        -847.31787109375,
+        -400.2637023925781
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "clip_0",
+          "link": 368,
+          "label": "clip_0",
+          "type": "CLIP"
+        },
+        {
+          "name": "text_1",
+          "link": 369,
+          "label": "text_1",
+          "type": "STRING"
+        },
+        {
+          "name": "clip_2",
+          "link": 370,
+          "label": "clip_2",
+          "type": "CLIP"
+        },
+        {
+          "name": "strength_3",
+          "link": 371,
+          "label": "strength_3",
+          "type": "FLOAT"
+        },
+        {
+          "name": "image_4",
+          "link": 372,
+          "label": "image_4",
+          "type": "IMAGE"
+        },
+        {
+          "name": "image_5",
+          "link": 373,
+          "label": "image_5",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 125,
+      "type": "RHHiddenNodes",
+      "properties": {
+        "Node name for S&R": "RHHiddenNodes",
+        "info": "Z0FBQUFBQm5ZQ0YtN0xJWmFnaWdFWFQyRW1lZi1UVzUwME5ocDRxRnFvMEljZ3RXS0p5ODgzT253VElrZjJucmd5Zm4wUVJQNXZPbmQ3UEt5MTNZN3JZX1Z6MXh4aTI0Qlc2WTNVUXp4R2hISVNfUEE4Vl9NeUxJWXJTckdOWW1jWE5GWFFyeThjVkx4MnpKaHd0VjU1dWtveDFoaWREbGFmb1ZGS0x0R0tSdnV6YmJlT0drTW84NlExUFpQX0ZlZGFpb1ZNSDB2dm14VDZxNm1nRHhLa2xSdnlqWUpDODJDT3lzUUM3QWVfdVRrRmJnVVZJTUowSUhNYkNqRE5Dck91Vi05SUNBWVhIXzlVSDV1ekE3YUZnUVB6QTNVTjVmUnhNcW9GdEdkbUQtak5KX0psUlRiZDVtRXRhMGZfV0lUZVhYekREcUl4NlB6bWs4SFBRQXNiTV9FMUY0eWlkNlhKSVB6SUMxQzN4UThKSnl5NE54RnNuNG4yUkg0UkNWZGpVdzhGbUxUWl91UF9oM0xlQVRPWWhTWktVaDJCRUJPazFsYWluem5NMkRjRmFTLTVJM2pkT3VWLXRXT2ZlOUs0TlpObGlwSmxJemJxbVUwSlRnQkJiTmpZSzE1TWN2ZUJkS1hrdkN0Tk1RMG1WaUR0YW1EVEJQWm1tMnZLWDhQbm9RWGtYNkxlLWVHSU1GVnMzbWUwNUdwcmNrMk1wS3ZCNV9aU1A0U0s1NHFBR19mTE5ONzZJQVE3RWxNd3gwUmU2cU42aS12Q2JYSWZxdTRHQXpFLWVHa3BCTTBkQ0xtdUY5Y3Q3NF9ucTU5NDc5QlVkemdRYkkzcGliSnhJM19fSzFieFBvc3ZQSzFtVUlhdGpTSW5ack52b2tVT0lUQzd6OHduYVJxVnJBQ3lqTldTT1dzSXo2akZxdW1RbjZua0ROeWRnZzVBbWM0R05FSkp2TEl5c0xGeEo4VTlBNmhGckZVdHBtSUhvS1FjdWM3NXdBUHhGajQ5SHE5cF94XzlGWmp5dDg0LU92bC1fMnB5aVdYZ2RhQ1JrN3VqdTBlSVF5T19aLW4yOFZfSEJKMFBlYXJNMnZSYVo4NWgtbS01a3J6VUdUV3NZYUYxUEE1YVVHUWFPOE9XbU41ZUtwdWQxU29QZ2h6NlJEWmlvd2NheTBubEQ5NEVIV0RWWFRrYS1aM1hfTTRZOS1vazg1YTdrc2pMdm5WQWhRaGxabHlxcnM4Qk56MnFwczd2UDlrUUVjRnhYN0gyUzJnYm53NmVta2FxWTAzRzR5ZWExWjJtQUVCUm1IdzdfTjN6TjBZdk9ocHIwc29ZNjdqakhfVVc0ajFXYzBsaFFPZF9BeV9tLXl3eS13ZU8zTXViV0pSbW5nVVZvQWFFOHp6TGhLMWRnVU9HOWg3QkJaZWd6dmQzOE4wNVpxUFVCcWxrSkl3aWJsX2ZmTmRxR1pZZThxY2dHU3RkY1JtMmlQcVIwcGRPNDBUMERObkdLTld6SmdTZWlZY1hzUW5FRmhXWllOc1F3VnVvdEpqU2FYSWhtbkZubkpDNERSdzNRSWRxbzNlbnJLWVlNRGNmUFVhMWNMdWNBM2djb29QbVg3QS1tVlRlYldKMjlMU3JmdXBTcklqOEZmS2pYNDhuU0F5LWZCU2pPcnFwZjNlbGtNTExBOVowNDc0ZTJiQmE5amdiQl9jRTVXZUo5NmV4NDllT0M3eEhGYjNRTHVnaTJvUlEzTFRvUVFlT3FRRzNMMl9OSmhUcWlKYjAwbjlNWTJtWUxPVGhsZU81Z2twLXEzQTQ3NjhqNVVZNFBuWlFpYUxrcUxLd2ljZnZhQTdJY3F6cmFpdUZ2LXB4Rlh2N09teHg3T1k1czRLY0dVeFRPcEtZaWJoSzBmUHB3bnJiOUppNFlQQ1lUY1UybjV4YVk4SUJCV0hpZ1gtcERmblB2bnVSODBEMzRzSkV6ZU9VMGQ1NEk0c0l2by0yYTAyc2pzRnlMTW05WjB1R0VGWjV6SzMzX1ptLURSN052QldFTGZSUFdzcFJQYTNiWWhaRUJXcWpFeGtBYW4tWlRDc1huSUkwdFRJNE84QmpmTVIzMzVENjNQbk1UZ1lSUXozQnFWY1F3Y3lxTDFBZW1ad0w3SEFOd2doVnBEWjJaWWN1bGNrY1FZRnhBSTI3TDJGRF9Sc2cyNXdqN3ZITEdjNDBmRGZicDd5UnlZQkM5b21JZFpxMUlCSEQ5Ni1hNEhwcE5xQjdoZDZiZ1lIcjVIZm9xT2xsOGk0ZnVzdkd5UHoyc2VJN25MT1pFNEF2cmtxM3lTQXJoQVh0SHB0YTd6OFE2RERybHR4LTN0djVDcERiNEFOUnpsX2NXVTh0aXZXWklGX1h6U2I3SkJ4LXFUQWIyWk1qanRucThqSkstdUkwQW1aSVVUWDNaTC0zM1Q2M2xuVGpBcjMwY3hUR2hJbHRERXl1U1Q2cGs0MFVpQjdDcGpTYWhjU2xjSnBxYVl4TmhJTUVCejM0UWs2S1B2QmVraC1UUDNHWk93enA2RHBtUVNXb09PVlE5MFQ5ek5yb2p0OTB3WG1QTXEzSW1LTGhUWGRDb2RMRUtocGxfRGk0TDFjc3lTb1VBR1YyNjlELTBmS0JrdTExUWE3M1NmTGFic1FxaGNfWW82TWJwLVNmQk5mckYwMGE4VUJtU0tSaHZRY2VzM0JEMF9PMUUyUkQ3R293bGdDZjJhRHpUVW9FN1I3bmVCTWtydEpPb3JVVmQzR0R6djFKM3ZCaWhuWGM3Z0JoblJXRzdYc2xLeE8zYVp2Sy1TbUpuLVl6NDloeDVQeDNueHF6aGN3bk5CNTRMYVR6NGFpdVh6UW9hVElFSVZJMWVaU0FOc05lTFRNUkFyRlloVmFjdmxrT290SnZrZWR4Ym54dzZSWUMtRklBYlBnV01NN3hIR1dsR1ZkZXNlN25MZHQ0Rkl5OUZydjRBRjJkQ0RqVmFiRmNxV0dFaTMtQTlPTmFIUzRKV1VyUTlZRUNJS2J1UDFjMnd4STJDVlBkSi1GQ2Q1YWE4MFIzUGdtbUEtMzFOT0N5WHlHcU1vRVluTDIxdUZaY0tOZ3lHOFB0WWhlRzRwWllXOFhWNnV3YjlBMUhQMEJiekZXZEI4YUQ1RGxvVWJ4Tzk4VlVDSmQ5RlBRM0QtN2REaHk4NGVtNnFtekNtVjdBRHp2QjR4bV96bEpaVWpHRVFOQU15Mjc3ZF9BQWdsU0dSQVNDMzg2S0dFeU5lb3pBZmVrUFVEeXZqNmdPaFcxYV93Qk9CNEI2UlRXVGEzeXVxZG5aTnZ0R285WG9WRDVxWUtCbjdvekpMSnFHbG9hbDhRNUhHbTJCcS00U1Jrb3NnSi00THJISWN5WHB2VERQYTJYYUd3SVJKZkpsNmxMeUc3NXQ1aTUwSS10MUJUaV9BWmlsUUJoMlVaWHNxRkRPQmJ5RlZ4RmwycndldjhpaC1jMGZBS09HU3VRVzZiUXdwS3h1T0tCRlR2dXBhR1MzTDhueEhDRF9EWDRTQjFwRFdVU054bzBvYVVhdHNYalZHd1R1M0VvN3ZPdGNjaG5RUmJCSXBrMkxSbDFhRkMzQjR4dE9tZ1cyd2VncjlZSEFxdEl2SHdyU1pOem42cTMtNGVhRElUTFBwLVh3QTRpcFBhNkVQYkhXd09jWmFVeUlwekZmVTNNeEJKQ0lPMzBERVdmTXJ5Sll3RlNDNTdadFBaWjZnQUFWR1hjMzUwMXVlZ0hsZUhWb2F4UHFVOEt1eXRSM2U1UFoyeFUwUHJJaGtLRTJqZ3lNYVIxZ25MMVEwckI3TzZDOUdvRVVUWXhVa0tfdnU4bVpzTTNKUFlOS0EzZzJ2Y3B5YUVVNG84bzlwX1BYdC1zNURELTFpTUsxWEpCOXJIdm9HYno2RkN5UVdrdmd3V2lYV014LVRLNkRxX1VpS2FBYlF3d0k4T25DVlNGVWZZbDJ4MXVQVG4tSkR4Q1Bvb19qT2VoYjcyTzgxaDdSOTdNbzRXMy13U0pLaDdUOUlXcFNqR041akFhSlpiMDRuUWc2MHBuSkNfUFNDZjZhUWdNbFRqNS1QTURQdjdGUVJPdjQ0SnkzSHlSRWQxdzRldGVnV184SDJwVEs2X0ZSSTBwT0Y4em91Znl6dWRQNjdpODFOcGFDU3hySjc0MHJudkhyd3NzSVhTRExTaGNYSFp2bnJZakFYbExKY3c2OGJvYTk3eHBTclB2Um1lT2Z6VFd0M2FtX2RGbTIybW5KOU9nTVlFS2dCSVJob3UxcThSQ01LdlhiNHhqVEE2MEtmWUxqVzZOdy1hQUljX0xsaEpkTjFCWFU4RThqbHphNUd5bTk0VTE1bDZ0M08wN2kyMDd3R0ZGaFJHV3JEUXRCNWRmN1NrTGFZeUxpSmpVLWg4enFJaGczQXlObXhJQUhrYXBiT3RBTS1Ob1NkTEM0MDZ6R0haVzVWVjFkRzRFUk1mWkN5dVJjbVdNUndQV0ljYTBLY2VheURuNmlsREdfNmFhSmM4WjBzTjEzQXNyd1JEY1ZTX1RBeXNnZ3o3VkZCSDNJejZEZVh5X3dHeGZkX2Q0U0s2aHZEcU80WjlYdWRacHJhbE0xU2hha1JOWDdpM2FwN3duMkFlQTBJRTNjSGZ1MTFINnczQnM5V0VJcnduQTh0WmFpRTlGQnduZVdNYWpfWHJKVXJFWUFEclVsX3ZkLWppaUdNVV9sNG9CeFBYdlp1c1FWd2ktWWlPQTNvTlZnZVcwd0ZyNm5vMzg1N1p6aDNqWUsyRzQ5SjNXOFdQRUgxV3luX3VMMndGQzAtdUJUR2tUTnFXOGNmbDhEcTRRWXdoSFNGcHJpTTQxZmZvVVp1TmtDMng2c1d2UTFMeVpFRmpVWDIybEl0OXBBY21LOTh5aHlRdlJmSUpZY182OEd4MGVCNUhQWldfN2o4T0VDdkp3bEU2bmhpd0NmS1FtUmJZa180c2plejNoVTJOSVJJM3k0UXp1MnlJNk1lSTJQbjYtazVnczlJTmZDOFZFZFIzbkVsX0NPMWo4UklDQ3VXOU04RUxkLTE3OW5NM3FNS0l0UGZlVmN5ZHNvQUNodXg3RG5OV0Vja1NxcGljUFRXVy05N2ZvSnMyeWNib2lmT2pINDNXejA1NWFVQlJNRVRLNTUxMEQwSzZRa0gzamVmTi13eEJxSkdERThvb0djM1NfdUpUOXVINU5Rb3hKSHJfN3Y4SXM3emIwXzZYQXBUTGs4ekxleUsxTXNhRmNKQXlPb0VOTVN6NkxSZ1Y2TF9NRjVzbGdRSy1HVjR3RnFjbTdYWmR2c1FuY2NqYm4xQXd5LW9vX09ZWGdNN2F6WFVlcTh2N0RtdC11NFhKWWtqMThMbU02cXpwSmxzTGJvdEdTQ2JpSEJheTlwMzBVX18xWkE2TkVnVU50N3EtNXRXSnc5R2JPZ3dTbmtxM21hWUJ2VmlSSWp6LUhWd3g5dGdZMUpOSlhCWFJDbkJta1B6WkQ4SWR3ZkFVZHNIRUZJZFdaY2xWYWZXZk54bTkxbmRibGllbi1kYjJsODZmSkZXYkFNOUNPZmpSd1FURWltVmRwN2dTaTdqZElmbWRLeU1XelhtdmVENTZaMWpjSF8xWEpjNXpWTkJqOEVNakJESnc0UWdtMUFUSko5NnRzc0RrZ21sVTR6N1pfdi1IYjM1TUNhMjJoRkNuNmtIRG5oWEdqVXFPUGJLdGVuSDBycVo3YzMtREJZbHF1Zzc3TF9iVnZVWkhOWEJ3c2dZaWRRR19iTDFDTFRIVzBiRktBTngybzdZZG9YdTBmLVRrSldkd2p2QUt4Y0NPaG5mX1RlYzUtT0xNMFluTEhpM3Q1aGFhUks5TFJyMzFNNjF4ZzZtTFEwVXRfMF92dXFHZ2x1X1lNX2R2NGlPdWl6U1MxY3R3aDd5akVzRk5lNHp4R0F0Q2laVW95Sk03cU9TMEY2dkkzaTlVRk4ycm8taHpsbExoUlhMTEhtS09EeDVkSmx0SHpwU0hQd2x1RzB2MC1DMXBUcXJkdDhJVFVXMEJRNnhsVmE2NDVxSzVTOXhsQnlWVTlTRVJtR0k4TkZ1b1hXck4tWFk3NU5XOVZGSTVjekRHS1ZBUE9nLWlIN3lyWm1YNGJQYVlkMnFWWVh6NXc0N2ZKeFhPZ0NqZFZEbUtZVUROaVNJNVd6STRTdmtIOTBFdmZiTHFPVGJqVmliN21VYVJWOHp2aHU0ZmJQNHg0OUhfUmwwT1BqREdyYUpuaVdhbTBqd1RSZk8tQWF5NElrcElfZ0VaY0h5QWNGeWNrdHYtVlVTVVZrOVBMMHN4eUIzRURTU3JaSmlxeThSM2o1WHJGWTU4WjlJRzNWeUlMNFdOVTlqV1M4LW01a1d3enVEUWlvT1ZxeGpyWDNUQ1h5Q0w2Q3FxT2tqdjdCVk1CdlVIYVlFV29fYmdKbmtTMWZCUmhrVTNqOXZCRUdhVFJEQlkxS1dYamhIU05nX2ZoSG1nUGhPNU95WkJGVmFZbDVxdm9EcUdSXzJfUk9kbkVWSUlPMWg4am95ODVaQWZRVm5jZmdsOUZkdklvQ3praDZmTFcwaVVjWXFoRzU3UFFQWGV2cXBubnBxMERzYktvTl9PSngySTdEMXp6bEpUR1lUS2hKX1dHTjFFbmctS2NkSVpwZVNDeG5ZMG9QQXA5Y1poZ3RFRFQyc2l0UjRaY3h5ZW50RXM0aVRMYVBJbzZTeVU2YmVjRGxKRlVGWUEtQ3h2OWtEY2lXTmNUWU1jX0dLb0U4bjhqTWRodzY4SU0wOTJSSUpsZlVLcXFTNnEwczVaMzd1cC1XT012OGpNcWZNM190T2xtMFJGTWV0eG95ZEJVOHVRY2M5VDY5ZGJMTjd6RV9rck9kYkFhck80WlkzbHFKNC1rWmhPZkpLWjVDUzVfV29vd1NRbnpvNlluUlF2QVdtZXBzRGFPblQ2bUpvX2tOeEt1aWVOOU83cF81YTg5dml0azdyODJaRDhzalVEVlVsbmc4ZnNiZHRjQWRLTjdJYzBidWtZeHVDLVkzeVp1eUZ2eGVMeFNTT3hhTVJkSnZiU3ZnUXh6ZHA0V1JYQWdtNlZoQXd2eDV2bnpPWTh6S1FUdVBYQXNkUWJTWVpWUzhyNERqTFJMM1lIT21zUW5LWUZUajBSbjZ2QTNRRlNFYXRVZGhXcHp6ZE1yWTVOMTZuUFlEQjJibnlJUUZKZ2gxMEl2bkQwc1FJeFpUZkRENkEtUFpxUDZEMk1CWjVxZFJMSU5TNDdxeEllZ3p3cDBOSFBZUFdJbTFKS0lDZTJzNzdsWTFQOGt0YmVxM3VGa2tVczJ4MVpoZTloWWRrd1dMOUk4QnlQcktsMzdCeUZoTjgtLV9MV3ktRGRvYm5aREF0bnJUY3dfUTdJSDV6NVVocGFqemhaMk1laUoydkxqV2x1VUQ0VUJWNkVERnNKS3h3NWVHYlhPOWNWYlNlSXpLVFFuNkhScVgtWlBxYklhOWVNSldkZDdHM1FlMGMyak1LcWo3cG5BV1ZCYmlHWV9Yamt3b1FTOVhIdG0wWHpBZ0xsNGE0bG95TWJ6azgyX1ZOb1gtUnRpZWk3dXZnWElMbFZ0M3dvN0tsUm52MFhwaDM5SW1RWHhYWDZDWmdVT1BsUnlTSjFKbExGMFp2TFhTOXE5OVZrbkZ6cy1nMmtuWkVhMDlrTzBJSTFrQzQ5OUc4MDVjM1pDOGRfTlFmZDQ1dHhzZ3U3VE5TZGN1anZ0cEhVOFEyQVY3NmlPbVpmYmJKanRna1ZXNDV3aUFWQjZOOS15RTZnYUpibnNxakJsaHItRENIU21XSlJfSERSNHZPLWQtMThpaDhXVVBvM0NXRXlQUV94S1Q3YUdDZGs0QlpsMUQyb3NhUHZGU2dQb2JpRHZnZFpZaHpicFhiY0xaTG1QemhBam9zZmFpVTRIVlJGOGRXVzdrNndGbENGdVE4SUVfZUxJNWJyWE1xNnh5TDExN2IzeU5OMEF3UXNJWVM2Z2RTSFVVaVV0WVRFZzNWSHItajZZazdadDRlamhJcUJycVp2RDlDUnJKOWx2SkR4eVMtVkszeDVTOVg5WGVfY3Y5MVBFVzFaWjZTNktaMm5mRXZOZWdkUXl6VktpRk02RTJEU0g1MTZoUHJ4c3ktREpSNjdiUHo5YW5nUjZqQUtFYmJoSmd3NFZsbWNUUHptMXMzTDJYWmNQNEp2dEdaUXl2WG9nemhzUUlJdld4STBJdy12MkNMaWlfcHp5cGtIbGlGNmwxNGdpNGhaY05JN2hWSXRLSVIzbWE3SFBFd0ZXckhhVTM1U1NDMmZlbGtYUEhtRUZScFVqcTZiQVF2RnF3LTRZV281c2h0NDY4eU95YzBFNmtBbTlHWnRqejdhaERzUXJON2dsNjQyVjJjZTRlYlBRbjRwTG10enFFTmhuc2dlT3ROeUpDdVV6c29NTm14UjN3NWNBQm1CTUJRNm85ZjhCdHo3TGthb2hveXpGbllYNTZqMXZUOHNyRjJmQmdyR0lRSUVSX1I2a0Q2ckMteFhsVTRIUWRaNXNZX0pkTzQwMXNyRWxFcW9rb3FxNHRrRzBfSXB3Yl9NMW50eW9uRHl5a01Rb2U4RWQtZHl1TE85R1N2LUFtNkJDQ1QyN0tZT1JBb2JJVzdxb3U1MlBaRV9JY1pnYTBXaGw5cExScDdFX28yb3RYbWpyYjM3V1pBQk5SbWVCSmYxcGNDTjNUZUtSWlkyUWZMZ2dTYjBSVzU3U3IxYVJOY044TVZIVnBYSUdPUUIyRWVDcXU5SWVCZW5COEFLSXozRWVMQkJfb2poX01OWnVXdk9Yanpaak5hRjRvTVMwb0dWN0hKd3lXWGtCUzQ5Zzg1Yko1SWowOWx2SFU0TWh4TVdOR1pQZVlScXJGeVpycTh2R3J0MjVudjVFeXhPUkE4U1NsUlM2X3poc1lJYl9NN05uRXhVaFhaNVF4V3AzcndkbXEtQlRVSGYzRy1NQUlpTzd2M205TENocmVyVWxyTGFVbW5ZbnEwN3hlRkdiX1R5ZHVlaHJvUExFN0R6Z1RfdzkzYS04Mk4xcjM5WlAwVmloUHFkTm1EMG9hWlZVWDZ1LWZtWFNsQ2M4Z093NmNTVlNRPT0=",
+        "ref_info": "Z0FBQUFBQm5ZQ0Ytcl8yWElzbjh4OTJZQzNEQ0xobEdGVzk2cWV0R2Vpa2Y5MU9LNjlWV2tZblp4T2RoQ3doUFpCbFlNemt4cTl1endWbS10MDY4Nzd1R1NVdElOZHczdWc9PQ=="
+      },
+      "order": 19
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            152
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "color": "#432",
+      "widgets_values": [
+        544,
+        960,
+        1
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "batch_size"
+          },
+          "name": "batch_size",
+          "link": 131,
+          "label": "批次大小",
+          "type": "INT",
+          "localized_name": "批次大小"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "EmptyLatentImage",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        -797.31787109375,
+        -343.2637023925781
+      ],
+      "id": 63,
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "order": 14
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "prompt",
+          "slot_index": 0,
+          "links": [
+            369
+          ],
+          "label": "提示词",
+          "type": "STRING",
+          "localized_name": "prompt"
+        }
+      ],
+      "color": "#233",
+      "widgets_values": [
+        "",
+        "",
+        ","
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "prompt1"
+          },
+          "name": "prompt1",
+          "link": 186,
+          "label": "提示词1",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "prompt2"
+          },
+          "name": "prompt2",
+          "link": 193,
+          "label": "提示词2",
+          "type": "STRING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "easy promptConcat",
+      "mode": 0,
+      "bgcolor": "#355",
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        -918.31787109375,
+        -362.2637023925781
+      ],
+      "id": 91,
+      "properties": {
+        "Node name for S&R": "easy promptConcat"
+      },
+      "order": 18
+    },
+    {
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            186
+          ],
+          "label": "字符串",
+          "type": "STRING",
+          "localized_name": "字符串"
+        }
+      ],
+      "color": "#322",
+      "widgets_values": [
+        "wd-v1-4-moat-tagger-v2",
+        0.35,
+        0.85,
+        "",
+        false,
+        "",
+        "1girl, solo, breasts, looking_at_viewer, blush, smile, short_hair, bangs, large_breasts, simple_background, brown_hair, shirt, long_sleeves, navel, cleavage, brown_eyes, closed_mouth, standing, collarbone, cowboy_shot, midriff, pants, twitter_username, lips, crop_top, denim, yellow_background, grey_shirt, hand_in_pocket, jeans"
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 178,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "WD14Tagger|pysssss",
+      "mode": 0,
+      "bgcolor": "#533",
+      "size": [
+        320,
+        220
+      ],
+      "pos": [
+        -1071.31787109375,
+        -321.2637023925781
+      ],
+      "id": 84,
+      "properties": {
+        "Node name for S&R": "WD14Tagger|pysssss",
+        "ttNbgOverride": {
+          "bgcolor": "#533",
+          "groupcolor": "#A88",
+          "color": "#322"
+        }
+      },
+      "order": 12
+    },
+    {
+      "outputs": [],
+      "color": "#3f71a5",
+      "shape": 1,
+      "widgets_values": [
+        "\r\n  <p style=\"font-size:30px;\">我的微信</p>\n \n  \n  <img src=\"https://s1.imagehub.cc/images/2024/12/16/679c6d5ca86e4984bebde41bab3e9b47.png\" alt=\"描述图片内容\">\n  \n   <p style=\"font-size:30px;\"></p>",
+        "markdown",
+        "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title>Document</title>\r\n  <style>\r\n    body {\r\n      background-color: rgba(255, 255, 255, 0.5);\r\n    }\r\n    p {\r\n      text-align: center;\r\n      font-weight: bold;\r\n      color: #fff; /* 文字颜色 */\r\n      text-shadow: 0 0 5px #fff, /* 基本的发光 */\r\n                   0 0 10px #fff,\r\n                   0 0 15px #fff,\r\n                   0 0 20px #ff00ff, \r\n                   /* 颜色渐变的发光 */\r\n                   0 0 30px #ff00ff,\r\n                   0 0 40px #ff00ff,\r\n                   0 0 55px #ff00ff,\r\n                   0 0 75px #ff00ff;\r\n      animation: glowAnimation 2s infinite; /* 动画 */\r\n    }\r\n\r\n    .video-container {\r\n      width: 100%; /* 视频容器的宽度，可以根据需要调整 */\r\n      max-width: 1500px; /* 最大宽度 */\r\n      margin: 0 auto; /* 居中对齐 */\r\n      border-radius: 15px; /* 圆角边框 */\r\n      overflow: hidden; /* 确保圆角边框生效 */\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */\r\n    }\r\n\r\n    iframe {\r\n      width: 100%;\r\n      height: 1300px; /* 设置视频高度 */\r\n      border: none; /* 去除默认边框 */\r\n    }\r\n\r\n    img {\r\n      display: block; /* 使图片成为块级元素 */\r\n      margin: 20px auto; /* 居中对齐并添加垂直间距 */\r\n      max-width: 100%; /* 确保图片不会超过容器宽度 */\r\n      border-radius: 15px; /* 圆角边框 */\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */\r\n    }\r\n  </style>\r\n</head>\r\n<body>\r\n  <p style=\"font-size:180px;\"></p>\r\n  <p style=\"font-size:120px;\">🥙</p>\r\n  <!--  -->\r\n  <img src=\"https://s1.imagehub.cc/images/2024/09/26/78f2f87e0c9336dec79764db31446092.jpg\" alt=\"\">\r\n  <div class=\"video-container\">\r\n    <iframe src=\"https://space.bilibili.com/397686377?spm_id_from=333.1007.0.0\"></iframe>\r\n  </div>\r\n</body>\r\n</html>\r\n",
+        "vscode"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note Plus (mtb)",
+      "mode": 0,
+      "bgcolor": "#2b5d91",
+      "size": [
+        568.1698608398438,
+        661
+      ],
+      "pos": [
+        -1169,
+        -1317
+      ],
+      "id": 134,
+      "properties": {},
+      "order": 2
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "links": [
+            376
+          ],
+          "label": "放大模型",
+          "type": "UPSCALE_MODEL",
+          "localized_name": "放大模型"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        -2965.94775390625,
+        -428.60150146484375
+      ],
+      "widgets_values": [
+        "RealESRGAN_x2.pth"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 135,
+      "type": "UpscaleModelLoader",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "order": 3
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            378
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "pos": [
+        -2938.994384765625,
+        -321.8230895996094
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "link": 376,
+          "label": "放大模型",
+          "type": "UPSCALE_MODEL",
+          "localized_name": "放大模型"
+        },
+        {
+          "name": "image",
+          "link": 381,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "flags": {},
+      "id": 136,
+      "type": "ImageUpscaleWithModel",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "order": 22
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            381
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        405.5999755859375,
+        198
+      ],
+      "pos": [
+        -3063.396240234375,
+        -184.98098754882812
+      ],
+      "widgets_values": [
+        "rife47.pth",
+        10,
+        3,
+        true,
+        true,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "frames",
+          "link": 380,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "frames"
+        },
+        {
+          "shape": 7,
+          "name": "optional_interpolation_states",
+          "label": "插值规则(可选)",
+          "type": "INTERPOLATION_STATES",
+          "localized_name": "optional_interpolation_states"
+        }
+      ],
+      "flags": {},
+      "id": 137,
+      "type": "RIFE VFI",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "RIFE VFI"
+      },
+      "order": 23
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "seed",
+          "slot_index": 0,
+          "links": [
+            188
+          ],
+          "type": "INT",
+          "localized_name": "seed"
+        }
+      ],
+      "color": "#322",
+      "widgets_values": [
+        476533653535124,
+        "fixed",
+        null
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "easy seed",
+      "mode": 0,
+      "bgcolor": "#533",
+      "size": [
+        279.2029724121094,
+        106
+      ],
+      "pos": [
+        -1645,
+        -840
+      ],
+      "id": 93,
+      "properties": {
+        "Node name for S&R": "easy seed",
+        "ttNbgOverride": {
+          "bgcolor": "#533",
+          "groupcolor": "#A88",
+          "color": "#322"
+        }
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        210,
+        683.2941284179688
+      ],
+      "pos": [
+        -15.720163345336914,
+        -510.9577941894531
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "AnimateDiff",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "AnimateDiff_00004-audio_yuyaf_1752282040.mp4",
+            "workflow": "AnimateDiff_00004.png",
+            "fullpath": "/data/ComfyUI/personal/69cdd0a68cdbc5b03dc432655625cee9/output/AnimateDiff_00004-audio.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 10
+          },
+          "muted": false
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 10,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 430,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "link": 266,
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 115,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        210,
+        66
+      ],
+      "pos": [
+        -1053.31787109375,
+        -410.2637023925781
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "anything",
+          "link": 301,
+          "label": "输入",
+          "type": "*",
+          "color_on": "#B39DDB",
+          "localized_name": "anything"
+        },
+        {
+          "shape": 7,
+          "name": "anything2",
+          "link": 268,
+          "label": "输入2",
+          "type": "*",
+          "color_on": "#FFD500",
+          "localized_name": "anything2"
+        },
+        {
+          "shape": 7,
+          "name": "anything3",
+          "link": 269,
+          "label": "输入3",
+          "type": "*",
+          "color_on": "#FF6E6E",
+          "localized_name": "anything3"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 120,
+      "type": "Anything Everywhere3",
+      "properties": {
+        "color_restricted": 0,
+        "Node name for S&R": "Anything Everywhere3",
+        "group_restricted": 0
+      },
+      "order": 16
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            323,
+            372,
+            373
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "nearest-exact",
+        544,
+        960,
+        "disabled"
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 420,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "type": "ImageScale",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        130
+      ],
+      "pos": [
+        -1385.8004150390625,
+        -273.8759765625
+      ],
+      "id": 43,
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "float",
+          "slot_index": 0,
+          "links": [
+            371
+          ],
+          "label": "浮点",
+          "type": "FLOAT",
+          "localized_name": "float"
+        }
+      ],
+      "size": [
+        357.601806640625,
+        168.13836669921875
+      ],
+      "pos": [
+        -2057,
+        -844
+      ],
+      "widgets_values": [
+        0.20000000000000004
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 107,
+      "type": "easy float",
+      "properties": {
+        "Node name for S&R": "easy float"
+      },
+      "order": 5
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "shape": 3,
+          "name": "CONDITIONING+",
+          "slot_index": 1,
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "CONDITIONING+"
+        },
+        {
+          "shape": 3,
+          "name": "CONDITIONING-",
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "CONDITIONING-"
+        },
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "shape": 3,
+          "name": "VAE",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "VAE"
+        },
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 5,
+          "links": [
+            267,
+            377,
+            380,
+            421
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "color": "#232",
+      "shape": 1,
+      "widgets_values": [
+        1008924759153960,
+        null,
+        8,
+        2,
+        "lcm",
+        "sgm_uniform",
+        1,
+        "none",
+        "true"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 322,
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "positive",
+          "link": 374,
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "link": 375,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "negative"
+        },
+        {
+          "name": "latent_image",
+          "link": 152,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "latent_image"
+        },
+        {
+          "shape": 7,
+          "name": "optional_vae",
+          "label": "VAE(可选)",
+          "type": "VAE",
+          "localized_name": "optional_vae"
+        },
+        {
+          "shape": 7,
+          "name": "script",
+          "label": "脚本",
+          "type": "SCRIPT",
+          "localized_name": "script"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "link": 188,
+          "label": "随机种",
+          "type": "INT",
+          "localized_name": "随机种"
+        }
+      ],
+      "flags": {},
+      "type": "KSampler (Efficient)",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": [
+        325,
+        562
+      ],
+      "pos": [
+        -605.58056640625,
+        -479.3647155761719
+      ],
+      "id": 67,
+      "properties": {
+        "Node name for S&R": "KSampler (Efficient)"
+      },
+      "order": 20
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            420
+          ],
+          "type": "IMAGE"
+        }
+      ],
+      "color": "#2a363b",
+      "widgets_values": [
+        "img"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "GetNode",
+      "title": "Get_img",
+      "mode": 0,
+      "bgcolor": "#3f5159",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        -1382.5491943359375,
+        -86.9287338256836
+      ],
+      "id": 139,
+      "properties": {},
+      "order": 6
+    },
+    {
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*"
+        }
+      ],
+      "color": "#2a363b",
+      "widgets_values": [
+        "img_0"
+      ],
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "link": 421,
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "type": "SetNode",
+      "title": "Set_img",
+      "mode": 0,
+      "bgcolor": "#3f5159",
+      "size": [
+        210,
+        58
+      ],
+      "pos": [
+        -808.9529418945312,
+        -246.5779266357422
+      ],
+      "id": 140,
+      "properties": {
+        "previousName": ""
+      },
+      "order": 21
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            178,
+            321
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "shape": 3,
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK",
+          "localized_name": "遮罩"
+        }
+      ],
+      "color": "#323",
+      "widgets_values": [
+        "d1224461c478b72ac665ab82a0fc5c2adf223f90a53db362d3614a461c7745e3.png",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadImage",
+      "mode": 0,
+      "bgcolor": "#535",
+      "size": [
+        326.9604187011719,
+        617.3648071289062
+      ],
+      "pos": [
+        -1887.66259765625,
+        -477.49072265625
+      ],
+      "id": 33,
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 7
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            430
+          ],
+          "type": "IMAGE"
+        }
+      ],
+      "color": "#2a363b",
+      "widgets_values": [
+        "img_0"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "GetNode",
+      "title": "Get_img_0",
+      "mode": 0,
+      "bgcolor": "#3f5159",
+      "size": [
+        210,
+        58
+      ],
+      "pos": [
+        -234.2155303955078,
+        -398.24462890625
+      ],
+      "id": 141,
+      "properties": {},
+      "order": 8
+    },
+    {
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*"
+        }
+      ],
+      "color": "#2a363b",
+      "widgets_values": [
+        "img"
+      ],
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "link": 431,
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "type": "SetNode",
+      "title": "Set_img",
+      "mode": 0,
+      "bgcolor": "#3f5159",
+      "size": [
+        210,
+        60
+      ],
+      "pos": [
+        -1750.0152587890625,
+        286.7810974121094
+      ],
+      "id": 138,
+      "properties": {
+        "previousName": "img"
+      },
+      "order": 13
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            431
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "shape": 3,
+          "name": "frame_count",
+          "slot_index": 1,
+          "links": [
+            131
+          ],
+          "label": "帧计数",
+          "type": "INT",
+          "localized_name": "frame_count"
+        },
+        {
+          "shape": 3,
+          "name": "audio",
+          "slot_index": 2,
+          "links": [
+            266
+          ],
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 3,
+          "name": "video_info",
+          "label": "视频信息",
+          "type": "VHS_VIDEOINFO",
+          "localized_name": "video_info"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": {
+        "custom_height": 0,
+        "force_rate": 30,
+        "custom_width": 0,
+        "select_every_nth": 3,
+        "frame_load_cap": 10,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "force_rate": 30,
+            "filename": "82b85341a81e5f03de3c1365409ca0271db82af6d2f0c23a1b97e7f1b20d3137.mp4",
+            "select_every_nth": 3,
+            "frame_load_cap": 10,
+            "format": "video/mp4",
+            "skip_first_frames": 0,
+            "type": "input"
+          }
+        },
+        "format": "AnimateDiff",
+        "video": "82b85341a81e5f03de3c1365409ca0271db82af6d2f0c23a1b97e7f1b20d3137.mp4",
+        "skip_first_frames": 0,
+        "force_size": "Disabled",
+        "choose video to upload": "image"
+      },
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "type": "VHS_LoadVideo",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        291.213134765625,
+        830.3790893554688
+      ],
+      "pos": [
+        -2222.696044921875,
+        247.4215850830078
+      ],
+      "id": 42,
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "order": 9
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": [
+      427,
+      428,
+      429
+    ],
+    "workspace_info": {
+      "id": "CDOhkFY4KG6Q4c04_VWpR"
+    },
+    "VHS_MetadataImage": true,
+    "ue_links": [
+      {
+        "controller": 120,
+        "upstream": "31",
+        "downstream_slot": 3,
+        "downstream": 115,
+        "upstream_slot": 2,
+        "type": "VAE"
+      },
+      {
+        "controller": 120,
+        "upstream": "31",
+        "downstream_slot": 4,
+        "downstream": 67,
+        "upstream_slot": 2,
+        "type": "VAE"
+      },
+      {
+        "controller": 120,
+        "upstream": "31",
+        "downstream_slot": 1,
+        "downstream": 42,
+        "upstream_slot": 2,
+        "type": "VAE"
+      }
+    ],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false,
+    "ds": {
+      "offset": [
+        2870.840681478626,
+        901.2616687225923
+      ],
+      "scale": 0.45000000000000273
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 1,
+      "title": "物品提示词",
+      "bounding": [
+        -2535,
+        -883,
+        420,
+        284
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 2,
+      "title": "这里输入风格图",
+      "bounding": [
+        -1880,
+        -581,
+        347,
+        701
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 3,
+      "title": "这里加载视频",
+      "bounding": [
+        -2215,
+        -587,
+        311,
+        842
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 4,
+      "title": "输出节点",
+      "bounding": [
+        -2528,
+        -582,
+        230,
+        743
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 5,
+      "title": "Group",
+      "bounding": [
+        -1425,
+        -543,
+        1180,
+        646
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 90,
+      "flags": {},
+      "id": 6,
+      "title": "昊纯分享万物舞蹈流",
+      "bounding": [
+        -1388,
+        -1587,
+        896,
+        128
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 7,
+      "title": "注意这是一个基础版本，其中涉及到指定背景，高清等联系本人获取",
+      "bounding": [
+        -1391,
+        -1443,
+        807,
+        80
+      ]
+    }
+  ],
+  "links": [
+    [
+      64,
+      31,
+      1,
+      45,
+      1,
+      "CLIP"
+    ],
+    [
+      131,
+      42,
+      1,
+      63,
+      0,
+      "INT"
+    ],
+    [
+      152,
+      63,
+      0,
+      67,
+      3,
+      "LATENT"
+    ],
+    [
+      178,
+      33,
+      0,
+      84,
+      0,
+      "IMAGE"
+    ],
+    [
+      186,
+      84,
+      0,
+      91,
+      0,
+      "STRING"
+    ],
+    [
+      188,
+      93,
+      0,
+      67,
+      6,
+      "INT"
+    ],
+    [
+      193,
+      96,
+      0,
+      91,
+      1,
+      "STRING"
+    ],
+    [
+      235,
+      31,
+      0,
+      45,
+      0,
+      "MODEL"
+    ],
+    [
+      266,
+      42,
+      2,
+      115,
+      1,
+      "AUDIO"
+    ],
+    [
+      268,
+      45,
+      1,
+      120,
+      1,
+      "CLIP"
+    ],
+    [
+      269,
+      31,
+      2,
+      120,
+      2,
+      "VAE"
+    ],
+    [
+      301,
+      45,
+      0,
+      120,
+      0,
+      "MODEL"
+    ],
+    [
+      320,
+      45,
+      0,
+      122,
+      0,
+      "MODEL"
+    ],
+    [
+      321,
+      33,
+      0,
+      122,
+      1,
+      "IMAGE"
+    ],
+    [
+      322,
+      122,
+      0,
+      67,
+      0,
+      "MODEL"
+    ],
+    [
+      323,
+      43,
+      0,
+      122,
+      2,
+      "IMAGE"
+    ],
+    [
+      368,
+      45,
+      1,
+      125,
+      0,
+      "CLIP"
+    ],
+    [
+      369,
+      91,
+      0,
+      125,
+      1,
+      "STRING"
+    ],
+    [
+      370,
+      45,
+      1,
+      125,
+      2,
+      "CLIP"
+    ],
+    [
+      371,
+      107,
+      0,
+      125,
+      3,
+      "FLOAT"
+    ],
+    [
+      372,
+      43,
+      0,
+      125,
+      4,
+      "IMAGE"
+    ],
+    [
+      373,
+      43,
+      0,
+      125,
+      5,
+      "IMAGE"
+    ],
+    [
+      374,
+      125,
+      0,
+      67,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      375,
+      125,
+      1,
+      67,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      376,
+      135,
+      0,
+      136,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      381,
+      137,
+      0,
+      136,
+      1,
+      "IMAGE"
+    ],
+    [
+      420,
+      139,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      421,
+      67,
+      5,
+      140,
+      0,
+      "*"
+    ],
+    [
+      430,
+      141,
+      0,
+      115,
+      0,
+      "IMAGE"
+    ],
+    [
+      431,
+      42,
+      0,
+      138,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "id": "beece75e-3828-4630-9e52-0160ad4cc785",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 141,
+  "revision": 0
+}

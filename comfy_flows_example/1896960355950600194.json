@@ -1,0 +1,1505 @@
+{
+  "last_link_id": 117,
+  "nodes": [
+    {
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            113
+          ],
+          "label": "MODEL",
+          "type": "MODEL",
+          "localized_name": "MODEL"
+        },
+        {
+          "name": "CLIP_VISION",
+          "slot_index": 1,
+          "links": [
+            62
+          ],
+          "label": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "localized_name": "CLIP_VISION"
+        },
+        {
+          "name": "VAE",
+          "slot_index": 2,
+          "links": [
+            63
+          ],
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "svd_xt_1_1.safetensors"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "ImageOnlyCheckpointLoader",
+      "mode": 4,
+      "bgcolor": "#335",
+      "size": [
+        369.6000061035156,
+        98
+      ],
+      "pos": [
+        26240.287109375,
+        -4424.89111328125
+      ],
+      "id": 48,
+      "properties": {
+        "Node name for S&R": "ImageOnlyCheckpointLoader",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 0
+    },
+    {
+      "outputs": [
+        {
+          "name": "model",
+          "links": [
+            96
+          ],
+          "label": "model",
+          "type": "MODEL_YUE_A",
+          "localized_name": "model"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "YuE-s1-7B-anneal-zh-cot",
+        "ckpt_00360000.pth",
+        "fp16",
+        false,
+        16384,
+        "FP16",
+        2
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "YUE_Stage_A_Loader",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        202
+      ],
+      "pos": [
+        23820.681640625,
+        -4837.02587890625
+      ],
+      "id": 112,
+      "properties": {
+        "Node name for S&R": "YUE_Stage_A_Loader",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 1
+    },
+    {
+      "outputs": [
+        {
+          "name": "audio",
+          "slot_index": 0,
+          "links": [
+            104
+          ],
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "name": "string",
+          "slot_index": 1,
+          "links": [
+            105
+          ],
+          "label": "string",
+          "type": "STRING",
+          "localized_name": "string"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "decoder_131000.pth",
+        "decoder_151000.pth",
+        true
+      ],
+      "inputs": [
+        {
+          "name": "stage1_set",
+          "link": 101,
+          "label": "stage1_set",
+          "type": "STAGE_SET",
+          "localized_name": "stage1_set"
+        },
+        {
+          "name": "model",
+          "link": 102,
+          "label": "model",
+          "type": "MODEL_YUE_B",
+          "localized_name": "model"
+        }
+      ],
+      "flags": {},
+      "type": "YUE_Stage_B_Sampler",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        24720.291015625,
+        -4775.30126953125
+      ],
+      "id": 113,
+      "properties": {
+        "Node name for S&R": "YUE_Stage_B_Sampler",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 21
+    },
+    {
+      "outputs": [
+        {
+          "name": "model",
+          "links": [
+            102
+          ],
+          "label": "model",
+          "type": "MODEL_YUE_B",
+          "localized_name": "model"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "YuE-s2-1B-general",
+        8192,
+        2,
+        "FP16",
+        false
+      ],
+      "inputs": [
+        {
+          "name": "info",
+          "link": 103,
+          "label": "info",
+          "type": "quantization_model",
+          "localized_name": "info"
+        }
+      ],
+      "flags": {},
+      "type": "YUE_Stage_B_Loader",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        154
+      ],
+      "pos": [
+        24700.59375,
+        -5018.91748046875
+      ],
+      "id": 114,
+      "properties": {
+        "Node name for S&R": "YUE_Stage_B_Loader",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 18
+    },
+    {
+      "outputs": [],
+      "color": "#223",
+      "widgets_values": [
+        "yue-pl",
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "audio",
+          "link": 104,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "type": "SaveAudio",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        112
+      ],
+      "pos": [
+        25089.330078125,
+        -4907.287109375
+      ],
+      "id": 115,
+      "properties": {
+        "Node name for S&R": "SaveAudio",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 22
+    },
+    {
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "label": "STRING",
+          "type": "STRING",
+          "localized_name": "STRING"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "",
+        "/data/ComfyUI/personal/0c5e29f80acd84973c41e3a9c4cab22f/output/yue_759487_female-Cantonese-Melancholic-Classical-airy-vocal-Piano-bright-vocal-Pop-Nostalgic-Violin_tp0@93_T1@0_rp1@1_maxtk3000_5ead1b85-1623-4c5d-830c-fba08ab82e25_mixed.mp3"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 105,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "type": "ShowText|pysssss",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        302.07427978515625,
+        144.67218017578125
+      ],
+      "pos": [
+        25095.240234375,
+        -4730.64892578125
+      ],
+      "id": 116,
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 23
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "string",
+          "slot_index": 0,
+          "links": [
+            99
+          ],
+          "label": "string",
+          "type": "STRING",
+          "localized_name": "string"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Primitive string [Crystools]",
+      "title": "genres_prompt",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        23304.296875,
+        -4955.25341796875
+      ],
+      "id": 125,
+      "properties": {
+        "Node name for S&R": "Primitive string [Crystools]",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 2
+    },
+    {
+      "outputs": [
+        {
+          "name": "stage1_set",
+          "links": [
+            101
+          ],
+          "label": "stage1_set",
+          "type": "STAGE_SET",
+          "localized_name": "stage1_set"
+        },
+        {
+          "name": "info",
+          "slot_index": 1,
+          "links": [
+            103
+          ],
+          "label": "info",
+          "type": "quantization_model",
+          "localized_name": "info"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+        "",
+        1501924109,
+        "randomize",
+        2,
+        1.1,
+        0,
+        30,
+        3000,
+        false,
+        false,
+        true,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 96,
+          "label": "model",
+          "type": "MODEL_YUE_A",
+          "localized_name": "model"
+        },
+        {
+          "widget": {
+            "name": "run_n_segment"
+          },
+          "name": "run_n_segment",
+          "link": 97,
+          "label": "run_n_segment",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "prompt_end_time"
+          },
+          "name": "prompt_end_time",
+          "link": 98,
+          "label": "prompt_end_time",
+          "type": "FLOAT"
+        },
+        {
+          "widget": {
+            "name": "genres_prompt"
+          },
+          "name": "genres_prompt",
+          "link": 99,
+          "label": "genres_prompt",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "lyrics_prompt"
+          },
+          "name": "lyrics_prompt",
+          "link": 100,
+          "label": "lyrics_prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "type": "YUE_Stage_A_Sampler",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        387.5094299316406,
+        410.8193664550781
+      ],
+      "pos": [
+        24226.296875,
+        -4965.25341796875
+      ],
+      "id": 111,
+      "properties": {
+        "Node name for S&R": "YUE_Stage_A_Sampler",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 16
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "int",
+          "slot_index": 0,
+          "links": [
+            97
+          ],
+          "label": "int",
+          "type": "INT",
+          "localized_name": "int"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        2
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Primitive integer [Crystools]",
+      "title": "run_n_segment",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        210,
+        58
+      ],
+      "pos": [
+        23344,
+        -4553
+      ],
+      "id": 124,
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 3
+    },
+    {
+      "mode": 4,
+      "outputs": [],
+      "size": [
+        315,
+        82
+      ],
+      "color": "rgba(38, 73, 116, 0.7)",
+      "pos": [
+        27708,
+        -4477
+      ],
+      "widgets_values": [
+        true,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "anything",
+          "link": 93,
+          "label": "anything",
+          "type": "*",
+          "localized_name": "anything"
+        }
+      ],
+      "flags": {},
+      "id": 108,
+      "type": "LayerUtility: PurgeVRAM",
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM"
+      },
+      "order": 19
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            100
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "[verse]\n镁光灯下你转身的侧脸，像美术馆逃逸的雕塑碎片，\n会读心术的初次遇见，瞳孔里藏着未解的寓言。\n暮色漫过首尔女子大的窗沿，素描纸上晕开未完的诗篇，\n你说青春是未干的油彩，而我已溺在名为你的深渊\n\n[outro]\n校服褶皱藏着《Moving》的伏线，28岁的天真比月光更危险，\n香奈儿的戒圈缠绕时光寓言，巴黎的雪落满你锁骨边缘\n"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "JjkText",
+      "title": "lyrics_prompt",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        23286.296875,
+        -4834.25341796875
+      ],
+      "id": 128,
+      "properties": {
+        "Node name for S&R": "JjkText",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 4
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "int",
+          "slot_index": 0,
+          "links": [
+            112
+          ],
+          "label": "int",
+          "type": "INT",
+          "localized_name": "int"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        30
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Primitive integer [Crystools]",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        210,
+        58
+      ],
+      "pos": [
+        23333,
+        -4445
+      ],
+      "id": 126,
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 5
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "FLOAT",
+          "slot_index": 0,
+          "links": [
+            98
+          ],
+          "label": "FLOAT",
+          "type": "FLOAT",
+          "localized_name": "FLOAT"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        0
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "a"
+          },
+          "name": "a",
+          "link": 112,
+          "label": "a",
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "CM_IntToFloat",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        23592,
+        -4438
+      ],
+      "id": 127,
+      "properties": {
+        "Node name for S&R": "CM_IntToFloat",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 14
+    },
+    {
+      "outputs": [],
+      "color": "#223",
+      "widgets_values": [
+        "歌词部分，结尾部分要用outro，否则他不知道你要结束！一般格式\n[verse]\n\n[chorus]\n\n[outro]\n\n每段不超过4句，还可以加[intro]，[bridge]等"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note _O",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        22862,
+        -4832
+      ],
+      "id": 130,
+      "properties": {
+        "Node name for S&R": "Note _O",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 6
+    },
+    {
+      "outputs": [],
+      "color": "#223",
+      "widgets_values": [
+        "上面的30是时长，30表示30秒"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note _O",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        23323,
+        -4323
+      ],
+      "id": 131,
+      "properties": {
+        "Node name for S&R": "Note _O",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 7
+    },
+    {
+      "outputs": [
+        {
+          "name": "data_dict",
+          "slot_index": 0,
+          "links": [
+            42
+          ],
+          "label": "data_dict",
+          "type": "SONIC_PREDATA",
+          "localized_name": "data_dict"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        512,
+        2,
+        0.5
+      ],
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "link": 62,
+          "label": "clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "clip_vision"
+        },
+        {
+          "name": "vae",
+          "link": 63,
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "audio",
+          "link": 64,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "name": "image",
+          "link": 65,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "weight_dtype",
+          "link": 117,
+          "label": "weight_dtype",
+          "type": "DTYPE",
+          "localized_name": "weight_dtype"
+        }
+      ],
+      "flags": {},
+      "type": "SONIC_PreData",
+      "mode": 4,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        186
+      ],
+      "pos": [
+        26791.306640625,
+        -4030.22412109375
+      ],
+      "id": 68,
+      "properties": {
+        "Node name for S&R": "SONIC_PreData",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 15
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "duration是时长，2.0表示2秒，最低2秒"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 4,
+      "bgcolor": "#653",
+      "size": [
+        296.32666015625,
+        105.1481704711914
+      ],
+      "pos": [
+        26815,
+        -3796
+      ],
+      "id": 132,
+      "properties": {
+        "text": ""
+      },
+      "order": 8
+    },
+    {
+      "outputs": [
+        {
+          "name": "image",
+          "slot_index": 0,
+          "links": [
+            93,
+            114
+          ],
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "fps",
+          "slot_index": 1,
+          "links": [
+            115
+          ],
+          "label": "fps",
+          "type": "FLOAT",
+          "localized_name": "fps"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        473352584,
+        "fixed",
+        25,
+        1,
+        25
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 41,
+          "label": "model",
+          "type": "MODEL_SONIC",
+          "localized_name": "model"
+        },
+        {
+          "name": "data_dict",
+          "link": 42,
+          "label": "data_dict",
+          "type": "SONIC_PREDATA",
+          "localized_name": "data_dict"
+        }
+      ],
+      "flags": {},
+      "type": "SONICSampler",
+      "mode": 4,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        174
+      ],
+      "pos": [
+        27353.59765625,
+        -4076.888916015625
+      ],
+      "id": 40,
+      "properties": {
+        "Node name for S&R": "SONICSampler",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 17
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "Filenames",
+          "label": "Filenames",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "AnimateDiff",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "AnimateDiff_00004_rxxeq_1741107993_rlfri_1741107994.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 25
+          },
+          "muted": false
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 8,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 114,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "link": 116,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "frame_rate"
+          },
+          "name": "frame_rate",
+          "link": 115,
+          "label": "frame_rate",
+          "type": "FLOAT"
+        }
+      ],
+      "flags": {},
+      "type": "VHS_VideoCombine",
+      "mode": 4,
+      "bgcolor": "#335",
+      "size": [
+        214.7587890625,
+        334
+      ],
+      "pos": [
+        27907.54296875,
+        -4258.8359375
+      ],
+      "id": 133,
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 20
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            65
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "MASK",
+          "type": "MASK",
+          "localized_name": "MASK"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "b374299029176efc442c57d15718cec4813caeda5f6a566e4661f04ed114e027.png",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadImage",
+      "mode": 4,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        314
+      ],
+      "pos": [
+        26245.8359375,
+        -4072.13232421875
+      ],
+      "id": 39,
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "label": "OPT_CONNECTION",
+          "type": "*"
+        }
+      ],
+      "bgcolor": "#335",
+      "size": [
+        253.33335876464844,
+        130
+      ],
+      "color": "#223",
+      "pos": [
+        22474,
+        -5158
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 135,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "properties": {
+        "customSortAlphabet": "",
+        "matchColors": "",
+        "sort": "position",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        },
+        "matchTitle": "",
+        "showNav": true,
+        "toggleRestriction": "default"
+      },
+      "order": 10
+    },
+    {
+      "outputs": [],
+      "color": "#223",
+      "widgets_values": [
+        "genres_prompt这里填写你要男声还是女生，男声填写Male，女声填写Female，后面加上你要的曲风"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note _O",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        23695,
+        -5105
+      ],
+      "id": 129,
+      "properties": {
+        "Node name for S&R": "Note _O",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 11
+    },
+    {
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            64,
+            116
+          ],
+          "label": "AUDIO",
+          "type": "AUDIO",
+          "localized_name": "AUDIO"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "5dda1769e922d0c1a12da851f9a361ef1d7072a37b9d7180bbdbadb04d29a9b5.flac",
+        "",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadAudio",
+      "mode": 4,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        136
+      ],
+      "pos": [
+        26239.2578125,
+        -4244.11865234375
+      ],
+      "id": 38,
+      "properties": {
+        "Node name for S&R": "LoadAudio",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 12
+    },
+    {
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            41
+          ],
+          "label": "model",
+          "type": "MODEL_SONIC",
+          "localized_name": "model"
+        },
+        {
+          "name": "dtype",
+          "links": [
+            117
+          ],
+          "label": "dtype",
+          "type": "DTYPE",
+          "localized_name": "dtype"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "unet.pth",
+        1,
+        true,
+        "fp16"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 113,
+          "label": "model",
+          "type": "MODEL",
+          "localized_name": "model"
+        }
+      ],
+      "flags": {},
+      "type": "SONICTLoader",
+      "mode": 4,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        150
+      ],
+      "pos": [
+        26890,
+        -4415
+      ],
+      "id": 67,
+      "properties": {
+        "Node name for S&R": "SONICTLoader",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 13
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false,
+    "node_versions": {
+      "comfyui-kokoro": "4622d9e4adf5aa1bfc38eb552ac6047c20c212c9",
+      "comfy-core": "0.3.15",
+      "Comfy-WaveSpeed": "3db162bb7ad56b84a452a4778527da63793c0e87",
+      "ComfyUI_Sonic": "b1fa53b5f37ff1b94f6905795d8bff2f161b4d6f",
+      "ComfyUI_KokoroTTS_MW": "b8faadcf61f36ab690c894a5d60f28a15c743937",
+      "ComfyUI_YuE": "d560498b0948ac34fa515945f48006f9693087dc",
+      "SeedVC-ComfyUI": "5195742ea89e1500946653847d914235734f6cb9",
+      "ComfyUI-Zonos": "77dfe00b3827dc32364779b4e10ab999bfb0d220",
+      "ComfyUI-VideoHelperSuite": "2c25b8b53835aaeb63f831b3137c705cf9f85dce",
+      "comfyui-purgevram": "fb254fa9a7f6880d31d4fe472f3e3c578bafde5f",
+      "ComfyUI-LatentSyncWrapper": "c0e949370c475b65dd0c8a691dc80b76859c2734",
+      "ComfyUI_StepAudioTTS": "4bea354a78a5081d5e5dc6598b5a044e96960615",
+      "VocalSeparation-ComfyUI": "b86b2938495ff72d4fd4dd6ad30eb073231153cb"
+    },
+    "ds": {
+      "offset": [
+        -26075.437808688253,
+        4666.671218097564
+      ],
+      "scale": 0.8769226950000005
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 240,
+      "flags": {},
+      "id": 1,
+      "title": "B站、Youtube：T8star-Aix",
+      "bounding": [
+        23299,
+        -5723,
+        4168,
+        309
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 2,
+      "title": "Sonic无尺寸限制图生数字人",
+      "bounding": [
+        26030,
+        -4847,
+        3288,
+        1458
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 3,
+      "title": "Yue高质量唱歌音频输出工作流",
+      "bounding": [
+        22765,
+        -5254,
+        2847,
+        1263
+      ]
+    }
+  ],
+  "links": [
+    [
+      41,
+      67,
+      0,
+      40,
+      0,
+      "MODEL_SONIC"
+    ],
+    [
+      42,
+      68,
+      0,
+      40,
+      1,
+      "SONIC_PREDATA"
+    ],
+    [
+      62,
+      48,
+      1,
+      68,
+      0,
+      "CLIP_VISION"
+    ],
+    [
+      63,
+      48,
+      2,
+      68,
+      1,
+      "VAE"
+    ],
+    [
+      64,
+      38,
+      0,
+      68,
+      2,
+      "AUDIO"
+    ],
+    [
+      65,
+      39,
+      0,
+      68,
+      3,
+      "IMAGE"
+    ],
+    [
+      93,
+      40,
+      0,
+      108,
+      0,
+      "*"
+    ],
+    [
+      96,
+      112,
+      0,
+      111,
+      0,
+      "MODEL_YUE_A"
+    ],
+    [
+      97,
+      124,
+      0,
+      111,
+      1,
+      "INT"
+    ],
+    [
+      98,
+      127,
+      0,
+      111,
+      2,
+      "FLOAT"
+    ],
+    [
+      99,
+      125,
+      0,
+      111,
+      3,
+      "STRING"
+    ],
+    [
+      100,
+      128,
+      0,
+      111,
+      4,
+      "STRING"
+    ],
+    [
+      101,
+      111,
+      0,
+      113,
+      0,
+      "STAGE_SET"
+    ],
+    [
+      102,
+      114,
+      0,
+      113,
+      1,
+      "MODEL_YUE_B"
+    ],
+    [
+      103,
+      111,
+      1,
+      114,
+      0,
+      "quantization_model"
+    ],
+    [
+      104,
+      113,
+      0,
+      115,
+      0,
+      "AUDIO"
+    ],
+    [
+      105,
+      113,
+      1,
+      116,
+      0,
+      "STRING"
+    ],
+    [
+      112,
+      126,
+      0,
+      127,
+      0,
+      "INT"
+    ],
+    [
+      113,
+      48,
+      0,
+      67,
+      0,
+      "MODEL"
+    ],
+    [
+      114,
+      40,
+      0,
+      133,
+      0,
+      "IMAGE"
+    ],
+    [
+      115,
+      40,
+      1,
+      133,
+      4,
+      "FLOAT"
+    ],
+    [
+      116,
+      38,
+      0,
+      133,
+      1,
+      "AUDIO"
+    ],
+    [
+      117,
+      67,
+      1,
+      68,
+      4,
+      "DTYPE"
+    ]
+  ],
+  "id": "af84c58f-ceb3-4d05-a21e-da6e04e736ca",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 135,
+  "revision": 0
+}

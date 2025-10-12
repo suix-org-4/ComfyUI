@@ -1,0 +1,1349 @@
+{
+  "last_link_id": 181,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            98
+          ],
+          "label": "output",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "label": "denoised_output",
+          "type": "LATENT"
+        }
+      ],
+      "bgcolor": "#653",
+      "size": {
+        "0": 355.20001220703125,
+        "1": 326
+      },
+      "color": "#432",
+      "pos": [
+        1496.950318924104,
+        1394.39298311484
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 100,
+          "slot_index": 0,
+          "label": "noise",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 101,
+          "slot_index": 1,
+          "label": "guider",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 102,
+          "slot_index": 2,
+          "label": "sampler",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 103,
+          "slot_index": 3,
+          "label": "sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 140,
+          "slot_index": 4,
+          "label": "latent_image",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "id": 79,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 21
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            154
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "link": 153,
+          "label": "clip",
+          "type": "CLIP"
+        },
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 164,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "type": "CLIPTextEncode",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "pos": [
+        913.9503189241042,
+        1137.39298311484
+      ],
+      "id": 112,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "order": 19
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "VAE",
+          "slot_index": 0,
+          "links": [
+            99
+          ],
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "size": {
+        "0": 336.8829040527344,
+        "1": 58
+      },
+      "pos": [
+        60.1511256131259,
+        1472.3972342442983
+      ],
+      "widgets_values": [
+        "ae.sft"
+      ],
+      "flags": {},
+      "id": 76,
+      "type": "VAELoader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "NOISE",
+          "links": [
+            100
+          ],
+          "label": "NOISE",
+          "type": "NOISE"
+        }
+      ],
+      "bgcolor": "#7f7357",
+      "size": {
+        "0": 273.2024841308594,
+        "1": 108.69303131103516
+      },
+      "color": "#93876b",
+      "pos": [
+        1336.4689312559183,
+        1130.5783943561594
+      ],
+      "widgets_values": [
+        749566885114943,
+        "randomize"
+      ],
+      "flags": {},
+      "id": 83,
+      "type": "RandomNoise",
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SAMPLER",
+          "links": [
+            102
+          ],
+          "label": "SAMPLER",
+          "type": "SAMPLER"
+        }
+      ],
+      "bgcolor": "#7f7357",
+      "size": {
+        "0": 277.9707946777344,
+        "1": 64.20626831054688
+      },
+      "color": "#93876b",
+      "pos": [
+        917.4689312559186,
+        1479.5783943561594
+      ],
+      "widgets_values": [
+        "euler"
+      ],
+      "flags": {},
+      "id": 80,
+      "type": "KSamplerSelect",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            101
+          ],
+          "label": "GUIDER",
+          "type": "GUIDER"
+        }
+      ],
+      "size": {
+        "0": 241.79998779296875,
+        "1": 46
+      },
+      "pos": [
+        921.4689312559186,
+        1380.5783943561594
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 160,
+          "slot_index": 0,
+          "label": "model",
+          "type": "MODEL"
+        },
+        {
+          "name": "conditioning",
+          "link": 154,
+          "slot_index": 1,
+          "label": "conditioning",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {},
+      "id": 82,
+      "type": "BasicGuider",
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "order": 20
+    },
+    {
+      "outputs": [],
+      "color": "#fff0",
+      "inputs": [],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "type": "Label (rgthree)",
+      "title": "麦橘Flux模型 基础文生图,Runninghub同步首发",
+      "mode": 0,
+      "bgcolor": "#fff0",
+      "size": {
+        "0": 3125.7568359375,
+        "1": 150
+      },
+      "pos": {
+        "0": -110.845458984375,
+        "1": 719.5137939453125,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "id": 116,
+      "properties": {
+        "padding": 0,
+        "backgroundColor": "transparent",
+        "fontFamily": "Arial",
+        "borderRadius": 0,
+        "textAlign": "left",
+        "fontSize": 150,
+        "fontColor": "#ffffff"
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            104
+          ],
+          "label": "LATENT",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "width",
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "height",
+          "label": "height",
+          "type": "INT"
+        }
+      ],
+      "bgcolor": "#7f7357",
+      "size": {
+        "0": 312.8399963378906,
+        "1": 170
+      },
+      "color": "#93876b",
+      "pos": [
+        115,
+        1837
+      ],
+      "widgets_values": [
+        "896x1152 (0.78)",
+        1,
+        0,
+        0
+      ],
+      "flags": {},
+      "id": 84,
+      "type": "SDXLEmptyLatentSizePicker+",
+      "properties": {
+        "Node name for S&R": "SDXLEmptyLatentSizePicker+"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            159
+          ],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "bgcolor": "#335",
+      "size": {
+        "0": 395.2303771972656,
+        "1": 82
+      },
+      "color": "#223",
+      "pos": [
+        52.113828276950436,
+        1182.1046864274638
+      ],
+      "widgets_values": [
+        "majicflus_v1.safetensors",
+        "default"
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 78,
+      "type": "UNETLoader",
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "order": 5
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            160,
+            161
+          ],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "pos": [
+        99,
+        1054
+      ],
+      "widgets_values": [
+        "FLUX.1-Turbo-Alpha.safetensors",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 159,
+          "label": "model",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {},
+      "id": 119,
+      "type": "LoraLoaderModelOnly",
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "order": 11
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SIGMAS",
+          "links": [
+            103
+          ],
+          "label": "SIGMAS",
+          "type": "SIGMAS"
+        }
+      ],
+      "color": "#93876b",
+      "widgets_values": [
+        "simple",
+        20,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 161,
+          "slot_index": 0,
+          "label": "model",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {},
+      "type": "BasicScheduler",
+      "mode": 0,
+      "bgcolor": "#7f7357",
+      "size": {
+        "0": 271.2024841308594,
+        "1": 115.42839050292969
+      },
+      "pos": [
+        922,
+        1597
+      ],
+      "id": 81,
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CLIP",
+          "slot_index": 0,
+          "links": [
+            153
+          ],
+          "label": "CLIP",
+          "type": "CLIP"
+        }
+      ],
+      "bgcolor": "#cccd84",
+      "size": {
+        "0": 398.5077209472656,
+        "1": 106
+      },
+      "color": "#e0e198",
+      "pos": [
+        49.113828276950436,
+        1315.1046864274638
+      ],
+      "widgets_values": [
+        "sd3/t5xxl_fp16.safetensors",
+        "sd3/clip_l.safetensors",
+        "flux"
+      ],
+      "flags": {},
+      "id": 77,
+      "type": "DualCLIPLoader",
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            140
+          ],
+          "label": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "pos": [
+        119,
+        1676
+      ],
+      "widgets_values": [
+        1536,
+        2048,
+        1
+      ],
+      "flags": {},
+      "id": 103,
+      "type": "EmptyLatentImage",
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "order": 7
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "prompt opt",
+          "slot_index": 0,
+          "links": [],
+          "label": "prompt opt",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 124
+      },
+      "pos": [
+        705,
+        1886
+      ],
+      "widgets_values": [
+        "沙滩上的女孩",
+        1538,
+        "randomize"
+      ],
+      "flags": {},
+      "id": 118,
+      "type": "RH_Prompter",
+      "properties": {
+        "Node name for S&R": "RH_Prompter"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "query_output",
+          "slot_index": 0,
+          "links": [
+            163
+          ],
+          "label": "query_output",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 454.1501770019531,
+        "1": 300.828125
+      },
+      "pos": [
+        967,
+        2069
+      ],
+      "widgets_values": [
+        "one girl",
+        "a 18 y.o girl wearing blouse,(from above:1.1),from side,soft lighting,high resolution,professional grade,RAW photography,evocative composition,Cinematic Lighting,moody lighting,perfect eyes,depth of field,virtual background,eyes focus,the face of an angel",
+        "一只狗",
+        1237,
+        "randomize"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "query_input"
+          },
+          "name": "query_input",
+          "link": 175,
+          "label": "query_input",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 123,
+      "type": "RH_OneShot_Prompter",
+      "properties": {
+        "Node name for S&R": "RH_OneShot_Prompter"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            164
+          ],
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 552.3526000976562,
+        "1": 325.36749267578125
+      },
+      "pos": [
+        1519.500379821387,
+        2018.6959448256139
+      ],
+      "widgets_values": [
+        "",
+        "a 19 y.o girl standing in a modern bathroom, wearing a casual tank top and shorts, (from above: 1.2), looking at the mirror with soft lighting, high resolution, professional-grade, RAW photography, cinematic composition, subtle reflections, warm tones, moody lighting, perfect skin texture, depth of field, virtual background with sleek tiles, eyes focus, serene expression, elegant posture, a hint of natural sunlight streaming in through a frosted window."
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 163,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 124,
+      "type": "ShowText|pysssss",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 18
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            173
+          ],
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "pos": [
+        435,
+        2230
+      ],
+      "widgets_values": [
+        "",
+        "####",
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "string"
+          },
+          "name": "string",
+          "link": 170,
+          "label": "string",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "new"
+          },
+          "name": "new",
+          "link": 177,
+          "label": "new",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 127,
+      "type": "String Replace (mtb)",
+      "properties": {
+        "Node name for S&R": "String Replace (mtb)"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            178
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 324.5438232421875,
+        "1": 52.6544189453125
+      },
+      "pos": [
+        1510.4689312559183,
+        1300.5783943561594
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 98,
+          "label": "samples",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "link": 99,
+          "label": "vae",
+          "type": "VAE"
+        }
+      ],
+      "flags": {},
+      "id": 75,
+      "type": "VAEDecode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 22
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            181
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 270
+      },
+      "pos": [
+        1601,
+        2445
+      ],
+      "widgets_values": [
+        10,
+        2,
+        50,
+        28,
+        "white",
+        "black",
+        "MSYH.TTC",
+        "Text",
+        "down",
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 178,
+          "label": "image",
+          "type": "IMAGE"
+        },
+        {
+          "widget": {
+            "name": "caption"
+          },
+          "shape": 7,
+          "name": "caption",
+          "label": "caption",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 179,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 134,
+      "type": "AddLabel",
+      "properties": {
+        "Node name for S&R": "AddLabel"
+      },
+      "order": 23
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "prompt",
+          "slot_index": 0,
+          "links": [
+            170
+          ],
+          "label": "prompt",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "pos": [
+        -6,
+        2353
+      ],
+      "widgets_values": [
+        "把这个\"####\"翻译成英文"
+      ],
+      "flags": {},
+      "id": 128,
+      "type": "SeargePromptText",
+      "properties": {
+        "Node name for S&R": "SeargePromptText"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "prompt opt",
+          "slot_index": 0,
+          "links": [
+            174,
+            175
+          ],
+          "label": "prompt opt",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "pos": [
+        417,
+        2384
+      ],
+      "widgets_values": [
+        "沙滩上的女孩",
+        600,
+        "randomize"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "link": 173,
+          "label": "prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 130,
+      "type": "RH_Prompter",
+      "properties": {
+        "Node name for S&R": "RH_Prompter"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            177,
+            179
+          ],
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "pos": [
+        10,
+        2246
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 176,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 132,
+      "type": "Trim Text _O",
+      "properties": {
+        "Node name for S&R": "Trim Text _O"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [],
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 552.3526000976562,
+        "1": 325.36749267578125
+      },
+      "pos": [
+        836,
+        2435
+      ],
+      "widgets_values": [
+        "",
+        "A girl in the bathroom"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 174,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 129,
+      "type": "ShowText|pysssss",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "prompt",
+          "slot_index": 0,
+          "links": [
+            176
+          ],
+          "label": "prompt",
+          "type": "STRING"
+        }
+      ],
+      "bgcolor": "#353",
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "color": "#232",
+      "pos": [
+        -653.0370008680555,
+        1129.9258761935769
+      ],
+      "widgets_values": [
+        "一个在浴室里的女孩"
+      ],
+      "flags": {},
+      "id": 122,
+      "type": "SeargePromptText",
+      "properties": {
+        "Node name for S&R": "SeargePromptText"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "size": {
+        "0": 844.5187377929688,
+        "1": 992.8148803710938
+      },
+      "pos": [
+        2099,
+        971
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 181,
+          "label": "images",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 115,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 24
+    }
+  ],
+  "extra": {
+    "workspace_info": {
+      "id": "awglA54eJDh8QaORGCB-3"
+    },
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": {
+        "0": -708.8036615789872,
+        "1": -686.7988321530598
+      },
+      "scale": 0.45
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "Sampler",
+      "locked": false,
+      "bounding": [
+        860,
+        1044,
+        1068,
+        769
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "图片尺寸选择",
+      "locked": false,
+      "bounding": [
+        96,
+        1587,
+        335,
+        426
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "loader",
+      "locked": false,
+      "bounding": [
+        -86,
+        1004,
+        713,
+        1078
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "Prompt INPUT",
+      "locked": false,
+      "bounding": [
+        -691,
+        998,
+        565,
+        463
+      ]
+    }
+  ],
+  "links": [
+    [
+      98,
+      79,
+      0,
+      75,
+      0,
+      "LATENT"
+    ],
+    [
+      99,
+      76,
+      0,
+      75,
+      1,
+      "VAE"
+    ],
+    [
+      100,
+      83,
+      0,
+      79,
+      0,
+      "NOISE"
+    ],
+    [
+      101,
+      82,
+      0,
+      79,
+      1,
+      "GUIDER"
+    ],
+    [
+      102,
+      80,
+      0,
+      79,
+      2,
+      "SAMPLER"
+    ],
+    [
+      103,
+      81,
+      0,
+      79,
+      3,
+      "SIGMAS"
+    ],
+    [
+      140,
+      103,
+      0,
+      79,
+      4,
+      "LATENT"
+    ],
+    [
+      153,
+      77,
+      0,
+      112,
+      0,
+      "CLIP"
+    ],
+    [
+      154,
+      112,
+      0,
+      82,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      159,
+      78,
+      0,
+      119,
+      0,
+      "MODEL"
+    ],
+    [
+      160,
+      119,
+      0,
+      82,
+      0,
+      "MODEL"
+    ],
+    [
+      161,
+      119,
+      0,
+      81,
+      0,
+      "MODEL"
+    ],
+    [
+      163,
+      123,
+      0,
+      124,
+      0,
+      "STRING"
+    ],
+    [
+      164,
+      124,
+      0,
+      112,
+      1,
+      "STRING"
+    ],
+    [
+      170,
+      128,
+      0,
+      127,
+      0,
+      "STRING"
+    ],
+    [
+      173,
+      127,
+      0,
+      130,
+      0,
+      "STRING"
+    ],
+    [
+      174,
+      130,
+      0,
+      129,
+      0,
+      "STRING"
+    ],
+    [
+      175,
+      130,
+      0,
+      123,
+      0,
+      "STRING"
+    ],
+    [
+      176,
+      122,
+      0,
+      132,
+      0,
+      "STRING"
+    ],
+    [
+      177,
+      132,
+      0,
+      127,
+      1,
+      "STRING"
+    ],
+    [
+      178,
+      75,
+      0,
+      134,
+      0,
+      "IMAGE"
+    ],
+    [
+      179,
+      132,
+      0,
+      134,
+      2,
+      "STRING"
+    ],
+    [
+      181,
+      134,
+      0,
+      115,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 135
+}

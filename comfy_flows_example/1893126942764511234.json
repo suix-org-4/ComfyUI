@@ -1,0 +1,1020 @@
+{
+  "last_link_id": 409,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            395
+          ],
+          "label": "MODEL",
+          "type": "MODEL",
+          "localized_name": "MODEL"
+        },
+        {
+          "name": "CLIP_VISION",
+          "slot_index": 1,
+          "links": [
+            388
+          ],
+          "label": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "localized_name": "CLIP_VISION"
+        },
+        {
+          "name": "VAE",
+          "slot_index": 2,
+          "links": [
+            387
+          ],
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "size": [
+        369.6000061035156,
+        98
+      ],
+      "pos": [
+        -323.6136169433594,
+        410.156005859375
+      ],
+      "widgets_values": [
+        "svd_xt_1_1.safetensors"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 263,
+      "type": "ImageOnlyCheckpointLoader",
+      "properties": {
+        "Node name for S&R": "ImageOnlyCheckpointLoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        315,
+        82
+      ],
+      "color": "rgba(38, 73, 116, 0.7)",
+      "pos": [
+        1273.666259765625,
+        420.9985656738281
+      ],
+      "widgets_values": [
+        true,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "anything",
+          "link": 390,
+          "label": "anything",
+          "type": "*",
+          "localized_name": "anything"
+        }
+      ],
+      "flags": {},
+      "id": 324,
+      "type": "LayerUtility: PurgeVRAM",
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            385
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "MASK",
+          "type": "MASK",
+          "localized_name": "MASK"
+        }
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "pos": [
+        -318.0633239746094,
+        762.9147338867188
+      ],
+      "widgets_values": [
+        "df24dae377e037202c446a46d0730d69d5f6124ef0e061d11dfa3068a2e3c472.jpg",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 226,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "data_dict",
+          "slot_index": 0,
+          "links": [
+            389
+          ],
+          "label": "data_dict",
+          "type": "SONIC_PREDATA",
+          "localized_name": "data_dict"
+        }
+      ],
+      "size": [
+        315,
+        186
+      ],
+      "pos": [
+        261,
+        802
+      ],
+      "widgets_values": [
+        512,
+        2,
+        0.5
+      ],
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "link": 388,
+          "label": "clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "clip_vision"
+        },
+        {
+          "name": "vae",
+          "link": 387,
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "audio",
+          "link": 386,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "name": "image",
+          "link": 385,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "weight_dtype",
+          "link": 409,
+          "label": "weight_dtype",
+          "type": "DTYPE",
+          "localized_name": "weight_dtype"
+        }
+      ],
+      "flags": {},
+      "id": 317,
+      "type": "SONIC_PreData",
+      "properties": {
+        "Node name for S&R": "SONIC_PreData"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image",
+          "slot_index": 0,
+          "links": [
+            390,
+            396
+          ],
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "fps",
+          "slot_index": 1,
+          "links": [],
+          "label": "fps",
+          "type": "FLOAT",
+          "localized_name": "fps"
+        }
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "pos": [
+        765,
+        755
+      ],
+      "widgets_values": [
+        473352584,
+        "fixed",
+        25,
+        1,
+        25
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 369,
+          "label": "model",
+          "type": "MODEL_SONIC",
+          "localized_name": "model"
+        },
+        {
+          "name": "data_dict",
+          "link": 389,
+          "label": "data_dict",
+          "type": "SONIC_PREDATA",
+          "localized_name": "data_dict"
+        }
+      ],
+      "flags": {},
+      "id": 229,
+      "type": "SONICSampler",
+      "properties": {
+        "Node name for S&R": "SONICSampler"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "Filenames",
+          "label": "Filenames",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        523.3955078125,
+        334
+      ],
+      "pos": [
+        1739,
+        317
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "AnimateDiff",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "AnimateDiff_00004-audio_rkbji_1740191959_fodqo_1740191960.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 25
+          },
+          "muted": false
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 25,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 396,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "link": 397,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 325,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            386,
+            397
+          ],
+          "label": "AUDIO",
+          "type": "AUDIO",
+          "localized_name": "AUDIO"
+        }
+      ],
+      "size": [
+        315,
+        136
+      ],
+      "pos": [
+        -324.64306640625,
+        590.9282836914062
+      ],
+      "widgets_values": [
+        "9df64daf45cd647d0ad45152e9dd54c153b2baace71cb939a430e52e6f98ab6d.WAV",
+        "",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 225,
+      "type": "LoadAudio",
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "order": 2
+    },
+    {
+      "outputs": [],
+      "color": "#3a3a3a",
+      "shape": 1,
+      "widgets_values": [
+        "<div class=\"startPage\">\n  <div class=\"hoverContainer\">\n    <a href=\"https://aix.studio\">\n      <span class=\"size-smallButton style-input\">🗃️ AIX官网</span>\n    </a>\n    <a href=\"https://t.zsxq.com/7F90A\">\n      <span class=\"size-smallButton style-input\">🪲 知识星球</span>\n    </a>\n    <a href=\"https://space.bilibili.com/385085361\">\n      <span class=\"size-smallButton style-input\">☕ B站首页</span>\n    </a>\n  </div>\n</div>",
+        "markdown",
+        "\r\n\r\n* {\r\n    font-family: Arial;\r\n  }\r\n\r\n\r\n  .startPage {\r\n    position: absolute;\r\n    width:auto;\r\n    z-index: 0;\r\n    transition: transform 0.3s ease;\r\n  }\r\n\r\n  .startPage:hover {\r\n    transform: translateY(-1%);\r\n  }\r\n\r\n  .hoverContainer {\r\n    background: black;\r\n    border-radius: 27px;\r\n    padding: 50px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    margin: 12px auto;\r\n    position: relative;\r\n  }\r\n\r\n  .header {\r\n    padding-bottom: 24px;\r\n    margin-bottom: 24px;\r\n    border-bottom: 1px solid #3e3e3e;\r\n    width: 200%;\r\n    height: 72px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n  }\r\n\r\n  .header_discrip {\r\n    font-size: 21px;\r\n    font-weight: 200;\r\n    color: #6f6f6f;\r\n  }\r\n\r\n  .size-smallButton {\r\n    font-size: 21px;\r\n    border-radius: 12px;\r\n    height: 48px;\r\n    min-width: 48px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    width: 100%;\r\n    cursor: pointer;\r\n  }\r\n\r\n  .style-input {\r\n    background: #2a2a2b;\r\n    padding: 12px;\r\n    transition: background 0.3s;\r\n  }\r\n\r\n  .style-input:hover {\r\n    background: #3b3b3c;\r\n  }\r\na:not(:first-child) {\r\n      margin-left:8px;}\r\n  a {\r\n    color: #b6b6b7;\r\n  }\r\n\r\n  a:hover,\r\n  a:hover .header_discrip {\r\n    color: #dddddd !important;\r\n  }",
+        "one_dark"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note Plus (mtb)",
+      "mode": 0,
+      "bgcolor": "#262626",
+      "size": [
+        656,
+        128
+      ],
+      "pos": [
+        -1389,
+        -172
+      ],
+      "id": 323,
+      "properties": {},
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        247,
+        1033
+      ],
+      "widgets_values": [
+        "duration设置时间长度，比如你音乐15秒建议设置16秒！否则最后的小尾巴可能会丢掉"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 326,
+      "type": "Note _O",
+      "properties": {
+        "Node name for S&R": "Note _O"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "tts_speech",
+          "slot_index": 0,
+          "links": [
+            400
+          ],
+          "label": "tts_speech",
+          "type": "AUDIO",
+          "localized_name": "tts_speech"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        1239.1796875,
+        1655.6910400390625
+      ],
+      "widgets_values": [
+        1,
+        "大家好，我是高允贞，"
+      ],
+      "inputs": [
+        {
+          "name": "audio",
+          "link": 398,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "id": 332,
+      "type": "NTCosyVoiceCrossLingualSampler",
+      "properties": {
+        "Node name for S&R": "NTCosyVoiceCrossLingualSampler"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        315,
+        88
+      ],
+      "pos": [
+        1716.1796875,
+        1669.6910400390625
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "audio",
+          "link": 400,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "id": 335,
+      "type": "PreviewAudio",
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "AUDIO",
+          "links": [
+            398
+          ],
+          "label": "AUDIO",
+          "type": "AUDIO",
+          "localized_name": "AUDIO"
+        }
+      ],
+      "size": [
+        315,
+        136
+      ],
+      "pos": [
+        864,
+        1657
+      ],
+      "widgets_values": [
+        "9df64daf45cd647d0ad45152e9dd54c153b2baace71cb939a430e52e6f98ab6d.WAV",
+        "",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 333,
+      "type": "LoadAudio",
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        315,
+        88
+      ],
+      "pos": [
+        389,
+        1839
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "audio",
+          "link": 408,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "id": 342,
+      "type": "PreviewAudio",
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        315,
+        88
+      ],
+      "pos": [
+        371,
+        1585
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "audio",
+          "link": 402,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "id": 337,
+      "type": "PreviewAudio",
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            401,
+            406
+          ],
+          "label": "AUDIO",
+          "type": "AUDIO",
+          "localized_name": "AUDIO"
+        }
+      ],
+      "size": [
+        315,
+        136
+      ],
+      "pos": [
+        -432,
+        1644
+      ],
+      "widgets_values": [
+        "e1580baa732768ea8289f6256560bf2dd45cc3e40f332dedc990715e4cec78ac.flac",
+        "",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 336,
+      "type": "LoadAudio",
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "tts_speech",
+          "slot_index": 0,
+          "links": [
+            402
+          ],
+          "label": "tts_speech",
+          "type": "AUDIO",
+          "localized_name": "tts_speech"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -55,
+        1569
+      ],
+      "widgets_values": [
+        1,
+        "大家好，我是高允贞，",
+        "大家好，我是高允贞数字人，之前大家说我唱歌还不满意，今天再给大家来一段"
+      ],
+      "inputs": [
+        {
+          "name": "audio",
+          "link": 401,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "id": 329,
+      "type": "NTCosyVoiceZeroShotSampler",
+      "properties": {
+        "Node name for S&R": "NTCosyVoiceZeroShotSampler"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "tts_speech",
+          "slot_index": 0,
+          "links": [
+            408
+          ],
+          "label": "tts_speech",
+          "type": "AUDIO",
+          "localized_name": "tts_speech"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -50,
+        1829
+      ],
+      "widgets_values": [
+        1,
+        "大家好，我是高允贞，",
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "audio",
+          "link": 406,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "id": 341,
+      "type": "NTCosyVoiceInstruct2Sampler",
+      "properties": {
+        "Node name for S&R": "NTCosyVoiceInstruct2Sampler"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            369
+          ],
+          "label": "model",
+          "type": "MODEL_SONIC",
+          "localized_name": "model"
+        },
+        {
+          "name": "dtype",
+          "links": [
+            409
+          ],
+          "label": "dtype",
+          "type": "DTYPE",
+          "localized_name": "dtype"
+        }
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "pos": [
+        425,
+        393
+      ],
+      "widgets_values": [
+        "unet.pth",
+        1,
+        true,
+        "fp16"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 395,
+          "label": "model",
+          "type": "MODEL",
+          "localized_name": "model"
+        }
+      ],
+      "flags": {},
+      "id": 306,
+      "type": "SONICTLoader",
+      "properties": {
+        "Node name for S&R": "SONICTLoader"
+      },
+      "order": 7
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false,
+    "node_versions": {
+      "SeedVC-ComfyUI": "5195742ea89e1500946653847d914235734f6cb9",
+      "ComfyUI-VideoHelperSuite": "8629188458dc6cb832f871ece3bd273507e8a766",
+      "ComfyUI_NTCosyVoice": "a0e70795b7a03ab070ba52aea806053016653bda",
+      "comfyui-purgevram": "fb254fa9a7f6880d31d4fe472f3e3c578bafde5f",
+      "ComfyUI-LatentSyncWrapper": "8f2a008dcb9996b74c5110c009be063e7565c14f",
+      "comfy-core": "0.3.14",
+      "Comfy-WaveSpeed": "3db162bb7ad56b84a452a4778527da63793c0e87",
+      "VocalSeparation-ComfyUI": "b86b2938495ff72d4fd4dd6ad30eb073231153cb",
+      "ComfyUI_Sonic": "b1fa53b5f37ff1b94f6905795d8bff2f161b4d6f",
+      "ComfyUI-FreeVC_wrapper": "cb49d89f9c4c2b63ec3034efd06d507920b0396c"
+    },
+    "ds": {
+      "offset": [
+        638.7750533129941,
+        120.40205966501925
+      ],
+      "scale": 0.6588450000000002
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 240,
+      "flags": {},
+      "id": 1,
+      "title": "B站、Youtube：T8star-Aix",
+      "bounding": [
+        -785,
+        -630,
+        4168,
+        309
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 2,
+      "title": "Sonic无尺寸限制图生数字人",
+      "bounding": [
+        -534,
+        -12,
+        3288,
+        1458
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 3,
+      "title": "夸语种迁移TTS",
+      "bounding": [
+        818,
+        1478,
+        1267,
+        456
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 4,
+      "title": "3秒极速迁移",
+      "bounding": [
+        -497,
+        1476,
+        1284,
+        612
+      ]
+    }
+  ],
+  "links": [
+    [
+      369,
+      306,
+      0,
+      229,
+      0,
+      "MODEL_SONIC"
+    ],
+    [
+      385,
+      226,
+      0,
+      317,
+      3,
+      "IMAGE"
+    ],
+    [
+      386,
+      225,
+      0,
+      317,
+      2,
+      "AUDIO"
+    ],
+    [
+      387,
+      263,
+      2,
+      317,
+      1,
+      "VAE"
+    ],
+    [
+      388,
+      263,
+      1,
+      317,
+      0,
+      "CLIP_VISION"
+    ],
+    [
+      389,
+      317,
+      0,
+      229,
+      1,
+      "SONIC_PREDATA"
+    ],
+    [
+      390,
+      229,
+      0,
+      324,
+      0,
+      "*"
+    ],
+    [
+      395,
+      263,
+      0,
+      306,
+      0,
+      "MODEL"
+    ],
+    [
+      396,
+      229,
+      0,
+      325,
+      0,
+      "IMAGE"
+    ],
+    [
+      397,
+      225,
+      0,
+      325,
+      1,
+      "AUDIO"
+    ],
+    [
+      398,
+      333,
+      0,
+      332,
+      0,
+      "AUDIO"
+    ],
+    [
+      400,
+      332,
+      0,
+      335,
+      0,
+      "AUDIO"
+    ],
+    [
+      401,
+      336,
+      0,
+      329,
+      0,
+      "AUDIO"
+    ],
+    [
+      402,
+      329,
+      0,
+      337,
+      0,
+      "AUDIO"
+    ],
+    [
+      406,
+      336,
+      0,
+      341,
+      0,
+      "AUDIO"
+    ],
+    [
+      408,
+      341,
+      0,
+      342,
+      0,
+      "AUDIO"
+    ],
+    [
+      409,
+      306,
+      1,
+      317,
+      4,
+      "DTYPE"
+    ]
+  ],
+  "id": "bff5c344-2f75-497d-8f43-d178d8e7d2b4",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 342,
+  "revision": 0
+}

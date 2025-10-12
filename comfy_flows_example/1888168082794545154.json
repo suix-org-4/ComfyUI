@@ -1,0 +1,1101 @@
+{
+  "last_link_id": 66,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            29
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 258.0952453613281,
+        "1": 82
+      },
+      "pos": [
+        -1490,
+        290
+      ],
+      "widgets_values": [
+        "nearest-exact",
+        0.5
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 48,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 28,
+      "type": "ImageScaleBy",
+      "properties": {
+        "Node name for S&R": "ImageScaleBy"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            60
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 246.96511840820312,
+        "1": 85.09300994873047
+      },
+      "pos": [
+        -1500,
+        350
+      ],
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "link": 28,
+          "label": "放大模型",
+          "type": "UPSCALE_MODEL"
+        },
+        {
+          "name": "image",
+          "link": 29,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 26,
+      "type": "ImageUpscaleWithModel",
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "VAE",
+          "slot_index": 0,
+          "links": [
+            64
+          ],
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "size": {
+        "0": 416.258544921875,
+        "1": 58
+      },
+      "pos": [
+        -1500,
+        470
+      ],
+      "widgets_values": [
+        "ae.sft"
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 14,
+      "type": "VAELoader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "size": {
+        "0": 210,
+        "1": 66
+      },
+      "pos": [
+        -1490,
+        530
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "STRING",
+          "link": 62,
+          "label": "输入",
+          "type": "*",
+          "color_on": "#7CBB1A"
+        },
+        {
+          "name": "IMAGE",
+          "link": 63,
+          "label": "输入2",
+          "type": "*",
+          "color_on": "#64B5F6"
+        },
+        {
+          "name": "VAE",
+          "link": 64,
+          "label": "输入3",
+          "type": "*",
+          "color_on": "#FF6E6E"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 50,
+      "type": "Anything Everywhere3",
+      "properties": {
+        "color_restricted": 0,
+        "Node name for S&R": "Anything Everywhere3",
+        "group_restricted": 0
+      },
+      "order": 19
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            13
+          ],
+          "label": "条件",
+          "type": "CONDITIONING"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "drawing, painting, crayon, sketch, graphite, impressionist, noisy, blurry, soft, deformed, ugly, drawing,painting,crayon,sketch,graphite,impressionist,noisy,blurry,soft,deformed,ugly,FastNegative,lowres,normal quality,low quality,blurry,sketches,bad anatomy,worstquality,bad proportions,out of focus,NSFW,logo,text,monochrome,grayscale,signature,watermark,cropped,username,"
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "link": 12,
+          "label": "CLIP",
+          "type": "CLIP"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "CLIPTextEncode",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "pos": [
+        -850,
+        350
+      ],
+      "id": 16,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "order": 8
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CONDITIONING",
+          "links": [
+            21
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "The photo shows a modern office setting with a wooden table in the center. On the table, there is an open laptop displaying a graphical interface, possibly for data analysis or video editing. To the right of the laptop, there's a mouse on a black mousepad and a metallic cup with a saucer. In front of the laptop, there are two black devices: one appears to be a hard drive dock, and the other could be a media player or another type of external storage device. The background features three large monitors mounted on a stand, each showing various graphics and interfaces that suggest they are being used for monitoring or control purposes. There is also a plant visible in the far back, adding a touch of greenery to the space.",
+        "The photo shows a modern office setting with a wooden table in the center. On the table, there is an open laptop displaying a graphical interface, possibly for data analysis or video editing. To the right of the laptop, there's a mouse on a black mousepad and a metallic cup with a saucer. In front of the laptop, there are two black devices: one appears to be a hard drive dock, and the other could be a media player or another type of external storage device. The background features three large monitors mounted on a stand, each showing various graphics and interfaces that suggest they are being used for monitoring or control purposes. There is also a plant visible in the far back, adding a touch of greenery to the space.",
+        3.5
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "link": 20,
+          "label": "clip",
+          "type": "CLIP"
+        },
+        {
+          "widget": {
+            "name": "clip_l"
+          },
+          "name": "clip_l",
+          "label": "clip_l",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "t5xxl"
+          },
+          "name": "t5xxl",
+          "label": "t5xxl",
+          "type": "STRING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "CLIPTextEncodeFlux",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": {
+        "0": 361.33270263671875,
+        "1": 108.05011749267578
+      },
+      "pos": [
+        -850,
+        390
+      ],
+      "id": 20,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            34
+          ],
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 282.2467346191406,
+        "1": 46
+      },
+      "pos": [
+        -850,
+        440
+      ],
+      "inputs": [
+        {
+          "name": "pixels",
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 30,
+      "type": "VAEEncode",
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            56
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "pos": [
+        -830,
+        490
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 17,
+          "label": "Latent",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 18,
+      "type": "VAEDecode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            63
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 255.18801879882812,
+        "1": 82
+      },
+      "pos": [
+        -1490,
+        410
+      ],
+      "widgets_values": [
+        "nearest-exact",
+        0.5
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 60,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 29,
+      "type": "ImageScaleBy",
+      "properties": {
+        "Node name for S&R": "ImageScaleBy"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "joy2_model",
+          "links": [
+            35
+          ],
+          "label": "joy2_model",
+          "type": "JoyCaption2_Model"
+        }
+      ],
+      "bgcolor": "#353",
+      "size": {
+        "0": 387.3305969238281,
+        "1": 130
+      },
+      "color": "#232",
+      "pos": [
+        -2127,
+        545
+      ],
+      "widgets_values": [
+        "Orenguteng/Llama-3.1-8B-Lexi-Uncensored-V2",
+        "cuda",
+        "nf4",
+        "text_model"
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 33,
+      "type": "LayerUtility: LoadJoyCaption2Model",
+      "properties": {
+        "Node name for S&R": "LayerUtility: LoadJoyCaption2Model"
+      },
+      "order": 2
+    },
+    {
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            62,
+            66
+          ],
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "Descriptive",
+        "long",
+        "",
+        300,
+        0.9,
+        0.6
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 36,
+          "label": "image",
+          "type": "IMAGE"
+        },
+        {
+          "name": "joy2_model",
+          "link": 35,
+          "slot_index": 1,
+          "label": "joy2_model",
+          "type": "JoyCaption2_Model"
+        },
+        {
+          "name": "extra_options",
+          "label": "extra_options",
+          "type": "JoyCaption2ExtraOption"
+        }
+      ],
+      "flags": {},
+      "type": "LayerUtility: JoyCaption2Split",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": {
+        "0": 336,
+        "1": 218
+      },
+      "pos": [
+        -2129,
+        602
+      ],
+      "id": 32,
+      "properties": {
+        "Node name for S&R": "LayerUtility: JoyCaption2Split"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "pos": [
+        -1608,
+        710
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 66,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 53,
+      "type": "ShowText|fofo",
+      "properties": {
+        "Node name for S&R": "ShowText|fofo"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "UPSCALE_MODEL",
+          "links": [
+            28
+          ],
+          "label": "放大模型",
+          "type": "UPSCALE_MODEL"
+        }
+      ],
+      "size": {
+        "0": 259.0585632324219,
+        "1": 58
+      },
+      "pos": [
+        -1482,
+        252
+      ],
+      "widgets_values": [
+        "4x-UltraSharp.pth"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 27,
+      "type": "UpscaleModelLoader",
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "order": 3
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CLIP",
+          "slot_index": 0,
+          "links": [
+            12,
+            20
+          ],
+          "label": "CLIP",
+          "type": "CLIP"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "sd3/clip_l.safetensors",
+        "sd3/t5xxl_fp16.safetensors",
+        "flux",
+        "default"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "DualCLIPLoader",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": {
+        "0": 414.97784423828125,
+        "1": 130
+      },
+      "pos": [
+        -840,
+        300
+      ],
+      "id": 12,
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            10
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "bgcolor": "#335",
+      "size": {
+        "0": 411.8199462890625,
+        "1": 82
+      },
+      "color": "#223",
+      "pos": [
+        -1248,
+        -67
+      ],
+      "widgets_values": [
+        "flux1-dev.sft",
+        "default"
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 10,
+      "type": "UNETLoader",
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "order": 5
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            36,
+            48
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK"
+        }
+      ],
+      "color": "#222",
+      "widgets_values": [
+        "ea52ecd4e1c209e45568006ba7d4a952b4e512d3765927debaa94d27ea53dd5c.jpg",
+        "image"
+      ],
+      "inputs": [],
+      "flags": {
+        "pinned": true
+      },
+      "type": "LoadImage",
+      "mode": 0,
+      "bgcolor": "#000",
+      "size": {
+        "0": 843.3397827148438,
+        "1": 904.7152709960938
+      },
+      "pos": [
+        -2130,
+        -76
+      ],
+      "id": 25,
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "bgcolor": "#000",
+      "size": {
+        "0": 659.441650390625,
+        "1": 892.2396850585938
+      },
+      "color": "#222",
+      "pos": [
+        -949,
+        -62
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 56,
+          "slot_index": 0,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "id": 47,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 18
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            17
+          ],
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        848352374128130,
+        "randomize",
+        20,
+        2.5,
+        "euler",
+        "simple",
+        0.29
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 61,
+          "label": "模型",
+          "type": "MODEL"
+        },
+        {
+          "name": "positive",
+          "link": 21,
+          "label": "正面条件",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "negative",
+          "link": 13,
+          "label": "负面条件",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "latent_image",
+          "link": 34,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "type": "KSampler",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": {
+        "0": 252.07960510253906,
+        "1": 271.8436279296875
+      },
+      "pos": [
+        -1235,
+        134
+      ],
+      "id": 15,
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": {
+        "0": 268.7792053222656,
+        "1": 370.5750427246094
+      },
+      "color": "#432",
+      "pos": [
+        -1232,
+        461
+      ],
+      "widgets_values": [
+        "应用介绍&输入建议\n这是根据上一个模型进行调整的版本，根据测试多个语言模型最终选择\nJoyCaption2Split 语言模型，再图片进入潜空间之前，我先就行了缩放这一步很关键，因为有些图片像素不够时会丢失很多细节，而缩小后在放大\n可以补全像素这几步很关键)可以不改变原图大小的情况下大幅度提高画面质量。\n输入建议\n重绘幅度建议0.3左右较为合适，人像方面的人脸变化还是比较难控制，可以降低重回幅度0.2左右。以及降低CFG权重"
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "id": 49,
+      "type": "Note",
+      "properties": {
+        "text": ""
+      },
+      "order": 7
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            61
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "MJ渲染效果-素人极客.safetensors",
+        0.6
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 10,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": false
+      },
+      "type": "LoraLoaderModelOnly",
+      "mode": 4,
+      "bgcolor": "#335",
+      "size": {
+        "0": 284.8007507324219,
+        "1": 82
+      },
+      "pos": [
+        -1248,
+        -25
+      ],
+      "id": 11,
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "order": 10
+    }
+  ],
+  "extra": {
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": {
+        "0": 2859.334931956928,
+        "1": 349.16339419074455
+      },
+      "scale": 0.797202450000003
+    }
+  },
+  "groups": [
+    {
+      "color": "#fe8686",
+      "font_size": 24,
+      "title": "Group",
+      "locked": false,
+      "bounding": [
+        -1257,
+        -154,
+        988,
+        991
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "图像处理",
+      "locked": false,
+      "bounding": [
+        -2158,
+        -153,
+        894,
+        989
+      ]
+    },
+    {
+      "color": "#A88",
+      "font_size": 70,
+      "title": "这里上传图片，图片小于2048",
+      "locked": false,
+      "bounding": [
+        -2187,
+        -275,
+        938,
+        100
+      ]
+    }
+  ],
+  "links": [
+    [
+      10,
+      10,
+      0,
+      11,
+      0,
+      "MODEL"
+    ],
+    [
+      12,
+      12,
+      0,
+      16,
+      0,
+      "CLIP"
+    ],
+    [
+      13,
+      16,
+      0,
+      15,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      17,
+      15,
+      0,
+      18,
+      0,
+      "LATENT"
+    ],
+    [
+      20,
+      12,
+      0,
+      20,
+      0,
+      "CLIP"
+    ],
+    [
+      21,
+      20,
+      0,
+      15,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      28,
+      27,
+      0,
+      26,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      29,
+      28,
+      0,
+      26,
+      1,
+      "IMAGE"
+    ],
+    [
+      34,
+      30,
+      0,
+      15,
+      3,
+      "LATENT"
+    ],
+    [
+      35,
+      33,
+      0,
+      32,
+      1,
+      "JoyCaption2_Model"
+    ],
+    [
+      36,
+      25,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ],
+    [
+      48,
+      25,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      56,
+      18,
+      0,
+      47,
+      0,
+      "IMAGE"
+    ],
+    [
+      60,
+      26,
+      0,
+      29,
+      0,
+      "IMAGE"
+    ],
+    [
+      61,
+      11,
+      0,
+      15,
+      0,
+      "MODEL"
+    ],
+    [
+      62,
+      32,
+      0,
+      50,
+      0,
+      "STRING"
+    ],
+    [
+      63,
+      29,
+      0,
+      50,
+      1,
+      "IMAGE"
+    ],
+    [
+      64,
+      14,
+      0,
+      50,
+      2,
+      "VAE"
+    ],
+    [
+      66,
+      32,
+      0,
+      53,
+      0,
+      "STRING"
+    ]
+  ],
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 54
+}

@@ -1,0 +1,1353 @@
+{
+  "last_link_id": 96,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "vae",
+          "slot_index": 0,
+          "links": [
+            6,
+            54
+          ],
+          "label": "vae",
+          "type": "VAE"
+        }
+      ],
+      "size": {
+        "0": 379.166748046875,
+        "1": 82
+      },
+      "pos": [
+        260.0791634681203,
+        -200.13617025947528
+      ],
+      "widgets_values": [
+        "hunyuan_video_vae_bf16.safetensors",
+        "bf16"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "COMPILEARGS"
+        }
+      ],
+      "flags": {},
+      "id": 7,
+      "type": "HyVideoVAELoader",
+      "properties": {
+        "Node name for S&R": "HyVideoVAELoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            83
+          ],
+          "label": "images",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 345.4285888671875,
+        "1": 150
+      },
+      "pos": [
+        1116.5232747395828,
+        -215.95863342285148
+      ],
+      "widgets_values": [
+        true,
+        64,
+        192,
+        false
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 6,
+          "label": "vae",
+          "type": "VAE"
+        },
+        {
+          "name": "samples",
+          "link": 4,
+          "label": "samples",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {},
+      "id": 5,
+      "type": "HyVideoDecode",
+      "properties": {
+        "Node name for S&R": "HyVideoDecode"
+      },
+      "order": 19
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "torch_compile_args",
+          "links": [],
+          "label": "torch_compile_args",
+          "type": "COMPILEARGS"
+        }
+      ],
+      "size": {
+        "0": 441,
+        "1": 274
+      },
+      "pos": [
+        -697,
+        -519
+      ],
+      "widgets_values": [
+        "inductor",
+        false,
+        "default",
+        false,
+        64,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 57,
+      "type": "HyVideoTorchCompileSettings",
+      "properties": {
+        "Node name for S&R": "HyVideoTorchCompileSettings"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "hyvid_text_encoder",
+          "links": [
+            35
+          ],
+          "label": "hyvid_text_encoder",
+          "type": "HYVIDTEXTENCODER"
+        }
+      ],
+      "size": {
+        "0": 441,
+        "1": 202
+      },
+      "pos": [
+        255.8424998581999,
+        -509.5890809646755
+      ],
+      "widgets_values": [
+        "Kijai/llava-llama-3-8b-text-encoder-tokenizer",
+        "openai/clip-vit-large-patch14",
+        "fp16",
+        false,
+        2,
+        "disabled",
+        "offload_device"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 16,
+      "type": "DownloadAndLoadHyVideoTextEncoder",
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadHyVideoTextEncoder"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            75
+          ],
+          "label": "samples",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 198
+      },
+      "pos": [
+        372.2699459452773,
+        627.491988852844
+      ],
+      "widgets_values": [
+        false,
+        64,
+        256,
+        true,
+        0,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 54,
+          "label": "vae",
+          "type": "VAE"
+        },
+        {
+          "name": "image",
+          "link": 63,
+          "label": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 43,
+      "type": "HyVideoEncode",
+      "properties": {
+        "Node name for S&R": "HyVideoEncode"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": {
+        "0": 238.54620361328125,
+        "1": 95.00666809082031
+      },
+      "color": "#432",
+      "pos": [
+        -969,
+        -448
+      ],
+      "widgets_values": [
+        "工作流作者：楚门的AI世界\n\n工作流第一次跑模型加载有点慢 请耐心等待\n\n提示词很重要 ，直接影响质量！！！"
+      ],
+      "flags": {},
+      "id": 67,
+      "type": "Note",
+      "properties": {
+        "text": ""
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "hyvid_embeds",
+          "slot_index": 0,
+          "links": [
+            74
+          ],
+          "label": "hyvid_embeds",
+          "type": "HYVIDEMBEDS"
+        }
+      ],
+      "size": {
+        "0": 437.3100280761719,
+        "1": 240.78936767578125
+      },
+      "pos": [
+        265.1213056206526,
+        11.96143289947645
+      ],
+      "widgets_values": [
+        "",
+        "bad quality video",
+        "video"
+      ],
+      "inputs": [
+        {
+          "name": "text_encoders",
+          "link": 35,
+          "label": "text_encoders",
+          "type": "HYVIDTEXTENCODER"
+        },
+        {
+          "shape": 7,
+          "name": "custom_prompt_template",
+          "label": "custom_prompt_template",
+          "type": "PROMPT_TEMPLATE"
+        },
+        {
+          "shape": 7,
+          "name": "clip_l",
+          "label": "clip_l",
+          "type": "CLIP"
+        },
+        {
+          "shape": 7,
+          "name": "hyvid_cfg",
+          "link": 86,
+          "label": "hyvid_cfg",
+          "type": "HYVID_CFG"
+        },
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "link": 94,
+          "label": "prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 30,
+      "type": "HyVideoTextEncode",
+      "properties": {
+        "Node name for S&R": "HyVideoTextEncode"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "color": "#432",
+      "pos": [
+        -197,
+        413
+      ],
+      "widgets_values": [
+        "根据输入图片调整提示词，描述主题的运动，运镜等"
+      ],
+      "flags": {},
+      "id": 66,
+      "type": "Note",
+      "properties": {
+        "text": ""
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 340.03167724609375,
+        "1": 168.30291748046875
+      },
+      "pos": [
+        -254,
+        503
+      ],
+      "widgets_values": [
+        "",
+        "FPS-24,一个美女在泳池戏水"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 95,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 72,
+      "type": "ShowText|pysssss",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            63,
+            84,
+            88
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE"
+        },
+        {
+          "name": "width",
+          "slot_index": 1,
+          "links": [
+            69
+          ],
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "name": "height",
+          "slot_index": 2,
+          "links": [
+            70
+          ],
+          "label": "height",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 266
+      },
+      "pos": [
+        -238.53233643932458,
+        774.6658246674634
+      ],
+      "widgets_values": [
+        544,
+        960,
+        "lanczos",
+        false,
+        2,
+        0,
+        0,
+        "center"
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 56,
+          "label": "image",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 7,
+          "name": "get_image_size",
+          "label": "get_image_size",
+          "type": "IMAGE"
+        },
+        {
+          "widget": {
+            "name": "width_input"
+          },
+          "shape": 7,
+          "name": "width_input",
+          "label": "width_input",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height_input"
+          },
+          "shape": 7,
+          "name": "height_input",
+          "label": "height_input",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "id": 45,
+      "type": "ImageResizeKJ",
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "color": "#432",
+      "pos": [
+        -226,
+        1079
+      ],
+      "widgets_values": [
+        "根据需求调整分辨率"
+      ],
+      "flags": {},
+      "id": 65,
+      "type": "Note",
+      "properties": {
+        "text": ""
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "pos": [
+        103,
+        774
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 88,
+          "label": "images",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 64,
+      "type": "PreviewImage",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "Filenames",
+          "type": "VHS_FILENAMES"
+        }
+      ],
+      "size": [
+        492.4154357910156,
+        1157.6742984547336
+      ],
+      "pos": [
+        1543.9991726345493,
+        -200.66666327582456
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "HunyuanVideo_skyreel_I2V",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "HunyuanVideo_skyreel_I2V_00021_hdoiu_1740039251_nykkg_1740039253.mp4",
+            "workflow": "HunyuanVideo_skyreel_I2V_00004.png",
+            "fullpath": "E:\\ComfyUI-aki-e1205\\output\\HunyuanVideo_skyreel_I2V_00004.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 24
+          },
+          "muted": false
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 24,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 89,
+          "label": "images",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE"
+        }
+      ],
+      "flags": {},
+      "id": 34,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 21
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image",
+          "slot_index": 0,
+          "links": [
+            89
+          ],
+          "label": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 102
+      },
+      "pos": [
+        1162,
+        136
+      ],
+      "widgets_values": [
+        "mkl",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "image_ref",
+          "link": 84,
+          "label": "image_ref",
+          "type": "IMAGE"
+        },
+        {
+          "name": "image_target",
+          "link": 83,
+          "label": "image_target",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 60,
+      "type": "ColorMatch",
+      "properties": {
+        "Node name for S&R": "ColorMatch"
+      },
+      "order": 20
+    },
+    {
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "color": "#432",
+      "pos": [
+        1083,
+        -21
+      ],
+      "widgets_values": [
+        "帧率长的可增加调整到97"
+      ],
+      "flags": {},
+      "id": 68,
+      "type": "Note",
+      "properties": {
+        "text": ""
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "lora",
+          "links": [
+            96
+          ],
+          "label": "lora",
+          "type": "HYVIDLORA"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 102
+      },
+      "pos": [
+        -189,
+        -255
+      ],
+      "widgets_values": [
+        "skyreels-i2v-smooth-lora-test-00000350.safetensors",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "prev_lora",
+          "label": "prev_lora",
+          "type": "HYVIDLORA"
+        },
+        {
+          "name": "blocks",
+          "label": "blocks",
+          "type": "SELECTEDBLOCKS"
+        }
+      ],
+      "flags": {},
+      "id": 74,
+      "type": "HyVideoLoraSelect",
+      "properties": {
+        "Node name for S&R": "HyVideoLoraSelect"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "hyvid_cfg",
+          "slot_index": 0,
+          "links": [
+            86
+          ],
+          "label": "hyvid_cfg",
+          "type": "HYVID_CFG"
+        }
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "pos": [
+        257.1213056206526,
+        306.96143289947645
+      ],
+      "widgets_values": [
+        "chaotic, distortion, morphing",
+        6,
+        0,
+        0.3
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 58,
+      "type": "HyVideoCFG",
+      "properties": {
+        "Node name for S&R": "HyVideoCFG"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "block_swap_args",
+          "slot_index": 0,
+          "links": [],
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "pos": [
+        -588,
+        -190
+      ],
+      "widgets_values": [
+        20,
+        0,
+        false,
+        false
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 59,
+      "type": "HyVideoBlockSwap",
+      "properties": {
+        "Node name for S&R": "HyVideoBlockSwap"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            2
+          ],
+          "label": "model",
+          "type": "HYVIDEOMODEL"
+        }
+      ],
+      "size": {
+        "0": 426.1773986816406,
+        "1": 242
+      },
+      "pos": [
+        -235,
+        -546
+      ],
+      "widgets_values": [
+        "skyreels_hunyuan_i2v_bf16.safetensors",
+        "bf16",
+        "fp8_e4m3fn",
+        "offload_device",
+        "sageattn_varlen",
+        true,
+        true
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "COMPILEARGS"
+        },
+        {
+          "shape": 7,
+          "name": "block_swap_args",
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS"
+        },
+        {
+          "shape": 7,
+          "name": "lora",
+          "slot_index": 2,
+          "link": 96,
+          "label": "lora",
+          "type": "HYVIDLORA"
+        }
+      ],
+      "flags": {},
+      "id": 1,
+      "type": "HyVideoModelLoader",
+      "properties": {
+        "Node name for S&R": "HyVideoModelLoader"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            56
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "MASK",
+          "type": "MASK"
+        }
+      ],
+      "size": {
+        "0": 360.25079345703125,
+        "1": 464.3695373535156
+      },
+      "pos": [
+        -692.3420499081043,
+        83.71880858110063
+      ],
+      "widgets_values": [
+        "1ae2196fbab2f96f1089684356de2dda5c81246695e1c217ccea3476ba0e5517.png",
+        "image"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 44,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            94,
+            95
+          ],
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 413.9216003417969,
+        "1": 283.0018310546875
+      },
+      "pos": [
+        -247.45378435398896,
+        89.44487541992386
+      ],
+      "widgets_values": [
+        "FPS-24,一个美女在泳池戏水"
+      ],
+      "flags": {},
+      "id": 73,
+      "type": "TextInput_",
+      "properties": {
+        "Node name for S&R": "TextInput_"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            4
+          ],
+          "label": "samples",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 739
+      },
+      "pos": [
+        753.2845757714759,
+        -221.3708672361488
+      ],
+      "widgets_values": [
+        512,
+        320,
+        49,
+        15,
+        1,
+        9,
+        15,
+        "fixed",
+        1,
+        1,
+        "FlowMatchDiscreteScheduler"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 2,
+          "label": "model",
+          "type": "HYVIDEOMODEL"
+        },
+        {
+          "name": "hyvid_embeds",
+          "link": 74,
+          "label": "hyvid_embeds",
+          "type": "HYVIDEMBEDS"
+        },
+        {
+          "shape": 7,
+          "name": "samples",
+          "label": "samples",
+          "type": "LATENT"
+        },
+        {
+          "shape": 7,
+          "name": "image_cond_latents",
+          "link": 75,
+          "label": "image_cond_latents",
+          "type": "LATENT"
+        },
+        {
+          "shape": 7,
+          "name": "stg_args",
+          "label": "stg_args",
+          "type": "STGARGS"
+        },
+        {
+          "shape": 7,
+          "name": "context_options",
+          "label": "context_options",
+          "type": "HYVIDCONTEXT"
+        },
+        {
+          "shape": 7,
+          "name": "feta_args",
+          "label": "feta_args",
+          "type": "FETAARGS"
+        },
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 69,
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 70,
+          "label": "height",
+          "type": "INT"
+        },
+        {
+          "shape": 7,
+          "name": "teacache_args",
+          "label": "teacache_args",
+          "type": "TEACACHEARGS"
+        }
+      ],
+      "flags": {},
+      "id": 3,
+      "type": "HyVideoSampler",
+      "properties": {
+        "Node name for S&R": "HyVideoSampler"
+      },
+      "order": 18
+    }
+  ],
+  "extra": {
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": true,
+    "node_versions": {
+      "ComfyUI-HunyuanVideoWrapper": "4fad5e349d84e80f53b4aeb51679f5105fd6598b",
+      "ComfyUI-VideoHelperSuite": "c47b10ca1798b4925ff5a5f07d80c51ca80a837d",
+      "ComfyUI-KJNodes": "095c8d4b526ba3c1f12fd9dd1d7f3540c6a11358",
+      "comfy-core": "0.3.14"
+    },
+    "ds": {
+      "offset": {
+        "0": 332.2025621407702,
+        "1": 548.1905895508
+      },
+      "scale": 0.7972024500000005
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "UNET模型加载",
+      "locked": false,
+      "bounding": [
+        -707,
+        -592,
+        937,
+        546
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "Clip模型",
+      "locked": false,
+      "bounding": [
+        246,
+        -583,
+        461,
+        286
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "提示词",
+      "locked": false,
+      "bounding": [
+        252,
+        -63,
+        457,
+        590
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "VAE模型",
+      "locked": false,
+      "bounding": [
+        250,
+        -273,
+        460,
+        182
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "采样器",
+      "locked": false,
+      "bounding": [
+        743,
+        -293,
+        335,
+        823
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 66,
+      "title": "skyreel 混元 图生视频    up 楚门的AI世界",
+      "locked": false,
+      "bounding": [
+        -691,
+        -760,
+        690,
+        107
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "VAE编码",
+      "locked": false,
+      "bounding": [
+        361,
+        553,
+        335,
+        282
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "VAE解码",
+      "locked": false,
+      "bounding": [
+        1107,
+        -289,
+        365,
+        234
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "Group",
+      "locked": false,
+      "bounding": [
+        1516,
+        -292,
+        532,
+        1085
+      ]
+    },
+    {
+      "color": "#8A8",
+      "font_size": 24,
+      "title": "图片输入",
+      "locked": false,
+      "bounding": [
+        -712,
+        0,
+        409,
+        631
+      ]
+    },
+    {
+      "color": "#8A8",
+      "font_size": 24,
+      "title": "提示词输入",
+      "locked": false,
+      "bounding": [
+        -268,
+        6,
+        466,
+        392
+      ]
+    },
+    {
+      "color": "#a1309b",
+      "font_size": 24,
+      "title": "图像缩放",
+      "locked": false,
+      "bounding": [
+        -259,
+        690,
+        355,
+        370
+      ]
+    }
+  ],
+  "links": [
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "HYVIDEOMODEL"
+    ],
+    [
+      4,
+      3,
+      0,
+      5,
+      1,
+      "LATENT"
+    ],
+    [
+      6,
+      7,
+      0,
+      5,
+      0,
+      "VAE"
+    ],
+    [
+      35,
+      16,
+      0,
+      30,
+      0,
+      "HYVIDTEXTENCODER"
+    ],
+    [
+      54,
+      7,
+      0,
+      43,
+      0,
+      "VAE"
+    ],
+    [
+      56,
+      44,
+      0,
+      45,
+      0,
+      "IMAGE"
+    ],
+    [
+      63,
+      45,
+      0,
+      43,
+      1,
+      "IMAGE"
+    ],
+    [
+      69,
+      45,
+      1,
+      3,
+      7,
+      "INT"
+    ],
+    [
+      70,
+      45,
+      2,
+      3,
+      8,
+      "INT"
+    ],
+    [
+      74,
+      30,
+      0,
+      3,
+      1,
+      "HYVIDEMBEDS"
+    ],
+    [
+      75,
+      43,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      83,
+      5,
+      0,
+      60,
+      1,
+      "IMAGE"
+    ],
+    [
+      84,
+      45,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      58,
+      0,
+      30,
+      3,
+      "HYVID_CFG"
+    ],
+    [
+      88,
+      45,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      89,
+      60,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      94,
+      73,
+      0,
+      30,
+      4,
+      "STRING"
+    ],
+    [
+      95,
+      73,
+      0,
+      72,
+      0,
+      "STRING"
+    ],
+    [
+      96,
+      74,
+      0,
+      1,
+      2,
+      "HYVIDLORA"
+    ]
+  ],
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 74
+}

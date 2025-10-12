@@ -1,0 +1,888 @@
+{
+  "last_link_id": 101,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        298.0122985839844,
+        196.2779083251953
+      ],
+      "pos": [
+        -642,
+        289
+      ],
+      "widgets_values": [
+        "设置提取参数为0代表全部，需考虑运行时长"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 72,
+      "type": "Note _O",
+      "properties": {
+        "Node name for S&R": "Note _O"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        315,
+        88
+      ],
+      "pos": [
+        236.72683715820312,
+        1507.1123046875
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "audio",
+          "link": 89,
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "音频"
+        }
+      ],
+      "flags": {},
+      "id": 70,
+      "type": "PreviewAudio",
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "order": 7
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        334.8312072753906,
+        566.8311767578125
+      ],
+      "pos": [
+        190.25942993164062,
+        102.92019653320312
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "pl",
+        "loop_count": 0,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "pl_00002_asefg_1742342959_eydly_1742342961.gif",
+            "format": "image/gif",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 25
+          },
+          "muted": false
+        },
+        "format": "image/gif",
+        "frame_rate": 25,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 92,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 73,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            93
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "name": "audio",
+          "slot_index": 1,
+          "links": [
+            94
+          ],
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        190,
+        730
+      ],
+      "widgets_values": [
+        "pingpong",
+        25,
+        0.5
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 95,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "name": "audio",
+          "link": 96,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "id": 74,
+      "type": "VideoLengthAdjuster",
+      "properties": {
+        "Node name for S&R": "VideoLengthAdjuster"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            53,
+            92,
+            95
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "frame_count",
+          "label": "帧计数",
+          "type": "INT",
+          "localized_name": "frame_count"
+        },
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "name": "video_info",
+          "slot_index": 3,
+          "links": [],
+          "label": "视频信息",
+          "type": "VHS_VIDEOINFO",
+          "localized_name": "video_info"
+        }
+      ],
+      "size": [
+        336.5584716796875,
+        664.5584716796875
+      ],
+      "pos": [
+        -214.36141967773438,
+        267.31707763671875
+      ],
+      "widgets_values": {
+        "custom_height": 0,
+        "force_rate": 25,
+        "custom_width": 0,
+        "select_every_nth": 1,
+        "frame_load_cap": 0,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "force_rate": 25,
+            "filename": "241946dace971deaad5b8ac9f69551b26e47fb9a86fac22c446b1739f2167a2f.mp4",
+            "select_every_nth": 1,
+            "frame_load_cap": 0,
+            "format": "video/mp4",
+            "skip_first_frames": 0,
+            "type": "input"
+          },
+          "muted": false
+        },
+        "format": "AnimateDiff",
+        "video": "241946dace971deaad5b8ac9f69551b26e47fb9a86fac22c446b1739f2167a2f.mp4",
+        "skip_first_frames": 0,
+        "force_size": "Disabled",
+        "choose video to upload": "image"
+      },
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "frame_load_cap"
+          },
+          "name": "frame_load_cap",
+          "link": 100,
+          "label": "frame_load_cap",
+          "type": "INT",
+          "localized_name": "帧数读取上限"
+        }
+      ],
+      "flags": {},
+      "id": 40,
+      "type": "VHS_LoadVideo",
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "order": 4
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            70
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        232.89779663085938,
+        82
+      ],
+      "pos": [
+        603.771728515625,
+        342.62005615234375
+      ],
+      "widgets_values": [
+        2,
+        3
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 97,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "flags": {},
+      "id": 55,
+      "type": "Image Lucy Sharpen",
+      "properties": {
+        "Node name for S&R": "Image Lucy Sharpen"
+      },
+      "order": 10
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "image",
+          "slot_index": 0,
+          "links": [
+            83
+          ],
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "size": [
+        298.43426513671875,
+        106
+      ],
+      "color": "rgba(27, 89, 123, 0.7)",
+      "pos": [
+        569.2864379882812,
+        488.9999694824219
+      ],
+      "widgets_values": [
+        1,
+        1,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 70,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "flags": {},
+      "id": 56,
+      "type": "LayerColor: BrightnessContrastV2",
+      "properties": {
+        "Node name for S&R": "LayerColor: BrightnessContrastV2"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            97
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "name": "audio",
+          "slot_index": 1,
+          "links": [],
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "pos": [
+        583.5556640625,
+        720.801025390625
+      ],
+      "widgets_values": [
+        269,
+        "randomize",
+        1.5,
+        20
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 93,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "name": "audio",
+          "link": 94,
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        }
+      ],
+      "flags": {},
+      "id": 75,
+      "type": "LatentSyncNode",
+      "properties": {
+        "Node name for S&R": "LatentSyncNode"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "shape": 3,
+          "name": "frame_count",
+          "label": "帧计数",
+          "type": "INT",
+          "localized_name": "frame_count"
+        },
+        {
+          "shape": 3,
+          "name": "audio",
+          "slot_index": 2,
+          "links": [
+            86,
+            87,
+            89,
+            96
+          ],
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 3,
+          "name": "video_info",
+          "label": "视频信息",
+          "type": "VHS_VIDEOINFO",
+          "localized_name": "video_info"
+        }
+      ],
+      "size": [
+        364.2738342285156,
+        950.4791870117188
+      ],
+      "pos": [
+        -250.77783203125,
+        991.6712646484375
+      ],
+      "widgets_values": {
+        "custom_height": 0,
+        "force_rate": 25,
+        "custom_width": 0,
+        "select_every_nth": 1,
+        "frame_load_cap": 80,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "force_rate": 25,
+            "filename": "0f0c23bce1d13edf6594c75b2fe13144a75240567a95488ddd6c21a0564d8193.mp4",
+            "select_every_nth": 1,
+            "frame_load_cap": 80,
+            "format": "video/mp4",
+            "skip_first_frames": 0,
+            "type": "input"
+          },
+          "muted": false
+        },
+        "format": "AnimateDiff",
+        "video": "0f0c23bce1d13edf6594c75b2fe13144a75240567a95488ddd6c21a0564d8193.mp4",
+        "skip_first_frames": 0,
+        "force_size": "Disabled",
+        "choose video to upload": "image"
+      },
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "frame_load_cap"
+          },
+          "name": "frame_load_cap",
+          "link": 101,
+          "label": "frame_load_cap",
+          "type": "INT",
+          "localized_name": "帧数读取上限"
+        }
+      ],
+      "flags": {},
+      "id": 68,
+      "type": "VHS_LoadVideo",
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        334.8312072753906,
+        662.8311767578125
+      ],
+      "pos": [
+        1051,
+        499
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "pl",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": false,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "pl_00001-audio_hlltr_1751475911.mp4",
+            "workflow": "pl_00001.png",
+            "fullpath": "/data/ComfyUI/personal/dc555219c23018b8fa8b4774a3e25d14/output/pl_00001-audio.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 25
+          },
+          "muted": false
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 25,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 83,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "link": 86,
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 65,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "int",
+          "slot_index": 0,
+          "links": [
+            99
+          ],
+          "label": "整数",
+          "type": "INT",
+          "localized_name": "int"
+        }
+      ],
+      "size": [
+        210,
+        66.23160552978516
+      ],
+      "pos": [
+        -931.7601928710938,
+        591.1055908203125
+      ],
+      "widgets_values": [
+        10
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 71,
+      "type": "Primitive integer [Crystools]",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "order": 1
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "提取视频秒数"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        249.5497283935547,
+        161.1871337890625
+      ],
+      "pos": [
+        -827.7343139648438,
+        738.1312255859375
+      ],
+      "id": 77,
+      "properties": {},
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "links": [
+            100,
+            101
+          ],
+          "label": "整数",
+          "type": "INT",
+          "localized_name": "整数"
+        }
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        -646.2661743164062,
+        570.8795776367188
+      ],
+      "widgets_values": [
+        0,
+        25,
+        "multiply"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "a"
+          },
+          "name": "a",
+          "link": 99,
+          "label": "a",
+          "type": "INT",
+          "localized_name": "a"
+        }
+      ],
+      "flags": {},
+      "id": 78,
+      "type": "easy mathInt",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "easy mathInt"
+      },
+      "order": 3
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": [],
+    "workspace_info": {
+      "saveLock": false,
+      "id": "pdbYnk386LvXhcCuOca6c"
+    },
+    "ue_links": [],
+    "VHS_MetadataImage": true,
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false,
+    "node_versions": {
+      "was-node-suite-comfyui": "056badacda52e88d29d6a65f9509cd3115ace0f2",
+      "ComfyUI-VideoHelperSuite": "cad87a17a3ff5e03c26cf55e4dc90397b5642503",
+      "comfy-core": "0.3.12",
+      "ComfyUI_LayerStyle": "57d737facc2e04c1beb01799b623d8107067bc25"
+    },
+    "ds": {
+      "offset": [
+        1144.6760466146393,
+        -112.61039829456999
+      ],
+      "scale": 0.7972024500000005
+    }
+  },
+  "groups": [],
+  "links": [
+    [
+      70,
+      55,
+      0,
+      56,
+      0,
+      "IMAGE"
+    ],
+    [
+      83,
+      56,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      68,
+      2,
+      65,
+      1,
+      "AUDIO"
+    ],
+    [
+      89,
+      68,
+      2,
+      70,
+      0,
+      "AUDIO"
+    ],
+    [
+      92,
+      40,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      93,
+      74,
+      0,
+      75,
+      0,
+      "IMAGE"
+    ],
+    [
+      94,
+      74,
+      1,
+      75,
+      1,
+      "AUDIO"
+    ],
+    [
+      95,
+      40,
+      0,
+      74,
+      0,
+      "IMAGE"
+    ],
+    [
+      96,
+      68,
+      2,
+      74,
+      1,
+      "AUDIO"
+    ],
+    [
+      97,
+      75,
+      0,
+      55,
+      0,
+      "IMAGE"
+    ],
+    [
+      99,
+      71,
+      0,
+      78,
+      0,
+      "INT"
+    ],
+    [
+      100,
+      78,
+      0,
+      40,
+      2,
+      "INT"
+    ],
+    [
+      101,
+      78,
+      0,
+      68,
+      2,
+      "INT"
+    ]
+  ],
+  "id": "c69b3f89-3a69-4508-8079-dc8461c18c03",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 78,
+  "revision": 0
+}

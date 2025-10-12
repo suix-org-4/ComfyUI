@@ -1,0 +1,1323 @@
+{
+  "last_link_id": 182,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "lora",
+          "links": [
+            136
+          ],
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        }
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        -154.5539093017578,
+        -720.7130737304688
+      ],
+      "widgets_values": [
+        "wan2.1-1.3b-control-lora-tile-v1.0_comfy.safetensors",
+        1,
+        false
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "prev_lora",
+          "label": "prev_lora",
+          "type": "WANVIDLORA",
+          "localized_name": "prev_lora"
+        },
+        {
+          "shape": 7,
+          "name": "blocks",
+          "label": "blocks",
+          "type": "SELECTEDBLOCKS",
+          "localized_name": "blocks"
+        }
+      ],
+      "flags": {},
+      "id": 98,
+      "type": "WanVideoLoraSelect",
+      "properties": {
+        "Node name for S&R": "WanVideoLoraSelect"
+      },
+      "order": 0
+    },
+    {
+      "outputs": [
+        {
+          "name": "vae",
+          "slot_index": 0,
+          "links": [
+            43,
+            135
+          ],
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        }
+      ],
+      "color": "#322",
+      "widgets_values": [
+        "Wan2_1_VAE_bf16.safetensors",
+        "bf16"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoVAELoader",
+      "mode": 0,
+      "bgcolor": "#533",
+      "size": [
+        314.00311279296875,
+        82
+      ],
+      "pos": [
+        -160.4121856689453,
+        -374.0975036621094
+      ],
+      "id": 38,
+      "properties": {
+        "Node name for S&R": "WanVideoVAELoader"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            148
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        687.7763061523438,
+        -718.9434814453125
+      ],
+      "widgets_values": [
+        4,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 147,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "flags": {},
+      "id": 104,
+      "type": "ImageBlur",
+      "properties": {
+        "Node name for S&R": "ImageBlur"
+      },
+      "order": 9
+    },
+    {
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            151
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "color": "#322",
+      "widgets_values": [
+        false,
+        272,
+        272,
+        144,
+        128
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 43,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "samples",
+          "link": 33,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoDecode",
+      "mode": 0,
+      "bgcolor": "#533",
+      "size": [
+        315,
+        174
+      ],
+      "pos": [
+        1508.783447265625,
+        -701.2587890625
+      ],
+      "id": 28,
+      "properties": {
+        "Node name for S&R": "WanVideoDecode"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        371.20086669921875,
+        667.2734985351562
+      ],
+      "pos": [
+        1846.3963623046875,
+        -707.3531494140625
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "WanVideoWrapper_I2V",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "WanVideoWrapper_I2V_00006_trcjg_1743742124.mp4",
+            "workflow": "WanVideoWrapper_I2V_00159.png",
+            "fullpath": "N:\\AI\\ComfyUI\\output\\WanVideoWrapper_I2V_00159.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 16
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 16,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 151,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 30,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "samples",
+          "links": [
+            132
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "size": [
+        315,
+        242
+      ],
+      "pos": [
+        699.2341918945312,
+        -456.929443359375
+      ],
+      "widgets_values": [
+        false,
+        272,
+        272,
+        144,
+        128,
+        0,
+        1.0000000000000002
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 135,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "image",
+          "link": 148,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "shape": 7,
+          "name": "mask",
+          "label": "mask",
+          "type": "MASK",
+          "localized_name": "mask"
+        }
+      ],
+      "flags": {},
+      "id": 95,
+      "type": "WanVideoEncode",
+      "properties": {
+        "Node name for S&R": "WanVideoEncode"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image_embeds",
+          "slot_index": 0,
+          "links": [
+            133
+          ],
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        }
+      ],
+      "size": [
+        289.79998779296875,
+        102
+      ],
+      "pos": [
+        712.168701171875,
+        -156.29310607910156
+      ],
+      "widgets_values": [
+        0,
+        0.7
+      ],
+      "inputs": [
+        {
+          "name": "latents",
+          "link": 132,
+          "label": "latents",
+          "type": "LATENT",
+          "localized_name": "latents"
+        },
+        {
+          "shape": 7,
+          "name": "fun_ref_image",
+          "label": "fun_ref_image",
+          "type": "LATENT",
+          "localized_name": "fun_ref_image"
+        }
+      ],
+      "flags": {},
+      "id": 96,
+      "type": "WanVideoControlEmbeds",
+      "properties": {
+        "Node name for S&R": "WanVideoControlEmbeds"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "label": "可选连接",
+          "type": "*"
+        }
+      ],
+      "size": [
+        252,
+        202
+      ],
+      "pos": [
+        -446.4037780761719,
+        -1017.7355346679688
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 107,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "properties": {
+        "customSortAlphabet": "",
+        "matchColors": "",
+        "sort": "position",
+        "matchTitle": "",
+        "showNav": true,
+        "toggleRestriction": "default"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            147,
+            161,
+            180
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "frame_count",
+          "label": "帧计数",
+          "type": "INT",
+          "localized_name": "frame_count"
+        },
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "name": "video_info",
+          "label": "视频信息",
+          "type": "VHS_VIDEOINFO",
+          "localized_name": "video_info"
+        }
+      ],
+      "size": [
+        247.455078125,
+        761.8279418945312
+      ],
+      "pos": [
+        -473.48162841796875,
+        -723.0285034179688
+      ],
+      "widgets_values": {
+        "custom_height": 0,
+        "force_rate": 0,
+        "custom_width": 0,
+        "select_every_nth": 1,
+        "frame_load_cap": 0,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "custom_height": 0,
+            "filename": "b5356a9a5f8ec96e9b0d64277454119e96f461916724d2abdf6dbf08d51edebd.mp4",
+            "force_rate": 0,
+            "custom_width": 0,
+            "select_every_nth": 1,
+            "frame_load_cap": 0,
+            "format": "video/mp4",
+            "skip_first_frames": 0,
+            "type": "input"
+          }
+        },
+        "format": "AnimateDiff",
+        "video": "b5356a9a5f8ec96e9b0d64277454119e96f461916724d2abdf6dbf08d51edebd.mp4",
+        "skip_first_frames": 0,
+        "force_size": "Disabled",
+        "choose video to upload": "image"
+      },
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "frame_load_cap"
+          },
+          "name": "frame_load_cap",
+          "link": 181,
+          "label": "帧数读取上限",
+          "type": "INT",
+          "localized_name": "帧数读取上限"
+        },
+        {
+          "widget": {
+            "name": "skip_first_frames"
+          },
+          "name": "skip_first_frames",
+          "link": 182,
+          "label": "跳过前X帧",
+          "type": "INT",
+          "localized_name": "跳过前X帧"
+        }
+      ],
+      "flags": {},
+      "id": 97,
+      "type": "VHS_LoadVideo",
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "order": 8
+    },
+    {
+      "outputs": [
+        {
+          "name": "text_embeds",
+          "slot_index": 0,
+          "links": [
+            30
+          ],
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        }
+      ],
+      "color": "#332922",
+      "widgets_values": [
+        "masterpiece,best quality,extremely detailed CG unity 8k wallpaper,intense shadows,colorful,realistic,rich expressions",
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+        true
+      ],
+      "inputs": [
+        {
+          "name": "t5",
+          "link": 15,
+          "label": "t5",
+          "type": "WANTEXTENCODER",
+          "localized_name": "t5"
+        },
+        {
+          "shape": 7,
+          "name": "model_to_offload",
+          "label": "model_to_offload",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model_to_offload"
+        },
+        {
+          "widget": {
+            "name": "positive_prompt"
+          },
+          "name": "positive_prompt",
+          "link": 179,
+          "label": "positive_prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoTextEncode",
+      "mode": 0,
+      "bgcolor": "#593930",
+      "size": [
+        446.503662109375,
+        255.15805053710938
+      ],
+      "pos": [
+        178.62954711914062,
+        -449.5804138183594
+      ],
+      "id": 16,
+      "properties": {
+        "Node name for S&R": "WanVideoTextEncode"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "p0",
+          "links": [
+            178
+          ],
+          "label": "p0",
+          "type": "*",
+          "localized_name": "p0"
+        },
+        {
+          "name": "prompt opt_1",
+          "links": [
+            179
+          ],
+          "label": "prompt opt_1",
+          "type": "STRING"
+        }
+      ],
+      "size": [
+        315,
+        78
+      ],
+      "pos": [
+        -146.27003479003906,
+        -148.67938232421875
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "image_0",
+          "link": 180,
+          "label": "image_0",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 121,
+      "type": "RHHiddenNodes",
+      "properties": {
+        "Node name for S&R": "RHHiddenNodes",
+        "info": "Z0FBQUFBQm9EaGtub3Nub3hWTkhzTnpRRWNhZXo3TFpCMk9Kbzc3dWw3VDBhUTBzcURFWGtaUjloVzl6alVlTjAtdXhObWkzeWlab1Q5Z1A3Y3Vubno0Mi1RZGFDZ0FSdVBWVThiSXJoLWI4X240cC1tSWRFYXVkX3Zqay1rOTdLMWtxLW9lb2laeEI2RkR3Z25QU2lSVjc3d0RlUFhKWmcteDNUUXdIZlVUVEltY1hHYWwtX05IcWYxSTNFMjgtR2NjNWt1amR3b252c0ZQSHJFTV9zX0dXdXA0LU5YNl9McVRXZDhJcUtmcWVEcXhyR3lSODJ4SjZDXzNfb3RTZlBhOUt4eF9OS0NodkJKTDVHRlRtMDVHTEhWYnVXSWk1aHo4SHRoWlB6aWM1VGNOUEhwODRpLV9LQUtaUWpiX2pRdTlVbjdvWlNJRFM5dGQzYXc2WmllRExva2l0REc2UjZINExkNDk1VnlBM252NmVDcktkd0dYS3VZdzVsRjlkQTRCS0toR3NEdVlxX0V4Y1RlMVhpRnltOGdpcU5BSWtjMGtpVzg0eHluUkROYzkwLU5qa3k0YThKT1dQWmFYd0RKYzQwMGpMRmFFTFdrbnNoWUJxdk0tV0RWekhmSnJTWVZhWXdPam1OaWJTSDNsWDA3VmRiRXJUb2RGbXlGRUx0OFExQmlWUUp0TUtrWjVCN05ac3piSVV5aWVzdFcxaFRBV1hlbUV5aHpYVWZ0RWxVajNKNjI3TmdEWkpkQ1BnQkhHa1NrUXV2S2EtaWNrUDRrNmJfWEZDbEFCbV9HLVVDTEtLb2JDQUZGYl9XWXBRZGJBT3g0RGo2UmhBaWVvZWxKSlRabEZVVUprUFduWkhvN21NUms5Y0dkdHd0Q0tfbTBMVkRlYmM4aXI4T2tqbFRGdUpBcTBUVS1MM1pTeVNFTU1qZldUT1l2dHdfMUltUjF4c2JjQWJqQ1I3M3VUYWVDRk1MaG5HajlndmRaWUpZeHhaVkNOaG9Ka1ljQVpUQXQ2WWVjUjlRN2lxWkNRUzEtZjRMVm5WSk5teWRsOHdJVmlNZ1BINGtsZTlqbTEtaS11akdMLTlPdzMtb0J0dWFtR0loM1UzU29RX1NiVHduNnJsZU9IUGRVMkNJTkVBZFRjTDFwd1ZnVldycXZuelFKT0RGQ1EzZWJ3RmRpcHIyZF85eGk1b0hHbUFNNEdralVJTVo5dVgyVlBzWDR5LTdaX2d4ZVR3SjJVVEdSNkVKeWxRb1pqNElIR0hCV2JGSFJ2UjNaNThJSl9RbkQ4N2pLbkoteWNzeGJfRkR3UkdMcTduUXJrNjhoYTl6Tnd4a01WR1l3RUpPMHRHVDl0WW1BWEE0VUhCVVlxbFFzZ2ZqOFN4RXB0RU8yc0ZydzBKTldIdjZVOWRRckJfdUN1T3NKNWZUSkVqQXV3b3M2SEtKd0oyc0VVelZmVzl6RWV1YkJTdFQydXREZG95X3M1d2xfazFJSFIzY3ZadWFmZk96Z09iRGYtRWRQZ2NXSEdVY3N0TnZ4dVA5LXVqLWdiNE9MLVk5bnVUbWVMcUdwODVqRVAzUnU3Y3ZQRnk1OGNJc1F4UlNxZWplUzFCZDYxTE1obmZTaXdGTXpZTEhVX09YZHpYMDNWN3dLdmNMaXRlbWRLUWo1Q0VQN2E5STd5Ni1VMzJzQW5YV2tiY05pLUNOV05Ga1h3dDNzVjNsZEVfZ0xxTjZzRkFadFRsbTZJOWxGZXVTdUhpT1d4WHhQNW0wbVp3ZC12RmliZ2N1NC1ZWXZxU3V6M3FBT3BaVm9xeDJualdrWFoxbVpndmlQTGxHTFNTREw3djViZTJkbW1fYUdLWXJZZTN6aWpVS2N5RjZQYktNYjFrTnljTWxueXc3bERINXRTeG1iaHR5UXdkdzY3S3ByM2twcVIzX182UXBGaFFUWGg0NWM2VGpHNk4wYzFMR0FxS21WcjNza3M5cWRaeVVUR0lVRXVlMFdjTVdrRVU2Q253RW8tNGFvdkZLNzlCU3FpeVlEb0J3MUFmRDRGa0ktZTJHV1VfYVNIdTBNeFNMWmZ4TC1Say1GbVZua2V5SmZYS241cUxUX0M1bnBmUUktWEQ1aEdaSl9TbDIwLXRwWUk0X2FSYVlpbUZ2bTJHdTBsa2xHN2Y3X3JVMFpXd25LY2xxN0dyQ1AxeWlDVjV2a3RRcGI1cVdYUVRLM3ZqLWFDZk03aFIwdExvMjJBSGxKVTBnSnFvNkFDLS05S0xXU09OUjF4d1B2Y20zM2RDY1duTkRaLWhEekFuOHlETURoQlNGOEFXQXJ3UFR1YWFFR0pMT25xb1didkdNdW1LR3Zac1U4Wk1LSnI4S0hlWk5sMnpEM3QwTjNCWlo0ekozWnd6Sk5RNE9CWGo0MVdqOEtpNlgzaDlNTHNsWU1IbmZDcXFOVjZMcF9yOFlDdFplMFNDckV2bVBPcmhXVlhCSjJfVHQzNm41WTBzVlBoY2w4eUhSVlNKQjZ1MWQwUTdvRFJxdFUxekZyeGxDeVdqcERETkY2V0J4QWxDOWhEaGdDdXBVdWZXWXAzU1BLT2dqdjJqOHIyX1ZMc1dPeFlfQ2pJQVNWS3JWZXVjbXV1ck1ka0c1Zmk4d2pmWDVpcUpMbzVvVkhPeDNaSWxIUGQ1VW5EQ1VzYmRLdkZFN1M1N01RVS1SRzlPZ1QwaWZBUHJjdW5iSTU2N2NXNXFJLU9kbThsTHRVbnFGcV9zdVp6OEgzWDNrQ2Q0ZDliU2dPa0Y4QnA4RUNXSTZYLWMzSjFCazB6VnNsX0M2M3NpZXdDSXRxSnp0TzFRaDRUc1c0a182Yk1idUxzaVp0czR5ZDdSQndoc19MREZrX0dZME1HZ3lTQWxvZ0lvcVpMcGVXZTVGWnlFcjRjR0tMbmNhdDZvbW84UVBTQ2ZPYXo4MHZNa2FGcGJHSHNjY19QSGFrOTdBbmljV0t5eDN3WnlfSnBZVC15UlJMWGNZUnd4aF9CaWtESUhKb01iSjNEUmhVcEZtUWFVX3N0bkE0MTR0RDY3WkNLMXNXRl9lWmVzLTMzdEVudWd5OU42cFJJOHZoQkxkcVlyTTh1VjBnMzZaYmdnTUVLclNjcU5fSE1feVNDazFTT0plbjRCX1BFcldsUTFmcVJrU2M4YVdqWlA3ZWVRbHllWmVaVHBTUFpOazB1YmExd0wtaWNYbGRhbWl5ZXFmcXRRc3lVUkpOU0c3UDYyS0RMNl9uTkZqbDJGOGhKdDhzeHB5ZFU3ZGdXU1BiaW5OaU1fS1g4dThzTGFLT0Y0X2FwMEFJLXp5OEdMdjA2Y3ZaVjBpX0pyckgxTEJpeXBRWkt4RmQ2WkVzZ3JmLWNGMjJlQ2J3dmJtb3A4ZEpiZmlXWTZVd2s3cnVSaThrT3UtMHhESkVNdGVBMExEWlVRZWpxSU8zU0w2cDg1aXZRcEhoeTdNSm5hSkxnRjktN3hGNGpsWVA1aV95a1prdnYtUVgwSXZGQTNPeFMxNC0tNWpyVEtDMlBPNFpCZENUNURXT1VwZjFQWkI4WDk0cmx5NHhGNkI3ZGpXLWRHZzBYQmpzeWVJOVU3d0hvcmFWUW81WHVVRGhpNF9PV0hOdF9GZGNqc3NJaUphalN3ZlJmSndiWFNYOThtTFpYOUtVX2RBWFl3Q0cwdHNUUm9PQXpTdXY1TWpJeXJYcUJuN2JmU012eGM0N2ZMZ1NoaHVCOEtiSnVBMXNBLVB2cVl1cHV1UTZaS1JtbUFrR2ZWNTN4RHEyTjdXVVBWTGZJSTR3RE1SUEN4Y2kzSEdXU3FybHQ0OGxEYmk4a1RRR1o0dDNTVGtDRjRsSG9oZzFhel9jOEJqMFhHNnk2SG1mQlp5Y0p1dVhsYUR3XzJSUkpJaUtjZk1aSHBHM2pMMElNUjF1T2RHRld6ZVVRMXV0UUR6WmgybTA1QmE4OFBVeWcwLURTMEJ0bkRBdUtTMzg5TzlUcC1PWUIyQ0tyNnpwOXI3YVB6M0hrZnpkREJTNHBvMG1rWnI5NFgzOXhFOHdsbE96azV2SndZZ29iVW96aHhEUkV2elUtdGtaUVZrT2NNeU9qOUR4WkFob19xNHdOSzZjd2trMnMyd3BDdDlXbHNpUm5MYVkwSzZRcHRWd2J2ZEtieGxfRGpSazkxQjZiYWdpQ01INmdHUmpyWWRvSzlUb0x2cWhjU3NhaGdVU1gxdHNuNWxEUTdOblFMc3prVWYwcHBrQzY2Ylc1Q01BZU5zVnM2THg1V1ViX0JtenRmc0xfeU40WEVLa0ZBOThZYk8zNDdlYkF2YVJzT1poSlBVNnhOMHdDcXh5eEJqZ0loX1lvNWYzOFVucjlqcnlGc3pHSkZaM3pIX3ZOYWtaVDRmREhkM18zX19wMy1nb1U5RmdxMWlfU3dpcTlrczJUQXdpc1NqWHNvV2F0NlpPTkYzbmthV3BnUjEyUllVbnptT3ctdjRpUVF0UTY3VjdZT1o3SzJ2UTZxdFMtWHJob0dzWUFwMWVTQmxKUnZBNWtpXzExNHRhQ3hFSlcwOFJsR1FZWlRsYkxuV0xrZ3F4dmZ5dmRwb1gwU3VWR1lQZWN2ek4xMkpKTzlkUFNSUFBYRTFES295bHZVSVVLZERFMWhqMjNBMDRhUW5BYnF4WEtZT0xOXzZEOXhtVWN1UkU3WnNUU2daenpGM0Nmb18ycHZvazJuLUduMFNqYzdubjBwWFpEdEp4Rl9pTWVFMWQweU1EMTlMYVhiRWJRTnRXVGpHZEtCcTBvWEFDN1pUbFdZTk1jQ2F4ZjNENUpta0s5ZmFsQng2YnM2NlUtSXpMUTZsTGFFUm0tSXVST0FQNm1HaGlRb1N3Z0pUek9yLTBtMzZocFVTWFk2bXN5LXNsaVh6ZVdKbXhMSXVfWWZFczl3QzNIWEV2X1lxWkVzZWl4ZXJHcjFHUHF1Z1E5Y2doRnBPNnhMeGM5bWxnQzRzYUdfbW1XN1QzNXFkdTNuRjdWckh2N1FtdEdXVFNNVjBMRGlObUlrUWZJQ3RieGtpZlRYZVB4X1BGZkgwNkdveWJNbEZHTEV2WHJIWmptbzZBODQyNV9TN2FVa0kxUFh6aWpJWFBtQ2F0S2hjeGMzTWJsNjRpUjhDQVU4bVVqZkNuTUE0OGp6djY0WGMtNUFDSU13aURmTG1kQWFRZDU2elFoVFhoWXFtVHhKTG5lakhKMXBHMXJaTjdkLTNjQUZCN2Zjb0c3NmNKS015ZjMxRkNuQzQ3d3VTWElhVVdYTV9WdXBkWWNoZXNaaS1ySnpmaHJ6aUZuX3NDVE1hOEt4c1lqejcya3BaZmd1NHBXNTUyQUItSkJoV3Z2Y1BFaHhiUFFUbTlhNVdleDdHd3ZJRlg2cEFTTHpBZWdRS1owTW5Qd0RqS25Lc0luU2dOQ2VSZ1Vkd0xGNG53UFZ2TzFfNXRpXzNqd0dtM2pZLXZXaHJIM2lLM0o0VF9qWFo5YUlTWVRMV0Y0b09DOWFNa0pPZnVCejlpZlU2dHRSVU1HMlRFYW1qaUdYbkktdGVmclZYQ3hDWllBa2ZZRHZrd0F3T0U0cXhSMUZfVEZZY3kxUlNWWDE5eEZQekQzTHBTc1RQcTlLbWtwVFdzWndhcV9iZkpHSGRDUFo3QmhTV0tiMkVnd2xocjZkemduQnBRaHVORnBmdXBOZS1wNDUzWXA0clpNOW1aUnRpNnBSaG9LaWotbmRXMXJxaHcteWs5V1ZiS3JwWjJJV0l6QjJaRndLTG1KSXZrV1YxeEc2SHNub01XalhIN0ZLdC1IdmJQbG9WWV96SWs3dlJ6Z3BIS1dnbHRtRGNCZ09QUVMzRHdrZjVKc1ZUaUk4X3ZkMGtVS1BoVi01UVE3UDRaSGItaTJtY3lOVXZHT2N5dHJQaFVWU0x1eEtPMWJ6bFFtekxrbjA0bF9vSnVVdGVZVGlad0ZtYlBjWFlyUFRIb25XM3VlZjEzT1ZNMTAteFpscVlEZHd3b0NsOWExT3hKcFZCYXZDN2FxVkpTSVJ1N3hfaDdXWGxpOW0yUVF2ZnFra3dNdVFtVkRuR1p5SHdCS2V5eDNKWW4xTmd0VFBLX3hLa2U4RlZraGp4VlVlTGZ6SV9sYWNIU0I2Z21Fb3NvbnBabkRGdzcwcnp4bmU5Vlh4RjBIbE96ZE1EVVdlUGkxS0lZUUNWa2tQOUtRVzYwc25uRC1Qd0E1d1RtYzNoQ05oWWt5bVphWjh6MUQwVnhIWHVzYkZqUlktS0dLOXhwSzMtUjc1ZG9Ja2w2NG5BVjNRakpLSGtyMWFKV0hpdVJuNG5VUmF5V1FCNXpLLWV1a25BSjhyYkpJNzVSU242aFFpcUx1dzhLU1R0N0dUTWFtRjN0YWU0NUM1cXZWem9wbkFIX0dKbmpvYnZKREcyZ192SnROYlZrclpTZjRCUjh2OVowbGU4WEdvTHNQdE0xa0RXOEprYnY0R25ZYTVLRlNnYVF4SmZoZHRaS3BvWVMwVDhLMzAxOENzOHlILV90aExkRl9tSkhtY0JoUjEyb1hXbjdvWWpjSTF2YXoxT2JLMjdzVUFaWGZvQ1JxTFpuSHBhWTU0Z0lqWHo1SGhtLUlTbC1iLVBDejlOLXIxdDdwNFhvbUstbm82WFVadTRCRnhwUFZudE5ZVVAwS2xsSkVjc0NLMWZ0azVESXpFLW54bVlpVmZkcTA5b01EaXNlcEFxTy1hdEJoR2NFRzRfOTIwTUlpWTlEbXlYemlIQWZQTVdtUmJPQmFCWHZCaENZX0psWTNEaVFoUTFpTDFqdmVrZGdZYmxCa3hObjUwX3pjcDlsOU5wQml3djE3Rm9jVE1POGxRb2JIVVhhSzd6OU9XWGxDbWNNWEJMUFB0ZlFBPQ==",
+        "ref_info": "Z0FBQUFBQm9EaGtuNHhnb25BWGlsQUliMnJlRDJsQkVrYl9Lblo4UkE5RFFITXctUGZhVXpQb3h1WjVxMmE2alVwVWNVc1hzR3Vad00zNG1YNEhlU1VqUnE5WnIxTUJtMUE9PQ=="
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "label": "字符串",
+          "type": "STRING",
+          "localized_name": "字符串"
+        }
+      ],
+      "size": [
+        617.30712890625,
+        239.88604736328125
+      ],
+      "pos": [
+        -156.33041381835938,
+        35.63699722290039
+      ],
+      "widgets_values": [
+        "",
+        "18-year-old classical maiden, facing the camera, jet-black long hair styled in a half-up, half-down \"垂云髻\" (elegant cloud-like bun structure), two pure white ice silk ribbons cascading from the bun down to her waist, ribbons subtly flowing in graceful wave-like motions as if guided by inner energy. Loose natural black hair softly drapes over her shoulders and back, retaining a minimalist, unadorned aesthetic. Forehead features delicate wisps of hair with natural flow, and fine baby hairs at the hairline catch a gentle glow, creating a youthful, ethereal effect. No jewelry, no ornate hairpins—pure simplicity. Surrounded by the mystical cold mist of a mountain pool in the depths of Zhongnan Mountain, moonlight filters through her hair, creating a stunning Tyndall effect, blending with the atmospheric haze. Ultra-high-resolution lighting captures every intricate detail—delicate textures, soft transitions, and dynamic interplay between light and shadow."
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 178,
+          "label": "文本",
+          "type": "STRING",
+          "localized_name": "文本"
+        }
+      ],
+      "flags": {},
+      "id": 112,
+      "type": "ShowText|pysssss",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 12
+    },
+    {
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            29
+          ],
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "Wan2_1-T2V-1_3B_fp8_e4m3fn.safetensors",
+        "fp16",
+        "disabled",
+        "offload_device",
+        "sdpa"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "compile_args"
+        },
+        {
+          "shape": 7,
+          "name": "block_swap_args",
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        },
+        {
+          "shape": 7,
+          "name": "lora",
+          "link": 136,
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        },
+        {
+          "shape": 7,
+          "name": "vram_management_args",
+          "label": "vram_management_args",
+          "type": "VRAM_MANAGEMENTARGS",
+          "localized_name": "vram_management_args"
+        },
+        {
+          "shape": 7,
+          "name": "vace_model",
+          "label": "vace_model",
+          "type": "VACEPATH",
+          "localized_name": "vace_model"
+        },
+        {
+          "shape": 7,
+          "name": "fantasytalking_model",
+          "label": "fantasytalking_model",
+          "type": "FANTASYTALKINGMODEL",
+          "localized_name": "fantasytalking_model"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoModelLoader",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        452.65863037109375,
+        254
+      ],
+      "pos": [
+        177.7568359375,
+        -720.522216796875
+      ],
+      "id": 22,
+      "properties": {
+        "Node name for S&R": "WanVideoModelLoader"
+      },
+      "order": 7
+    },
+    {
+      "outputs": [
+        {
+          "name": "wan_t5_model",
+          "slot_index": 0,
+          "links": [
+            15
+          ],
+          "label": "wan_t5_model",
+          "type": "WANTEXTENCODER",
+          "localized_name": "wan_t5_model"
+        }
+      ],
+      "color": "#332922",
+      "widgets_values": [
+        "umt5-xxl-enc-bf16.safetensors",
+        "bf16",
+        "offload_device",
+        "disabled"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadWanVideoT5TextEncoder",
+      "mode": 0,
+      "bgcolor": "#593930",
+      "size": [
+        319.8125915527344,
+        130
+      ],
+      "pos": [
+        -156.48036193847656,
+        -553.6957397460938
+      ],
+      "id": 11,
+      "properties": {
+        "Node name for S&R": "LoadWanVideoT5TextEncoder"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            33
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "name": "maskimagetest",
+          "slot_index": 1,
+          "links": [],
+          "label": "maskimagetest",
+          "type": "IMAGE"
+        }
+      ],
+      "size": [
+        341.19854736328125,
+        578
+      ],
+      "pos": [
+        1086.0120849609375,
+        -501.720458984375
+      ],
+      "widgets_values": [
+        60,
+        6,
+        5,
+        0,
+        "randomize",
+        true,
+        "dpm++",
+        0,
+        1,
+        "",
+        "comfy"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 29,
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "text_embeds",
+          "link": 30,
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        },
+        {
+          "name": "image_embeds",
+          "link": 133,
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "samples",
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "shape": 7,
+          "name": "feta_args",
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        },
+        {
+          "shape": 7,
+          "name": "context_options",
+          "label": "context_options",
+          "type": "WANVIDCONTEXT",
+          "localized_name": "context_options"
+        },
+        {
+          "shape": 7,
+          "name": "teacache_args",
+          "link": 103,
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        },
+        {
+          "shape": 7,
+          "name": "flowedit_args",
+          "label": "flowedit_args",
+          "type": "FLOWEDITARGS",
+          "localized_name": "flowedit_args"
+        },
+        {
+          "shape": 7,
+          "name": "slg_args",
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        },
+        {
+          "shape": 7,
+          "name": "loop_args",
+          "label": "loop_args",
+          "type": "LOOPARGS",
+          "localized_name": "loop_args"
+        },
+        {
+          "shape": 7,
+          "name": "experimental_args",
+          "label": "experimental_args",
+          "type": "EXPERIMENTALARGS",
+          "localized_name": "experimental_args"
+        },
+        {
+          "shape": 7,
+          "name": "sigmas",
+          "label": "sigmas",
+          "type": "SIGMAS",
+          "localized_name": "sigmas"
+        },
+        {
+          "shape": 7,
+          "name": "unianimate_poses",
+          "label": "unianimate_poses",
+          "type": "UNIANIMATE_POSE",
+          "localized_name": "unianimate_poses"
+        },
+        {
+          "shape": 7,
+          "name": "fantasytalking_embeds",
+          "label": "fantasytalking_embeds",
+          "type": "FANTASYTALKING_EMBEDS",
+          "localized_name": "fantasytalking_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "uni3c_embeds",
+          "label": "uni3c_embeds",
+          "type": "UNI3C_EMBEDS",
+          "localized_name": "uni3c_embeds"
+        }
+      ],
+      "flags": {},
+      "id": 27,
+      "type": "WanVideoSampler",
+      "properties": {
+        "Node name for S&R": "WanVideoSampler"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "links": [
+            181
+          ],
+          "label": "整数",
+          "type": "INT",
+          "localized_name": "整数"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        -923.0166625976562,
+        -593.6725463867188
+      ],
+      "widgets_values": [
+        61
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 122,
+      "type": "Int",
+      "properties": {
+        "Node name for S&R": "Int"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "links": [
+            182
+          ],
+          "label": "整数",
+          "type": "INT",
+          "localized_name": "整数"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        -926.4986572265625,
+        -475.5799255371094
+      ],
+      "widgets_values": [
+        0
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 123,
+      "type": "Int",
+      "properties": {
+        "Node name for S&R": "Int"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "teacache_args",
+          "links": [
+            103
+          ],
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        }
+      ],
+      "size": [
+        318.54034423828125,
+        178
+      ],
+      "pos": [
+        1098.6419677734375,
+        -721.3645629882812
+      ],
+      "widgets_values": [
+        0.04000000000000001,
+        4,
+        -1,
+        "offload_device",
+        "true",
+        "e"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 52,
+      "type": "WanVideoTeaCache",
+      "properties": {
+        "Node name for S&R": "WanVideoTeaCache"
+      },
+      "order": 3
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": true,
+    "node_versions": {
+      "ComfyUI-WanVideoWrapper": "5a2383621a05825d0d0437781afcb8552d9590fd",
+      "ComfyUI-VideoHelperSuite": "0a75c7958fe320efcb052f1d9f8451fd20c730a8",
+      "ComfyUI-KJNodes": "a5bd3c86c8ed6b83c55c2d0e7a59515b15a0137f",
+      "comfy-core": "0.3.26"
+    },
+    "ds": {
+      "offset": [
+        414.68136892162966,
+        946.2261693778544
+      ],
+      "scale": 0.9646149645000006
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 1,
+      "title": "加载视频",
+      "bounding": [
+        -493.67266845703125,
+        -796.9267578125,
+        313.4767761230469,
+        773.9071044921875
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 2,
+      "title": "加载基础",
+      "bounding": [
+        -169.37725830078125,
+        -791.2621459960938,
+        814.0811767578125,
+        766.8264770507812
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 3,
+      "title": "视频图像模糊",
+      "bounding": [
+        654.1063842773438,
+        -788.429931640625,
+        386.6202697753906,
+        229.0484619140625
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 4,
+      "title": "高精度重绘",
+      "bounding": [
+        1054.166015625,
+        -784.1814575195312,
+        418.9789733886719,
+        750.5408325195312
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 5,
+      "title": "编码及视频合成",
+      "bounding": [
+        1483.6787109375,
+        -779.2772827148438,
+        747.8073120117188,
+        777.89501953125
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 6,
+      "title": "视频解码",
+      "bounding": [
+        658.9242553710938,
+        -542.6473388671875,
+        391.57672119140625,
+        515.3912963867188
+      ]
+    }
+  ],
+  "links": [
+    [
+      15,
+      11,
+      0,
+      16,
+      0,
+      "WANTEXTENCODER"
+    ],
+    [
+      29,
+      22,
+      0,
+      27,
+      0,
+      "WANVIDEOMODEL"
+    ],
+    [
+      30,
+      16,
+      0,
+      27,
+      1,
+      "WANVIDEOTEXTEMBEDS"
+    ],
+    [
+      33,
+      27,
+      0,
+      28,
+      1,
+      "LATENT"
+    ],
+    [
+      43,
+      38,
+      0,
+      28,
+      0,
+      "VAE"
+    ],
+    [
+      103,
+      52,
+      0,
+      27,
+      6,
+      "TEACACHEARGS"
+    ],
+    [
+      132,
+      95,
+      0,
+      96,
+      0,
+      "LATENT"
+    ],
+    [
+      133,
+      96,
+      0,
+      27,
+      2,
+      "WANVIDIMAGE_EMBEDS"
+    ],
+    [
+      135,
+      38,
+      0,
+      95,
+      0,
+      "WANVAE"
+    ],
+    [
+      136,
+      98,
+      0,
+      22,
+      2,
+      "WANVIDLORA"
+    ],
+    [
+      147,
+      97,
+      0,
+      104,
+      0,
+      "IMAGE"
+    ],
+    [
+      148,
+      104,
+      0,
+      95,
+      1,
+      "IMAGE"
+    ],
+    [
+      151,
+      28,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      178,
+      121,
+      0,
+      112,
+      0,
+      "STRING"
+    ],
+    [
+      179,
+      121,
+      1,
+      16,
+      2,
+      "STRING"
+    ],
+    [
+      180,
+      97,
+      0,
+      121,
+      0,
+      "IMAGE"
+    ],
+    [
+      181,
+      122,
+      0,
+      97,
+      2,
+      "INT"
+    ],
+    [
+      182,
+      123,
+      0,
+      97,
+      3,
+      "INT"
+    ]
+  ],
+  "id": "04f1de76-e363-4c27-bec7-eb184ac6e476",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 123,
+  "revision": 0
+}

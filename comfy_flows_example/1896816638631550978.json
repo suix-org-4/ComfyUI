@@ -1,0 +1,3754 @@
+{
+  "last_link_id": 97,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            29
+          ],
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        }
+      ],
+      "size": [
+        477.4410095214844,
+        226.43276977539062
+      ],
+      "pos": [
+        -1250,
+        370
+      ],
+      "widgets_values": [
+        "Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors",
+        "bf16",
+        "fp8_e4m3fn",
+        "offload_device",
+        "sageattn"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "compile_args"
+        },
+        {
+          "shape": 7,
+          "name": "block_swap_args",
+          "link": 39,
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        },
+        {
+          "shape": 7,
+          "name": "lora",
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        },
+        {
+          "shape": 7,
+          "name": "vram_management_args",
+          "label": "vram_management_args",
+          "type": "VRAM_MANAGEMENTARGS",
+          "localized_name": "vram_management_args"
+        }
+      ],
+      "flags": {},
+      "id": 22,
+      "type": "WanVideoModelLoader",
+      "properties": {
+        "Node name for S&R": "WanVideoModelLoader"
+      },
+      "order": 36
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "vae",
+          "slot_index": 0,
+          "links": [
+            21,
+            34
+          ],
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        }
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        -920,
+        220
+      ],
+      "widgets_values": [
+        "Wan2_1_VAE_bf16.safetensors",
+        "bf16"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 21,
+      "type": "WanVideoVAELoader",
+      "properties": {
+        "Node name for S&R": "WanVideoVAELoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "feta_args",
+          "links": [
+            47
+          ],
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        }
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        -880,
+        340
+      ],
+      "widgets_values": [
+        2,
+        0,
+        1
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 52,
+      "type": "WanVideoEnhanceAVideo",
+      "properties": {
+        "Node name for S&R": "WanVideoEnhanceAVideo"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "wan_clip_vision",
+          "slot_index": 0,
+          "links": [
+            17
+          ],
+          "label": "wan_clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "wan_clip_vision"
+        }
+      ],
+      "size": [
+        510.6601257324219,
+        106
+      ],
+      "pos": [
+        -750,
+        380
+      ],
+      "widgets_values": [
+        "open-clip-xlm-roberta-large-vit-huge-14_visual_fp32.safetensors",
+        "fp16",
+        "offload_device"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 13,
+      "type": "LoadWanVideoClipTextEncoder",
+      "properties": {
+        "Node name for S&R": "LoadWanVideoClipTextEncoder"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image_embeds",
+          "slot_index": 0,
+          "links": [
+            32
+          ],
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        }
+      ],
+      "size": [
+        319.20001220703125,
+        266
+      ],
+      "pos": [
+        -1250,
+        660
+      ],
+      "widgets_values": [
+        480,
+        720,
+        85,
+        true,
+        0,
+        1,
+        1,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "link": 17,
+          "label": "clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "clip_vision"
+        },
+        {
+          "name": "image",
+          "link": 46,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "vae",
+          "link": 21,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 17,
+      "type": "WanVideoImageClipEncode",
+      "properties": {
+        "Node name for S&R": "WanVideoImageClipEncode"
+      },
+      "order": 44
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            42,
+            43
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "size": [
+        321.4722595214844,
+        174
+      ],
+      "pos": [
+        -560,
+        540
+      ],
+      "widgets_values": [
+        true,
+        272,
+        272,
+        144,
+        128
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 34,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "samples",
+          "link": 33,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "flags": {},
+      "id": 28,
+      "type": "WanVideoDecode",
+      "properties": {
+        "Node name for S&R": "WanVideoDecode"
+      },
+      "order": 52
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        315,
+        82
+      ],
+      "color": "rgba(38, 73, 116, 0.7)",
+      "pos": [
+        -560,
+        770
+      ],
+      "widgets_values": [
+        true,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "anything",
+          "link": 42,
+          "label": "anything",
+          "type": "*",
+          "localized_name": "anything"
+        }
+      ],
+      "flags": {},
+      "id": 44,
+      "type": "LayerUtility: PurgeVRAM",
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM"
+      },
+      "order": 55
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            44
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        443.4000244140625,
+        198
+      ],
+      "pos": [
+        -580,
+        910
+      ],
+      "widgets_values": [
+        "rife47.pth",
+        10,
+        2,
+        true,
+        true,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "frames",
+          "link": 43,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "frames"
+        },
+        {
+          "shape": 7,
+          "name": "optional_interpolation_states",
+          "label": "插值规则(可选)",
+          "type": "INTERPOLATION_STATES",
+          "localized_name": "optional_interpolation_states"
+        }
+      ],
+      "flags": {},
+      "id": 46,
+      "type": "RIFE VFI",
+      "properties": {
+        "Node name for S&R": "RIFE VFI"
+      },
+      "order": 56
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        751.2271118164062,
+        310
+      ],
+      "pos": [
+        -210,
+        220
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "WanVideo2_1",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "WanVideo2_1_00006_ipzjh_1741074168_djhek_1741074169.mp4",
+            "workflow": "WanVideo2_1_00001.png",
+            "fullpath": "F:\\AI-video-onekey-20250227\\ComfyUI\\output\\WanVideo2_1_00001.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 30
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 30,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 44,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 47,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 59
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "wan_t5_model",
+          "slot_index": 0,
+          "links": [
+            57
+          ],
+          "label": "wan_t5_model",
+          "type": "WANTEXTENCODER",
+          "localized_name": "wan_t5_model"
+        }
+      ],
+      "size": [
+        377.1661376953125,
+        130
+      ],
+      "pos": [
+        -1702.799072265625,
+        2467.470703125
+      ],
+      "widgets_values": [
+        "wan2.1/umt5-xxl-enc-bf16.safetensors",
+        "bf16",
+        "offload_device",
+        "disabled"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 66,
+      "type": "LoadWanVideoT5TextEncoder",
+      "properties": {
+        "Node name for S&R": "LoadWanVideoT5TextEncoder"
+      },
+      "order": 3
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "text_embeds",
+          "slot_index": 0,
+          "links": [
+            60
+          ],
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        }
+      ],
+      "size": [
+        420.30511474609375,
+        261.5306701660156
+      ],
+      "pos": [
+        -1284.061767578125,
+        2421.21826171875
+      ],
+      "widgets_values": [
+        "high quality nature video featuring a red panda balancing on a bamboo stem while a bird lands on it's head, on the background there is a waterfall",
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+        true,
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "inputs": [
+        {
+          "name": "t5",
+          "link": 57,
+          "label": "t5",
+          "type": "WANTEXTENCODER",
+          "localized_name": "t5"
+        },
+        {
+          "shape": 7,
+          "name": "model_to_offload",
+          "label": "model_to_offload",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model_to_offload"
+        }
+      ],
+      "flags": {},
+      "id": 67,
+      "type": "WanVideoTextEncode",
+      "properties": {
+        "Node name for S&R": "WanVideoTextEncode"
+      },
+      "order": 32
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            59
+          ],
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        }
+      ],
+      "size": [
+        477.4410095214844,
+        226.43276977539062
+      ],
+      "pos": [
+        -1326.171630859375,
+        2123.583251953125
+      ],
+      "widgets_values": [
+        "wan2.1/Wan2_1-T2V-1_3B_fp8_e4m3fn.safetensors",
+        "bf16",
+        "fp8_e4m3fn",
+        "offload_device",
+        "sageattn"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "compile_args"
+        },
+        {
+          "shape": 7,
+          "name": "block_swap_args",
+          "link": 58,
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        },
+        {
+          "shape": 7,
+          "name": "lora",
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        },
+        {
+          "shape": 7,
+          "name": "vram_management_args",
+          "label": "vram_management_args",
+          "type": "VRAM_MANAGEMENTARGS",
+          "localized_name": "vram_management_args"
+        }
+      ],
+      "flags": {},
+      "id": 68,
+      "type": "WanVideoModelLoader",
+      "properties": {
+        "Node name for S&R": "WanVideoModelLoader"
+      },
+      "order": 33
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            63
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "size": [
+        315,
+        478
+      ],
+      "pos": [
+        -809.4490356445312,
+        2171.93408203125
+      ],
+      "widgets_values": [
+        15,
+        6,
+        5,
+        1057359483639287,
+        "fixed",
+        true,
+        "dpm++",
+        0,
+        1,
+        false,
+        "default"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 59,
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "text_embeds",
+          "link": 60,
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        },
+        {
+          "name": "image_embeds",
+          "link": 61,
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "samples",
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "shape": 7,
+          "name": "feta_args",
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        },
+        {
+          "shape": 7,
+          "name": "context_options",
+          "label": "context_options",
+          "type": "WANVIDCONTEXT",
+          "localized_name": "context_options"
+        },
+        {
+          "shape": 7,
+          "name": "teacache_args",
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        },
+        {
+          "shape": 7,
+          "name": "flowedit_args",
+          "label": "flowedit_args",
+          "type": "FLOWEDITARGS",
+          "localized_name": "flowedit_args"
+        },
+        {
+          "shape": 7,
+          "name": "slg_args",
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        },
+        {
+          "shape": 7,
+          "name": "loop_args",
+          "label": "loop_args",
+          "type": "LOOPARGS",
+          "localized_name": "loop_args"
+        }
+      ],
+      "flags": {},
+      "id": 69,
+      "type": "WanVideoSampler",
+      "properties": {
+        "Node name for S&R": "WanVideoSampler"
+      },
+      "order": 43
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            64
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "pos": [
+        -435.89654541015625,
+        2125.067626953125
+      ],
+      "widgets_values": [
+        true,
+        272,
+        272,
+        144,
+        128
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 62,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "samples",
+          "link": 63,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "flags": {},
+      "id": 70,
+      "type": "WanVideoDecode",
+      "properties": {
+        "Node name for S&R": "WanVideoDecode"
+      },
+      "order": 47
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        388.23236083984375,
+        310
+      ],
+      "pos": [
+        -62.60296630859375,
+        1911.3839111328125
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "WanVideo2_1_T2V",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "WanVideo2_1_00044.mp4",
+            "workflow": "WanVideo2_1_00044.png",
+            "fullpath": "N:\\AI\\ComfyUI\\output\\WanVideo2_1_00044.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 16
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 16,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 64,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 71,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 51
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "image_embeds",
+          "links": [
+            61
+          ],
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        }
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        -801.8612670898438,
+        1985.7412109375
+      ],
+      "widgets_values": [
+        832,
+        480,
+        81
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 73,
+      "type": "WanVideoEmptyEmbeds",
+      "properties": {
+        "Node name for S&R": "WanVideoEmptyEmbeds"
+      },
+      "order": 4
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "vae",
+          "slot_index": 0,
+          "links": [
+            62
+          ],
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        }
+      ],
+      "size": [
+        349.28662109375,
+        86.18130493164062
+      ],
+      "pos": [
+        -445.64202880859375,
+        1961.8701171875
+      ],
+      "widgets_values": [
+        "wan2.1/Wan2_1_VAE_bf16.safetensors",
+        "bf16"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 74,
+      "type": "WanVideoVAELoader",
+      "properties": {
+        "Node name for S&R": "WanVideoVAELoader"
+      },
+      "order": 5
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "block_swap_args",
+          "slot_index": 0,
+          "links": [
+            58
+          ],
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        }
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "pos": [
+        -1674.3753662109375,
+        2155.286865234375
+      ],
+      "widgets_values": [
+        20,
+        false,
+        false,
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 75,
+      "type": "WanVideoBlockSwap",
+      "properties": {
+        "Node name for S&R": "WanVideoBlockSwap"
+      },
+      "order": 6
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "torch_compile_args",
+          "slot_index": 0,
+          "links": [],
+          "label": "torch_compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "torch_compile_args"
+        }
+      ],
+      "size": [
+        390.5999755859375,
+        178
+      ],
+      "pos": [
+        -1297,
+        1879
+      ],
+      "widgets_values": [
+        "inductor",
+        false,
+        "default",
+        false,
+        64,
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 72,
+      "type": "WanVideoTorchCompileSettings",
+      "properties": {
+        "Node name for S&R": "WanVideoTorchCompileSettings"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text_embeds",
+          "slot_index": 0,
+          "links": [
+            30
+          ],
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        }
+      ],
+      "size": [
+        412.232666015625,
+        204.46661376953125
+      ],
+      "pos": [
+        -1719.280029296875,
+        671.1707153320312
+      ],
+      "widgets_values": [
+        "箱子爆炸",
+        "bad quality video，模糊，闪烁",
+        true,
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "inputs": [
+        {
+          "name": "t5",
+          "link": 15,
+          "label": "t5",
+          "type": "WANTEXTENCODER",
+          "localized_name": "t5"
+        },
+        {
+          "shape": 7,
+          "name": "model_to_offload",
+          "label": "model_to_offload",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model_to_offload"
+        }
+      ],
+      "flags": {},
+      "id": 16,
+      "type": "WanVideoTextEncode",
+      "properties": {
+        "Node name for S&R": "WanVideoTextEncode"
+      },
+      "order": 35
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            45
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK",
+          "localized_name": "遮罩"
+        }
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "pos": [
+        -2109.280029296875,
+        599.1707153320312
+      ],
+      "widgets_values": [
+        "13a95c1911833defec01c0c670a902c6a658b951564c749fab0623e09156f76e.png",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 18,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            46
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "shape": 3,
+          "name": "width",
+          "label": "width",
+          "type": "INT",
+          "localized_name": "width"
+        },
+        {
+          "shape": 3,
+          "name": "height",
+          "label": "height",
+          "type": "INT",
+          "localized_name": "height"
+        }
+      ],
+      "size": [
+        315,
+        218
+      ],
+      "pos": [
+        -1751.280029296875,
+        579.1707153320312
+      ],
+      "widgets_values": [
+        1024,
+        1024,
+        "nearest",
+        "keep proportion",
+        "always",
+        0
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 45,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 51,
+      "type": "ImageResizeAdvanced",
+      "properties": {
+        "Node name for S&R": "ImageResizeAdvanced"
+      },
+      "order": 34
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "slot_index": 0,
+          "label": "可选连接",
+          "type": "*"
+        }
+      ],
+      "size": [
+        297.80706787109375,
+        182.35092163085938
+      ],
+      "pos": [
+        -2731,
+        184
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 55,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "properties": {
+        "customSortAlphabet": "",
+        "matchColors": "",
+        "sort": "position",
+        "matchTitle": "",
+        "showNav": true,
+        "toggleRestriction": "default"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "block_swap_args",
+          "slot_index": 0,
+          "links": [
+            39
+          ],
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        }
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "pos": [
+        -1260,
+        210
+      ],
+      "widgets_values": [
+        10,
+        false,
+        false,
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 32,
+      "type": "WanVideoBlockSwap",
+      "properties": {
+        "Node name for S&R": "WanVideoBlockSwap"
+      },
+      "order": 11
+    },
+    {
+      "outputs": [
+        {
+          "name": "wan_t5_model",
+          "slot_index": 0,
+          "links": [
+            65
+          ],
+          "label": "wan_t5_model",
+          "type": "WANTEXTENCODER",
+          "localized_name": "wan_t5_model"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        "umt5-xxl-enc-bf16.safetensors",
+        "bf16",
+        "offload_device",
+        "disabled"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadWanVideoT5TextEncoder",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        377.1661376953125,
+        130
+      ],
+      "pos": [
+        -630,
+        3500
+      ],
+      "id": 76,
+      "properties": {
+        "Node name for S&R": "LoadWanVideoT5TextEncoder"
+      },
+      "order": 12
+    },
+    {
+      "outputs": [
+        {
+          "name": "text_embeds",
+          "slot_index": 0,
+          "links": [
+            69
+          ],
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        "The video begins with a [object]. A hydraulic press positioned above slowly descends towards the tank. Upon contact, the hydraulic press c5us4 crushes it, deforming and flattening the tank, causing the tank to collapse inward until the [object] is no longer recognizable.\n",
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+        true,
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "inputs": [
+        {
+          "name": "t5",
+          "link": 65,
+          "label": "t5",
+          "type": "WANTEXTENCODER",
+          "localized_name": "t5"
+        },
+        {
+          "shape": 7,
+          "name": "model_to_offload",
+          "label": "model_to_offload",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model_to_offload"
+        }
+      ],
+      "flags": {
+        "pinned": false
+      },
+      "type": "WanVideoTextEncode",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        420.30511474609375,
+        261.5306701660156
+      ],
+      "pos": [
+        -320,
+        3500
+      ],
+      "id": 77,
+      "properties": {
+        "Node name for S&R": "WanVideoTextEncode"
+      },
+      "order": 37
+    },
+    {
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            68
+          ],
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        "Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors",
+        "fp16",
+        "fp8_e4m3fn",
+        "offload_device",
+        "sdpa"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "compile_args"
+        },
+        {
+          "shape": 7,
+          "name": "block_swap_args",
+          "link": 66,
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        },
+        {
+          "shape": 7,
+          "name": "lora",
+          "link": 67,
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        },
+        {
+          "shape": 7,
+          "name": "vram_management_args",
+          "label": "vram_management_args",
+          "type": "VRAM_MANAGEMENTARGS",
+          "localized_name": "vram_management_args"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoModelLoader",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        477.4410095214844,
+        226.43276977539062
+      ],
+      "pos": [
+        -950,
+        3500
+      ],
+      "id": 78,
+      "properties": {
+        "Node name for S&R": "WanVideoModelLoader"
+      },
+      "order": 38
+    },
+    {
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "wangyi AI Studio-wan",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "wangyi AI Studio-wan_00001_scpsi_1741753459_kmgeo_1741753461.mp4",
+            "workflow": "WanVideoWrapper_I2V_00004.png",
+            "fullpath": "E:\\ComfyUI-aki-e1205\\output\\WanVideoWrapper_I2V_00004.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 16
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 16,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 73,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "type": "VHS_VideoCombine",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        1006.3084716796875,
+        310
+      ],
+      "pos": [
+        1200,
+        3500
+      ],
+      "id": 80,
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 57
+    },
+    {
+      "outputs": [
+        {
+          "name": "block_swap_args",
+          "slot_index": 0,
+          "links": [
+            66
+          ],
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        20,
+        true,
+        false,
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoBlockSwap",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        130
+      ],
+      "pos": [
+        -1390,
+        3500
+      ],
+      "id": 81,
+      "properties": {
+        "Node name for S&R": "WanVideoBlockSwap"
+      },
+      "order": 13
+    },
+    {
+      "outputs": [
+        {
+          "name": "feta_args",
+          "links": [
+            71
+          ],
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        2,
+        0,
+        1
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoEnhanceAVideo",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        -580,
+        3500
+      ],
+      "id": 82,
+      "properties": {
+        "Node name for S&R": "WanVideoEnhanceAVideo"
+      },
+      "order": 14
+    },
+    {
+      "outputs": [
+        {
+          "name": "teacache_args",
+          "slot_index": 0,
+          "links": [
+            72
+          ],
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        0.05,
+        15,
+        "offload_device",
+        "offload_device",
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoTeaCache",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        154
+      ],
+      "pos": [
+        10,
+        3500
+      ],
+      "id": 84,
+      "properties": {
+        "Node name for S&R": "WanVideoTeaCache"
+      },
+      "order": 15
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            73,
+            76
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "link": 74,
+          "label": "放大模型",
+          "type": "UPSCALE_MODEL",
+          "localized_name": "放大模型"
+        },
+        {
+          "name": "image",
+          "link": 75,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "flags": {},
+      "type": "ImageUpscaleWithModel",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        226.8000030517578,
+        46
+      ],
+      "pos": [
+        570,
+        3500
+      ],
+      "id": 85,
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "order": 54
+    },
+    {
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "links": [
+            74
+          ],
+          "label": "放大模型",
+          "type": "UPSCALE_MODEL",
+          "localized_name": "放大模型"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        "RealESRGAN_x2plus.pth"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "UpscaleModelLoader",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        500,
+        3500
+      ],
+      "id": 86,
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "order": 16
+    },
+    {
+      "outputs": [],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        true,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "anything",
+          "link": 76,
+          "label": "anything",
+          "type": "*",
+          "localized_name": "anything"
+        }
+      ],
+      "flags": {},
+      "type": "LayerUtility: PurgeVRAM",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        840,
+        3500
+      ],
+      "id": 87,
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM"
+      },
+      "order": 58
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "lora",
+          "links": [
+            67
+          ],
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        "crushit_effect.safetensors",
+        1,
+        false
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "prev_lora",
+          "label": "prev_lora",
+          "type": "WANVIDLORA",
+          "localized_name": "prev_lora"
+        },
+        {
+          "shape": 7,
+          "name": "blocks",
+          "label": "blocks",
+          "type": "SELECTEDBLOCKS",
+          "localized_name": "blocks"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoLoraSelect",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        -1420,
+        3500
+      ],
+      "id": 88,
+      "properties": {
+        "Node name for S&R": "WanVideoLoraSelect"
+      },
+      "order": 17
+    },
+    {
+      "outputs": [
+        {
+          "name": "image_embeds",
+          "slot_index": 0,
+          "links": [
+            70
+          ],
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        384,
+        512,
+        81,
+        true,
+        0,
+        1,
+        1,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "link": 77,
+          "label": "clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "clip_vision"
+        },
+        {
+          "name": "image",
+          "link": 78,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "vae",
+          "link": 79,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "num_frames"
+          },
+          "name": "num_frames",
+          "link": 80,
+          "label": "num_frames",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoImageClipEncode",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        319.20001220703125,
+        266
+      ],
+      "pos": [
+        -1790,
+        3500
+      ],
+      "id": 89,
+      "properties": {
+        "Node name for S&R": "WanVideoImageClipEncode"
+      },
+      "order": 42
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "INT",
+          "slot_index": 0,
+          "links": [
+            80
+          ],
+          "label": "整数",
+          "type": "INT",
+          "localized_name": "整数"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        81
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Int",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        -1810,
+        3500
+      ],
+      "id": 90,
+      "properties": {
+        "Node name for S&R": "Int"
+      },
+      "order": 18
+    },
+    {
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            75
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        true,
+        272,
+        272,
+        144,
+        128
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 81,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "samples",
+          "link": 82,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoDecode",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        174
+      ],
+      "pos": [
+        -1760,
+        3500
+      ],
+      "id": 91,
+      "properties": {
+        "Node name for S&R": "WanVideoDecode"
+      },
+      "order": 50
+    },
+    {
+      "outputs": [
+        {
+          "name": "vae",
+          "slot_index": 0,
+          "links": [
+            79,
+            81
+          ],
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        "Wan2_1_VAE_bf16.safetensors",
+        "bf16"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoVAELoader",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        414.2580871582031,
+        103.70962524414062
+      ],
+      "pos": [
+        -1860,
+        3500
+      ],
+      "id": 92,
+      "properties": {
+        "Node name for S&R": "WanVideoVAELoader"
+      },
+      "order": 19
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "wan_clip_vision",
+          "links": [
+            77
+          ],
+          "label": "wan_clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "wan_clip_vision"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        "open-clip-xlm-roberta-large-vit-huge-14_fp16.safetensors",
+        "fp16",
+        "offload_device"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadWanVideoClipTextEncoder",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        511.9583740234375,
+        118.48040771484375
+      ],
+      "pos": [
+        -1850,
+        3470
+      ],
+      "id": 93,
+      "properties": {
+        "Node name for S&R": "LoadWanVideoClipTextEncoder"
+      },
+      "order": 20
+    },
+    {
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            82
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        25,
+        6,
+        5,
+        1057359483639287,
+        "fixed",
+        true,
+        "unipc",
+        0,
+        1,
+        false,
+        "default"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 68,
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "text_embeds",
+          "link": 69,
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        },
+        {
+          "name": "image_embeds",
+          "link": 70,
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "samples",
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "shape": 7,
+          "name": "feta_args",
+          "link": 71,
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        },
+        {
+          "shape": 7,
+          "name": "context_options",
+          "label": "context_options",
+          "type": "WANVIDCONTEXT",
+          "localized_name": "context_options"
+        },
+        {
+          "shape": 7,
+          "name": "teacache_args",
+          "link": 72,
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        },
+        {
+          "shape": 7,
+          "name": "flowedit_args",
+          "label": "flowedit_args",
+          "type": "FLOWEDITARGS",
+          "localized_name": "flowedit_args"
+        },
+        {
+          "shape": 7,
+          "name": "slg_args",
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        },
+        {
+          "shape": 7,
+          "name": "loop_args",
+          "label": "loop_args",
+          "type": "LOOPARGS",
+          "localized_name": "loop_args"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoSampler",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        315,
+        699
+      ],
+      "pos": [
+        300,
+        3550
+      ],
+      "id": 79,
+      "properties": {
+        "Node name for S&R": "WanVideoSampler"
+      },
+      "order": 46
+    },
+    {
+      "outputs": [
+        {
+          "name": "wan_t5_model",
+          "slot_index": 0,
+          "links": [
+            83
+          ],
+          "label": "wan_t5_model",
+          "type": "WANTEXTENCODER",
+          "localized_name": "wan_t5_model"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        "umt5-xxl-enc-bf16.safetensors",
+        "bf16",
+        "offload_device",
+        "disabled"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadWanVideoT5TextEncoder",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        377.1661376953125,
+        130
+      ],
+      "pos": [
+        -1170,
+        5190
+      ],
+      "id": 94,
+      "properties": {
+        "Node name for S&R": "LoadWanVideoT5TextEncoder"
+      },
+      "order": 21
+    },
+    {
+      "outputs": [
+        {
+          "name": "wan_clip_vision",
+          "slot_index": 0,
+          "links": [
+            85
+          ],
+          "label": "wan_clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "wan_clip_vision"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        "open-clip-xlm-roberta-large-vit-huge-14_fp16.safetensors",
+        "fp16",
+        "offload_device"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadWanVideoClipTextEncoder",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        510.6601257324219,
+        106
+      ],
+      "pos": [
+        -1310,
+        5430
+      ],
+      "id": 95,
+      "properties": {
+        "Node name for S&R": "LoadWanVideoClipTextEncoder"
+      },
+      "order": 22
+    },
+    {
+      "outputs": [
+        {
+          "name": "text_embeds",
+          "slot_index": 0,
+          "links": [
+            90
+          ],
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        "The beautiful woman smiles at the camera.",
+        "bad quality video",
+        true,
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "inputs": [
+        {
+          "name": "t5",
+          "link": 83,
+          "label": "t5",
+          "type": "WANTEXTENCODER",
+          "localized_name": "t5"
+        },
+        {
+          "widget": {
+            "name": "positive_prompt"
+          },
+          "name": "positive_prompt",
+          "link": 84,
+          "label": "positive_prompt",
+          "type": "STRING"
+        },
+        {
+          "shape": 7,
+          "name": "model_to_offload",
+          "label": "model_to_offload",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model_to_offload"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoTextEncode",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -300,
+        4890
+      ],
+      "id": 96,
+      "properties": {
+        "Node name for S&R": "WanVideoTextEncode"
+      },
+      "order": 40
+    },
+    {
+      "outputs": [
+        {
+          "name": "image_embeds",
+          "slot_index": 0,
+          "links": [
+            91
+          ],
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        512,
+        512,
+        81,
+        true,
+        0,
+        1,
+        1,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "link": 85,
+          "label": "clip_vision",
+          "type": "CLIP_VISION",
+          "localized_name": "clip_vision"
+        },
+        {
+          "name": "image",
+          "link": 86,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "vae",
+          "link": 87,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "num_frames"
+          },
+          "name": "num_frames",
+          "link": 88,
+          "label": "num_frames",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoImageClipEncode",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        319.20001220703125,
+        266
+      ],
+      "pos": [
+        -700,
+        5060
+      ],
+      "id": 97,
+      "properties": {
+        "Node name for S&R": "WanVideoImageClipEncode"
+      },
+      "order": 41
+    },
+    {
+      "outputs": [
+        {
+          "name": "vae",
+          "slot_index": 0,
+          "links": [
+            87,
+            92
+          ],
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        "Wan2_1_VAE_bf16.safetensors",
+        "bf16"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoVAELoader",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        700,
+        5260
+      ],
+      "id": 99,
+      "properties": {
+        "Node name for S&R": "WanVideoVAELoader"
+      },
+      "order": 23
+    },
+    {
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            93
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        10,
+        6,
+        5,
+        1057359483639286,
+        "fixed",
+        true,
+        "dpm++",
+        0,
+        1,
+        false,
+        "default"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 89,
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "text_embeds",
+          "link": 90,
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        },
+        {
+          "name": "image_embeds",
+          "link": 91,
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "samples",
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "shape": 7,
+          "name": "feta_args",
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        },
+        {
+          "shape": 7,
+          "name": "context_options",
+          "label": "context_options",
+          "type": "WANVIDCONTEXT",
+          "localized_name": "context_options"
+        },
+        {
+          "shape": 7,
+          "name": "teacache_args",
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        },
+        {
+          "shape": 7,
+          "name": "flowedit_args",
+          "label": "flowedit_args",
+          "type": "FLOWEDITARGS",
+          "localized_name": "flowedit_args"
+        },
+        {
+          "shape": 7,
+          "name": "slg_args",
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        },
+        {
+          "shape": 7,
+          "name": "loop_args",
+          "label": "loop_args",
+          "type": "LOOPARGS",
+          "localized_name": "loop_args"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoSampler",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        315,
+        478
+      ],
+      "pos": [
+        240,
+        4870
+      ],
+      "id": 100,
+      "properties": {
+        "Node name for S&R": "WanVideoSampler"
+      },
+      "order": 45
+    },
+    {
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            94
+          ],
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        true,
+        272,
+        272,
+        144,
+        128
+      ],
+      "inputs": [
+        {
+          "name": "vae",
+          "link": 92,
+          "label": "vae",
+          "type": "WANVAE",
+          "localized_name": "vae"
+        },
+        {
+          "name": "samples",
+          "link": 93,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoDecode",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        315,
+        174
+      ],
+      "pos": [
+        750,
+        4890
+      ],
+      "id": 101,
+      "properties": {
+        "Node name for S&R": "WanVideoDecode"
+      },
+      "order": 49
+    },
+    {
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "WanVideo2_1",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "WanVideo2_1_00001_bjdtf_1741593578_uxjjz_1741593579.mp4",
+            "workflow": "WanVideo2_1_00011.png",
+            "fullpath": "N:\\AI\\ComfyUI\\output\\WanVideo2_1_00011.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 16
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 16,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 94,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "type": "VHS_VideoCombine",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        221.96954345703125,
+        310
+      ],
+      "pos": [
+        1250,
+        4850
+      ],
+      "id": 102,
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 53
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "INT",
+          "slot_index": 0,
+          "links": [
+            88
+          ],
+          "label": "整数",
+          "type": "INT",
+          "localized_name": "整数"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        81
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Int",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        -2060,
+        5320
+      ],
+      "id": 103,
+      "properties": {
+        "Node name for S&R": "Int"
+      },
+      "order": 24
+    },
+    {
+      "outputs": [
+        {
+          "name": "model",
+          "slot_index": 0,
+          "links": [
+            89
+          ],
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        "Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors",
+        "fp16",
+        "fp8_e4m3fn",
+        "offload_device",
+        "sdpa"
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "compile_args",
+          "label": "compile_args",
+          "type": "WANCOMPILEARGS",
+          "localized_name": "compile_args"
+        },
+        {
+          "shape": 7,
+          "name": "block_swap_args",
+          "link": 95,
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        },
+        {
+          "shape": 7,
+          "name": "lora",
+          "link": 96,
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        },
+        {
+          "shape": 7,
+          "name": "vram_management_args",
+          "label": "vram_management_args",
+          "type": "VRAM_MANAGEMENTARGS",
+          "localized_name": "vram_management_args"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoModelLoader",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        477.4410095214844,
+        226.43276977539062
+      ],
+      "pos": [
+        -1290,
+        4820
+      ],
+      "id": 105,
+      "properties": {
+        "Node name for S&R": "WanVideoModelLoader"
+      },
+      "order": 39
+    },
+    {
+      "outputs": [
+        {
+          "name": "block_swap_args",
+          "slot_index": 0,
+          "links": [
+            95
+          ],
+          "label": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "localized_name": "block_swap_args"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        20,
+        false,
+        false,
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "WanVideoBlockSwap",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        315,
+        130
+      ],
+      "pos": [
+        -1780,
+        4890
+      ],
+      "id": 106,
+      "properties": {
+        "Node name for S&R": "WanVideoBlockSwap"
+      },
+      "order": 25
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "lora",
+          "links": [
+            96
+          ],
+          "label": "lora",
+          "type": "WANVIDLORA",
+          "localized_name": "lora"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        "squish_18.safetensors",
+        1,
+        false
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "prev_lora",
+          "label": "prev_lora",
+          "type": "WANVIDLORA",
+          "localized_name": "prev_lora"
+        },
+        {
+          "shape": 7,
+          "name": "blocks",
+          "label": "blocks",
+          "type": "SELECTEDBLOCKS",
+          "localized_name": "blocks"
+        }
+      ],
+      "flags": {},
+      "type": "WanVideoLoraSelect",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        -1670,
+        4990
+      ],
+      "id": 107,
+      "properties": {
+        "Node name for S&R": "WanVideoLoraSelect"
+      },
+      "order": 26
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "STRING",
+          "slot_index": 0,
+          "links": [
+            84
+          ],
+          "label": "字符串",
+          "type": "STRING",
+          "localized_name": "字符串"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        "In the video, a miniature rodent is presented. The rodent is held in a person’s hands. The person then presses on the rodent, causing a sq41sh squish effect. The person keeps pressing down on the rodent, further showing the sq41sh squish effect.",
+        [
+          false,
+          true
+        ]
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "TextInput_",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        413.9216003417969,
+        283.0018310546875
+      ],
+      "pos": [
+        -730,
+        5260
+      ],
+      "id": 104,
+      "properties": {
+        "Node name for S&R": "TextInput_"
+      },
+      "order": 27
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            86
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK",
+          "localized_name": "遮罩"
+        }
+      ],
+      "color": "#c6d58f",
+      "widgets_values": [
+        "adb165350235db173201b2966546c2f793c657634e982e073fff46df3bc3c15b.png",
+        "image"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadImage",
+      "mode": 4,
+      "bgcolor": "#b2c17b",
+      "size": [
+        315,
+        314
+      ],
+      "pos": [
+        -2180,
+        4850
+      ],
+      "id": 98,
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 28
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            78
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK",
+          "localized_name": "遮罩"
+        }
+      ],
+      "color": "#7cc5c0",
+      "widgets_values": [
+        "adb165350235db173201b2966546c2f793c657634e982e073fff46df3bc3c15b.png",
+        "image"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadImage",
+      "mode": 4,
+      "bgcolor": "#68b1ac",
+      "size": [
+        306.8302001953125,
+        510.46685791015625
+      ],
+      "pos": [
+        -2290,
+        3500
+      ],
+      "id": 83,
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 29
+    },
+    {
+      "outputs": [],
+      "color": "#432",
+      "widgets_values": [
+        "各种特效集合，需要什么就点击上面的打开就行"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        262.5184020996094,
+        88
+      ],
+      "pos": [
+        -2705,
+        431
+      ],
+      "id": 108,
+      "properties": {
+        "text": ""
+      },
+      "order": 30
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            33
+          ],
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        }
+      ],
+      "size": [
+        315,
+        478
+      ],
+      "pos": [
+        -910,
+        660
+      ],
+      "widgets_values": [
+        15,
+        6,
+        5,
+        835846924452639,
+        "randomize",
+        true,
+        "dpm++",
+        0,
+        1,
+        false,
+        "default"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 29,
+          "label": "model",
+          "type": "WANVIDEOMODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "text_embeds",
+          "link": 30,
+          "label": "text_embeds",
+          "type": "WANVIDEOTEXTEMBEDS",
+          "localized_name": "text_embeds"
+        },
+        {
+          "name": "image_embeds",
+          "link": 32,
+          "label": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "localized_name": "image_embeds"
+        },
+        {
+          "shape": 7,
+          "name": "samples",
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "shape": 7,
+          "name": "feta_args",
+          "link": 47,
+          "label": "feta_args",
+          "type": "FETAARGS",
+          "localized_name": "feta_args"
+        },
+        {
+          "shape": 7,
+          "name": "context_options",
+          "label": "context_options",
+          "type": "WANVIDCONTEXT",
+          "localized_name": "context_options"
+        },
+        {
+          "shape": 7,
+          "name": "teacache_args",
+          "link": 97,
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        },
+        {
+          "shape": 7,
+          "name": "flowedit_args",
+          "label": "flowedit_args",
+          "type": "FLOWEDITARGS",
+          "localized_name": "flowedit_args"
+        },
+        {
+          "shape": 7,
+          "name": "slg_args",
+          "label": "slg_args",
+          "type": "SLGARGS",
+          "localized_name": "slg_args"
+        },
+        {
+          "shape": 7,
+          "name": "loop_args",
+          "label": "loop_args",
+          "type": "LOOPARGS",
+          "localized_name": "loop_args"
+        }
+      ],
+      "flags": {},
+      "id": 27,
+      "type": "WanVideoSampler",
+      "properties": {
+        "Node name for S&R": "WanVideoSampler"
+      },
+      "order": 48
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "teacache_args",
+          "links": [
+            97
+          ],
+          "label": "teacache_args",
+          "type": "TEACACHEARGS",
+          "localized_name": "teacache_args"
+        }
+      ],
+      "size": [
+        315,
+        154
+      ],
+      "pos": [
+        -127.65657806396484,
+        627.4794311523438
+      ],
+      "widgets_values": [
+        0.3,
+        1,
+        -1,
+        "offload_device",
+        true
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 109,
+      "type": "WanVideoTeaCache",
+      "properties": {
+        "Node name for S&R": "WanVideoTeaCache"
+      },
+      "order": 31
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "wan_t5_model",
+          "slot_index": 0,
+          "links": [
+            15
+          ],
+          "label": "wan_t5_model",
+          "type": "WANTEXTENCODER",
+          "localized_name": "wan_t5_model"
+        }
+      ],
+      "size": [
+        377.1661376953125,
+        130
+      ],
+      "pos": [
+        -1582.2567138671875,
+        481.25848388671875
+      ],
+      "widgets_values": [
+        "umt5-xxl-enc-bf16.safetensors",
+        "bf16",
+        "offload_device",
+        "fp8_e4m3fn"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 11,
+      "type": "LoadWanVideoT5TextEncoder",
+      "properties": {
+        "Node name for S&R": "LoadWanVideoT5TextEncoder"
+      },
+      "order": 9
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": true,
+    "node_versions": {
+      "ComfyUI-VideoHelperSuite": "124c913ccdd8a585734ea758c35fa1bab8499c99",
+      "comfyui-purgevram": "fb254fa9a7f6880d31d4fe472f3e3c578bafde5f",
+      "comfy-core": "0.3.15"
+    },
+    "ds": {
+      "offset": [
+        2186.7387891928793,
+        -65.69791934122664
+      ],
+      "scale": 0.7972024500000006
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 90,
+      "flags": {},
+      "id": 1,
+      "title": "图生视频",
+      "bounding": [
+        -2344,
+        4,
+        3230,
+        1458
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 90,
+      "flags": {},
+      "id": 2,
+      "title": "文生视频",
+      "bounding": [
+        -2349,
+        1628,
+        3383,
+        1295
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 90,
+      "flags": {},
+      "id": 3,
+      "title": "压扁特效",
+      "bounding": [
+        -2376,
+        3272,
+        4965,
+        998
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 90,
+      "flags": {},
+      "id": 4,
+      "title": "捏爆特效",
+      "bounding": [
+        -2407,
+        4571,
+        5171,
+        1234
+      ]
+    }
+  ],
+  "links": [
+    [
+      15,
+      11,
+      0,
+      16,
+      0,
+      "WANTEXTENCODER"
+    ],
+    [
+      17,
+      13,
+      0,
+      17,
+      0,
+      "WANCLIP"
+    ],
+    [
+      21,
+      21,
+      0,
+      17,
+      2,
+      "VAE"
+    ],
+    [
+      29,
+      22,
+      0,
+      27,
+      0,
+      "WANVIDEOMODEL"
+    ],
+    [
+      30,
+      16,
+      0,
+      27,
+      1,
+      "WANVIDEOTEXTEMBEDS"
+    ],
+    [
+      32,
+      17,
+      0,
+      27,
+      2,
+      "WANVIDIMAGE_EMBEDS"
+    ],
+    [
+      33,
+      27,
+      0,
+      28,
+      1,
+      "LATENT"
+    ],
+    [
+      34,
+      21,
+      0,
+      28,
+      0,
+      "VAE"
+    ],
+    [
+      39,
+      32,
+      0,
+      22,
+      1,
+      "BLOCKSWAPARGS"
+    ],
+    [
+      42,
+      28,
+      0,
+      44,
+      0,
+      "*"
+    ],
+    [
+      43,
+      28,
+      0,
+      46,
+      0,
+      "IMAGE"
+    ],
+    [
+      44,
+      46,
+      0,
+      47,
+      0,
+      "IMAGE"
+    ],
+    [
+      45,
+      18,
+      0,
+      51,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      51,
+      0,
+      17,
+      1,
+      "IMAGE"
+    ],
+    [
+      47,
+      52,
+      0,
+      27,
+      4,
+      "FETAARGS"
+    ],
+    [
+      57,
+      66,
+      0,
+      67,
+      0,
+      "WANTEXTENCODER"
+    ],
+    [
+      58,
+      75,
+      0,
+      68,
+      1,
+      "BLOCKSWAPARGS"
+    ],
+    [
+      59,
+      68,
+      0,
+      69,
+      0,
+      "WANVIDEOMODEL"
+    ],
+    [
+      60,
+      67,
+      0,
+      69,
+      1,
+      "WANVIDEOTEXTEMBEDS"
+    ],
+    [
+      61,
+      73,
+      0,
+      69,
+      2,
+      "WANVIDIMAGE_EMBEDS"
+    ],
+    [
+      62,
+      74,
+      0,
+      70,
+      0,
+      "WANVAE"
+    ],
+    [
+      63,
+      69,
+      0,
+      70,
+      1,
+      "LATENT"
+    ],
+    [
+      64,
+      70,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      65,
+      76,
+      0,
+      77,
+      0,
+      "WANTEXTENCODER"
+    ],
+    [
+      66,
+      81,
+      0,
+      78,
+      1,
+      "BLOCKSWAPARGS"
+    ],
+    [
+      67,
+      88,
+      0,
+      78,
+      2,
+      "WANVIDLORA"
+    ],
+    [
+      68,
+      78,
+      0,
+      79,
+      0,
+      "WANVIDEOMODEL"
+    ],
+    [
+      69,
+      77,
+      0,
+      79,
+      1,
+      "WANVIDEOTEXTEMBEDS"
+    ],
+    [
+      70,
+      89,
+      0,
+      79,
+      2,
+      "WANVIDIMAGE_EMBEDS"
+    ],
+    [
+      71,
+      82,
+      0,
+      79,
+      4,
+      "FETAARGS"
+    ],
+    [
+      72,
+      84,
+      0,
+      79,
+      6,
+      "TEACACHEARGS"
+    ],
+    [
+      73,
+      85,
+      0,
+      80,
+      0,
+      "IMAGE"
+    ],
+    [
+      74,
+      86,
+      0,
+      85,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      75,
+      91,
+      0,
+      85,
+      1,
+      "IMAGE"
+    ],
+    [
+      76,
+      85,
+      0,
+      87,
+      0,
+      "*"
+    ],
+    [
+      77,
+      93,
+      0,
+      89,
+      0,
+      "WANCLIP"
+    ],
+    [
+      78,
+      83,
+      0,
+      89,
+      1,
+      "IMAGE"
+    ],
+    [
+      79,
+      92,
+      0,
+      89,
+      2,
+      "VAE"
+    ],
+    [
+      80,
+      90,
+      0,
+      89,
+      3,
+      "INT"
+    ],
+    [
+      81,
+      92,
+      0,
+      91,
+      0,
+      "VAE"
+    ],
+    [
+      82,
+      79,
+      0,
+      91,
+      1,
+      "LATENT"
+    ],
+    [
+      83,
+      94,
+      0,
+      96,
+      0,
+      "WANTEXTENCODER"
+    ],
+    [
+      84,
+      104,
+      0,
+      96,
+      1,
+      "STRING"
+    ],
+    [
+      85,
+      95,
+      0,
+      97,
+      0,
+      "WANCLIP"
+    ],
+    [
+      86,
+      98,
+      0,
+      97,
+      1,
+      "IMAGE"
+    ],
+    [
+      87,
+      99,
+      0,
+      97,
+      2,
+      "VAE"
+    ],
+    [
+      88,
+      103,
+      0,
+      97,
+      3,
+      "INT"
+    ],
+    [
+      89,
+      105,
+      0,
+      100,
+      0,
+      "WANVIDEOMODEL"
+    ],
+    [
+      90,
+      96,
+      0,
+      100,
+      1,
+      "WANVIDEOTEXTEMBEDS"
+    ],
+    [
+      91,
+      97,
+      0,
+      100,
+      2,
+      "WANVIDIMAGE_EMBEDS"
+    ],
+    [
+      92,
+      99,
+      0,
+      101,
+      0,
+      "VAE"
+    ],
+    [
+      93,
+      100,
+      0,
+      101,
+      1,
+      "LATENT"
+    ],
+    [
+      94,
+      101,
+      0,
+      102,
+      0,
+      "IMAGE"
+    ],
+    [
+      95,
+      106,
+      0,
+      105,
+      1,
+      "BLOCKSWAPARGS"
+    ],
+    [
+      96,
+      107,
+      0,
+      105,
+      2,
+      "WANVIDLORA"
+    ],
+    [
+      97,
+      109,
+      0,
+      27,
+      6,
+      "TEACACHEARGS"
+    ]
+  ],
+  "id": "bebdc89b-881e-4f99-8457-2a06d6ec289c",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 109,
+  "revision": 0
+}

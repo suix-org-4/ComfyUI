@@ -1,0 +1,436 @@
+{
+  "last_link_id": 13,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "Filenames",
+          "type": "VHS_FILENAMES",
+          "localized_name": "Filenames"
+        }
+      ],
+      "size": [
+        419.164794921875,
+        996.642822265625
+      ],
+      "pos": [
+        3498.838134765625,
+        167.82102966308594
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "AnimateDiff",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "trim_to_audio": false,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "AnimateDiff_00022_plmie_1745159805.mp4",
+            "workflow": "AnimateDiff_00022.png",
+            "fullpath": "/data/ComfyUI/personal/e096852f39ba6bc6e88d00f6b1e0057a/output/AnimateDiff_00022.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 30
+          },
+          "muted": false
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 8,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 13,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        },
+        {
+          "shape": 7,
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO",
+          "localized_name": "audio"
+        },
+        {
+          "shape": 7,
+          "name": "meta_batch",
+          "label": "meta_batch",
+          "type": "VHS_BatchManager",
+          "localized_name": "meta_batch"
+        },
+        {
+          "shape": 7,
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        },
+        {
+          "widget": {
+            "name": "frame_rate"
+          },
+          "name": "frame_rate",
+          "link": 4,
+          "label": "frame_rate",
+          "type": "FLOAT",
+          "localized_name": "帧率"
+        }
+      ],
+      "flags": {},
+      "id": 3,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 5
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "links": [
+            7
+          ],
+          "label": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "localized_name": "UPSCALE_MODEL"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        2368.16064453125,
+        792.5609130859375
+      ],
+      "widgets_values": [
+        "RealESRGAN_x2plus.pth"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 10,
+      "type": "UpscaleModelLoader",
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "image",
+          "slot_index": 0,
+          "links": [
+            11
+          ],
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        2409.680908203125,
+        942.4668579101562
+      ],
+      "widgets_values": [
+        "0-1000"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 10,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "flags": {},
+      "id": 14,
+      "type": "RHBatchImages:",
+      "properties": {
+        "Node name for S&R": "RHBatchImages:"
+      },
+      "order": 4
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        }
+      ],
+      "size": [
+        340.20001220703125,
+        46
+      ],
+      "pos": [
+        2751.065185546875,
+        871.5296020507812
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "link": 7,
+          "label": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "localized_name": "upscale_model"
+        },
+        {
+          "name": "image",
+          "link": 11,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "flags": {},
+      "id": 11,
+      "type": "ImageUpscaleWithModel",
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            1
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "MASK",
+          "type": "MASK",
+          "localized_name": "MASK"
+        }
+      ],
+      "size": [
+        467.89154052734375,
+        535.3126220703125
+      ],
+      "pos": [
+        1617.58544921875,
+        152.19729614257812
+      ],
+      "widgets_values": [
+        "fa9d9d284fa21e10c6632ca95083a3c244f829bd034b05d1f36de8a7005b2a62.png",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 2,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "prompt",
+          "links": [
+            5
+          ],
+          "label": "prompt",
+          "type": "STRING",
+          "localized_name": "prompt"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        1632.283203125,
+        799.6035766601562
+      ],
+      "widgets_values": [
+        "人物正常站立，切换重心，轻微扭动"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 7,
+      "type": "SeargePromptText",
+      "properties": {
+        "Node name for S&R": "SeargePromptText"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "frames",
+          "links": [
+            10,
+            13
+          ],
+          "label": "frames",
+          "type": "IMAGE",
+          "localized_name": "frames"
+        },
+        {
+          "name": "fps",
+          "links": [
+            4
+          ],
+          "label": "fps",
+          "type": "FLOAT",
+          "localized_name": "fps"
+        }
+      ],
+      "size": [
+        400,
+        228
+      ],
+      "pos": [
+        2146.631591796875,
+        470.533447265625
+      ],
+      "widgets_values": [
+        "The girl dances energetically, leaping mid-air with fluid arm swings and quick footwork.",
+        5,
+        19,
+        "randomize",
+        25,
+        true,
+        1.2000000000000002
+      ],
+      "inputs": [
+        {
+          "name": "ref_image",
+          "link": 1,
+          "label": "ref_image",
+          "type": "IMAGE",
+          "localized_name": "ref_image"
+        },
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "link": 5,
+          "label": "prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 1,
+      "type": "RunningHub_FramePack",
+      "properties": {
+        "Node name for S&R": "RunningHub_FramePack"
+      },
+      "order": 3
+    }
+  ],
+  "extra": {
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": [
+        -1828.100700706219,
+        -7.519397530929483
+      ],
+      "scale": 1.1671841070450018
+    }
+  },
+  "groups": [],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      1,
+      1,
+      3,
+      4,
+      "FLOAT"
+    ],
+    [
+      5,
+      7,
+      0,
+      1,
+      1,
+      "STRING"
+    ],
+    [
+      7,
+      10,
+      0,
+      11,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      10,
+      1,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      14,
+      0,
+      11,
+      1,
+      "IMAGE"
+    ],
+    [
+      13,
+      1,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "id": "5799ee70-937b-4060-919c-53fe4371f525",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 14,
+  "revision": 0
+}

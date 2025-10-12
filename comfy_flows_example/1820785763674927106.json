@@ -1,0 +1,968 @@
+{
+  "last_link_id": 182,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            61
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK"
+        }
+      ],
+      "size": {
+        "0": 213.0849151611328,
+        "1": 410.70074462890625
+      },
+      "pos": [
+        -1171,
+        376
+      ],
+      "widgets_values": [
+        "9682fb9b0404ebeaf06a70e91811aaff94822003bd6238378103d3290ab9f92f.png",
+        "image"
+      ],
+      "flags": {},
+      "id": 3,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "pos": [
+        270,
+        149
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 174,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 67,
+      "type": "PreviewImage",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            110,
+            147,
+            174
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "width",
+          "slot_index": 1,
+          "links": [
+            88
+          ],
+          "label": "宽度",
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "height",
+          "slot_index": 2,
+          "links": [
+            89
+          ],
+          "label": "高度",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 242
+      },
+      "pos": [
+        -397,
+        368
+      ],
+      "widgets_values": [
+        704,
+        1280,
+        "nearest-exact",
+        true,
+        64,
+        0,
+        0,
+        "center"
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 61,
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "name": "get_image_size",
+          "label": "参考图像大小",
+          "type": "IMAGE"
+        },
+        {
+          "widget": {
+            "name": "width_input"
+          },
+          "name": "width_input",
+          "label": "宽度",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height_input"
+          },
+          "name": "height_input",
+          "label": "高度",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "id": 28,
+      "type": "ImageResizeKJ",
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            111
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "width",
+          "label": "宽度",
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "height",
+          "label": "高度",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 242
+      },
+      "pos": [
+        -398,
+        673
+      ],
+      "widgets_values": [
+        704,
+        1280,
+        "nearest-exact",
+        false,
+        64,
+        0,
+        0,
+        "disabled"
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 86,
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "name": "get_image_size",
+          "label": "参考图像大小",
+          "type": "IMAGE"
+        },
+        {
+          "widget": {
+            "name": "width_input"
+          },
+          "name": "width_input",
+          "link": 88,
+          "label": "宽度",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height_input"
+          },
+          "name": "height_input",
+          "link": 89,
+          "label": "高度",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "id": 35,
+      "type": "ImageResizeKJ",
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "poses_with_ref",
+          "slot_index": 0,
+          "links": [
+            112
+          ],
+          "label": "poses_with_ref",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "pose_images",
+          "slot_index": 1,
+          "links": [],
+          "label": "pose_images",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 330,
+        "1": 126
+      },
+      "pos": [
+        -70,
+        369
+      ],
+      "widgets_values": [
+        true,
+        true,
+        true
+      ],
+      "inputs": [
+        {
+          "name": "ref_image",
+          "link": 110,
+          "label": "ref_image",
+          "type": "IMAGE"
+        },
+        {
+          "name": "pose_images",
+          "link": 111,
+          "label": "pose_images",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 42,
+      "type": "MimicMotionGetPoses",
+      "properties": {
+        "Node name for S&R": "MimicMotionGetPoses"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "image",
+          "slot_index": 0,
+          "links": [
+            148
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "704 width",
+          "label": "576 width",
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "1216 height",
+          "label": "1024 height",
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "101 count",
+          "label": "16 count",
+          "type": "INT"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "pos": [
+        -63,
+        535
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 112,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 9,
+      "type": "GetImageSizeAndCount",
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "UPSCALE_MODEL",
+          "links": [
+            168
+          ],
+          "label": "放大模型",
+          "type": "UPSCALE_MODEL"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "pos": [
+        -43,
+        788
+      ],
+      "widgets_values": [
+        "RealESRGAN_x2.pth"
+      ],
+      "flags": {},
+      "id": 65,
+      "type": "UpscaleModelLoader",
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            181
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 443.4000244140625,
+        "1": 198
+      },
+      "pos": [
+        -51,
+        899
+      ],
+      "widgets_values": [
+        "rife47.pth",
+        10,
+        3,
+        true,
+        true,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "frames",
+          "link": 171,
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "name": "optional_interpolation_states",
+          "label": "插值规则(可选)",
+          "type": "INTERPOLATION_STATES"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 59,
+      "type": "RIFE VFI",
+      "properties": {
+        "Node name for S&R": "RIFE VFI"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "samples",
+          "slot_index": 0,
+          "links": [
+            149
+          ],
+          "label": "samples",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 430
+      },
+      "pos": [
+        446,
+        566
+      ],
+      "widgets_values": [
+        25,
+        2,
+        2,
+        43,
+        "fixed",
+        15,
+        0,
+        16,
+        6,
+        false,
+        1,
+        0,
+        1,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "mimic_pipeline",
+          "link": 146,
+          "label": "mimic_pipeline",
+          "type": "MIMICPIPE"
+        },
+        {
+          "name": "ref_image",
+          "link": 147,
+          "label": "ref_image",
+          "type": "IMAGE"
+        },
+        {
+          "name": "pose_images",
+          "link": 148,
+          "label": "pose_images",
+          "type": "IMAGE"
+        },
+        {
+          "name": "optional_scheduler",
+          "label": "optional_scheduler",
+          "type": "DIFFUSERS_SCHEDULER"
+        }
+      ],
+      "flags": {},
+      "id": 57,
+      "type": "MimicMotionSampler",
+      "properties": {
+        "Node name for S&R": "MimicMotionSampler"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            171
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 241.79998779296875,
+        "1": 46
+      },
+      "pos": [
+        30,
+        672
+      ],
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "link": 168,
+          "slot_index": 0,
+          "label": "放大模型",
+          "type": "UPSCALE_MODEL"
+        },
+        {
+          "name": "image",
+          "link": 182,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 64,
+      "type": "ImageUpscaleWithModel",
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            182
+          ],
+          "label": "images",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 255.466796875,
+        "1": 78
+      },
+      "pos": [
+        867,
+        461
+      ],
+      "widgets_values": [
+        4
+      ],
+      "inputs": [
+        {
+          "name": "mimic_pipeline",
+          "link": 150,
+          "slot_index": 0,
+          "label": "mimic_pipeline",
+          "type": "MIMICPIPE"
+        },
+        {
+          "name": "samples",
+          "link": 149,
+          "label": "samples",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {},
+      "id": 58,
+      "type": "MimicMotionDecode",
+      "properties": {
+        "Node name for S&R": "MimicMotionDecode"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "mimic_pipeline",
+          "links": [
+            146,
+            150
+          ],
+          "label": "mimic_pipeline",
+          "type": "MIMICPIPE"
+        }
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "pos": [
+        459,
+        406
+      ],
+      "widgets_values": [
+        "MimicMotionMergedUnet_1-0-fp16.safetensors",
+        "fp16"
+      ],
+      "flags": {},
+      "id": 2,
+      "type": "DownloadAndLoadMimicMotionModel",
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadMimicMotionModel"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            86
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "frame_count",
+          "label": "帧计数",
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "audio",
+          "slot_index": 2,
+          "links": [
+            162
+          ],
+          "label": "音频",
+          "type": "AUDIO"
+        },
+        {
+          "shape": 3,
+          "name": "video_info",
+          "label": "视频信息",
+          "type": "VHS_VIDEOINFO"
+        }
+      ],
+      "size": {
+        "0": 251.7864227294922,
+        "1": 262
+      },
+      "pos": [
+        -943,
+        380
+      ],
+      "widgets_values": {
+        "custom_height": 512,
+        "force_rate": 30,
+        "custom_width": 512,
+        "select_every_nth": 3,
+        "frame_load_cap": 20,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "force_rate": 30,
+            "filename": "7e89891b172713d0af847ff907f96bd5b0d74cdfba829f7409581cadae5517eb.mp4",
+            "select_every_nth": 3,
+            "frame_load_cap": 20,
+            "format": "video/mp4",
+            "skip_first_frames": 0,
+            "type": "input"
+          }
+        },
+        "video": "7e89891b172713d0af847ff907f96bd5b0d74cdfba829f7409581cadae5517eb.mp4",
+        "skip_first_frames": 0,
+        "force_size": "Disabled",
+        "choose video to upload": "image"
+      },
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager"
+        },
+        {
+          "name": "vae",
+          "type": "VAE"
+        }
+      ],
+      "flags": {},
+      "id": 5,
+      "type": "VHS_LoadVideo",
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "Filenames",
+          "slot_index": 0,
+          "links": [],
+          "label": "文件名",
+          "type": "VHS_FILENAMES"
+        }
+      ],
+      "size": [
+        227.4410400390625,
+        625.732421875
+      ],
+      "pos": [
+        -671,
+        391
+      ],
+      "widgets_values": {
+        "save_output": true,
+        "filename_prefix": "MimicMotion",
+        "loop_count": 0,
+        "pix_fmt": "yuv420p",
+        "save_metadata": true,
+        "crf": 19,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "MimicMotion_00004-audio_ahmzs_1736773845.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "temp",
+            "frame_rate": 30
+          }
+        },
+        "format": "video/h264-mp4",
+        "frame_rate": 30,
+        "pingpong": false
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "link": 181,
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "name": "audio",
+          "slot_index": 1,
+          "link": 162,
+          "label": "音频",
+          "type": "AUDIO"
+        },
+        {
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager"
+        },
+        {
+          "name": "vae",
+          "type": "VAE"
+        }
+      ],
+      "flags": {},
+      "id": 16,
+      "type": "VHS_VideoCombine",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "order": 13
+    }
+  ],
+  "extra": {
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": {
+        "0": 2356.710193596564,
+        "1": 238.2653095208118
+      },
+      "scale": 0.5445000000000003
+    }
+  },
+  "groups": [],
+  "links": [
+    [
+      61,
+      3,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      5,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      88,
+      28,
+      1,
+      35,
+      2,
+      "INT"
+    ],
+    [
+      89,
+      28,
+      2,
+      35,
+      3,
+      "INT"
+    ],
+    [
+      110,
+      28,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      111,
+      35,
+      0,
+      42,
+      1,
+      "IMAGE"
+    ],
+    [
+      112,
+      42,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      146,
+      2,
+      0,
+      57,
+      0,
+      "MIMICPIPE"
+    ],
+    [
+      147,
+      28,
+      0,
+      57,
+      1,
+      "IMAGE"
+    ],
+    [
+      148,
+      9,
+      0,
+      57,
+      2,
+      "IMAGE"
+    ],
+    [
+      149,
+      57,
+      0,
+      58,
+      1,
+      "LATENT"
+    ],
+    [
+      150,
+      2,
+      0,
+      58,
+      0,
+      "MIMICPIPE"
+    ],
+    [
+      162,
+      5,
+      2,
+      16,
+      1,
+      "VHS_AUDIO"
+    ],
+    [
+      168,
+      65,
+      0,
+      64,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      171,
+      64,
+      0,
+      59,
+      0,
+      "IMAGE"
+    ],
+    [
+      174,
+      28,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      181,
+      59,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      182,
+      58,
+      0,
+      64,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 71
+}

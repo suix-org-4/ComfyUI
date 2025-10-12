@@ -1,0 +1,1215 @@
+{
+  "last_link_id": 130,
+  "nodes": [
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            42
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "color": "#233",
+      "widgets_values": [
+        3.5
+      ],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "link": 41,
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {},
+      "type": "FluxGuidance",
+      "mode": 0,
+      "bgcolor": "#355",
+      "size": [
+        317.4000244140625,
+        58
+      ],
+      "pos": [
+        533.9339599609375,
+        118.7322998046875
+      ],
+      "id": 26,
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "FluxGuidance"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SAMPLER",
+          "links": [
+            19
+          ],
+          "label": "采样器",
+          "type": "SAMPLER",
+          "localized_name": "采样器"
+        }
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "pos": [
+        813.7789306640625,
+        847.5765991210938
+      ],
+      "widgets_values": [
+        "euler"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 16,
+      "type": "KSamplerSelect",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            9
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "pos": [
+        938.151611328125,
+        299.3258056640625
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 24,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "link": 12,
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 8,
+      "type": "VAEDecode",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            30
+          ],
+          "label": "引导",
+          "type": "GUIDER",
+          "localized_name": "引导器"
+        }
+      ],
+      "size": [
+        222.3482666015625,
+        46
+      ],
+      "pos": [
+        691.55615234375,
+        303.7747497558594
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 54,
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "conditioning",
+          "link": 42,
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {},
+      "id": 22,
+      "type": "BasicGuider",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "BasicGuider"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            116
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "pos": [
+        825.0562133789062,
+        526.280029296875
+      ],
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 112,
+          "label": "width",
+          "type": "INT",
+          "localized_name": "宽度"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 113,
+          "label": "height",
+          "type": "INT",
+          "localized_name": "高度"
+        }
+      ],
+      "flags": {},
+      "id": 27,
+      "type": "EmptySD3LatentImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            24
+          ],
+          "label": "输出",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "label": "降噪输出",
+          "type": "LATENT",
+          "localized_name": "降噪Latent"
+        }
+      ],
+      "size": [
+        272.3617858886719,
+        124.53733825683594
+      ],
+      "pos": [
+        867.9028930664062,
+        126.43718719482422
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 37,
+          "label": "噪波生成",
+          "type": "NOISE",
+          "localized_name": "噪波"
+        },
+        {
+          "name": "guider",
+          "link": 30,
+          "label": "引导",
+          "type": "GUIDER",
+          "localized_name": "引导器"
+        },
+        {
+          "name": "sampler",
+          "link": 19,
+          "label": "采样器",
+          "type": "SAMPLER",
+          "localized_name": "采样器"
+        },
+        {
+          "name": "sigmas",
+          "link": 20,
+          "label": "Sigmas",
+          "type": "SIGMAS",
+          "localized_name": "西格玛"
+        },
+        {
+          "name": "latent_image",
+          "link": 116,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        }
+      ],
+      "flags": {},
+      "id": 13,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 15
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "NOISE",
+          "links": [
+            37
+          ],
+          "label": "噪波生成",
+          "type": "NOISE",
+          "localized_name": "噪波"
+        }
+      ],
+      "color": "#2a363b",
+      "widgets_values": [
+        927731754402192,
+        "randomize"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "RandomNoise",
+      "mode": 0,
+      "bgcolor": "#3f5159",
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        819.1885986328125,
+        709.9674072265625
+      ],
+      "id": 25,
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "RandomNoise"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            54,
+            55
+          ],
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        }
+      ],
+      "size": [
+        210,
+        130
+      ],
+      "pos": [
+        879.5872802734375,
+        1107.096923828125
+      ],
+      "widgets_values": [
+        1.15,
+        0.5,
+        1024,
+        1024
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 130,
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 115,
+          "label": "width",
+          "type": "INT",
+          "localized_name": "宽度"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 114,
+          "label": "height",
+          "type": "INT",
+          "localized_name": "高度"
+        }
+      ],
+      "flags": {},
+      "id": 30,
+      "type": "ModelSamplingFlux",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "VAE",
+          "slot_index": 0,
+          "links": [
+            12
+          ],
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "size": [
+        311.81634521484375,
+        60.429901123046875
+      ],
+      "pos": [
+        421.0907897949219,
+        767.467041015625
+      ],
+      "widgets_values": [
+        "ae.safetensors"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 10,
+      "type": "VAELoader",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "VAELoader"
+      },
+      "order": 2
+    },
+    {
+      "outputs": [
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "INT",
+          "slot_index": 0,
+          "links": [
+            112,
+            115
+          ],
+          "label": "INT",
+          "type": "INT"
+        }
+      ],
+      "color": "#323",
+      "widgets_values": [
+        1024,
+        "fixed"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "PrimitiveNode",
+      "mode": 0,
+      "bgcolor": "#535",
+      "size": [
+        210,
+        82
+      ],
+      "pos": [
+        696.5196533203125,
+        397.441650390625
+      ],
+      "id": 34,
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "order": 3
+    },
+    {
+      "outputs": [
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "INT",
+          "slot_index": 0,
+          "links": [
+            113,
+            114
+          ],
+          "label": "INT",
+          "type": "INT"
+        }
+      ],
+      "color": "#323",
+      "widgets_values": [
+        1024,
+        "fixed"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "PrimitiveNode",
+      "mode": 0,
+      "bgcolor": "#535",
+      "size": [
+        210,
+        86.4900131225586
+      ],
+      "pos": [
+        937.396484375,
+        392.3027038574219
+      ],
+      "id": 35,
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        985.3012084960938,
+        1060.3828125
+      ],
+      "pos": [
+        1170.8551025390625,
+        128.45352172851562
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 9,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        }
+      ],
+      "flags": {},
+      "id": 9,
+      "type": "SaveImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SIGMAS",
+          "links": [
+            20
+          ],
+          "label": "Sigmas",
+          "type": "SIGMAS",
+          "localized_name": "Sigmas"
+        }
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "pos": [
+        818.5535888671875,
+        948.8093872070312
+      ],
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 55,
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        }
+      ],
+      "flags": {},
+      "id": 17,
+      "type": "BasicScheduler",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "order": 14
+    },
+    {
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            41
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "GHIBSKY style, a cyberpunk cat holding a neon sign that says \"SVDQuant is lite and fast!\"",
+        [
+          false,
+          true
+        ]
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "link": 127,
+          "label": "CLIP",
+          "type": "CLIP",
+          "localized_name": "clip"
+        }
+      ],
+      "flags": {},
+      "type": "CLIPTextEncode",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "pos": [
+        225.4257354736328,
+        298.6509704589844
+      ],
+      "id": 6,
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.24",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "links": [
+            128
+          ],
+          "label": "MODEL",
+          "type": "MODEL",
+          "localized_name": "模型"
+        }
+      ],
+      "size": [
+        315,
+        202
+      ],
+      "pos": [
+        53.896854400634766,
+        1022.2003784179688
+      ],
+      "widgets_values": [
+        "svdq-int4-flux.1-dev",
+        0,
+        "nunchaku-fp16",
+        "auto",
+        0,
+        "bfloat16",
+        "enabled"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 45,
+      "type": "NunchakuFluxDiTLoader",
+      "properties": {
+        "Node name for S&R": "NunchakuFluxDiTLoader"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "links": [
+            127
+          ],
+          "label": "CLIP",
+          "type": "CLIP",
+          "localized_name": "CLIP"
+        }
+      ],
+      "size": [
+        352.79998779296875,
+        178
+      ],
+      "pos": [
+        240.8671112060547,
+        527.06884765625
+      ],
+      "widgets_values": [
+        "flux",
+        "sd3/t5xxl_fp16.safetensors",
+        "clip_l.safetensors",
+        512,
+        "disable",
+        "none"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 44,
+      "type": "NunchakuTextEncoderLoader",
+      "properties": {
+        "Node name for S&R": "NunchakuTextEncoderLoader"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "links": [
+            129
+          ],
+          "label": "MODEL",
+          "type": "MODEL",
+          "localized_name": "模型"
+        }
+      ],
+      "size": [
+        340.20001220703125,
+        82
+      ],
+      "pos": [
+        411.6319885253906,
+        1035.1226806640625
+      ],
+      "widgets_values": [
+        "FLUX.1-Turbo-Alpha.safetensors",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 128,
+          "label": "model",
+          "type": "MODEL",
+          "localized_name": "model"
+        }
+      ],
+      "flags": {},
+      "id": 46,
+      "type": "NunchakuFluxLoraLoader",
+      "properties": {
+        "Node name for S&R": "NunchakuFluxLoraLoader"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "links": [
+            130
+          ],
+          "label": "MODEL",
+          "type": "MODEL",
+          "localized_name": "模型"
+        }
+      ],
+      "size": [
+        340.20001220703125,
+        82
+      ],
+      "pos": [
+        419.634033203125,
+        887.4461669921875
+      ],
+      "widgets_values": [
+        "flux-ghibsky-illustration.safetensors",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 129,
+          "label": "model",
+          "type": "MODEL",
+          "localized_name": "model"
+        }
+      ],
+      "flags": {},
+      "id": 47,
+      "type": "NunchakuFluxLoraLoader",
+      "properties": {
+        "Node name for S&R": "NunchakuFluxLoraLoader"
+      },
+      "order": 10
+    }
+  ],
+  "extra": {
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "groupNodes": {
+      "EmptyLatentImage": {
+        "external": [
+          [
+            0,
+            0,
+            "INT"
+          ],
+          [
+            1,
+            0,
+            "INT"
+          ],
+          [
+            2,
+            0,
+            "LATENT"
+          ]
+        ],
+        "nodes": [
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "widget": {
+                  "name": "height"
+                },
+                "name": "INT",
+                "slot_index": 0,
+                "links": [],
+                "type": "INT"
+              }
+            ],
+            "bgcolor": "#535",
+            "size": {
+              "0": 210,
+              "1": 82
+            },
+            "color": "#323",
+            "pos": [
+              432,
+              480
+            ],
+            "flags": {},
+            "index": 0,
+            "type": "PrimitiveNode",
+            "title": "height",
+            "properties": {
+              "Run widget replace on values": false
+            },
+            "order": 6
+          },
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "widget": {
+                  "name": "width"
+                },
+                "name": "INT",
+                "slot_index": 0,
+                "links": [],
+                "type": "INT"
+              }
+            ],
+            "bgcolor": "#535",
+            "size": {
+              "0": 210,
+              "1": 82
+            },
+            "color": "#323",
+            "pos": [
+              672,
+              480
+            ],
+            "flags": {},
+            "index": 1,
+            "type": "PrimitiveNode",
+            "title": "width",
+            "properties": {
+              "Run widget replace on values": false
+            },
+            "order": 7
+          },
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "shape": 3,
+                "name": "LATENT",
+                "slot_index": 0,
+                "links": [],
+                "type": "LATENT"
+              }
+            ],
+            "size": {
+              "0": 315,
+              "1": 106
+            },
+            "pos": [
+              480,
+              624
+            ],
+            "widgets_values": [
+              1024,
+              1024,
+              1
+            ],
+            "inputs": [
+              {
+                "widget": {
+                  "name": "width"
+                },
+                "name": "width",
+                "type": "INT"
+              },
+              {
+                "widget": {
+                  "name": "height"
+                },
+                "name": "height",
+                "type": "INT"
+              }
+            ],
+            "flags": {},
+            "index": 2,
+            "type": "EmptySD3LatentImage",
+            "properties": {
+              "Node name for S&R": "EmptySD3LatentImage"
+            },
+            "order": 10
+          }
+        ],
+        "links": [
+          [
+            1,
+            0,
+            2,
+            0,
+            34,
+            "INT"
+          ],
+          [
+            0,
+            0,
+            2,
+            1,
+            35,
+            "INT"
+          ]
+        ],
+        "config": {
+          "0": {
+            "output": {
+              "0": {
+                "name": "height"
+              }
+            },
+            "input": {
+              "value": {
+                "visible": true
+              }
+            }
+          },
+          "1": {
+            "output": {
+              "0": {
+                "name": "width"
+              }
+            },
+            "input": {
+              "value": {
+                "visible": true
+              }
+            }
+          },
+          "2": {
+            "input": {
+              "width": {
+                "visible": false
+              },
+              "height": {
+                "visible": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "node_versions": {
+      "comfy-core": "0.3.24"
+    },
+    "ds": {
+      "offset": [
+        290.51278050217365,
+        119.08475121091305
+      ],
+      "scale": 0.45
+    }
+  },
+  "groups": [],
+  "links": [
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      10,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      19,
+      16,
+      0,
+      13,
+      2,
+      "SAMPLER"
+    ],
+    [
+      20,
+      17,
+      0,
+      13,
+      3,
+      "SIGMAS"
+    ],
+    [
+      24,
+      13,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      30,
+      22,
+      0,
+      13,
+      1,
+      "GUIDER"
+    ],
+    [
+      37,
+      25,
+      0,
+      13,
+      0,
+      "NOISE"
+    ],
+    [
+      41,
+      6,
+      0,
+      26,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      42,
+      26,
+      0,
+      22,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      54,
+      30,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      55,
+      30,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      112,
+      34,
+      0,
+      27,
+      0,
+      "INT"
+    ],
+    [
+      113,
+      35,
+      0,
+      27,
+      1,
+      "INT"
+    ],
+    [
+      114,
+      35,
+      0,
+      30,
+      2,
+      "INT"
+    ],
+    [
+      115,
+      34,
+      0,
+      30,
+      1,
+      "INT"
+    ],
+    [
+      116,
+      27,
+      0,
+      13,
+      4,
+      "LATENT"
+    ],
+    [
+      127,
+      44,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      128,
+      45,
+      0,
+      46,
+      0,
+      "MODEL"
+    ],
+    [
+      129,
+      46,
+      0,
+      47,
+      0,
+      "MODEL"
+    ],
+    [
+      130,
+      47,
+      0,
+      30,
+      0,
+      "MODEL"
+    ]
+  ],
+  "id": "f253212e-0ec7-40c5-9671-bafc52d66023",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 47,
+  "revision": 0
+}

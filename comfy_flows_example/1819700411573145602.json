@@ -1,0 +1,1457 @@
+{
+  "last_link_id": 146,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "links": [
+            79
+          ],
+          "label": "LATENT",
+          "type": "LATENT",
+          "localized_name": "LATENT"
+        }
+      ],
+      "size": [
+        388.41827392578125,
+        46
+      ],
+      "pos": [
+        -1446.7313232421875,
+        72.65381622314453
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "pixels",
+          "link": 87,
+          "label": "pixels",
+          "type": "IMAGE",
+          "localized_name": "pixels"
+        },
+        {
+          "name": "vae",
+          "link": 80,
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {},
+      "id": 43,
+      "type": "VAEEncode",
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "VAE",
+          "slot_index": 0,
+          "links": [
+            12,
+            80
+          ],
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "size": [
+        392.088134765625,
+        60.120304107666016
+      ],
+      "pos": [
+        -1456.7313232421875,
+        302.65380859375
+      ],
+      "widgets_values": [
+        "ae.sft"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 10,
+      "type": "VAELoader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            30
+          ],
+          "label": "GUIDER",
+          "type": "GUIDER",
+          "localized_name": "GUIDER"
+        }
+      ],
+      "size": [
+        381.5658874511719,
+        46
+      ],
+      "pos": [
+        -1446.7313232421875,
+        -37.34619140625
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 39,
+          "label": "model",
+          "type": "MODEL",
+          "localized_name": "model"
+        },
+        {
+          "name": "conditioning",
+          "link": 72,
+          "label": "conditioning",
+          "type": "CONDITIONING",
+          "localized_name": "conditioning"
+        }
+      ],
+      "flags": {},
+      "id": 22,
+      "type": "BasicGuider",
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "order": 21
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CLIP",
+          "slot_index": 0,
+          "links": [
+            73
+          ],
+          "label": "CLIP",
+          "type": "CLIP",
+          "localized_name": "CLIP"
+        }
+      ],
+      "color": "#cbc08a",
+      "widgets_values": [
+        "sd3/t5xxl_fp8_e4m3fn.safetensors",
+        "sd3/clip_l.safetensors",
+        "flux",
+        "default"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "DualCLIPLoader",
+      "mode": 0,
+      "bgcolor": "#b7ac76",
+      "size": [
+        411.7928771972656,
+        130
+      ],
+      "pos": [
+        -1896.7313232421875,
+        22.653812408447266
+      ],
+      "id": 11,
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            87
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "width",
+          "label": "width",
+          "type": "INT",
+          "localized_name": "width"
+        },
+        {
+          "shape": 3,
+          "name": "height",
+          "label": "height",
+          "type": "INT",
+          "localized_name": "height"
+        }
+      ],
+      "size": [
+        403.40008544921875,
+        299.799560546875
+      ],
+      "pos": [
+        -1896.7313232421875,
+        192.65380859375
+      ],
+      "widgets_values": [
+        1280,
+        1280,
+        "nearest",
+        "keep proportion",
+        "always",
+        0
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 86,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        }
+      ],
+      "flags": {},
+      "id": 49,
+      "type": "ImageResize+",
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "NOISE",
+          "slot_index": 0,
+          "links": [
+            37
+          ],
+          "label": "NOISE",
+          "type": "NOISE",
+          "localized_name": "NOISE"
+        }
+      ],
+      "size": [
+        391.3082275390625,
+        82
+      ],
+      "pos": [
+        -1456.7313232421875,
+        172.65380859375
+      ],
+      "widgets_values": [
+        884154723464338,
+        "randomize"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "noise_seed"
+          },
+          "name": "noise_seed",
+          "link": 113,
+          "label": "noise_seed",
+          "type": "INT"
+        }
+      ],
+      "flags": {},
+      "id": 25,
+      "type": "RandomNoise",
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            130
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -3410,
+        40
+      ],
+      "widgets_values": [
+        "你是一个 stable diffusion prompt 专家，为我生成适用于 Stable Diffusion的prompt。根据我给你相关单词，你帮我扩写为适合 Stable Diffusion 文生图的prompt。要求:1.英文输出 2.除了 prompt 外，不要输出任何其它的信息，100字"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 78,
+      "type": "JjkText",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "JjkText"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            132
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        -2950,
+        80
+      ],
+      "widgets_values": [
+        "",
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text1"
+          },
+          "name": "text1",
+          "link": 130,
+          "label": "text1",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "text2"
+          },
+          "name": "text2",
+          "link": 131,
+          "label": "text2",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 80,
+      "type": "TextCombinerTwo",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "TextCombinerTwo"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "prompt opt",
+          "slot_index": 0,
+          "links": [
+            133,
+            139
+          ],
+          "label": "prompt opt",
+          "type": "STRING",
+          "localized_name": "prompt opt"
+        }
+      ],
+      "size": [
+        341.71533203125,
+        205.06817626953125
+      ],
+      "pos": [
+        -2960,
+        230
+      ],
+      "widgets_values": [
+        "",
+        1209,
+        "randomize"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "link": 132,
+          "label": "prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 81,
+      "type": "RH_Prompter",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "RH_Prompter"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "STRING",
+          "links": [
+            131
+          ],
+          "label": "STRING",
+          "type": "STRING",
+          "localized_name": "STRING"
+        }
+      ],
+      "size": [
+        387.2691955566406,
+        178.09283447265625
+      ],
+      "pos": [
+        -3400,
+        320
+      ],
+      "widgets_values": [
+        "",
+        "Cute anime girl with huge, fluffy fennec fox ears and a big, fluffy tail, messy long golden hair, blue eyes, wearing a maid outfit with a long black dress adorned with gold foil patterns and a white apron, eating a slice of apple pie in the kitchen of an old, dark Victorian mansion with bright windows, filled with very expensive items everywhere.最佳品质、4k、8k、超高分辨率、HDR 原始、清晰对焦、"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 137,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 86,
+      "type": "ShowText|pysssss",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "translation",
+          "slot_index": 0,
+          "links": [
+            134
+          ],
+          "label": "translation",
+          "type": "STRING",
+          "localized_name": "translation"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -2570,
+        70
+      ],
+      "widgets_values": [
+        "",
+        1982,
+        "randomize",
+        "force_chinese"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "link": 133,
+          "label": "prompt",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 82,
+      "type": "RH_Translator",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "RH_Translator"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "translation",
+          "slot_index": 0,
+          "links": [
+            135
+          ],
+          "label": "translation",
+          "type": "STRING",
+          "localized_name": "translation"
+        }
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        -3400,
+        -410
+      ],
+      "widgets_values": [
+        "皮克斯风格，3D，卡通，精致的面部特征，细腻的皮肤，",
+        836,
+        "randomize",
+        "auto"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 79,
+      "type": "RH_Translator",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "RH_Translator"
+      },
+      "order": 3
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            136
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "masterpiece, best quality, Unreal Engine 5 rendering, detailed, HDR, UHD, 8K, highest quality, realistic, detailed"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": false
+      },
+      "type": "JjkText",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": [
+        410.9360046386719,
+        97.75633239746094
+      ],
+      "pos": [
+        -3410,
+        -150
+      ],
+      "id": 84,
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "JjkText"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "links": [
+            140
+          ],
+          "label": "STRING",
+          "type": "STRING",
+          "localized_name": "selected_value"
+        },
+        {
+          "name": "selected_label",
+          "label": "selected_label",
+          "type": "STRING",
+          "localized_name": "selected_label"
+        },
+        {
+          "name": "selected_index",
+          "label": "selected_index",
+          "type": "INT",
+          "localized_name": "selected_index"
+        }
+      ],
+      "size": [
+        315,
+        122
+      ],
+      "pos": [
+        -2550,
+        -290
+      ],
+      "widgets_values": [
+        1,
+        false
+      ],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "input1",
+          "link": 138,
+          "label": "input1",
+          "type": "STRING",
+          "localized_name": "input1"
+        },
+        {
+          "name": "input2",
+          "link": 139,
+          "label": "input2",
+          "type": "STRING"
+        },
+        {
+          "name": "input3",
+          "label": "input3",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 87,
+      "type": "ImpactSwitch",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ImpactSwitch"
+      },
+      "order": 18
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        601.1639404296875,
+        329.7890930175781
+      ],
+      "pos": [
+        -2570,
+        350
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "STRING"
+          },
+          "name": "STRING",
+          "link": 134,
+          "label": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 83,
+      "type": "Bjornulf_ShowStringText",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "Bjornulf_ShowStringText"
+      },
+      "order": 19
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        678.096923828125,
+        953.5291748046875
+      ],
+      "pos": [
+        -35.101104736328125,
+        -378.0945739746094
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 9,
+          "label": "images",
+          "type": "IMAGE",
+          "localized_name": "images"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 9,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 24
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "text",
+          "slot_index": 0,
+          "links": [
+            137,
+            138
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "pos": [
+        -2930,
+        -270
+      ],
+      "widgets_values": [
+        "",
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "text1"
+          },
+          "name": "text1",
+          "link": 135,
+          "label": "text1",
+          "type": "STRING"
+        },
+        {
+          "widget": {
+            "name": "text2"
+          },
+          "name": "text2",
+          "link": 136,
+          "label": "text2",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "id": 85,
+      "type": "TextCombinerTwo",
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "TextCombinerTwo"
+      },
+      "order": 9
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            38,
+            39
+          ],
+          "label": "MODEL",
+          "type": "MODEL",
+          "localized_name": "MODEL"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "flux1-dev-fp8-Kijai.safetensors",
+        "fp8_e4m3fn"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "UNETLoader",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        416.51458740234375,
+        82
+      ],
+      "pos": [
+        -1906.7313232421875,
+        -137.34619140625
+      ],
+      "id": 12,
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "order": 5
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SIGMAS",
+          "links": [
+            20
+          ],
+          "label": "SIGMAS",
+          "type": "SIGMAS",
+          "localized_name": "SIGMAS"
+        }
+      ],
+      "color": "#817354",
+      "widgets_values": [
+        "simple",
+        20,
+        0.7000000000000001
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 38,
+          "label": "model",
+          "type": "MODEL",
+          "localized_name": "model"
+        }
+      ],
+      "flags": {},
+      "type": "BasicScheduler",
+      "mode": 0,
+      "bgcolor": "#6d5f40",
+      "size": [
+        379.89312744140625,
+        106
+      ],
+      "pos": [
+        -1436.7313232421875,
+        -187.34619140625
+      ],
+      "id": 17,
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "order": 10
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SAMPLER",
+          "links": [
+            19
+          ],
+          "label": "SAMPLER",
+          "type": "SAMPLER",
+          "localized_name": "SAMPLER"
+        }
+      ],
+      "color": "#817354",
+      "widgets_values": [
+        "euler"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "KSamplerSelect",
+      "mode": 0,
+      "bgcolor": "#6d5f40",
+      "size": [
+        381.4508972167969,
+        58
+      ],
+      "pos": [
+        -1436.7313232421875,
+        -307.34619140625
+      ],
+      "id": 16,
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "order": 6
+    },
+    {
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            72
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING",
+          "localized_name": "CONDITIONING"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "cute anime girl with massive fluffy fennec ears and a big fluffy tail blonde messy long hair blue eyes wearing a maid outfit with a long black dress with a gold leaf pattern and a white apron eating a slice of an apple pie in the kitchen of an old dark victorian mansion with a bright window and very expensive stuff everywhere"
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "link": 73,
+          "label": "clip",
+          "type": "CLIP",
+          "localized_name": "clip"
+        },
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 140,
+          "label": "text",
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "type": "CLIPTextEncode",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": [
+        391.13623046875,
+        71.25924682617188
+      ],
+      "pos": [
+        -1896.7313232421875,
+        -277.34619140625
+      ],
+      "id": 39,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "order": 20
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "seed",
+          "slot_index": 0,
+          "links": [
+            113
+          ],
+          "label": "seed",
+          "type": "INT",
+          "localized_name": "seed"
+        }
+      ],
+      "size": [
+        375.31610107421875,
+        82
+      ],
+      "pos": [
+        -1456.7313232421875,
+        412.65380859375
+      ],
+      "widgets_values": [
+        714883514394340,
+        "randomize"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 65,
+      "type": "SeedGenerator",
+      "properties": {
+        "Node name for S&R": "SeedGenerator"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            9
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        }
+      ],
+      "size": [
+        166.40985107421875,
+        46
+      ],
+      "pos": [
+        -970.7188110351562,
+        481.32269287109375
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 24,
+          "label": "samples",
+          "type": "LATENT",
+          "localized_name": "samples"
+        },
+        {
+          "name": "vae",
+          "link": 12,
+          "label": "vae",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 8,
+      "type": "VAEDecode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 23
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            24
+          ],
+          "label": "output",
+          "type": "LATENT",
+          "localized_name": "output"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "label": "denoised_output",
+          "type": "LATENT",
+          "localized_name": "denoised_output"
+        }
+      ],
+      "color": "#432",
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 37,
+          "label": "noise",
+          "type": "NOISE",
+          "localized_name": "noise"
+        },
+        {
+          "name": "guider",
+          "link": 30,
+          "label": "guider",
+          "type": "GUIDER",
+          "localized_name": "guider"
+        },
+        {
+          "name": "sampler",
+          "link": 19,
+          "label": "sampler",
+          "type": "SAMPLER",
+          "localized_name": "sampler"
+        },
+        {
+          "name": "sigmas",
+          "link": 20,
+          "label": "sigmas",
+          "type": "SIGMAS",
+          "localized_name": "sigmas"
+        },
+        {
+          "name": "latent_image",
+          "link": 79,
+          "label": "latent_image",
+          "type": "LATENT",
+          "localized_name": "latent_image"
+        }
+      ],
+      "flags": {},
+      "type": "SamplerCustomAdvanced",
+      "mode": 0,
+      "bgcolor": "#653",
+      "size": [
+        386.0965576171875,
+        592.9269409179688
+      ],
+      "pos": [
+        -1011.379638671875,
+        -299.31768798828125
+      ],
+      "id": 13,
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 22
+    },
+    {
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            86
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "shape": 3,
+          "name": "MASK",
+          "label": "MASK",
+          "type": "MASK",
+          "localized_name": "MASK"
+        }
+      ],
+      "color": "#222",
+      "widgets_values": [
+        "f3299ab82004714c0fd24663813ea29c9d5028691ad17b665fde8005eeccc027.jpg",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadImage",
+      "mode": 0,
+      "bgcolor": "#000",
+      "size": [
+        611.48291015625,
+        1092.273681640625
+      ],
+      "pos": [
+        -4084.997802734375,
+        -420.7477722167969
+      ],
+      "id": 44,
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 8
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": [],
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false,
+    "ds": {
+      "offset": [
+        4559.366436246342,
+        1054.8742072061914
+      ],
+      "scale": 0.45
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 1,
+      "title": "Group",
+      "bounding": [
+        -3420,
+        -483.6000061035156,
+        1464.3602294921875,
+        436.904052734375
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 2,
+      "title": "Group",
+      "bounding": [
+        -3420,
+        -33.599998474121094,
+        1461.1639404296875,
+        723.3890380859375
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "id": 3,
+      "title": "Group",
+      "bounding": [
+        -1927.967041015625,
+        -481.4018249511719,
+        2607.89892578125,
+        1169.68310546875
+      ]
+    }
+  ],
+  "links": [
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      10,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      19,
+      16,
+      0,
+      13,
+      2,
+      "SAMPLER"
+    ],
+    [
+      20,
+      17,
+      0,
+      13,
+      3,
+      "SIGMAS"
+    ],
+    [
+      24,
+      13,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      30,
+      22,
+      0,
+      13,
+      1,
+      "GUIDER"
+    ],
+    [
+      37,
+      25,
+      0,
+      13,
+      0,
+      "NOISE"
+    ],
+    [
+      38,
+      12,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      39,
+      12,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      72,
+      39,
+      0,
+      22,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      73,
+      11,
+      0,
+      39,
+      0,
+      "CLIP"
+    ],
+    [
+      79,
+      43,
+      0,
+      13,
+      4,
+      "LATENT"
+    ],
+    [
+      80,
+      10,
+      0,
+      43,
+      1,
+      "VAE"
+    ],
+    [
+      86,
+      44,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      87,
+      49,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      113,
+      65,
+      0,
+      25,
+      0,
+      "INT"
+    ],
+    [
+      130,
+      78,
+      0,
+      80,
+      0,
+      "STRING"
+    ],
+    [
+      131,
+      86,
+      0,
+      80,
+      1,
+      "STRING"
+    ],
+    [
+      132,
+      80,
+      0,
+      81,
+      0,
+      "STRING"
+    ],
+    [
+      133,
+      81,
+      0,
+      82,
+      0,
+      "STRING"
+    ],
+    [
+      134,
+      82,
+      0,
+      83,
+      0,
+      "STRING"
+    ],
+    [
+      135,
+      79,
+      0,
+      85,
+      0,
+      "STRING"
+    ],
+    [
+      136,
+      84,
+      0,
+      85,
+      1,
+      "STRING"
+    ],
+    [
+      137,
+      85,
+      0,
+      86,
+      0,
+      "STRING"
+    ],
+    [
+      138,
+      85,
+      0,
+      87,
+      0,
+      "*"
+    ],
+    [
+      139,
+      81,
+      0,
+      87,
+      1,
+      "STRING"
+    ],
+    [
+      140,
+      87,
+      0,
+      39,
+      1,
+      "STRING"
+    ]
+  ],
+  "id": "3c52d00c-9082-40f4-89b0-39cb6dbc8b46",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 87,
+  "revision": 0
+}

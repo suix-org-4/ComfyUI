@@ -1,0 +1,4452 @@
+{
+  "last_link_id": 476,
+  "nodes": [
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 330,
+        "1": 150
+      },
+      "pos": [
+        -162.3728485107422,
+        -1978.732177734375
+      ],
+      "widgets_values": [
+        0.75,
+        0,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 295,
+          "label": "model",
+          "type": "MODEL"
+        },
+        {
+          "name": "ipadapter_flux",
+          "link": 293,
+          "label": "ipadapter_flux",
+          "type": "IP_ADAPTER_FLUX_INSTANTX"
+        },
+        {
+          "name": "image",
+          "link": 299,
+          "label": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 166,
+      "type": "ApplyIPAdapterFlux",
+      "properties": {
+        "Node name for S&R": "ApplyIPAdapterFlux"
+      },
+      "order": 44
+    },
+    {
+      "outputs": [
+        {
+          "name": "*",
+          "slot_index": 0,
+          "links": [
+            299
+          ],
+          "type": "*"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "IMAGE"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "type": "easy getNode",
+      "title": "⬅️IMAGE",
+      "mode": 4,
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "pos": {
+        "0": -480.8543395996094,
+        "1": -1981.157470703125,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "id": 169,
+      "properties": {},
+      "order": 0
+    },
+    {
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "ipadapterFlux",
+          "slot_index": 0,
+          "links": [
+            293
+          ],
+          "label": "ipadapterFlux",
+          "type": "IP_ADAPTER_FLUX_INSTANTX"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 110
+      },
+      "pos": [
+        -522.8543701171875,
+        -1949.157470703125
+      ],
+      "widgets_values": [
+        "ip-adapter.bin",
+        "google/siglip-so400m-patch14-384",
+        "cuda"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 165,
+      "type": "IPAdapterFluxLoader",
+      "properties": {
+        "Node name for S&R": "IPAdapterFluxLoader"
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            232
+          ],
+          "label": "输出",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "slot_index": 1,
+          "links": [],
+          "label": "降噪输出",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 310,
+        "1": 330
+      },
+      "color": "#30640d",
+      "pos": [
+        -1200,
+        -1200
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 242,
+          "slot_index": 0,
+          "label": "噪波生成",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 226,
+          "slot_index": 1,
+          "label": "引导",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 227,
+          "slot_index": 2,
+          "label": "采样器",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 230,
+          "slot_index": 3,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 235,
+          "slot_index": 4,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 130,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 55
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "NOISE",
+          "links": [
+            242
+          ],
+          "label": "噪波生成",
+          "type": "NOISE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "color": "#30640d",
+      "pos": [
+        -1190,
+        -1150
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 135,
+      "type": "DisableNoise",
+      "properties": {
+        "Node name for S&R": "DisableNoise"
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "high_sigmas",
+          "slot_index": 0,
+          "links": [
+            224
+          ],
+          "label": "高Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "shape": 3,
+          "name": "low_sigmas",
+          "slot_index": 1,
+          "links": [
+            230
+          ],
+          "label": "低Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "color": "#30640d",
+      "pos": [
+        -1210,
+        -1100
+      ],
+      "widgets_values": [
+        0.4
+      ],
+      "inputs": [
+        {
+          "name": "sigmas",
+          "link": 223,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 129,
+      "type": "SplitSigmasDenoise",
+      "properties": {
+        "Node name for S&R": "SplitSigmasDenoise"
+      },
+      "order": 36
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "PULIDFLUX",
+          "links": [
+            307
+          ],
+          "label": "PULIDFLUX",
+          "type": "PULIDFLUX"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "pos": [
+        -940,
+        -2620
+      ],
+      "widgets_values": [
+        "pulid_flux_v0.9.1.safetensors"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 175,
+      "type": "PulidFluxModelLoader",
+      "properties": {
+        "Node name for S&R": "PulidFluxModelLoader"
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FACEANALYSIS",
+          "slot_index": 0,
+          "links": [
+            304
+          ],
+          "label": "FACEANALYSIS",
+          "type": "FACEANALYSIS"
+        }
+      ],
+      "size": {
+        "0": 370,
+        "1": 60
+      },
+      "pos": [
+        -970,
+        -2450
+      ],
+      "widgets_values": [
+        "CUDA"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 173,
+      "type": "PulidFluxInsightFaceLoader",
+      "properties": {
+        "Node name for S&R": "PulidFluxInsightFaceLoader"
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "EVA_CLIP",
+          "links": [
+            318
+          ],
+          "label": "EVA_CLIP",
+          "type": "EVA_CLIP"
+        }
+      ],
+      "size": {
+        "0": 330,
+        "1": 30
+      },
+      "pos": [
+        -930,
+        -2520
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 182,
+      "type": "PulidFluxEvaClipLoader",
+      "properties": {
+        "Node name for S&R": "PulidFluxEvaClipLoader"
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            431
+          ],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 350
+      },
+      "pos": [
+        -480,
+        -2550
+      ],
+      "widgets_values": [
+        0.8,
+        0,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 305,
+          "label": "model",
+          "type": "MODEL"
+        },
+        {
+          "name": "pulid_flux",
+          "link": 307,
+          "label": "pulid_flux",
+          "type": "PULIDFLUX"
+        },
+        {
+          "name": "eva_clip",
+          "link": 318,
+          "label": "eva_clip",
+          "type": "EVA_CLIP"
+        },
+        {
+          "name": "face_analysis",
+          "link": 304,
+          "label": "face_analysis",
+          "type": "FACEANALYSIS"
+        },
+        {
+          "name": "image",
+          "link": 316,
+          "label": "image",
+          "type": "IMAGE"
+        },
+        {
+          "shape": 7,
+          "name": "attn_mask",
+          "label": "attn_mask",
+          "type": "MASK"
+        },
+        {
+          "shape": 7,
+          "name": "prior_image",
+          "label": "prior_image",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 174,
+      "type": "ApplyPulidFlux",
+      "properties": {
+        "Node name for S&R": "ApplyPulidFlux"
+      },
+      "order": 45
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            336
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 82
+      },
+      "color": "#30640d",
+      "pos": [
+        -2144,
+        -1960
+      ],
+      "widgets_values": [
+        "lumiere_flux_alpha-fp8.safetensors",
+        "fp8_e4m3fn"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 77,
+      "type": "UNETLoader",
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            295,
+            305
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 82
+      },
+      "color": "#30640d",
+      "pos": [
+        -1102,
+        -1958
+      ],
+      "widgets_values": [
+        "FLUX.1-Turbo-Alpha.safetensors",
+        0.8
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 337,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {},
+      "id": 128,
+      "type": "LoraLoaderModelOnly",
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "order": 35
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": {
+        "0": 210,
+        "1": 66
+      },
+      "pos": [
+        -977,
+        -1720
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "MODEL",
+          "link": 431,
+          "label": "输入",
+          "type": "*",
+          "color_on": "#B39DDB"
+        },
+        {
+          "shape": 7,
+          "name": "VAE",
+          "link": 351,
+          "label": "输入2",
+          "type": "*",
+          "color_on": "#FF6E6E"
+        },
+        {
+          "shape": 7,
+          "name": "CLIP",
+          "link": 350,
+          "label": "输入3",
+          "type": "*",
+          "color_on": "#FFD500"
+        }
+      ],
+      "flags": {},
+      "id": 190,
+      "type": "Anything Everywhere3",
+      "properties": {
+        "color_restricted": 0,
+        "Node name for S&R": "Anything Everywhere3",
+        "group_restricted": 0
+      },
+      "order": 50
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "VAE",
+          "slot_index": 0,
+          "links": [
+            351
+          ],
+          "type": "VAE"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1195,
+        -1705
+      ],
+      "widgets_values": [
+        "ae.sft"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 31,
+      "type": "VAELoader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "width",
+          "slot_index": 0,
+          "links": [
+            240,
+            452,
+            455,
+            457
+          ],
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "height",
+          "slot_index": 1,
+          "links": [
+            241,
+            451,
+            454,
+            456
+          ],
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "upscale_factor",
+          "type": "FLOAT"
+        },
+        {
+          "shape": 3,
+          "name": "prescale_factor",
+          "type": "FLOAT"
+        },
+        {
+          "shape": 3,
+          "name": "batch_size",
+          "type": "INT"
+        },
+        {
+          "shape": 3,
+          "name": "empty_latent",
+          "slot_index": 5,
+          "links": [
+            354,
+            448,
+            449,
+            450
+          ],
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "show_help",
+          "slot_index": 6,
+          "type": "STRING"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 322
+      },
+      "color": "#30640d",
+      "pos": [
+        -2932,
+        -393
+      ],
+      "widgets_values": [
+        1024,
+        1536,
+        "SDXL - 9:16 portrait 768x1344",
+        "Off",
+        1,
+        1,
+        1
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 57,
+      "type": "CR Aspect Ratio",
+      "properties": {
+        "Node name for S&R": "CR Aspect Ratio"
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            83,
+            226
+          ],
+          "label": "引导",
+          "type": "GUIDER"
+        }
+      ],
+      "size": {
+        "0": 260,
+        "1": 50
+      },
+      "color": "#30640d",
+      "pos": [
+        -1640,
+        -1200
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 220,
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL"
+        },
+        {
+          "name": "conditioning",
+          "link": 106,
+          "slot_index": 1,
+          "label": "条件",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 66,
+      "type": "BasicGuider",
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "order": 40
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            106
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "size": {
+        "0": 280,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1650,
+        -1250
+      ],
+      "widgets_values": [
+        3.5
+      ],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "link": 470,
+          "label": "conditioning",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 27,
+      "type": "FluxGuidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "order": 31
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SAMPLER",
+          "links": [
+            80,
+            227
+          ],
+          "label": "采样器",
+          "type": "SAMPLER"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1660,
+        -1160
+      ],
+      "widgets_values": [
+        "euler"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 63,
+      "type": "KSamplerSelect",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            43,
+            421
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "color": "#30640d",
+      "pos": [
+        -1190,
+        -1060
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 232,
+          "label": "Latent",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "slot_index": 1,
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 32,
+      "type": "VAEDecode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 59
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            235
+          ],
+          "label": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 150
+      },
+      "color": "#30640d",
+      "pos": [
+        -1210,
+        -1260
+      ],
+      "widgets_values": [
+        245622703645111,
+        "randomize",
+        0.3,
+        "true"
+      ],
+      "inputs": [
+        {
+          "name": "latent",
+          "link": 234,
+          "label": "latent",
+          "type": "LATENT"
+        },
+        {
+          "shape": 7,
+          "name": "mask",
+          "label": "mask",
+          "type": "MASK"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 131,
+      "type": "InjectLatentNoise+",
+      "properties": {
+        "Node name for S&R": "InjectLatentNoise+"
+      },
+      "order": 51
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            219,
+            220
+          ],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "color": "#30640d",
+      "pos": [
+        -1820,
+        -1190
+      ],
+      "widgets_values": [
+        1.1500000000000001,
+        0.5,
+        1024,
+        1024
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL"
+        },
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 240,
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 241,
+          "label": "height",
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 127,
+      "type": "ModelSamplingFlux",
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "order": 21
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "NOISE",
+          "slot_index": 0,
+          "links": [
+            194,
+            458,
+            459,
+            460
+          ],
+          "label": "噪波生成",
+          "type": "NOISE"
+        }
+      ],
+      "size": {
+        "0": 260,
+        "1": 82
+      },
+      "color": "#30640d",
+      "pos": [
+        -2341,
+        -769
+      ],
+      "widgets_values": [
+        1095629741604796,
+        "increment"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 65,
+      "type": "RandomNoise",
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SAMPLER",
+          "links": [
+            365,
+            375
+          ],
+          "label": "采样器",
+          "type": "SAMPLER"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1810,
+        -870
+      ],
+      "widgets_values": [
+        "euler"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 195,
+      "type": "KSamplerSelect",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            360,
+            371
+          ],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "color": "#30640d",
+      "pos": [
+        -1830,
+        -780
+      ],
+      "widgets_values": [
+        1.1500000000000001,
+        0.5,
+        1024,
+        1024
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL"
+        },
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 452,
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 451,
+          "label": "height",
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 197,
+      "type": "ModelSamplingFlux",
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "order": 22
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SIGMAS",
+          "slot_index": 0,
+          "links": [
+            369
+          ],
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": {
+        "0": 250,
+        "1": 130
+      },
+      "color": "#30640d",
+      "pos": [
+        -1820,
+        -750
+      ],
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 360,
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 196,
+      "type": "BasicScheduler",
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "order": 28
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            364,
+            374
+          ],
+          "label": "引导",
+          "type": "GUIDER"
+        }
+      ],
+      "size": {
+        "0": 260,
+        "1": 50
+      },
+      "color": "#30640d",
+      "pos": [
+        -1650,
+        -740
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 371,
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL"
+        },
+        {
+          "name": "conditioning",
+          "link": 372,
+          "slot_index": 1,
+          "label": "条件",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 204,
+      "type": "BasicGuider",
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "order": 41
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            372
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "size": {
+        "0": 280,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1660,
+        -810
+      ],
+      "widgets_values": [
+        3.5
+      ],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "link": 472,
+          "label": "conditioning",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 193,
+      "type": "FluxGuidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "order": 32
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            370
+          ],
+          "label": "输出",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "slot_index": 1,
+          "links": [],
+          "label": "降噪输出",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 310,
+        "1": 330
+      },
+      "color": "#30640d",
+      "pos": [
+        -1190,
+        -860
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 363,
+          "slot_index": 0,
+          "label": "噪波生成",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 364,
+          "slot_index": 1,
+          "label": "引导",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 365,
+          "slot_index": 2,
+          "label": "采样器",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 366,
+          "slot_index": 3,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 367,
+          "slot_index": 4,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 198,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 56
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "NOISE",
+          "links": [
+            363
+          ],
+          "label": "噪波生成",
+          "type": "NOISE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "color": "#30640d",
+      "pos": [
+        -1210,
+        -830
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 200,
+      "type": "DisableNoise",
+      "properties": {
+        "Node name for S&R": "DisableNoise"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "high_sigmas",
+          "slot_index": 0,
+          "links": [
+            376
+          ],
+          "label": "高Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "shape": 3,
+          "name": "low_sigmas",
+          "slot_index": 1,
+          "links": [
+            366
+          ],
+          "label": "低Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "color": "#30640d",
+      "pos": [
+        -1200,
+        -770
+      ],
+      "widgets_values": [
+        0.4
+      ],
+      "inputs": [
+        {
+          "name": "sigmas",
+          "link": 369,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 201,
+      "type": "SplitSigmasDenoise",
+      "properties": {
+        "Node name for S&R": "SplitSigmasDenoise"
+      },
+      "order": 37
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            359,
+            422
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "color": "#30640d",
+      "pos": [
+        -1170,
+        -710
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 370,
+          "label": "Latent",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "slot_index": 1,
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 203,
+      "type": "VAEDecode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 60
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            367
+          ],
+          "label": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 150
+      },
+      "color": "#30640d",
+      "pos": [
+        -1200,
+        -910
+      ],
+      "widgets_values": [
+        1081382778997960,
+        "randomize",
+        0.3,
+        "true"
+      ],
+      "inputs": [
+        {
+          "name": "latent",
+          "link": 368,
+          "label": "latent",
+          "type": "LATENT"
+        },
+        {
+          "shape": 7,
+          "name": "mask",
+          "label": "mask",
+          "type": "MASK"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 199,
+      "type": "InjectLatentNoise+",
+      "properties": {
+        "Node name for S&R": "InjectLatentNoise+"
+      },
+      "order": 52
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            368
+          ],
+          "label": "输出",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "slot_index": 1,
+          "links": [],
+          "label": "降噪输出",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 290,
+        "1": 330
+      },
+      "color": "#30640d",
+      "pos": [
+        -1510,
+        -870
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 458,
+          "slot_index": 0,
+          "label": "噪波生成",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 374,
+          "slot_index": 1,
+          "label": "引导",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 375,
+          "slot_index": 2,
+          "label": "采样器",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 376,
+          "slot_index": 3,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 448,
+          "slot_index": 4,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 205,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 47
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": {
+        "0": 350,
+        "1": 600
+      },
+      "color": "#30640d",
+      "pos": [
+        -860,
+        -720
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 359,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 194,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 64
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": {
+        "0": 350,
+        "1": 600
+      },
+      "color": "#30640d",
+      "pos": [
+        -820,
+        -70
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 379,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 209,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 65
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": {
+        "0": 350,
+        "1": 600
+      },
+      "color": "#30640d",
+      "pos": [
+        -780,
+        570
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 399,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 224,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 66
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            384,
+            394
+          ],
+          "label": "引导",
+          "type": "GUIDER"
+        }
+      ],
+      "size": {
+        "0": 260,
+        "1": 50
+      },
+      "color": "#30640d",
+      "pos": [
+        -1680,
+        -360
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 391,
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL"
+        },
+        {
+          "name": "conditioning",
+          "link": 392,
+          "slot_index": 1,
+          "label": "条件",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 219,
+      "type": "BasicGuider",
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "order": 42
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            392
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "size": {
+        "0": 280,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1680,
+        -400
+      ],
+      "widgets_values": [
+        3.5
+      ],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "link": 474,
+          "label": "conditioning",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 208,
+      "type": "FluxGuidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "order": 33
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SIGMAS",
+          "slot_index": 0,
+          "links": [
+            389
+          ],
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": {
+        "0": 250,
+        "1": 130
+      },
+      "color": "#30640d",
+      "pos": [
+        -1690,
+        -290
+      ],
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 380,
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 211,
+      "type": "BasicScheduler",
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "order": 29
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            380,
+            391
+          ],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "color": "#30640d",
+      "pos": [
+        -1710,
+        -260
+      ],
+      "widgets_values": [
+        1.1500000000000001,
+        0.5,
+        1024,
+        1024
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL"
+        },
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 455,
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 454,
+          "label": "height",
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 212,
+      "type": "ModelSamplingFlux",
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "order": 23
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SAMPLER",
+          "links": [
+            385,
+            395
+          ],
+          "label": "采样器",
+          "type": "SAMPLER"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1720,
+        -490
+      ],
+      "widgets_values": [
+        "euler"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 210,
+      "type": "KSamplerSelect",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            390
+          ],
+          "label": "输出",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "slot_index": 1,
+          "links": [],
+          "label": "降噪输出",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 310,
+        "1": 330
+      },
+      "color": "#30640d",
+      "pos": [
+        -1200,
+        -410
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 383,
+          "slot_index": 0,
+          "label": "噪波生成",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 384,
+          "slot_index": 1,
+          "label": "引导",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 385,
+          "slot_index": 2,
+          "label": "采样器",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 386,
+          "slot_index": 3,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 387,
+          "slot_index": 4,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 213,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 57
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "high_sigmas",
+          "slot_index": 0,
+          "links": [
+            396
+          ],
+          "label": "高Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "shape": 3,
+          "name": "low_sigmas",
+          "slot_index": 1,
+          "links": [
+            386
+          ],
+          "label": "低Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "color": "#30640d",
+      "pos": [
+        -1210,
+        -310
+      ],
+      "widgets_values": [
+        0.4
+      ],
+      "inputs": [
+        {
+          "name": "sigmas",
+          "link": 389,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 216,
+      "type": "SplitSigmasDenoise",
+      "properties": {
+        "Node name for S&R": "SplitSigmasDenoise"
+      },
+      "order": 38
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "NOISE",
+          "links": [
+            383
+          ],
+          "label": "噪波生成",
+          "type": "NOISE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "color": "#30640d",
+      "pos": [
+        -1160,
+        -370
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 215,
+      "type": "DisableNoise",
+      "properties": {
+        "Node name for S&R": "DisableNoise"
+      },
+      "order": 14
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            379,
+            423
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "color": "#30640d",
+      "pos": [
+        -1200,
+        -270
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 390,
+          "label": "Latent",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "slot_index": 1,
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 218,
+      "type": "VAEDecode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 61
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            387
+          ],
+          "label": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 150
+      },
+      "color": "#30640d",
+      "pos": [
+        -1180,
+        -480
+      ],
+      "widgets_values": [
+        152700834811700,
+        "randomize",
+        0.3,
+        "true"
+      ],
+      "inputs": [
+        {
+          "name": "latent",
+          "link": 388,
+          "label": "latent",
+          "type": "LATENT"
+        },
+        {
+          "shape": 7,
+          "name": "mask",
+          "label": "mask",
+          "type": "MASK"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 214,
+      "type": "InjectLatentNoise+",
+      "properties": {
+        "Node name for S&R": "InjectLatentNoise+"
+      },
+      "order": 53
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            388
+          ],
+          "label": "输出",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "slot_index": 1,
+          "links": [],
+          "label": "降噪输出",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 290,
+        "1": 330
+      },
+      "color": "#30640d",
+      "pos": [
+        -1530,
+        -480
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 459,
+          "slot_index": 0,
+          "label": "噪波生成",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 394,
+          "slot_index": 1,
+          "label": "引导",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 395,
+          "slot_index": 2,
+          "label": "采样器",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 396,
+          "slot_index": 3,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 449,
+          "slot_index": 4,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 220,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 48
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            404,
+            414
+          ],
+          "label": "引导",
+          "type": "GUIDER"
+        }
+      ],
+      "size": {
+        "0": 260,
+        "1": 50
+      },
+      "color": "#30640d",
+      "pos": [
+        -1690,
+        50
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 411,
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL"
+        },
+        {
+          "name": "conditioning",
+          "link": 412,
+          "slot_index": 1,
+          "label": "条件",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 234,
+      "type": "BasicGuider",
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "order": 43
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            412
+          ],
+          "label": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "size": {
+        "0": 280,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1700,
+        10
+      ],
+      "widgets_values": [
+        3.5
+      ],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "link": 476,
+          "label": "conditioning",
+          "type": "CONDITIONING"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 223,
+      "type": "FluxGuidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "order": 34
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SIGMAS",
+          "slot_index": 0,
+          "links": [
+            409
+          ],
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": {
+        "0": 250,
+        "1": 130
+      },
+      "color": "#30640d",
+      "pos": [
+        -1690,
+        160
+      ],
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 400,
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 226,
+      "type": "BasicScheduler",
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "order": 30
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            400,
+            411
+          ],
+          "label": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "color": "#30640d",
+      "pos": [
+        -1690,
+        110
+      ],
+      "widgets_values": [
+        1.1500000000000001,
+        0.5,
+        1024,
+        1024
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL"
+        },
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "link": 457,
+          "label": "width",
+          "type": "INT"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "link": 456,
+          "label": "height",
+          "type": "INT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 227,
+      "type": "ModelSamplingFlux",
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "order": 24
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            408
+          ],
+          "label": "输出",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "slot_index": 1,
+          "links": [],
+          "label": "降噪输出",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 290,
+        "1": 330
+      },
+      "color": "#30640d",
+      "pos": [
+        -1520,
+        -80
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 460,
+          "slot_index": 0,
+          "label": "噪波生成",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 414,
+          "slot_index": 1,
+          "label": "引导",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 415,
+          "slot_index": 2,
+          "label": "采样器",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 416,
+          "slot_index": 3,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 450,
+          "slot_index": 4,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 235,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 49
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SAMPLER",
+          "links": [
+            405,
+            415
+          ],
+          "label": "采样器",
+          "type": "SAMPLER"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "color": "#30640d",
+      "pos": [
+        -1210,
+        -70
+      ],
+      "widgets_values": [
+        "euler"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 225,
+      "type": "KSamplerSelect",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            407
+          ],
+          "label": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 150
+      },
+      "color": "#30640d",
+      "pos": [
+        -1220,
+        -20
+      ],
+      "widgets_values": [
+        992912178732888,
+        "randomize",
+        0.3,
+        "true"
+      ],
+      "inputs": [
+        {
+          "name": "latent",
+          "link": 408,
+          "label": "latent",
+          "type": "LATENT"
+        },
+        {
+          "shape": 7,
+          "name": "mask",
+          "label": "mask",
+          "type": "MASK"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 229,
+      "type": "InjectLatentNoise+",
+      "properties": {
+        "Node name for S&R": "InjectLatentNoise+"
+      },
+      "order": 54
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            410
+          ],
+          "label": "输出",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "slot_index": 1,
+          "links": [],
+          "label": "降噪输出",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 310,
+        "1": 330
+      },
+      "color": "#30640d",
+      "pos": [
+        -1200,
+        30
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 403,
+          "slot_index": 0,
+          "label": "噪波生成",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 404,
+          "slot_index": 1,
+          "label": "引导",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 405,
+          "slot_index": 2,
+          "label": "采样器",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 406,
+          "slot_index": 3,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 407,
+          "slot_index": 4,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 228,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 58
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "NOISE",
+          "links": [
+            403
+          ],
+          "label": "噪波生成",
+          "type": "NOISE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "color": "#30640d",
+      "pos": [
+        -1180,
+        80
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 230,
+      "type": "DisableNoise",
+      "properties": {
+        "Node name for S&R": "DisableNoise"
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "high_sigmas",
+          "slot_index": 0,
+          "links": [
+            416
+          ],
+          "label": "高Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "shape": 3,
+          "name": "low_sigmas",
+          "slot_index": 1,
+          "links": [
+            406
+          ],
+          "label": "低Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "color": "#30640d",
+      "pos": [
+        -1170,
+        130
+      ],
+      "widgets_values": [
+        0.4
+      ],
+      "inputs": [
+        {
+          "name": "sigmas",
+          "link": 409,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 231,
+      "type": "SplitSigmasDenoise",
+      "properties": {
+        "Node name for S&R": "SplitSigmasDenoise"
+      },
+      "order": 39
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            399,
+            424
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "color": "#30640d",
+      "pos": [
+        -1170,
+        190
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 410,
+          "label": "Latent",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "slot_index": 1,
+          "label": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 233,
+      "type": "VAEDecode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "order": 62
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "output",
+          "slot_index": 0,
+          "links": [
+            234
+          ],
+          "label": "输出",
+          "type": "LATENT"
+        },
+        {
+          "shape": 3,
+          "name": "denoised_output",
+          "slot_index": 1,
+          "links": [],
+          "label": "降噪输出",
+          "type": "LATENT"
+        }
+      ],
+      "size": {
+        "0": 290,
+        "1": 330
+      },
+      "color": "#30640d",
+      "pos": [
+        -1520,
+        -1260
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "link": 194,
+          "slot_index": 0,
+          "label": "噪波生成",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "link": 83,
+          "slot_index": 1,
+          "label": "引导",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "link": 80,
+          "slot_index": 2,
+          "label": "采样器",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "link": 224,
+          "slot_index": 3,
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "link": 354,
+          "slot_index": 4,
+          "label": "Latent",
+          "type": "LATENT"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 62,
+      "type": "SamplerCustomAdvanced",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "order": 46
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": {
+        "0": 350,
+        "1": 600
+      },
+      "color": "#30640d",
+      "pos": [
+        -870,
+        -1390
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 43,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 33,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 63
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "images",
+          "slot_index": 0,
+          "links": [
+            425
+          ],
+          "label": "images",
+          "type": "IMAGE"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 190
+      },
+      "pos": [
+        -453,
+        -1383
+      ],
+      "widgets_values": [
+        4,
+        "right",
+        false,
+        null
+      ],
+      "inputs": [
+        {
+          "name": "image_1",
+          "link": 421,
+          "label": "image_1",
+          "type": "IMAGE"
+        },
+        {
+          "name": "image_2",
+          "link": 422,
+          "label": "image_2",
+          "type": "IMAGE"
+        },
+        {
+          "name": "image_3",
+          "link": 423,
+          "label": "image_3",
+          "type": "IMAGE"
+        },
+        {
+          "name": "image_4",
+          "link": 424,
+          "label": "image_4",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 241,
+      "type": "ImageConcatMulti",
+      "properties": {
+        "Node name for S&R": "ImageConcatMulti"
+      },
+      "order": 67
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": {
+        "0": 1480,
+        "1": 1370
+      },
+      "pos": [
+        -168,
+        -1408
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 425,
+          "label": "图像",
+          "type": "IMAGE"
+        }
+      ],
+      "flags": {},
+      "id": 242,
+      "type": "SaveImage",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "order": 68
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            316
+          ],
+          "label": "图像",
+          "type": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 314
+      },
+      "pos": [
+        -2948,
+        -1082
+      ],
+      "widgets_values": [
+        "ce0b1ffd87dd7eb89cdb5ec80db52128380b89d5c60e829c06f5105eeb7328c9.png",
+        "image"
+      ],
+      "inputs": [],
+      "flags": {},
+      "id": 177,
+      "type": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            337
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 82
+      },
+      "color": "#30640d",
+      "pos": [
+        -1431,
+        -1960
+      ],
+      "widgets_values": [
+        "眼睛女孩.safetensors",
+        0.3
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 287,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {},
+      "id": 161,
+      "type": "LoraLoaderModelOnly",
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "order": 26
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            287
+          ],
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 82
+      },
+      "color": "#30640d",
+      "pos": [
+        -1763,
+        -1962
+      ],
+      "widgets_values": [
+        "冬季女孩.safetensors",
+        0.55
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 336,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {},
+      "id": 137,
+      "type": "LoraLoaderModelOnly",
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "order": 20
+    },
+    {
+      "outputs": [],
+      "color": "#3f71a5",
+      "shape": 1,
+      "widgets_values": [
+        "\r\n  <p style=\"font-size:30px;\">我的微信</p>\n \n  \n  <img alt=\"描述图片内容\" src=\"https://s1.imagehub.cc/images/2024/12/16/679c6d5ca86e4984bebde41bab3e9b47.png\">\n  \n   <p style=\"font-size:30px;\"></p>",
+        "markdown",
+        "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title>Document</title>\r\n  <style>\r\n    body {\r\n      background-color: rgba(255, 255, 255, 0.5);\r\n    }\r\n    p {\r\n      text-align: center;\r\n      font-weight: bold;\r\n      color: #fff; /* 文字颜色 */\r\n      text-shadow: 0 0 5px #fff, /* 基本的发光 */\r\n                   0 0 10px #fff,\r\n                   0 0 15px #fff,\r\n                   0 0 20px #ff00ff, \r\n                   /* 颜色渐变的发光 */\r\n                   0 0 30px #ff00ff,\r\n                   0 0 40px #ff00ff,\r\n                   0 0 55px #ff00ff,\r\n                   0 0 75px #ff00ff;\r\n      animation: glowAnimation 2s infinite; /* 动画 */\r\n    }\r\n\r\n    .video-container {\r\n      width: 100%; /* 视频容器的宽度，可以根据需要调整 */\r\n      max-width: 1500px; /* 最大宽度 */\r\n      margin: 0 auto; /* 居中对齐 */\r\n      border-radius: 15px; /* 圆角边框 */\r\n      overflow: hidden; /* 确保圆角边框生效 */\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */\r\n    }\r\n\r\n    iframe {\r\n      width: 100%;\r\n      height: 1300px; /* 设置视频高度 */\r\n      border: none; /* 去除默认边框 */\r\n    }\r\n\r\n    img {\r\n      display: block; /* 使图片成为块级元素 */\r\n      margin: 20px auto; /* 居中对齐并添加垂直间距 */\r\n      max-width: 100%; /* 确保图片不会超过容器宽度 */\r\n      border-radius: 15px; /* 圆角边框 */\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */\r\n    }\r\n  </style>\r\n</head>\r\n<body>\r\n  <p style=\"font-size:180px;\"></p>\r\n  <p style=\"font-size:120px;\">🥙</p>\r\n  <!--  -->\r\n  <img src=\"https://s1.imagehub.cc/images/2024/09/26/78f2f87e0c9336dec79764db31446092.jpg\" alt=\"\">\r\n  <div class=\"video-container\">\r\n    <iframe src=\"https://space.bilibili.com/397686377?spm_id_from=333.1007.0.0\"></iframe>\r\n  </div>\r\n</body>\r\n</html>\r\n",
+        "vscode"
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "Note Plus (mtb)",
+      "mode": 0,
+      "bgcolor": "#2b5d91",
+      "size": {
+        "0": 568.1698608398438,
+        "1": 627
+      },
+      "pos": {
+        "0": 555,
+        "1": -2902,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "id": 249,
+      "properties": {},
+      "order": 18
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "SIGMAS",
+          "slot_index": 0,
+          "links": [
+            223
+          ],
+          "label": "Sigmas",
+          "type": "SIGMAS"
+        }
+      ],
+      "size": {
+        "0": 250,
+        "1": 130
+      },
+      "color": "#30640d",
+      "pos": [
+        -1650,
+        -1120
+      ],
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 219,
+          "slot_index": 0,
+          "label": "模型",
+          "type": "MODEL"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 64,
+      "type": "BasicScheduler",
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "order": 27
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING_0",
+          "links": [
+            470
+          ],
+          "label": "CONDITIONING_0",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "CONDITIONING_1",
+          "links": [
+            472
+          ],
+          "label": "CONDITIONING_1",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "CONDITIONING_2",
+          "links": [
+            474
+          ],
+          "label": "CONDITIONING_2",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "CONDITIONING_3",
+          "links": [
+            476
+          ],
+          "label": "CONDITIONING_3",
+          "type": "CONDITIONING"
+        }
+      ],
+      "size": {
+        "0": 210,
+        "1": 118
+      },
+      "pos": [
+        -2323,
+        -628
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "clip_0",
+          "link": 469,
+          "label": "clip_0",
+          "type": "CLIP"
+        },
+        {
+          "name": "clip_1",
+          "link": 471,
+          "label": "clip_1",
+          "type": "CLIP"
+        },
+        {
+          "name": "clip_2",
+          "link": 473,
+          "label": "clip_2",
+          "type": "CLIP"
+        },
+        {
+          "name": "clip_3",
+          "link": 475,
+          "label": "clip_3",
+          "type": "CLIP"
+        }
+      ],
+      "flags": {},
+      "id": 250,
+      "type": "RHHiddenNodes",
+      "properties": {
+        "Node name for S&R": "RHHiddenNodes",
+        "info": "Z0FBQUFBQm5adHhVQ3BkbkgzMDVNS0xCbEdnLUlyYUs1SVlEOGx6VVVPQzdEQU8teVc5aWtNNzBxVTFCUXFBdHJSTjhJZWxIS2stblJaUGRUUDA5Y0dQenpOaFgxaktxeTRjcHJZMFVqSkFZUjVNMGlSeS1VOF9ZT21OazZZdjRWNHlZVHhnY2pWV1NBbzlDX0ZsVGE5SnVfNzNrMVlKWmJOdXdOM0FyWi1lREVuUTM3NVZWcFdxeko1dlJ4ZkV5SFJzcWtyVGxhWTg4R0pNM3Q0aTVWc284azJsNzFja1FaZER0aGJ0NDNsbWljakdTOXlpZTRvM2oyWDFjZHVOeEpOOFpVRElUOHk2V0hneHRhVHFyVUtQXzdLTkVyZFF4N0dyZXVoRGZySXNJSUc1STdJUEVZNnVZbEVzQVhPaHZSd1NuaUpCVzQzZl96LS1ETTdoRWJ6eVpYbmRBWFpvcVRaeEdZR0U1VHZfQWNBTkZ0TlBZRm1hdUpHbEItTVBUZHEwbG1nNm5pTHJpQ0MzdXlNWVFfbzVuODlzNnQ2MG9tUXlKalpGU1k1LUVNc2JNd1p2SE1uLTJNVnFEbTU5eXVIckUxU3RwSnVUNzVlN19LTmRKekpOTXp4Q0hMSzRZa201a2t5Q2NWbUxzTFhFWXlFRzBUZ0E2bThzVDJlQkpXQi1SSVhjMW1rSzNKRUJFUWEtTEF5S3MwbnJOWGJKT1dpeHlBQnl4NV9XREVwNkpoSUlWN2FucDdmWlhMeURvMjVUUWtJYWdaZjBYdmwxMkkyLU5VR0VscWZTeE9yaXdnMlNUa0JnaDJDN0Z1bTBodXdoZFlLa19DLXFENmpXYmNFMGI0VlJMMzdkdXVkdm5YX2ZwMElwWjRQelRJTmtjUjUwYUJjNGNCUENmZ1R5OFlPd1VyVFBqVHZSOWhJNmlITnI0TXptaFBXU282YUxQMjhoOF9zM2ZmMnp1UUxTVjBJX3dKTXBTRkQ3VFBDUmY0Z3hUYjJrb0pqNXdfY1FmS2RPY000eVFWRjY4UlJuNS0tcE9xSnpBT3dyelVnNzJVZGpxdVJYWi1PdkZ5V3doN2E2M0w2NGlYQm9mSGpFZ2ZSR2RoZDh3ZmpxWm5HZWdjejNsa1FuTVlfRjVCSDdySzNNOWVsSFozZHFNdG5xSThPdm1YejBDRTV4RzZRQmZoX3RiamFmNzVlTExCTVRuQXVpVkdhNW5xczJrUVlWX3VnRWlBaU0zS1Vxb09HR0dibUY5eFU0YzBwdTNudmNRX1owRDVueUJtWWI1ZFVpc20yQWVUdS1tbEFBalU5OWtXb2NIa1VPbjgzLWZNRlo4SExtR2lvVGZ1RWRvV2QwYmFGOFVsOGp6cG9qQlR3UkxkOWZUSE0wekpaSWlIanJGUHpRV1lvck9JZ3hpSldRRVNZUWhocEhLalkwdTlzMndQZmRKVVNEeWhCZzRNanowVUladnB1ejJ5MGF5SGdKbkVCVjNMMV9faE1ZSWhheDF1NDk1ekhJeUNXVnJ6STFEU3Z5Mld3N1dWRFBxMVpHT2tmMjJaVHp6bC15ejB0SExFNWt6ZEZoSm1NTXlsRDhRYnlYUjlkVEw0X0dONDVFMVRENWhmQzNUU3ZCYWpoZEpFdXRVbmRzQWNpbXZuZzhjajdRc2NHZlB0ZHY3ajY3QkVSNWhGYWFZYzdtOGY1TkVHNFh0cE5QZDZCdmFsdm1xUG03Y2Q3OFZENGlBWDM2eXlIdEMzVlYxYkxHSmNDd19LY21aRFdBOFl3QTFuazVFa3NqWXBIeEphM2dTajNsbUJQRVVoWXR4ZGRERWVPRVAtSldid1dhLWlyZ2dNanNTQzFHMV9qNkVJZXF1Nm53am1vVXc1THdYWVBiOXhWc2wxRGRmc2Q5MnJ1RlNCRF9yNFdpZEliUjZVbTl6ZHRmM21SNTJjQnBURkhYQm9mRURYMjMwcTFxSjNpczlJVEtBR2JaZFhaZHVXcDZtb21DeTQ5OXJFY0oxcGQ1Z1BCY0xEcXVXbHdDYXludkdSUEhMMEJwdXNVOElKOU9tbGp4THBuamh3QmExUlVlc2JIV2xWR2lyRnZLSWwwalNoc19pVXlOYUZKWkFmV0o2WTI0aV93cWtFaUR1YzJoTjhYc2VpN1pwbS1aVlU5MnJxejRNTWhsSDlnTkxaQjZwM3BTa1hmRVRQUjRnNTZQRkdwVWEtZHBqVWhxYjVGdXplaER0Rlp1U1FMNlpzQTRMcEJrQWV4T0l2anJBT2k4Y1RfRU1sT2l4bVBXNFdtWTc1TWE5T3NSN2djc2R6QlpxUFZ0OUt0dHRwRW1ZQXlCWW1kXzlTdHJrOHZ2XzQwSkR3dnVONGJMSGx4dnJscU4yR2p6REpybWpLemdhU3VmaGhpTjdMUFMwZDA2NFlaLWpYME82LW1aZzN6WG9Cd1MwX3dmYll3S1hmbUlITS11MjRwOF9lQUpNczgzV2hqZzg0dHM5NERQbm5WSk1CMVdqNzVxbjliZm9iUHpsNms2N0pJcS1GelJ6Qi1XNlNOMkppWlJqVUQxbjhkQXFqaGZwWkQtb0gwZTdKN3dFdUxScDN5NDZDZkdhZTFGWVhBMUVxbTVtVGc4aldadFJrTVMxZDNLQlZHZnE2X2J5Q2VQU3FtcjVIdGMzeXhRVkYxVTRKeGJmQXFDM1IxTTFVMURQUWhqcmNWd3J5d1VGT1NhaVAtM0pLQVBXX3h0b1BIQ3FOTjJtTWNOby0wOUkzV20xSlhrUllWaUNuOVJOYlA0ZmViMVhkTEQ3RG9WM0huTUZUYWFyck9GalczRnZ6TFAwSTMyQWIxQUhncXhCTmw2SVlIMXN5SExfRllzeEh1LWRMUHczTDEtbC0xaFdFVzRLUm5fNTdFNERNQXZWaTlYNklLYXZsR1BoaUdyekw3LUNOdXQ0cGRmWWFfZkJldzc5MFlHR2tOUXZVOXVfdGFXZDFZZEVzbGJEU25ONk1sZkhIZXo4eG1OeWxLVDZiSWstVlRCb0EzY2JmeHp3MGtXZnJzcjVkOGVyYlVUbFBBZEVvLVE3TXRxY19Db1p2Q3BjRTZKMzEwV09DZGF5YllGbzNBU2hzbzZLSlZXdTB5TFpZczVxMGxIelpOMmFPeHRqZWRBeDQzZ19sZGhTekc4TWx5dkJjbFpUMmxxZ0drM2NYVDAzc09PeVRic1c3cm83YjF6XzdETlNUZTRENUlfRmhnSlMtaDBoUE9vYzRfUHA2bXNEV0lMc2RwOG5QNmlmOVk3MzJoLXA1TTFyek9Fb0NyNXUxT2lSNktnYjdpc3VRVUNKeXczc0lHeWMtN2xDOWxteHZxeVQtMDEtUDVxbzk0Sl9YZ3dPNE41NnRnd2VTTGFMMTRoc0Z0ZGh0cmE1dEJFZGt4VGdCLXAtbVY5eVg5RHBZUk5pUVhRNlpOc21qdU5fVE5sNnVSelZsRWFqWHg0b1FfSGpGNGZRd3hzYi03RHg4dE1ETmlXYlAtUmNYb3l1RFZOY0RiZkZpVmN2NjFDcFZxREFZbTIyU0dNcVE5X0JWckVtOXRNY0xIS0lwa2JuVlFiTDY2dlBfanZ5NGFOUElXakNOZ3Y4VjUxTnBMUks3Snh1aHJsMkdNbnlfOXY0MFowamdaalU4bkNhQzNzX3hEVmd1SXM3dDJCalBKZEtUQ2REdTVsQmZjRzVCX2dUc1Z0UzJvb0tYaGk4UEppR1dCVmctWkxyMURsOWk3ZkdLNlNIT3d6aWRjOS1DRjVSTS1yV25Kd2tZRHVsc0N6Qmk4LTFEeUs2UUo4bXBER0J1LURuYUNhOWV1OElOLUJIOTN5aUtOOWw2RW9IamNmTUVSM0FLSUtNeXRHMWdoM1o3aEh3UjJndE81NmIwdGVWWnFzTHEzZmR0dktsRXh3MHRYX1p4YkRTNUFib0k4UDlrckpBSnliWlZFWVB2b0I1eV9WVHBkZVFYd3drTzRFLVFmZHpTQjB1RzRLbUNiSF9FUmR6dDhvVWc0bEVEWjdaR2VRa0xsMW9LOUNKWEhRREp4WWNtX2pPeVlzMDJ3emFUWHhtSmRqR1RWeWVhWUNtVWpzaHVNMEM4Ukl4ZGh4NWt3Z1p4amhaa2NqNVBaZlhNbXRKSll3VTZRenlqcGRaSmIxelBnYTVPMXBLY0loa0FIc2VtTFNlZloyYzd0TmlNLVlzSjdIakRWWnJxSnJLSDkyNnVDVzl5TTM3eDhpVkZuQjZSMGFPS1RYOGQyUGJNc2tybkE2MTltMnBmUmU4eTR0ZDZkZndPLTMyMHJzS0lrWVhRSXpJY05ndFpoQUJVS25MLVg2ZlJBWUpWZ3ZKSl9YT0tSNDcwNzdRNjF0dDBjTkJEN09zY0c2UWdJems1QXFqOU1aYlNnbEZmelpRVGR3bmZsOTJrcnE4TW1wOHpZbTc3YkxhbFNvQ2NBUFFieVpFeUNvMnppMVY0d2d1RDAwLXpQNjdWNU5IOXFsaV9KM1NJSTZCeGtLNGdIMkxHcWE3X05obUF0cE5DR1Z5WjU5OGprZUQwQzI0d05wVkF4SFdvd2NLMFNQcURIY1g2SUhydzRkZjc2QTRLN2RXdXJxdjRFaDJpMGpLbGRMMW5pa1V1RGg5ZmJuSmNCSjlrSEJTQnZ6MEstal9ob3dCQlVSVkprcHUzTkl5ejJwR05FY0VXQ0t6ZDRaY1k4cVdpLUxCY0JJdmlzSWRWaTVEdVBFTFAtOHFCTlZkZlpNRnJjUV9LZUFkMFA3QUpXZmpSeW9TMC1RMGM4QVlQRXRBMG8tbzBsWHF1dno4c08wbnJCTG9oRzJEd1FNQV9rM0JHbFlRejZ4Y2VuVWg3UnRkc0JBVi1PMmhCdDFFQ2tQb3BWYm9CbnFQTHJMOWMxRkZaaUNqWkF2bVAtZTBUc0JrREREQVRwRFAzODEyVmRoaGZhOWIzNG9UYUhzaHNxSXhmUDdlWlV1MHE0eEVzZmVkNDI3OUtoenVzcnk5QzZRdGhrNWowU1V0SzRoTERkZXdYOWN0clRkLW1SX1RwcEdPN3ZKN2lHczZNWHFfWVhZOEJjNzdsSG9WV0EzS01wZE81NVZncGM1elp4LTA3ZFBDWldSV0lCN1poejF3SjVMNklmb29wNGlBMUt2UTdadmdqOU5vdWh1TlJZbTVGeWZETXpWcTd1UWNNd0lqMzFMWnlwbnFmZVNVTVBoV3NSV0t1RGcxLUtVWnJpY19BOFIxVkVwc01SWXFXU2J2SVdyRl9LdUlTbFRpLWdVZ0YtWmY2M1d1SHBMdDl0WENtSEtBcl91M3FjTnltUHBLVlV2RDU2Q0ZNcU8yZWtNUHNtLVBPSzZDRTRnN09hd0ZYeXBQUHFQY3k2NmZLY0xFYTFvejB0MXdVS2IzWlh2M1lmeEhoRVRpNnVoV0ZXbFUyU2tQNWVycXMyemh0R3I5azdvNkRxRHI4bWdWa0JsY2VqOG1DaUY0Mjd3RjhqT2pmeTNPdFVNbjlNcmk0QnJXVXJKS3A0bzc1T3QtQ3h1RVlPQ1R1c2llLWZuR3o0QkNMM3E0a21WRFl0bllfLTBiekdRWmVxUjdEVmZWOE1lNFprbXF3TWd6U29lU3lIUTRzQTJsSmtoQ1RNdW5tWHFtSGNfY3B4Z3JkVW52SGEwN3JOa0tJTDlMSVVQQzN0RkM2VldWd0NoLXBvX0NLbnFxdjVoTEk5OUltMkstU3ZNYWlPYzVQZjhEME9HRUUtZmZvZURtT2E3dzRrdVJfcGUxS09SOWxsV0JmcWVuUjRxVF9vZGVfRDFadVlLVDJhY05hbEh1NWRuNlNINTJPUXFXLUtoVDdRUG8zOThvY29LVHJBaGIwd3lBVVBwZGdibkt5cEtiQmVzZi1jRGZZNl9aVXhnWXhydll6bTM4akRLTXJoSkp2M2xIV2NZSHhXWHFuTkFjaU94ODNLWElzc3pDSm1HdjV0RlhmYlFtQ2ZiUUE1ZXczWlVVV1pOTlJ4YjFjV2dfTDJNcWdCY3F2VHlUNmVVUi0tMHRFTGpvazIwd3RZdkg5SHZkZlROVGZLT01oM2R5dmJhU2l0RW1fdTlVNUotYXhUeURfdnpkYkZ1Wm8xSlpkYm5Ldk0wTHI4QWRNd0N0THNWR0ZKU1QzQkdqXy1pZ2xqV0R4MTRmc0ZqV3pUOG5GN3ozdl9pQUdXX1Zucmxsd1J1NUJJWU0tb0N3WlY2UVUtSmFXc0tLUkkzdGdKMXBkM3Q3Z3JWN3RHS09ZR1V0bF9WZ2ZxWGhjQWRwZUJ6Z1otQXNWRzNySmFnRnpnV3o2Vms5d0FTM1g5djhxZGg4WE11ckFKZW1NYV83THczTW9kVGJpbjhkR0tHWXZlS014aS11Q2o5bmx1SGFlb0NISWFBZzFtWlZfX1Vudk9ZS2RsNlhVVW5Gdm9uZHQ2SXdGakNoQk9YaUtvQjI5MHotbXFEdFJpSWVHZlhGVTFEaDFKNmhlSVN0dUwwLWJyVkYyOFJXa0hzeF9FQUxkYTN2YlVVY1VWcFpLVTNYaXdnbE16cktxdVgxVm1VdUdWN0FDRDhhbUlzUVA1Mnd1SG1XcHNXOXUzcHVxUkhFa1ZueE1zOUR0V2pzZWFUQm5JNTNRNDNRSGVmYTY2N0VENDBLYmhzMmlud1o4WmdaOFRLbWJKUGp3dHVlTG85MkhuYUVWMnI4T0U3djhQZ250UFdFYnRaM0FmbnQwbzlCbDF0clduZ3hZMWZ4dXFZSWoweUo1VkQ2b3A3SGhyMzc0ckd4VFo4MG1yUVI2bFlYaWxsZk1rNTlkdTJkSWxlT1BDOFptcTJkZy1XLVQxeDBvQlpfN1pRb1RJNGV4Z1lXZFVrRG1fUkdXc2lQOWNfRVR3R0IwTXdkM2V6dmhab1RMRlFLUi0zUDh1MVItRlBYS2ZjZVJ6WlNVREIxRDgxUDdLd0duX1hIQmtjMXFCTm1vazlWTDhVRGNHdmlmaGtQTnVDb3JSeEI3XzhqSXFQcS1WOE84M1NBYUl6akZKMGotbzN1X2R1ZzdfQlNZSWRoV0MzUmhlb19hOERKUGhodHM0RS1ONlRLVTNtTlpTWkpPTWtES0dJVGFHbzNGNlN5QTJXVmxXSW5mOE55TDdsekNrcmpqN24tQ09ZZDE5X3dtSWtxa0N5MXRGd1ZoNWJiNzI0MzcwYlpJVHZmQlZ3S09iUUl4ZnlQX3lsSHFCa2ljWTlBN2ZPTDZsM1p4T1ZwTTVFWDVrMFVtZzJvWDNjZ3U0QnNldmZ2M2lyR1o4RGNlSkJfczFmaHdUUEtNZi1LdkVDUlVIdDl2NXduRWF0R1FuYmcwWEdvdjdNS2VWel9yblE5YU5vc0JvMmdkZmNtYXBla2xSQTJzRzBfek5NMGEzS0pQcGdidm52UHhCMWF6U2tmLVlScmNodEtlN1dTb1F2ajBldDM4OFRtVkpRVXdqWllRc1ZjbWdCY3lPbW1xUmF2UEFYdncxT2RvaF9WcXFreUZkUktEY05tOFZhQzI0Wkl6S1RiVDR5MUJwckpPdmVscFlScE1iWDFZbmZDWDNieHZ2Zjh6bEdFekZRTjBaZXVtMkZTUXRGNF9QOXRqaG1pTWVOYXV3MUhLa2IzUk1GVHVnWVVVekh6S0JGYmk5UVNLc253dzMxNkpYY2lpaS1fUWhlSm9qZkUzaEZ1TU84aWtXczhXa3ZrMzRtMEhjSEg1Y3liM1BBd05ucmc5LWFDSXJxOEF6Z0k3bFp4MTYzV3VGUXQ3SWh1aW4zMTFjdWM4VF90Y1lFbTRKVWdSa1h0aFd3djlhVW9rWlhNM0JrZm85SHVnTFNqLVJkSEJDWng4TmFZNXQ4ZDZBU1F3UGZtd2NxTXg5Vzd5c1l2Z2tWand1TTdTLVdSNXZFU1NTcHNlU3dvcUVLZDEtNXdpVmRkWUw2UWllTDFPZUtuMDVadTNZVlczQ3JYRXpia0N2UWIyVWJvRTdtQUhpNGZzcGg4aFlFOXJXS0tQbjBRaDIxQnVPM1NhdEU5SXdnS1VSR0xQR2M0Skp6VnpyYmNMUzhoMlNqQ19rYnFxZV8yWmpXdjh4TmNVTm8tZHJCUmlDVXJua291MVd4ME1RMTNVMVNzQW54VVUwVFczcERQNWEtb1Rrc245MEFrVUNJdnFrQjMxSUNRck1BQldtbjAtNVBqeFpZOVVsd3BlTmRlUHJNZGo5MEJGT2hza2pyOFhGOURKU2R6UGQwS0VvakdUX2pFUVBrb2U4NzBMOHI3RkpwWE5uVFBmdGJIbVAzT2VPano2U3Y5cTVzZkRFY3JPbUVHcW5WVmV1NVZTQlg1Wmg1dkhfdHQzWE1FYUlIRUdZenRlakhmZk5kV3ByenBSemZXVW9naGQzQWtFaGpwcG9QS0JmY0JNLTdHNDQ5WFpaZWJxNWlhVHUxdTc0MkJITzlXOU56bjdtbWhxcTlkYWlPREtHU0V3eTBIdnAwTzBueFJRbUFSSDdqNUk3bEJmTDlmRE5VTWZTNUpDdFNMOXBtZFJGNTgxTVNrV1pYOHhKMTJfbE9kYzZkamZtTmtFdGNtMXFCTnBOOXkwNWRxMjcxZjFwVk9DZ1hBdVpvbmgtWmx2VDAyY2NLaGZrMlpnYkNleVJiZ1NUa0g3X3R1ak5fbzFoV2k3b1RZTzZ1LXl0bDZIRWtyMncyWHJuSjRoaXJ5dGV4N0V0ZlF6cDRONDdTeW54RVctSUF5NElDRXk4ZjVfaDBQOGVMMFYzYXBWNHZpWHJMODJDSEtrd3pwYnhaQmg4U1dNVmRmTVBFOGt4WjV0N1dYVFY5RGFJa0xTV09HdnRRTTBibVMxS2Z2Z1pIWHVjcUZLbTdxd3JTZTNSZm9KT1RSRTFsZjlscU5TSnlYajB4WFJOSlRjQ1ZRbzBERHZZcHNwMG43U0hKc1psUEFPY1dZYUNYME9uZU9rQnJVVHYwUEw5eE0xajdlLTF6S0NmZHZidXBWWEUyd0tITGdlOVBfZ19ISXdDOWRsVVBucFRLUFJiVlh0OU96XzhlTmE3bUtpdkJSbVB3SkpvSlkzOEFFSGpDUHNFTVBWdHdmY194T0ZGX3VmR2oyemVCendsTjVvNlNIUV9SWHJ6MHZ6V0tJVTNhU2ItSVRQeFdhSF90dDNjQUlDNzV2SEpUVG1CWEJHb3dEMVY4bjVUaGJHam43LUZxMDM3SEd6MG9EcjYtU09weXBoS21TVmFLeU5EMlRzLS0tRjM2LUFjcVpBOEg5VlNHc090N1dHYmR5WEtBMURlWXdGanFkbFFFNWM1OFRTZ0JuaFdCWDRUQjVzRlFFS1J4SnRrMmVpVF9pS3ZtbjVtVUJCWWRncXowMmlTWmMtaFFSWEQ0MGlZbGtaVXZkbUhtOG9TVTI5QnBjX0JFMzh2X0VKMXBLbXVvODVxLVBhTjg0d1VnWFY3NktETnZ6S0FUWWRxY0tITFdabWExeUd1WEtRUFBsaTlXWlRFeUpxV0R0OEZhRFdHLTRZMWlxa29jY056WndOR3BWZTNLSnUtaUtNaFFGWl9XQnhmMmpHMnIwYkk4YVM4UUNfRWtCQTA2ZGxNVGR5Y2pFSlhYc1Q5Y1pPa0tyVUZjM1hhcWVzRGc1eVF6a0dPMk9XMHhqcHhseWNGOXpkQ255TzRCTlRaNVY2eF9sMHVJUUdDMkZXcV8zT2ZWb0VOVGdzcnVpQXJoSF9wVElYWEtFaFdkT0RUZFVvWGNpWkRTRy1FS05DR2RyajI2SE13WUpMS3VjZ3hIeHhtaVB5b1VqMjFkenN4Sm1aRHEyY3FNRVBkY0NIQnNlc3NGTjFpZ0xScHJvLXNfWjZnS0h1RkQtWV9pa3d2alNwd2FsN1I5a3JmRUhwUDZDR0RoSkRhMmJiMllyak8xOTBzY2FsRXRVTDl6a3FhMXNEbkhTRGUyWndabHl0cWNEM1ZMUEtxOV91eXhPekR4R0pvOTNTOEVCN0cyY2Y1TnpJRzRtTW1Udk9xSTNmWTNVWmZ6a051QjlraXRFYXZZeWFMeHA4REkzclRVYzl3cXhUcVZvSC1iSTg0dGx4ZTlSTnpocENUNGMwUFQ4LXBVTHVUVnRfTENHRVpxTFZyODJJUUdCaVZ6V0hSNXVEaFlEMkFZb1VSS3JPUXNYVWd0V3N0djFpbzR4N1ZkRkQySXk5MjVFOHBXeFc3Tzh1RlFZZGh5QURibFpLTXNSN2F1Ykd2VnN1SnRESXdJMDJpcXFwdXV2MjlxT2RCcUZrdXhHaC1PaTc5Ukp4SmJMUEI1TDNxZ3FrbkxUMUhKQ2s3QXN5ak1BUGhVeGVSZmZWS05zRzJHRms5cnc4Um14TUVpVE9UQXh1X1dQcDg4QWdEUU8wc2NQT0lUZW01Z3pXVnA5NmRYZTlRVUFsOWxia3A4cnlBUE01LW5jaG16dUJCWDJfTmU5TlBLenN4NVBlZnRscUhReEF3cXVqb08xTmVMQzFEeUMyNEdXbktXR195bnR1MVBZdkEtUzNjQnV0dE5KeE1EOHlNYktwbG9YdlFQN25RNXIzNFFoeTdhc0o2b1VYbzVkR0xzOXhTTHFNN3lydTczM2lsOWtnRmlBbzQtbWhRQk5VM0NkY3o1LUxpOGMxVExYUUpNMERzUi05Q19kVTRQN0ZsWXFCRlpkM1JXUktqUllfWlQ3c3c4OGVGZ3lkcDRpSUI4SElsSTltRzZ6QUljSUtEeDBBdmlWaEw3OWNpYzZ0dDAtOWozaXZQb0ZSRVdqeS1YYm4yWlkybllaTlNOVV9IaGd1ZmU2eUxGU0FkcURmWFJXN1lTUjE5T3dDRmNYUWFNUkFpVzZwaW1EY01iaUhFREFFbVU4MXUyZ1huNWFDZTRXVGU5UldZMGlEZDNHMmVBNDludFJZa1paNHZyb0tUUjNValBZaGNfRDYwR3Z5RzhXRWtZNVRWSzZSVUlxN1QzSnZ6OERSdHlHckpzbVBEN0pYMUJ5WjFpVUJ1UHFkTUFNX24wVEtjb185VTI3dEtKQm56ZUN0c01lUnFpT20zX3RVdGVmMjZUSWpualNQeHppN0J5WDJYdHBDd20yU01kb2t5dHMxeTVKRTZmTFU3S2JQUnZBV21lSldSZVRYRTJ0NmRLVGE0V1hhQWo3cC1sMzFQWVBZcVNnR3RZQ0laYkRycFVBcHhzV05hRGllMDhhcWFTSFd5bkFXMi1HM3VRSlRpRDkwRUxJc3J0Um9JWDVyUktEOFhwR0xXNUpQa19IZW1VVWE4S3A2TlBHN0hQZ1dwNVdPWllhMkpuMnN4UUpwcWJnNk5vYkx6SWUxTUZnZzVTXzVCLTBqeWQwTjA3TmZtdm83dm9lSTF5UC1peHVBZHVnbjRJU2tSOGJILXNNaHVabE5pT3hXTndtc0JEajR1OHBCTGVLZXhyQ0dPbHZNbVRjR2NKRmhUVlNva1pHVUh1SWM5WUoxRzZWNjhrSVY2Z0VnT2QzejZpNHNjSGZwS09mMDdKTUJscXgzTFd3T19FZGdTaU1sQm5xNElXZUctMm9jdGJsQ1pTbjZ5c1dVd0ZzcVRMWTdMR3k2UXlpbkFfM2E0M1BvTmVuZ21kYVJIeHZFeFMzdnNSUjNFLXJhdDcwRWdZSzZSRlhDNmVlRG1iTnZMbjRKQ291X0swS0JabVE1YV9rc0JIbG1DU2prTy1iRFc2OWQ4eW9JaWc5TUwta1gyT2xIclRwbGxPRVVNWTh0eHgyLXRtdGxINjZMSkMtOEZXUXd0Zm9RUTZLQ1BBNFNmOVJ6VWx5Nk5KNWNOVExOWThwVXp3UFVCTUpzNE11VENFSmI0dmhYSXd3UkVFazlobVdyNEhDR3pOSkhKRWc5OGtUdThrYktMWGxNbVpMYVBkTU9vcGd2RkhtN0g0cjRNaEtWSFpVQk4zLWtHMkZSYTBNdlBYRGxTcGMwZFNlSWxCVHhVOFd2NG9VWWVDMl9JR3AyUnJzMVBTaUVMYzZJLW45bnpvOGdBc2I1LW90LWpoMUFpelVoWkFsSlh2WkJ2VzJmZTduQkVsYmtQel9vQnBPV0FEWC05enp0R2loaXNlaHdaX0V0dzhTdjhpU28xMVEzTTB2cWYtMC16NGEydEk0UjdVX29xTDNoQm1KTnRLS1VMTFkyRjdDeGVyN2dlN2hzMndXakhpVXNsZGpkZzFCYmNselpIbWNXUEFmOFZDeHZCaVJKY0l3c1RyODYyNjdTVzZkaXh0ZnFZMnhEOXJFZkdoZjBVRjZzMzBWaEtzb3R1aGJjWm0xVi15VG1UX3JXdThGdUtKd2ZXb2VVNTduZ2dwMnI3SkNHdlVzU3BpRDZMYXRsQ3NUR1o5aVQzVFpvaU9ITXZ0Q2dfcFpKYUNxWmMwcjMyb2dnRXN2d2ZTMHh3WWJISGZVcXV0U3EwUzRZMVM0VV91SGNUcGk5b18xaXVsVXlmaHVLQkthcnlENVhXY2s1UXZXanlaRF8zNHA2d3dZY0cxNk1mZFFtSHJRbk1IWVVIcGNHQlk0MTlZckM1dDBtNmFudWxOaGpRaWE1OWZtTFQ5YktrSDhDd2NfM084bkUyVFNfOWNERW92RG1icjZqeUlPdkgtZVVvVURybll1Ym5ZaHhkellnemVhSVVlN3hRWTJYQkU0alEzMUwwdFZCanF3aWd5UlprbnZWVkwwak02eVpZRTRjTUxhUHpUSkRsRFEtd2hGdW5TeGpiNEREZGJGZDBmb29nRy1mTGJkMWQ5aVV1c0wxLXVCZWZ4LWRVVGJvRHdld0FOVW1KVEZRc0lzdS10ZGRJYlhYZUZHVVg2bGZLS3pJUWo5LVBRZHoxN0NCdHhwaEstNUFXS3RScDh1Nmd1ZzREMFhhZmhjbEJyR28yeFY2RGpsOFE2dGcxWlN1OXQxdVZmLWVJREs1a2FjQmhKclNpeW42amxEbmdDQmhvRkFCcVN6QnRqbzBkNUJoN0tMVnc4LVdkaVdyMnVfYTN1X05ZR1kwZHFJYjRtSktfTEFJczBDTmFLdzFoQnlYVUtkVVhXSlhGdlZUeU1tcl9QUkRmZS1HekdqaXNoNzFndm5CV3R5ejZycE44U1FnbzJTRXN1MFloQzhnd2VUWnN3bldfczVVcXBVVFkwNVNfV3JfcDhYbGphRUhvVmRLbUtnZFFDd01tWkpIY0RvTHlDbzhnVGpDdjI0ZkUzaTBUNm9wbDVMdUxtOEZqNlF1aUZXZTZfX09qV2tMYkU4YmRxOHZwYWV3MWdwZmhoWW1DX2NscTk5NXpjLWVXakNIcUNHQkVTQlJyTWFDamlnM3FVb1R1bi1GZXduQTZrRm94OXB3R3ZwT1Njc0gyUmxUSzJ1U3hXekhaT0tzTGxRdFlhenpFZ3FTanVmckQ5MTJQNVN0SkVoS0hvYTVGQy1DSUlOZjdweTZRS0h4RTkxYkJ5UGRhZTRxMkIzSTIxZ2Q0NnpJSjFXQmdkOV90LWk0WjZDeEVGOFMwdUtIamRXUkdsR1ppZEhWV21TZ3N4RVhzNk1PaFlWMlF4UFlZRm93aHYwMEYxUWdTNmU3TWs1Q1lqSDFhamh5VjVVRVVvc0x2ZmhzOHpBc2JGTzFXemFSUXkzQVZ4MDJyS2xXNGdMajV5dHVLQ3JmWHVPQnctbXBldVRReExZa2dJX0gtX0QzQVl1bkdQd2JtVDlSV0lKQWF5UTMzeVp1YUZVRzdsai1qdERvOUVjSkozMzVUNExSLTd4Sm00TGlwNWVrX1NrS0NzQ3Q0Sm1YMWZKY3NRcjdxZDJldE9CT2lhckNLRFVIdEZFdlRFUkRjMC12a3FUSDRXXzJqcUlYMW9sVlExNHJVM3JQb0lMS25jcXljRFpyTVdmU0dQZHVYZXpqSWhKTGhaTDFtMlFrOFBCYndFZTlRem1kYkd6RExnRmUzWTlEUDYzdlJwdU5JTi1jazVfQU5qRXFpbVozTHR0SU5rbWJyYmZrRG5Ib3huTnNhSElZN3VWWkg2azBfNFRHUFYzX0RENGp1THpVaFdwc1h3NGd4Uzg5anhwWC1BVlFZcEdhakp3NkxyVER2RE5kRVFUeXhmWHFRb3d1TnBURXRMODMtLW81SVZsTDQtUGlYNlJYVTY3dy1IdkxqQWR5aHRNNVY5SW8xaVNwZS0xZXZVdWlpU3FlMzlJb1NIdEVYQlFwT01KRGhodnBGeDdNTVltazdCNjAwdkpidFhaYVd4LVNVLTdYdkJOcXVpY0RYeWVITV9RVHhHN2lqT2xjNzRHSDQzaktIT3ZGOUlzYnc4WFJNMnkySWpJLUM4dDZpaktYWkxsSDI2a3VoeE5ITWZfeVI3QjBFS2tuT2N0YzQ1NE5VcWhLQUhNcmctQ1duVG8xcEZ4N3hfOVlYa3ZzaXBTN1A5cE5rTG1OcGFILWlyNnZJcUdaR25DWW4xVVllU05hVkl4N1hPSjJwMTJrbmxIM3JuWmdlMzI5eXBtM0M1T1VXMTBtWkV3SHlhZmdmWWl1R2ZSTXE2QnFCQWFnWU9IazVFdzlraXdTZW9seF9qUFZZRHJiRjd0XzlrM19mcjZBZFFmWkpGa1hQaENaMl9yZWtieWJzei1KVDVtNjhseEg1Q09QS05NODk1bWxsQXdmLUQzdjc0TzZIeWYtQUt1eVp5SmZwNnJ5d01WVzdxR29OSTFpWVd0V2hGOEdUeVVibjRJcnM1TUFaZlhWVEZ1TS03bXhqcmxtTEtBT25zX1ZqRVVOS0E0T0ROd1N1a0VnbEFZTFVjaVdJdmtfM0Z0RHB6Y0l1VmpnQU1EYW5STUJEVTh4LVQ0TGhIVU1UWV9xVFJGN054NDVKVjhPTDNxbEVXVTNzaU00T1hrcmRRaGs1bnRZUDJvVlQ2T3JoUDRYYTV5cGtqZHNHUXRBYUNnVjVIUlJIdVBkLWt5N1pkeWdJcHU0SnE1SnU4UVQ5TWx5NE5tYnpuczN0NGFldXpjZzh3NThzcGVtNnpzU29pbTdoOXhQWHRJQjVTQ0xGX2RqWG9LOU44ZHRlTkxLYjN0bWhVN2tlNEJfV3hQb2JFUXlkUjB1cW1qSXNHTEVocVpCNW5PV25rNC10X0YwblpGNlZfX1RTUm5yUzZOdlZPb3I3amtlMkZ3dUlBSEFtWlJpb2FrenY2Zm1FYmg2dzZIQ3Z2Rmk1aEdhZ0tHblNyazhGbFMxdmRsN2RENEVtV2U4U0IzQWJONWxVWkNpTnpZWnNmQ185UWtMcG9OZGRLZmVORE9SS3hfWU9CY2IwczUzU0hwZGNzRnJheVFBcWNBOWhDdzRnbmNFT2hUT0ctVVJYc25reXoyXzVzY3JXcTZ0VUNjckRFajdFM3lHNmllWURBR0xzWE9jU0xvaXRWN290bnh5cTBwMkNYUVhGd3FVMXFWSkpzaVdaUkYxOThuZkZ1Z2tKNllSbE84QWxYamVybDlEa1dySnVsdHlmV2RaeDNhY2h4Mkhrd3c1b2FVZmJ5c3FBNGxJc0xZTl9qeXF5TllFYThUa2VyZURhMC1Fb294ZFA5a3RKMWdQSmd1eUxSZHRhTG5KOVdnc3ZmNHpxOXRaTEpZYWR1ZlF3X2VyOWRiNkdncU1VUXF3VWhubGExNTFkcTAwLS1JNXJ1aVhHUFNXeFFpamJVeE96RDIzTmtHZ0F4Z0JMLUUxbXQ5MWZxcWtHT2ZIVmx2X0oza3lwcGZMZmdWb2Q0VUpHRldOcVdWdGF1TnVoT3dNSTdNT0N2UVBOeDJ6WWd2MFRVYUt2NU9BMUNLS3U3VFdWcWhjekl0eFRSaHlhMXFGWlBBRllLNTBsTEQ2ZFg3Uk5GdjcyUHFfRURJV0ZWcTBxS1BFR21MN2ZPaTVydHdsS0hXMXlMT3p0NGFleDc4MVcyVWd1NXJqajBxWDhrUGpBZTBJUFc2WUVuaG4xdWhlV3ZuaTFYUFlXdzNHU2dqZTdqQlV2cnpkYmRnMjNJQTVLOXJnZml2aUw3bHdZclRMZjNBM0M1N1UxWm1VOUFtWXVaWkZoMEFjUktKem1JbjhfcUVFamFiOTR5U2U0WnN3cVFzYkQyNkJHSVlfZzFBYmVvODZmUWdNMm1JUC1XaGpWTjVWQmFXQXZFPQ==",
+        "ref_info": "Z0FBQUFBQm5adHhVZ2RINmZmN0g3OWZPdkJScHlOeUdONVBNcVhzajZwWE04aDBzM0RmWGlJRkMzaXZkeWROZGRDS2hNT3M3bFhSWmFrOFdkT3RRWWZFU25hcUJjd0VLV3c9PQ=="
+      },
+      "order": 25
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 3,
+          "name": "CLIP",
+          "slot_index": 0,
+          "links": [
+            350,
+            469,
+            471,
+            473,
+            475
+          ],
+          "label": "CLIP",
+          "type": "CLIP"
+        }
+      ],
+      "size": {
+        "0": 320,
+        "1": 110
+      },
+      "color": "#30640d",
+      "pos": [
+        -2921,
+        -698
+      ],
+      "widgets_values": [
+        "sd3/clip_l.safetensors",
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "flux"
+      ],
+      "inputs": [],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 78,
+      "type": "DualCLIPLoader",
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "order": 19
+    }
+  ],
+  "extra": {
+    "workspace_info": {
+      "saveLock": false,
+      "id": "BEKruDdqDJ3bV4mFOvFn1"
+    },
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "groupNodes": {},
+    "ds": {
+      "offset": {
+        "0": 3363.526923245214,
+        "1": 1160.6666554536898
+      },
+      "scale": 0.7247295000000006
+    }
+  },
+  "groups": [
+    {
+      "color": "#30640d",
+      "font_size": 24,
+      "title": "第一次采样",
+      "locked": false,
+      "bounding": [
+        -1900,
+        -1370,
+        912,
+        1736
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "模型",
+      "locked": false,
+      "bounding": [
+        -2150,
+        -2040,
+        1552,
+        170
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "FLUXIPA",
+      "locked": false,
+      "bounding": [
+        -530,
+        -2050,
+        708,
+        230
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 24,
+      "title": "Group",
+      "locked": false,
+      "bounding": [
+        -2160,
+        -2690,
+        2219,
+        504
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 96,
+      "title": "昊纯分享四季新年写真",
+      "locked": false,
+      "bounding": [
+        -1534,
+        -3040,
+        982,
+        131
+      ]
+    }
+  ],
+  "links": [
+    [
+      43,
+      32,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      80,
+      63,
+      0,
+      62,
+      2,
+      "SAMPLER"
+    ],
+    [
+      83,
+      66,
+      0,
+      62,
+      1,
+      "GUIDER"
+    ],
+    [
+      106,
+      27,
+      0,
+      66,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      194,
+      65,
+      0,
+      62,
+      0,
+      "NOISE"
+    ],
+    [
+      219,
+      127,
+      0,
+      64,
+      0,
+      "MODEL"
+    ],
+    [
+      220,
+      127,
+      0,
+      66,
+      0,
+      "MODEL"
+    ],
+    [
+      223,
+      64,
+      0,
+      129,
+      0,
+      "SIGMAS"
+    ],
+    [
+      224,
+      129,
+      0,
+      62,
+      3,
+      "SIGMAS"
+    ],
+    [
+      226,
+      66,
+      0,
+      130,
+      1,
+      "GUIDER"
+    ],
+    [
+      227,
+      63,
+      0,
+      130,
+      2,
+      "SAMPLER"
+    ],
+    [
+      230,
+      129,
+      1,
+      130,
+      3,
+      "SIGMAS"
+    ],
+    [
+      232,
+      130,
+      0,
+      32,
+      0,
+      "LATENT"
+    ],
+    [
+      234,
+      62,
+      0,
+      131,
+      0,
+      "LATENT"
+    ],
+    [
+      235,
+      131,
+      0,
+      130,
+      4,
+      "LATENT"
+    ],
+    [
+      240,
+      57,
+      0,
+      127,
+      1,
+      "INT"
+    ],
+    [
+      241,
+      57,
+      1,
+      127,
+      2,
+      "INT"
+    ],
+    [
+      242,
+      135,
+      0,
+      130,
+      0,
+      "NOISE"
+    ],
+    [
+      287,
+      137,
+      0,
+      161,
+      0,
+      "MODEL"
+    ],
+    [
+      293,
+      165,
+      0,
+      166,
+      1,
+      "IP_ADAPTER_FLUX_INSTANTX"
+    ],
+    [
+      295,
+      128,
+      0,
+      166,
+      0,
+      "MODEL"
+    ],
+    [
+      299,
+      169,
+      0,
+      166,
+      2,
+      "IMAGE"
+    ],
+    [
+      304,
+      173,
+      0,
+      174,
+      3,
+      "FACEANALYSIS"
+    ],
+    [
+      305,
+      128,
+      0,
+      174,
+      0,
+      "MODEL"
+    ],
+    [
+      307,
+      175,
+      0,
+      174,
+      1,
+      "PULIDFLUX"
+    ],
+    [
+      316,
+      177,
+      0,
+      174,
+      4,
+      "IMAGE"
+    ],
+    [
+      318,
+      182,
+      0,
+      174,
+      2,
+      "EVA_CLIP"
+    ],
+    [
+      336,
+      77,
+      0,
+      137,
+      0,
+      "MODEL"
+    ],
+    [
+      337,
+      161,
+      0,
+      128,
+      0,
+      "MODEL"
+    ],
+    [
+      350,
+      78,
+      0,
+      190,
+      2,
+      "CLIP"
+    ],
+    [
+      351,
+      31,
+      0,
+      190,
+      1,
+      "VAE"
+    ],
+    [
+      354,
+      57,
+      5,
+      62,
+      4,
+      "LATENT"
+    ],
+    [
+      359,
+      203,
+      0,
+      194,
+      0,
+      "IMAGE"
+    ],
+    [
+      360,
+      197,
+      0,
+      196,
+      0,
+      "MODEL"
+    ],
+    [
+      363,
+      200,
+      0,
+      198,
+      0,
+      "NOISE"
+    ],
+    [
+      364,
+      204,
+      0,
+      198,
+      1,
+      "GUIDER"
+    ],
+    [
+      365,
+      195,
+      0,
+      198,
+      2,
+      "SAMPLER"
+    ],
+    [
+      366,
+      201,
+      1,
+      198,
+      3,
+      "SIGMAS"
+    ],
+    [
+      367,
+      199,
+      0,
+      198,
+      4,
+      "LATENT"
+    ],
+    [
+      368,
+      205,
+      0,
+      199,
+      0,
+      "LATENT"
+    ],
+    [
+      369,
+      196,
+      0,
+      201,
+      0,
+      "SIGMAS"
+    ],
+    [
+      370,
+      198,
+      0,
+      203,
+      0,
+      "LATENT"
+    ],
+    [
+      371,
+      197,
+      0,
+      204,
+      0,
+      "MODEL"
+    ],
+    [
+      372,
+      193,
+      0,
+      204,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      374,
+      204,
+      0,
+      205,
+      1,
+      "GUIDER"
+    ],
+    [
+      375,
+      195,
+      0,
+      205,
+      2,
+      "SAMPLER"
+    ],
+    [
+      376,
+      201,
+      0,
+      205,
+      3,
+      "SIGMAS"
+    ],
+    [
+      379,
+      218,
+      0,
+      209,
+      0,
+      "IMAGE"
+    ],
+    [
+      380,
+      212,
+      0,
+      211,
+      0,
+      "MODEL"
+    ],
+    [
+      383,
+      215,
+      0,
+      213,
+      0,
+      "NOISE"
+    ],
+    [
+      384,
+      219,
+      0,
+      213,
+      1,
+      "GUIDER"
+    ],
+    [
+      385,
+      210,
+      0,
+      213,
+      2,
+      "SAMPLER"
+    ],
+    [
+      386,
+      216,
+      1,
+      213,
+      3,
+      "SIGMAS"
+    ],
+    [
+      387,
+      214,
+      0,
+      213,
+      4,
+      "LATENT"
+    ],
+    [
+      388,
+      220,
+      0,
+      214,
+      0,
+      "LATENT"
+    ],
+    [
+      389,
+      211,
+      0,
+      216,
+      0,
+      "SIGMAS"
+    ],
+    [
+      390,
+      213,
+      0,
+      218,
+      0,
+      "LATENT"
+    ],
+    [
+      391,
+      212,
+      0,
+      219,
+      0,
+      "MODEL"
+    ],
+    [
+      392,
+      208,
+      0,
+      219,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      394,
+      219,
+      0,
+      220,
+      1,
+      "GUIDER"
+    ],
+    [
+      395,
+      210,
+      0,
+      220,
+      2,
+      "SAMPLER"
+    ],
+    [
+      396,
+      216,
+      0,
+      220,
+      3,
+      "SIGMAS"
+    ],
+    [
+      399,
+      233,
+      0,
+      224,
+      0,
+      "IMAGE"
+    ],
+    [
+      400,
+      227,
+      0,
+      226,
+      0,
+      "MODEL"
+    ],
+    [
+      403,
+      230,
+      0,
+      228,
+      0,
+      "NOISE"
+    ],
+    [
+      404,
+      234,
+      0,
+      228,
+      1,
+      "GUIDER"
+    ],
+    [
+      405,
+      225,
+      0,
+      228,
+      2,
+      "SAMPLER"
+    ],
+    [
+      406,
+      231,
+      1,
+      228,
+      3,
+      "SIGMAS"
+    ],
+    [
+      407,
+      229,
+      0,
+      228,
+      4,
+      "LATENT"
+    ],
+    [
+      408,
+      235,
+      0,
+      229,
+      0,
+      "LATENT"
+    ],
+    [
+      409,
+      226,
+      0,
+      231,
+      0,
+      "SIGMAS"
+    ],
+    [
+      410,
+      228,
+      0,
+      233,
+      0,
+      "LATENT"
+    ],
+    [
+      411,
+      227,
+      0,
+      234,
+      0,
+      "MODEL"
+    ],
+    [
+      412,
+      223,
+      0,
+      234,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      414,
+      234,
+      0,
+      235,
+      1,
+      "GUIDER"
+    ],
+    [
+      415,
+      225,
+      0,
+      235,
+      2,
+      "SAMPLER"
+    ],
+    [
+      416,
+      231,
+      0,
+      235,
+      3,
+      "SIGMAS"
+    ],
+    [
+      421,
+      32,
+      0,
+      241,
+      0,
+      "IMAGE"
+    ],
+    [
+      422,
+      203,
+      0,
+      241,
+      1,
+      "IMAGE"
+    ],
+    [
+      423,
+      218,
+      0,
+      241,
+      2,
+      "IMAGE"
+    ],
+    [
+      424,
+      233,
+      0,
+      241,
+      3,
+      "IMAGE"
+    ],
+    [
+      425,
+      241,
+      0,
+      242,
+      0,
+      "IMAGE"
+    ],
+    [
+      431,
+      174,
+      0,
+      190,
+      0,
+      "MODEL"
+    ],
+    [
+      432,
+      174,
+      0,
+      127,
+      0,
+      "MODEL"
+    ],
+    [
+      433,
+      78,
+      0,
+      24,
+      0,
+      "CLIP"
+    ],
+    [
+      434,
+      174,
+      0,
+      197,
+      0,
+      "MODEL"
+    ],
+    [
+      435,
+      78,
+      0,
+      207,
+      0,
+      "CLIP"
+    ],
+    [
+      436,
+      174,
+      0,
+      212,
+      0,
+      "MODEL"
+    ],
+    [
+      437,
+      78,
+      0,
+      222,
+      0,
+      "CLIP"
+    ],
+    [
+      438,
+      174,
+      0,
+      227,
+      0,
+      "MODEL"
+    ],
+    [
+      439,
+      78,
+      0,
+      237,
+      0,
+      "CLIP"
+    ],
+    [
+      440,
+      31,
+      0,
+      32,
+      1,
+      "VAE"
+    ],
+    [
+      441,
+      31,
+      0,
+      203,
+      1,
+      "VAE"
+    ],
+    [
+      442,
+      31,
+      0,
+      218,
+      1,
+      "VAE"
+    ],
+    [
+      443,
+      31,
+      0,
+      233,
+      1,
+      "VAE"
+    ],
+    [
+      448,
+      57,
+      5,
+      205,
+      4,
+      "LATENT"
+    ],
+    [
+      449,
+      57,
+      5,
+      220,
+      4,
+      "LATENT"
+    ],
+    [
+      450,
+      57,
+      5,
+      235,
+      4,
+      "LATENT"
+    ],
+    [
+      451,
+      57,
+      1,
+      197,
+      2,
+      "INT"
+    ],
+    [
+      452,
+      57,
+      0,
+      197,
+      1,
+      "INT"
+    ],
+    [
+      454,
+      57,
+      1,
+      212,
+      2,
+      "INT"
+    ],
+    [
+      455,
+      57,
+      0,
+      212,
+      1,
+      "INT"
+    ],
+    [
+      456,
+      57,
+      1,
+      227,
+      2,
+      "INT"
+    ],
+    [
+      457,
+      57,
+      0,
+      227,
+      1,
+      "INT"
+    ],
+    [
+      458,
+      65,
+      0,
+      205,
+      0,
+      "NOISE"
+    ],
+    [
+      459,
+      65,
+      0,
+      220,
+      0,
+      "NOISE"
+    ],
+    [
+      460,
+      65,
+      0,
+      235,
+      0,
+      "NOISE"
+    ],
+    [
+      469,
+      78,
+      0,
+      250,
+      0,
+      "CLIP"
+    ],
+    [
+      470,
+      250,
+      0,
+      27,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      471,
+      78,
+      0,
+      250,
+      1,
+      "CLIP"
+    ],
+    [
+      472,
+      250,
+      1,
+      193,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      473,
+      78,
+      0,
+      250,
+      2,
+      "CLIP"
+    ],
+    [
+      474,
+      250,
+      2,
+      208,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      475,
+      78,
+      0,
+      250,
+      3,
+      "CLIP"
+    ],
+    [
+      476,
+      250,
+      3,
+      223,
+      0,
+      "CONDITIONING"
+    ]
+  ],
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 250
+}

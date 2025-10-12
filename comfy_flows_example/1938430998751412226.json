@@ -1,0 +1,319 @@
+{
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "outputs": [
+        {
+          "name": "prompt",
+          "links": [
+            3
+          ],
+          "label": "prompt",
+          "type": "STRING",
+          "localized_name": "prompt"
+        },
+        {
+          "name": "show_help",
+          "label": "show_help",
+          "type": "STRING",
+          "localized_name": "show_help"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "A realistic video of a girl speaking directly to the camera on a sofa, with dynamic and rhythmic hand gestures that complement his speech. His hands are clearly visible, independent, and unobstructed. His facial expressions are expressive and full of emotion, enhancing the delivery. The camera remains steady, capturing sharp, clear movements and a focused, engaging presence."
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "CR Prompt Text",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        400,
+        200
+      ],
+      "pos": [
+        789.7771606445312,
+        1102.7674560546875
+      ],
+      "id": 2,
+      "properties": {
+        "Node name for S&R": "CR Prompt Text",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 0
+    },
+    {
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "links": [
+            2
+          ],
+          "label": "AUDIO",
+          "type": "AUDIO",
+          "localized_name": "AUDIO"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "0f899720f3e5a12558489d675bb0a8015b18592ad2ee0aa93140540c2dbb2a53.flac",
+        "",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadAudio",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        136
+      ],
+      "pos": [
+        872.5657348632812,
+        876.8723754882812
+      ],
+      "id": 3,
+      "properties": {
+        "Node name for S&R": "LoadAudio",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 1
+    },
+    {
+      "outputs": [
+        {
+          "name": "video",
+          "links": [
+            4
+          ],
+          "label": "video",
+          "type": "VIDEO",
+          "localized_name": "video"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "A realistic video of a man speaking directly to the camera on a sofa, with dynamic and rhythmic hand gestures that complement his speech. His hands are clearly visible, independent, and unobstructed. His facial expressions are expressive and full of emotion, enhancing the delivery. The camera remains steady, capturing sharp, clear movements and a focused, engaging presence.",
+        20,
+        4.5,
+        4.5,
+        0.14,
+        402075953891115,
+        "randomize"
+      ],
+      "inputs": [
+        {
+          "name": "cond_image",
+          "link": 1,
+          "label": "cond_image",
+          "type": "IMAGE",
+          "localized_name": "cond_image"
+        },
+        {
+          "name": "cond_audio",
+          "link": 2,
+          "label": "cond_audio",
+          "type": "AUDIO",
+          "localized_name": "cond_audio"
+        },
+        {
+          "widget": {
+            "name": "prompt"
+          },
+          "name": "prompt",
+          "link": 3,
+          "type": "STRING"
+        }
+      ],
+      "flags": {},
+      "type": "RunningHub OmniAvatar AllinOne",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        462.8372802734375,
+        292.9808044433594
+      ],
+      "pos": [
+        1345.8492431640625,
+        542.8557739257812
+      ],
+      "id": 4,
+      "properties": {
+        "Node name for S&R": "RunningHub OmniAvatar AllinOne",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 3
+    },
+    {
+      "outputs": [],
+      "color": "#223",
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ],
+      "inputs": [
+        {
+          "name": "video",
+          "link": 4,
+          "label": "video",
+          "type": "VIDEO",
+          "localized_name": "video"
+        }
+      ],
+      "flags": {},
+      "type": "SaveVideo",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        353.18182373046875,
+        462.0909118652344
+      ],
+      "pos": [
+        1964.4342041015625,
+        547.9445190429688
+      ],
+      "id": 5,
+      "properties": {
+        "Node name for S&R": "SaveVideo",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 4
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "links": [
+            1
+          ],
+          "label": "IMAGE",
+          "type": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "label": "MASK",
+          "type": "MASK",
+          "localized_name": "MASK"
+        }
+      ],
+      "color": "#223",
+      "widgets_values": [
+        "076e38a43b4ae62a92bf282462dbced18478464e106e312d0bde9149dcf80472.png",
+        "image",
+        ""
+      ],
+      "inputs": [],
+      "flags": {},
+      "type": "LoadImage",
+      "mode": 0,
+      "bgcolor": "#335",
+      "size": [
+        315,
+        314
+      ],
+      "pos": [
+        861.9935302734375,
+        493.2708435058594
+      ],
+      "id": 1,
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "ttNbgOverride": {
+          "bgcolor": "#335",
+          "groupcolor": "#88A",
+          "color": "#223"
+        }
+      },
+      "order": 2
+    }
+  ],
+  "extra": {
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "ds": {
+      "offset": [
+        -7.460421562194824,
+        -199.07022094726562
+      ],
+      "scale": 0.8264462809917354
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 240,
+      "flags": {},
+      "id": 2,
+      "title": "B站、Youtube：T8star-Aix",
+      "bounding": [
+        354.2682189941406,
+        -54.082679748535156,
+        4168,
+        309
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      3,
+      0,
+      4,
+      1,
+      "AUDIO"
+    ],
+    [
+      3,
+      2,
+      0,
+      4,
+      2,
+      "STRING"
+    ],
+    [
+      4,
+      4,
+      0,
+      5,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "id": "4ea466d2-8bfb-4336-b39a-efb2a9df45a1",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 6,
+  "revision": 0
+}

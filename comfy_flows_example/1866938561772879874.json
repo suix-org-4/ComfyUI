@@ -1,0 +1,4485 @@
+{
+  "last_link_id": 332,
+  "nodes": [
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            73
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "pos": [
+        620.213623046875,
+        -65.12090301513672
+      ],
+      "widgets_values": [
+        "Photograph of an East Asian woman with fair skin and long, straight black hair, standing against a plain, light gray wall. She is wearing a white, halter-neck, sleeveless dress with layered ruffles on the bodice and a voluminous, tiered skirt. The dress has a sheer, delicate texture. She accessorizes with a pearl necklace and matching pearl drop earrings. Her makeup is subtle, with a natural look and red lipstick. She has a slender build and a gentle, serene expression. The overall style is elegant and ethereal, with a focus on lightness and simplicity. The background is minimalistic, emphasizing her as the central subject."
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "label": "CLIP",
+          "type": "CLIP",
+          "localized_name": "clip"
+        },
+        {
+          "widget": {
+            "name": "text"
+          },
+          "name": "text",
+          "link": 167,
+          "label": "文本",
+          "type": "STRING",
+          "localized_name": "文本"
+        }
+      ],
+      "flags": {},
+      "id": 60,
+      "type": "CLIPTextEncode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {
+          "text": true
+        },
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "CLIPTextEncode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 33
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            65
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "pos": [
+        1962.3037109375,
+        -716.087890625
+      ],
+      "widgets_values": [
+        181976752327284,
+        "randomize",
+        30,
+        1,
+        "deis",
+        "beta",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "正面条件"
+        },
+        {
+          "name": "negative",
+          "link": 61,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "type": "INT",
+          "localized_name": "随机种"
+        },
+        {
+          "widget": {
+            "name": "steps"
+          },
+          "name": "steps",
+          "type": "INT",
+          "localized_name": "步数"
+        },
+        {
+          "widget": {
+            "name": "cfg"
+          },
+          "name": "cfg",
+          "type": "FLOAT",
+          "localized_name": "CFG"
+        },
+        {
+          "widget": {
+            "name": "sampler_name"
+          },
+          "name": "sampler_name",
+          "type": "COMBO",
+          "localized_name": "采样器"
+        },
+        {
+          "widget": {
+            "name": "scheduler"
+          },
+          "name": "scheduler",
+          "type": "COMBO",
+          "localized_name": "调度器"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "type": "FLOAT",
+          "localized_name": "降噪"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 50,
+      "type": "KSampler",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "KSampler",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 15
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            78
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "pos": [
+        1961.40869140625,
+        -656.759765625
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 65,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 54,
+      "type": "VAEDecode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAEDecode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 25
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            61
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        1958.6571044921875,
+        -774.2769775390625
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 55,
+      "type": "ConditioningZeroOut",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ConditioningZeroOut",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 0
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            98
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "pos": [
+        2563.76318359375,
+        -715.6103515625
+      ],
+      "widgets_values": [
+        597749415740010,
+        "randomize",
+        30,
+        1,
+        "deis",
+        "beta",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "正面条件"
+        },
+        {
+          "name": "negative",
+          "link": 97,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "type": "INT",
+          "localized_name": "随机种"
+        },
+        {
+          "widget": {
+            "name": "steps"
+          },
+          "name": "steps",
+          "type": "INT",
+          "localized_name": "步数"
+        },
+        {
+          "widget": {
+            "name": "cfg"
+          },
+          "name": "cfg",
+          "type": "FLOAT",
+          "localized_name": "CFG"
+        },
+        {
+          "widget": {
+            "name": "sampler_name"
+          },
+          "name": "sampler_name",
+          "type": "COMBO",
+          "localized_name": "采样器"
+        },
+        {
+          "widget": {
+            "name": "scheduler"
+          },
+          "name": "scheduler",
+          "type": "COMBO",
+          "localized_name": "调度器"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "type": "FLOAT",
+          "localized_name": "降噪"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 66,
+      "type": "KSampler",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "KSampler",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 16
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            99
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "pos": [
+        2562.8681640625,
+        -656.2822265625
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 98,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 67,
+      "type": "VAEDecode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAEDecode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 26
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            97
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        2560.116455078125,
+        -773.7994384765625
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 68,
+      "type": "ConditioningZeroOut",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ConditioningZeroOut",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 1
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        576.8584594726562,
+        824.2243041992188
+      ],
+      "pos": [
+        1728.6085205078125,
+        -917.8969116210938
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 78,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "文件名前缀"
+        }
+      ],
+      "flags": {},
+      "id": 44,
+      "type": "SaveImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "SaveImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 36
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            101
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "pos": [
+        3164.1201171875,
+        -716.1286010742188
+      ],
+      "widgets_values": [
+        404087026436688,
+        "randomize",
+        30,
+        1,
+        "deis",
+        "beta",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "正面条件"
+        },
+        {
+          "name": "negative",
+          "link": 100,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "type": "INT",
+          "localized_name": "随机种"
+        },
+        {
+          "widget": {
+            "name": "steps"
+          },
+          "name": "steps",
+          "type": "INT",
+          "localized_name": "步数"
+        },
+        {
+          "widget": {
+            "name": "cfg"
+          },
+          "name": "cfg",
+          "type": "FLOAT",
+          "localized_name": "CFG"
+        },
+        {
+          "widget": {
+            "name": "sampler_name"
+          },
+          "name": "sampler_name",
+          "type": "COMBO",
+          "localized_name": "采样器"
+        },
+        {
+          "widget": {
+            "name": "scheduler"
+          },
+          "name": "scheduler",
+          "type": "COMBO",
+          "localized_name": "调度器"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "type": "FLOAT",
+          "localized_name": "降噪"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 70,
+      "type": "KSampler",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "KSampler",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 17
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            105
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "pos": [
+        3163.22509765625,
+        -656.8004760742188
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 101,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 71,
+      "type": "VAEDecode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAEDecode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 27
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            100
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        3160.473388671875,
+        -774.3176879882812
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 72,
+      "type": "ConditioningZeroOut",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ConditioningZeroOut",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 2
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            103
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "pos": [
+        3765.5751953125,
+        -715.6510620117188
+      ],
+      "widgets_values": [
+        297254501809141,
+        "randomize",
+        30,
+        1,
+        "deis",
+        "beta",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "正面条件"
+        },
+        {
+          "name": "negative",
+          "link": 102,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "type": "INT",
+          "localized_name": "随机种"
+        },
+        {
+          "widget": {
+            "name": "steps"
+          },
+          "name": "steps",
+          "type": "INT",
+          "localized_name": "步数"
+        },
+        {
+          "widget": {
+            "name": "cfg"
+          },
+          "name": "cfg",
+          "type": "FLOAT",
+          "localized_name": "CFG"
+        },
+        {
+          "widget": {
+            "name": "sampler_name"
+          },
+          "name": "sampler_name",
+          "type": "COMBO",
+          "localized_name": "采样器"
+        },
+        {
+          "widget": {
+            "name": "scheduler"
+          },
+          "name": "scheduler",
+          "type": "COMBO",
+          "localized_name": "调度器"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "type": "FLOAT",
+          "localized_name": "降噪"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 73,
+      "type": "KSampler",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "KSampler",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 18
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            104
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "pos": [
+        3764.68017578125,
+        -656.3229370117188
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 103,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 74,
+      "type": "VAEDecode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAEDecode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 28
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            102
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        3761.92822265625,
+        -773.8401489257812
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 75,
+      "type": "ConditioningZeroOut",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ConditioningZeroOut",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 3
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        576.8584594726562,
+        824.2243041992188
+      ],
+      "pos": [
+        3531.880615234375,
+        -917.4600830078125
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 104,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "文件名前缀"
+        }
+      ],
+      "flags": {},
+      "id": 76,
+      "type": "SaveImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "SaveImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 39
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            107
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "pos": [
+        1963.462890625,
+        154.6576385498047
+      ],
+      "widgets_values": [
+        194089599547428,
+        "randomize",
+        30,
+        1,
+        "deis",
+        "beta",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "正面条件"
+        },
+        {
+          "name": "negative",
+          "link": 106,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "type": "INT",
+          "localized_name": "随机种"
+        },
+        {
+          "widget": {
+            "name": "steps"
+          },
+          "name": "steps",
+          "type": "INT",
+          "localized_name": "步数"
+        },
+        {
+          "widget": {
+            "name": "cfg"
+          },
+          "name": "cfg",
+          "type": "FLOAT",
+          "localized_name": "CFG"
+        },
+        {
+          "widget": {
+            "name": "sampler_name"
+          },
+          "name": "sampler_name",
+          "type": "COMBO",
+          "localized_name": "采样器"
+        },
+        {
+          "widget": {
+            "name": "scheduler"
+          },
+          "name": "scheduler",
+          "type": "COMBO",
+          "localized_name": "调度器"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "type": "FLOAT",
+          "localized_name": "降噪"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 78,
+      "type": "KSampler",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "KSampler",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 19
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            111
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "pos": [
+        1962.56787109375,
+        213.98585510253906
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 107,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 79,
+      "type": "VAEDecode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAEDecode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 29
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            106
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        1959.8162841796875,
+        96.4687271118164
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 80,
+      "type": "ConditioningZeroOut",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ConditioningZeroOut",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 4
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            109
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "pos": [
+        2564.92236328125,
+        155.1351776123047
+      ],
+      "widgets_values": [
+        982437354452319,
+        "randomize",
+        30,
+        1,
+        "deis",
+        "beta",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "正面条件"
+        },
+        {
+          "name": "negative",
+          "link": 108,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "type": "INT",
+          "localized_name": "随机种"
+        },
+        {
+          "widget": {
+            "name": "steps"
+          },
+          "name": "steps",
+          "type": "INT",
+          "localized_name": "步数"
+        },
+        {
+          "widget": {
+            "name": "cfg"
+          },
+          "name": "cfg",
+          "type": "FLOAT",
+          "localized_name": "CFG"
+        },
+        {
+          "widget": {
+            "name": "sampler_name"
+          },
+          "name": "sampler_name",
+          "type": "COMBO",
+          "localized_name": "采样器"
+        },
+        {
+          "widget": {
+            "name": "scheduler"
+          },
+          "name": "scheduler",
+          "type": "COMBO",
+          "localized_name": "调度器"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "type": "FLOAT",
+          "localized_name": "降噪"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 81,
+      "type": "KSampler",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "KSampler",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 20
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            110
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "pos": [
+        2564.02734375,
+        214.46339416503906
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 109,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 82,
+      "type": "VAEDecode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAEDecode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 30
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            108
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        2561.275634765625,
+        96.9462661743164
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 83,
+      "type": "ConditioningZeroOut",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ConditioningZeroOut",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 5
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        576.8584594726562,
+        824.2243041992188
+      ],
+      "pos": [
+        2331.2275390625,
+        -46.67344665527344
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 110,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "文件名前缀"
+        }
+      ],
+      "flags": {},
+      "id": 84,
+      "type": "SaveImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "SaveImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 41
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            113
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "pos": [
+        3165.279296875,
+        154.61692810058594
+      ],
+      "widgets_values": [
+        848315929138983,
+        "randomize",
+        30,
+        1,
+        "deis",
+        "beta",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "正面条件"
+        },
+        {
+          "name": "negative",
+          "link": 112,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "type": "INT",
+          "localized_name": "随机种"
+        },
+        {
+          "widget": {
+            "name": "steps"
+          },
+          "name": "steps",
+          "type": "INT",
+          "localized_name": "步数"
+        },
+        {
+          "widget": {
+            "name": "cfg"
+          },
+          "name": "cfg",
+          "type": "FLOAT",
+          "localized_name": "CFG"
+        },
+        {
+          "widget": {
+            "name": "sampler_name"
+          },
+          "name": "sampler_name",
+          "type": "COMBO",
+          "localized_name": "采样器"
+        },
+        {
+          "widget": {
+            "name": "scheduler"
+          },
+          "name": "scheduler",
+          "type": "COMBO",
+          "localized_name": "调度器"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "type": "FLOAT",
+          "localized_name": "降噪"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 86,
+      "type": "KSampler",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "KSampler",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 21
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            117
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "pos": [
+        3164.38427734375,
+        213.9451446533203
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 113,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 87,
+      "type": "VAEDecode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAEDecode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 31
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            112
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        3161.632568359375,
+        96.42801666259766
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 88,
+      "type": "ConditioningZeroOut",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ConditioningZeroOut",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 6
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "slot_index": 0,
+          "links": [
+            115
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "pos": [
+        3766.736328125,
+        155.09446716308594
+      ],
+      "widgets_values": [
+        875034068104682,
+        "randomize",
+        30,
+        1,
+        "deis",
+        "beta",
+        1
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "localized_name": "正面条件"
+        },
+        {
+          "name": "negative",
+          "link": 114,
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "localized_name": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent图像"
+        },
+        {
+          "widget": {
+            "name": "seed"
+          },
+          "name": "seed",
+          "type": "INT",
+          "localized_name": "随机种"
+        },
+        {
+          "widget": {
+            "name": "steps"
+          },
+          "name": "steps",
+          "type": "INT",
+          "localized_name": "步数"
+        },
+        {
+          "widget": {
+            "name": "cfg"
+          },
+          "name": "cfg",
+          "type": "FLOAT",
+          "localized_name": "CFG"
+        },
+        {
+          "widget": {
+            "name": "sampler_name"
+          },
+          "name": "sampler_name",
+          "type": "COMBO",
+          "localized_name": "采样器"
+        },
+        {
+          "widget": {
+            "name": "scheduler"
+          },
+          "name": "scheduler",
+          "type": "COMBO",
+          "localized_name": "调度器"
+        },
+        {
+          "widget": {
+            "name": "denoise"
+          },
+          "name": "denoise",
+          "type": "FLOAT",
+          "localized_name": "降噪"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 89,
+      "type": "KSampler",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "KSampler",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 22
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            116
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        }
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "pos": [
+        3765.84130859375,
+        214.4226837158203
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "samples",
+          "link": 115,
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "localized_name": "vae"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 90,
+      "type": "VAEDecode",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAEDecode",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 32
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            114
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "pos": [
+        3763.08935546875,
+        96.90555572509766
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 91,
+      "type": "ConditioningZeroOut",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ConditioningZeroOut",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 7
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        576.8584594726562,
+        824.2243041992188
+      ],
+      "pos": [
+        3533.041748046875,
+        -46.71415710449219
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 116,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "文件名前缀"
+        }
+      ],
+      "flags": {},
+      "id": 92,
+      "type": "SaveImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "SaveImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 43
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        576.8584594726562,
+        824.2243041992188
+      ],
+      "pos": [
+        2931.58447265625,
+        -47.19169616699219
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 117,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "文件名前缀"
+        }
+      ],
+      "flags": {},
+      "id": 93,
+      "type": "SaveImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "SaveImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 42
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        576.8584594726562,
+        824.2243041992188
+      ],
+      "pos": [
+        1729.7677001953125,
+        -47.15098571777344
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 111,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "文件名前缀"
+        }
+      ],
+      "flags": {},
+      "id": 85,
+      "type": "SaveImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "SaveImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 40
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        576.8584594726562,
+        824.2243041992188
+      ],
+      "pos": [
+        2330.068359375,
+        -917.4193725585938
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 99,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "文件名前缀"
+        }
+      ],
+      "flags": {},
+      "id": 69,
+      "type": "SaveImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "SaveImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 37
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "text",
+          "label": "字符串",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        622.7169799804688,
+        345.804443359375
+      ],
+      "pos": [
+        139.94094848632812,
+        372.28094482421875
+      ],
+      "widgets_values": [
+        "Photograph of a young Asian woman with long, straight brown hair, fair skin, and soft pink blush on her cheeks. She is winking and smiling slightly, with her right hand touching her face. She is wearing a grey, long-sleeve, off-shoulder top that reveals black lace bra straps and a small, cut-out section of the top showing a row of black polka dots. Her breasts are moderately sized and visible through the cut-out. The background features light wooden panels and a white couch. The image has a casual, intimate feel, with a focus on the subject's playful, confident expression."
+      ],
+      "inputs": [
+        {
+          "name": "text",
+          "link": 168,
+          "label": "文本",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "flags": {},
+      "id": 34,
+      "type": "ShowText|pysssss",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "ShowText|pysssss",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 34
+    },
+    {
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            166
+          ],
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图像"
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK",
+          "localized_name": "遮罩"
+        }
+      ],
+      "color": "#232",
+      "widgets_values": [
+        "9ac19305e9c9bc50785117b2c185393af7fb1cebffe949d5ff5e63c735901412.jpg",
+        "image"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "image"
+          },
+          "name": "image",
+          "type": "COMBO",
+          "localized_name": "图像"
+        },
+        {
+          "widget": {
+            "name": "upload"
+          },
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "localized_name": "选择文件上传"
+        }
+      ],
+      "flags": {},
+      "type": "LoadImage",
+      "mode": 0,
+      "bgcolor": "#353",
+      "size": [
+        1065.92333984375,
+        1588.0587158203125
+      ],
+      "pos": [
+        -1125.470947265625,
+        -864.0840454101562
+      ],
+      "id": 24,
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "LoadImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 8
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        576.8584594726562,
+        824.2243041992188
+      ],
+      "pos": [
+        2930.42529296875,
+        -917.9376220703125
+      ],
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "link": 105,
+          "label": "图像",
+          "type": "IMAGE",
+          "localized_name": "图片"
+        },
+        {
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "name": "filename_prefix",
+          "type": "STRING",
+          "localized_name": "文件名前缀"
+        }
+      ],
+      "flags": {},
+      "id": 77,
+      "type": "SaveImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "SaveImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 38
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "slot_index": 0,
+          "links": [
+            120
+          ],
+          "type": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "size": [
+        338.8597106933594,
+        58
+      ],
+      "pos": [
+        815.3087158203125,
+        -480.7647705078125
+      ],
+      "widgets_values": [
+        "ae.sft"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "vae_name"
+          },
+          "name": "vae_name",
+          "type": "COMBO",
+          "localized_name": "vae名称"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 58,
+      "type": "VAELoader",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "VAELoader",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 9
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "links": [
+            121
+          ],
+          "label": "Latent",
+          "type": "LATENT",
+          "localized_name": "Latent"
+        }
+      ],
+      "size": [
+        332.10528564453125,
+        106
+      ],
+      "pos": [
+        822.1289672851562,
+        -314.2077941894531
+      ],
+      "widgets_values": [
+        1024,
+        1536,
+        1
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "width"
+          },
+          "name": "width",
+          "type": "INT",
+          "localized_name": "宽度"
+        },
+        {
+          "widget": {
+            "name": "height"
+          },
+          "name": "height",
+          "type": "INT",
+          "localized_name": "高度"
+        },
+        {
+          "widget": {
+            "name": "batch_size"
+          },
+          "name": "batch_size",
+          "type": "INT",
+          "localized_name": "批次大小"
+        }
+      ],
+      "flags": {},
+      "id": 61,
+      "type": "EmptyLatentImage",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "EmptyLatentImage",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 10
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "links": [
+            122
+          ],
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        }
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "pos": [
+        914.8478393554688,
+        -64.58583068847656
+      ],
+      "widgets_values": [
+        3.5
+      ],
+      "inputs": [
+        {
+          "name": "conditioning",
+          "link": 73,
+          "label": "条件",
+          "type": "CONDITIONING",
+          "localized_name": "条件"
+        },
+        {
+          "widget": {
+            "name": "guidance"
+          },
+          "name": "guidance",
+          "type": "FLOAT",
+          "localized_name": "引导"
+        }
+      ],
+      "flags": {},
+      "id": 65,
+      "type": "FluxGuidance",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "FluxGuidance",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 44
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "extra_option",
+          "links": [
+            165
+          ],
+          "label": "extra_option",
+          "type": "JoyCaption2ExtraOption",
+          "localized_name": "extra_option"
+        }
+      ],
+      "size": [
+        470.3999938964844,
+        706
+      ],
+      "color": "rgba(38, 73, 116, 0.7)",
+      "pos": [
+        150.44166564941406,
+        -339.060546875
+      ],
+      "widgets_values": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        ""
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "refer_character_name"
+          },
+          "name": "refer_character_name",
+          "label": "refer_character_name",
+          "type": "BOOLEAN",
+          "localized_name": "refer_character_name"
+        },
+        {
+          "widget": {
+            "name": "exclude_people_info"
+          },
+          "name": "exclude_people_info",
+          "label": "exclude_people_info",
+          "type": "BOOLEAN",
+          "localized_name": "exclude_people_info"
+        },
+        {
+          "widget": {
+            "name": "include_lighting"
+          },
+          "name": "include_lighting",
+          "label": "include_lighting",
+          "type": "BOOLEAN",
+          "localized_name": "include_lighting"
+        },
+        {
+          "widget": {
+            "name": "include_camera_angle"
+          },
+          "name": "include_camera_angle",
+          "label": "include_camera_angle",
+          "type": "BOOLEAN",
+          "localized_name": "include_camera_angle"
+        },
+        {
+          "widget": {
+            "name": "include_watermark"
+          },
+          "name": "include_watermark",
+          "label": "include_watermark",
+          "type": "BOOLEAN",
+          "localized_name": "include_watermark"
+        },
+        {
+          "widget": {
+            "name": "include_JPEG_artifacts"
+          },
+          "name": "include_JPEG_artifacts",
+          "label": "include_JPEG_artifacts",
+          "type": "BOOLEAN",
+          "localized_name": "include_JPEG_artifacts"
+        },
+        {
+          "widget": {
+            "name": "include_exif"
+          },
+          "name": "include_exif",
+          "label": "include_exif",
+          "type": "BOOLEAN",
+          "localized_name": "include_exif"
+        },
+        {
+          "widget": {
+            "name": "exclude_sexual"
+          },
+          "name": "exclude_sexual",
+          "label": "exclude_sexual",
+          "type": "BOOLEAN",
+          "localized_name": "exclude_sexual"
+        },
+        {
+          "widget": {
+            "name": "exclude_image_resolution"
+          },
+          "name": "exclude_image_resolution",
+          "label": "exclude_image_resolution",
+          "type": "BOOLEAN",
+          "localized_name": "exclude_image_resolution"
+        },
+        {
+          "widget": {
+            "name": "include_aesthetic_quality"
+          },
+          "name": "include_aesthetic_quality",
+          "label": "include_aesthetic_quality",
+          "type": "BOOLEAN",
+          "localized_name": "include_aesthetic_quality"
+        },
+        {
+          "widget": {
+            "name": "include_composition_style"
+          },
+          "name": "include_composition_style",
+          "label": "include_composition_style",
+          "type": "BOOLEAN",
+          "localized_name": "include_composition_style"
+        },
+        {
+          "widget": {
+            "name": "exclude_text"
+          },
+          "name": "exclude_text",
+          "label": "exclude_text",
+          "type": "BOOLEAN",
+          "localized_name": "exclude_text"
+        },
+        {
+          "widget": {
+            "name": "specify_depth_field"
+          },
+          "name": "specify_depth_field",
+          "label": "specify_depth_field",
+          "type": "BOOLEAN",
+          "localized_name": "specify_depth_field"
+        },
+        {
+          "widget": {
+            "name": "specify_lighting_sources"
+          },
+          "name": "specify_lighting_sources",
+          "label": "specify_lighting_sources",
+          "type": "BOOLEAN",
+          "localized_name": "specify_lighting_sources"
+        },
+        {
+          "widget": {
+            "name": "do_not_use_ambiguous_language"
+          },
+          "name": "do_not_use_ambiguous_language",
+          "label": "do_not_use_ambiguous_language",
+          "type": "BOOLEAN",
+          "localized_name": "do_not_use_ambiguous_language"
+        },
+        {
+          "widget": {
+            "name": "include_nsfw"
+          },
+          "name": "include_nsfw",
+          "label": "include_nsfw",
+          "type": "BOOLEAN",
+          "localized_name": "include_nsfw"
+        },
+        {
+          "widget": {
+            "name": "only_describe_most_important_elements"
+          },
+          "name": "only_describe_most_important_elements",
+          "label": "only_describe_most_important_elements",
+          "type": "BOOLEAN",
+          "localized_name": "only_describe_most_important_elements"
+        },
+        {
+          "widget": {
+            "name": "do_not_include_artist_name_or_title"
+          },
+          "name": "do_not_include_artist_name_or_title",
+          "label": "do_not_include_artist_name_or_title",
+          "type": "BOOLEAN",
+          "localized_name": "do_not_include_artist_name_or_title"
+        },
+        {
+          "widget": {
+            "name": "identify_image_orientation"
+          },
+          "name": "identify_image_orientation",
+          "label": "identify_image_orientation",
+          "type": "BOOLEAN",
+          "localized_name": "identify_image_orientation"
+        },
+        {
+          "widget": {
+            "name": "use_vulgar_slang_and_profanity"
+          },
+          "name": "use_vulgar_slang_and_profanity",
+          "label": "use_vulgar_slang_and_profanity",
+          "type": "BOOLEAN",
+          "localized_name": "use_vulgar_slang_and_profanity"
+        },
+        {
+          "widget": {
+            "name": "do_not_use_polite_euphemisms"
+          },
+          "name": "do_not_use_polite_euphemisms",
+          "label": "do_not_use_polite_euphemisms",
+          "type": "BOOLEAN",
+          "localized_name": "do_not_use_polite_euphemisms"
+        },
+        {
+          "widget": {
+            "name": "include_character_age"
+          },
+          "name": "include_character_age",
+          "label": "include_character_age",
+          "type": "BOOLEAN",
+          "localized_name": "include_character_age"
+        },
+        {
+          "widget": {
+            "name": "include_camera_shot_type"
+          },
+          "name": "include_camera_shot_type",
+          "label": "include_camera_shot_type",
+          "type": "BOOLEAN",
+          "localized_name": "include_camera_shot_type"
+        },
+        {
+          "widget": {
+            "name": "exclude_mood_feeling"
+          },
+          "name": "exclude_mood_feeling",
+          "label": "exclude_mood_feeling",
+          "type": "BOOLEAN",
+          "localized_name": "exclude_mood_feeling"
+        },
+        {
+          "widget": {
+            "name": "include_camera_vantage_height"
+          },
+          "name": "include_camera_vantage_height",
+          "label": "include_camera_vantage_height",
+          "type": "BOOLEAN",
+          "localized_name": "include_camera_vantage_height"
+        },
+        {
+          "widget": {
+            "name": "mention_watermark"
+          },
+          "name": "mention_watermark",
+          "label": "mention_watermark",
+          "type": "BOOLEAN",
+          "localized_name": "mention_watermark"
+        },
+        {
+          "widget": {
+            "name": "avoid_meta_descriptive_phrases"
+          },
+          "name": "avoid_meta_descriptive_phrases",
+          "label": "avoid_meta_descriptive_phrases",
+          "type": "BOOLEAN",
+          "localized_name": "avoid_meta_descriptive_phrases"
+        },
+        {
+          "widget": {
+            "name": "character_name"
+          },
+          "name": "character_name",
+          "label": "character_name",
+          "type": "STRING",
+          "localized_name": "character_name"
+        }
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "id": 97,
+      "type": "LayerUtility: JoyCaptionBeta1ExtraOptions",
+      "properties": {
+        "cnr_id": "ComfyUI_LayerStyle_Advance",
+        "ver": "0f9184100e626e3202568a7cf890b3b92685a168",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "LayerUtility: JoyCaptionBeta1ExtraOptions"
+      },
+      "order": 11
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "shape": 6,
+          "name": "text",
+          "links": [
+            167,
+            168
+          ],
+          "label": "text",
+          "type": "STRING",
+          "localized_name": "text"
+        }
+      ],
+      "size": [
+        380.3860168457031,
+        272
+      ],
+      "color": "rgba(38, 73, 116, 0.7)",
+      "pos": [
+        148.00299072265625,
+        -266.9907531738281
+      ],
+      "widgets_values": [
+        "Descriptive",
+        "long",
+        512,
+        0.9,
+        0,
+        0.6,
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "link": 166,
+          "label": "image",
+          "type": "IMAGE",
+          "localized_name": "image"
+        },
+        {
+          "name": "joycaption_beta1_model",
+          "link": 164,
+          "label": "joycaption_beta1_model",
+          "type": "JOYCAPTIONBETA1_MODEL",
+          "localized_name": "joycaption_beta1_model"
+        },
+        {
+          "shape": 7,
+          "name": "extra_options",
+          "link": 165,
+          "label": "extra_options",
+          "type": "JoyCaption2ExtraOption",
+          "localized_name": "extra_options"
+        },
+        {
+          "widget": {
+            "name": "caption_type"
+          },
+          "name": "caption_type",
+          "label": "caption_type",
+          "type": "COMBO",
+          "localized_name": "caption_type"
+        },
+        {
+          "widget": {
+            "name": "caption_length"
+          },
+          "name": "caption_length",
+          "label": "caption_length",
+          "type": "COMBO",
+          "localized_name": "caption_length"
+        },
+        {
+          "widget": {
+            "name": "max_new_tokens"
+          },
+          "name": "max_new_tokens",
+          "label": "max_new_tokens",
+          "type": "INT",
+          "localized_name": "max_new_tokens"
+        },
+        {
+          "widget": {
+            "name": "top_p"
+          },
+          "name": "top_p",
+          "label": "top_p",
+          "type": "FLOAT",
+          "localized_name": "top_p"
+        },
+        {
+          "widget": {
+            "name": "top_k"
+          },
+          "name": "top_k",
+          "label": "top_k",
+          "type": "INT",
+          "localized_name": "top_k"
+        },
+        {
+          "widget": {
+            "name": "temperature"
+          },
+          "name": "temperature",
+          "label": "temperature",
+          "type": "FLOAT",
+          "localized_name": "temperature"
+        },
+        {
+          "widget": {
+            "name": "user_prompt"
+          },
+          "name": "user_prompt",
+          "label": "user_prompt",
+          "type": "STRING",
+          "localized_name": "user_prompt"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 96,
+      "type": "LayerUtility: JoyCaptionBeta1",
+      "properties": {
+        "cnr_id": "ComfyUI_LayerStyle_Advance",
+        "ver": "0f9184100e626e3202568a7cf890b3b92685a168",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "LayerUtility: JoyCaptionBeta1"
+      },
+      "order": 23
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "joycaption_beta1_model",
+          "links": [
+            164
+          ],
+          "label": "joycaption_beta1_model",
+          "type": "JOYCAPTIONBETA1_MODEL",
+          "localized_name": "joycaption_beta1_model"
+        }
+      ],
+      "size": [
+        394.7535095214844,
+        106
+      ],
+      "color": "rgba(38, 73, 116, 0.7)",
+      "pos": [
+        140.28367614746094,
+        66.78125
+      ],
+      "widgets_values": [
+        "fancyfeast/llama-joycaption-beta-one-hf-llava",
+        "nf4",
+        "cuda"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "model"
+          },
+          "name": "model",
+          "label": "model",
+          "type": "COMBO",
+          "localized_name": "model"
+        },
+        {
+          "widget": {
+            "name": "quantization_mode"
+          },
+          "name": "quantization_mode",
+          "label": "quantization_mode",
+          "type": "COMBO",
+          "localized_name": "quantization_mode"
+        },
+        {
+          "widget": {
+            "name": "device"
+          },
+          "name": "device",
+          "label": "device",
+          "type": "COMBO",
+          "localized_name": "device"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 98,
+      "type": "LayerUtility: LoadJoyCaptionBeta1Model",
+      "properties": {
+        "cnr_id": "ComfyUI_LayerStyle_Advance",
+        "ver": "0f9184100e626e3202568a7cf890b3b92685a168",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "LayerUtility: LoadJoyCaptionBeta1Model"
+      },
+      "order": 12
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            118
+          ],
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        }
+      ],
+      "size": [
+        394.5895690917969,
+        82
+      ],
+      "pos": [
+        760.1692504882812,
+        -894.4080200195312
+      ],
+      "widgets_values": [
+        "Flux_小红书真实风格.safetensors",
+        0.8
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "link": 72,
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        },
+        {
+          "widget": {
+            "name": "lora_name"
+          },
+          "name": "lora_name",
+          "type": "COMBO",
+          "localized_name": "LoRA名称"
+        },
+        {
+          "widget": {
+            "name": "strength_model"
+          },
+          "name": "strength_model",
+          "type": "FLOAT",
+          "localized_name": "模型强度"
+        }
+      ],
+      "flags": {},
+      "id": 64,
+      "type": "LoraLoaderModelOnly",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "LoraLoaderModelOnly",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 24
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "slot_index": 0,
+          "links": [
+            119
+          ],
+          "label": "CLIP",
+          "type": "CLIP",
+          "localized_name": "CLIP"
+        }
+      ],
+      "size": [
+        337.6553649902344,
+        130
+      ],
+      "pos": [
+        814.010986328125,
+        -698.0177001953125
+      ],
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "flux",
+        "default"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "clip_name1"
+          },
+          "name": "clip_name1",
+          "type": "COMBO",
+          "localized_name": "CLIP1"
+        },
+        {
+          "widget": {
+            "name": "clip_name2"
+          },
+          "name": "clip_name2",
+          "type": "COMBO",
+          "localized_name": "CLIP2"
+        },
+        {
+          "widget": {
+            "name": "type"
+          },
+          "name": "type",
+          "type": "COMBO",
+          "localized_name": "类型"
+        },
+        {
+          "widget": {
+            "name": "device"
+          },
+          "shape": 7,
+          "name": "device",
+          "type": "COMBO",
+          "localized_name": "设备"
+        }
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "id": 57,
+      "type": "DualCLIPLoader",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "DualCLIPLoader",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 13
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        140,
+        66
+      ],
+      "pos": [
+        1247.7974853515625,
+        -715.5067749023438
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "anything",
+          "link": 118,
+          "label": "输入",
+          "type": "*",
+          "color_on": "#B39DDB",
+          "localized_name": "anything"
+        },
+        {
+          "shape": 7,
+          "name": "anything2",
+          "link": 119,
+          "label": "输入2",
+          "type": "*",
+          "color_on": "#FFD500",
+          "localized_name": "anything2"
+        },
+        {
+          "shape": 7,
+          "name": "anything3",
+          "link": 120,
+          "label": "输入3",
+          "type": "*",
+          "color_on": "#FF6E6E",
+          "localized_name": "anything3"
+        }
+      ],
+      "flags": {},
+      "id": 94,
+      "type": "Anything Everywhere3",
+      "properties": {
+        "color_restricted": 0,
+        "widget_ue_connectable": {},
+        "Node name for S&R": "Anything Everywhere3",
+        "group_restricted": 0
+      },
+      "order": 35
+    },
+    {
+      "mode": 0,
+      "outputs": [],
+      "size": [
+        140,
+        66
+      ],
+      "pos": [
+        1232.8677978515625,
+        -82.67401123046875
+      ],
+      "widgets_values": [],
+      "inputs": [
+        {
+          "shape": 7,
+          "name": "anything",
+          "link": 121,
+          "label": "输入",
+          "type": "*",
+          "color_on": "#FF9CF9",
+          "localized_name": "anything"
+        },
+        {
+          "shape": 7,
+          "name": "anything2",
+          "link": 122,
+          "label": "输入2",
+          "type": "*",
+          "color_on": "#FFA931",
+          "localized_name": "anything2"
+        },
+        {
+          "shape": 7,
+          "name": "anything3",
+          "label": "输入3",
+          "type": "*",
+          "localized_name": "anything3"
+        }
+      ],
+      "flags": {},
+      "id": 95,
+      "type": "Anything Everywhere3",
+      "properties": {
+        "color_restricted": 0,
+        "widget_ue_connectable": {},
+        "Node name for S&R": "Anything Everywhere3",
+        "group_restricted": 0
+      },
+      "order": 45
+    },
+    {
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "slot_index": 0,
+          "links": [
+            72
+          ],
+          "label": "模型",
+          "type": "MODEL",
+          "localized_name": "模型"
+        }
+      ],
+      "size": [
+        397.0731506347656,
+        82
+      ],
+      "pos": [
+        259.15350341796875,
+        -895.2929077148438
+      ],
+      "widgets_values": [
+        "flux1-dev-fp8.safetensors",
+        "default"
+      ],
+      "inputs": [
+        {
+          "widget": {
+            "name": "unet_name"
+          },
+          "name": "unet_name",
+          "type": "COMBO",
+          "localized_name": "UNET名称"
+        },
+        {
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "localized_name": "剪枝类型"
+        }
+      ],
+      "flags": {},
+      "id": 56,
+      "type": "UNETLoader",
+      "properties": {
+        "hasSecondTab": false,
+        "widget_ue_connectable": {},
+        "secondTabText": "Send Back",
+        "enableTabs": false,
+        "secondTabOffset": 80,
+        "Node name for S&R": "UNETLoader",
+        "tabWidth": 65,
+        "secondTabWidth": 65,
+        "tabXOffset": 10
+      },
+      "order": 14
+    }
+  ],
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": [
+      292,
+      293,
+      294,
+      295,
+      296,
+      297,
+      298,
+      299,
+      300,
+      301,
+      302,
+      303,
+      304,
+      305,
+      306,
+      307,
+      308,
+      309,
+      310,
+      311,
+      312,
+      313,
+      314,
+      315,
+      316,
+      317,
+      318,
+      319,
+      320,
+      321,
+      322,
+      323,
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331,
+      332
+    ],
+    "ue_links": [
+      {
+        "controller": 94,
+        "upstream": "57",
+        "downstream_slot": 0,
+        "downstream": 60,
+        "upstream_slot": 0,
+        "type": "CLIP"
+      },
+      {
+        "controller": 94,
+        "upstream": "64",
+        "downstream_slot": 0,
+        "downstream": 50,
+        "upstream_slot": 0,
+        "type": "MODEL"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 1,
+        "downstream": 50,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 95,
+        "upstream": "61",
+        "downstream_slot": 3,
+        "downstream": 50,
+        "upstream_slot": 0,
+        "type": "LATENT"
+      },
+      {
+        "controller": 94,
+        "upstream": "58",
+        "downstream_slot": 1,
+        "downstream": 54,
+        "upstream_slot": 0,
+        "type": "VAE"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 0,
+        "downstream": 55,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 94,
+        "upstream": "64",
+        "downstream_slot": 0,
+        "downstream": 66,
+        "upstream_slot": 0,
+        "type": "MODEL"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 1,
+        "downstream": 66,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 95,
+        "upstream": "61",
+        "downstream_slot": 3,
+        "downstream": 66,
+        "upstream_slot": 0,
+        "type": "LATENT"
+      },
+      {
+        "controller": 94,
+        "upstream": "58",
+        "downstream_slot": 1,
+        "downstream": 67,
+        "upstream_slot": 0,
+        "type": "VAE"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 0,
+        "downstream": 68,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 94,
+        "upstream": "64",
+        "downstream_slot": 0,
+        "downstream": 70,
+        "upstream_slot": 0,
+        "type": "MODEL"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 1,
+        "downstream": 70,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 95,
+        "upstream": "61",
+        "downstream_slot": 3,
+        "downstream": 70,
+        "upstream_slot": 0,
+        "type": "LATENT"
+      },
+      {
+        "controller": 94,
+        "upstream": "58",
+        "downstream_slot": 1,
+        "downstream": 71,
+        "upstream_slot": 0,
+        "type": "VAE"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 0,
+        "downstream": 72,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 94,
+        "upstream": "64",
+        "downstream_slot": 0,
+        "downstream": 73,
+        "upstream_slot": 0,
+        "type": "MODEL"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 1,
+        "downstream": 73,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 95,
+        "upstream": "61",
+        "downstream_slot": 3,
+        "downstream": 73,
+        "upstream_slot": 0,
+        "type": "LATENT"
+      },
+      {
+        "controller": 94,
+        "upstream": "58",
+        "downstream_slot": 1,
+        "downstream": 74,
+        "upstream_slot": 0,
+        "type": "VAE"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 0,
+        "downstream": 75,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 94,
+        "upstream": "64",
+        "downstream_slot": 0,
+        "downstream": 78,
+        "upstream_slot": 0,
+        "type": "MODEL"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 1,
+        "downstream": 78,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 95,
+        "upstream": "61",
+        "downstream_slot": 3,
+        "downstream": 78,
+        "upstream_slot": 0,
+        "type": "LATENT"
+      },
+      {
+        "controller": 94,
+        "upstream": "58",
+        "downstream_slot": 1,
+        "downstream": 79,
+        "upstream_slot": 0,
+        "type": "VAE"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 0,
+        "downstream": 80,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 94,
+        "upstream": "64",
+        "downstream_slot": 0,
+        "downstream": 81,
+        "upstream_slot": 0,
+        "type": "MODEL"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 1,
+        "downstream": 81,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 95,
+        "upstream": "61",
+        "downstream_slot": 3,
+        "downstream": 81,
+        "upstream_slot": 0,
+        "type": "LATENT"
+      },
+      {
+        "controller": 94,
+        "upstream": "58",
+        "downstream_slot": 1,
+        "downstream": 82,
+        "upstream_slot": 0,
+        "type": "VAE"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 0,
+        "downstream": 83,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 94,
+        "upstream": "64",
+        "downstream_slot": 0,
+        "downstream": 86,
+        "upstream_slot": 0,
+        "type": "MODEL"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 1,
+        "downstream": 86,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 95,
+        "upstream": "61",
+        "downstream_slot": 3,
+        "downstream": 86,
+        "upstream_slot": 0,
+        "type": "LATENT"
+      },
+      {
+        "controller": 94,
+        "upstream": "58",
+        "downstream_slot": 1,
+        "downstream": 87,
+        "upstream_slot": 0,
+        "type": "VAE"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 0,
+        "downstream": 88,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 94,
+        "upstream": "64",
+        "downstream_slot": 0,
+        "downstream": 89,
+        "upstream_slot": 0,
+        "type": "MODEL"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 1,
+        "downstream": 89,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      },
+      {
+        "controller": 95,
+        "upstream": "61",
+        "downstream_slot": 3,
+        "downstream": 89,
+        "upstream_slot": 0,
+        "type": "LATENT"
+      },
+      {
+        "controller": 94,
+        "upstream": "58",
+        "downstream_slot": 1,
+        "downstream": 90,
+        "upstream_slot": 0,
+        "type": "VAE"
+      },
+      {
+        "controller": 95,
+        "upstream": "65",
+        "downstream_slot": 0,
+        "downstream": 91,
+        "upstream_slot": 0,
+        "type": "CONDITIONING"
+      }
+    ],
+    "VHS_MetadataImage": true,
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false,
+    "frontendVersion": "1.23.0",
+    "groupNodes": {
+      "HAOTU": {
+        "external": [
+          [
+            3,
+            0,
+            "IMAGE"
+          ]
+        ],
+        "nodes": [
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "links": [],
+                "label": "条件",
+                "type": "CONDITIONING",
+                "localized_name": "条件"
+              }
+            ],
+            "size": {
+              "0": 210,
+              "1": 88
+            },
+            "pos": {
+              "0": 1711.688720703125,
+              "1": -549.7042846679688
+            },
+            "widgets_values": [
+              ""
+            ],
+            "inputs": [
+              {
+                "name": "clip",
+                "label": "CLIP",
+                "type": "CLIP",
+                "localized_name": "clip"
+              },
+              {
+                "widget": {
+                  "name": "text"
+                },
+                "name": "text",
+                "label": "文本",
+                "type": "STRING"
+              }
+            ],
+            "flags": {},
+            "index": 0,
+            "id": -1,
+            "type": "CLIPTextEncode",
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode"
+            },
+            "order": 7
+          },
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "links": [],
+                "label": "条件",
+                "type": "CONDITIONING",
+                "localized_name": "条件"
+              }
+            ],
+            "size": {
+              "0": 315,
+              "1": 58
+            },
+            "pos": {
+              "0": 1972.5518798828125,
+              "1": -682.20703125
+            },
+            "widgets_values": [
+              3.5
+            ],
+            "inputs": [
+              {
+                "name": "conditioning",
+                "label": "条件",
+                "type": "CONDITIONING",
+                "localized_name": "条件"
+              }
+            ],
+            "flags": {},
+            "index": 1,
+            "id": -1,
+            "type": "FluxGuidance",
+            "properties": {
+              "Node name for S&R": "FluxGuidance"
+            },
+            "order": 10
+          },
+          {
+            "outputs": [
+              {
+                "shape": 3,
+                "name": "LATENT",
+                "slot_index": 0,
+                "links": [],
+                "label": "Latent",
+                "type": "LATENT",
+                "localized_name": "Latent"
+              }
+            ],
+            "widgets_values": [
+              566545967629216,
+              "randomize",
+              20,
+              1,
+              "euler",
+              "simple",
+              1
+            ],
+            "inputs": [
+              {
+                "name": "model",
+                "label": "模型",
+                "type": "MODEL",
+                "localized_name": "模型"
+              },
+              {
+                "name": "positive",
+                "label": "正面条件",
+                "type": "CONDITIONING",
+                "localized_name": "正面条件"
+              },
+              {
+                "name": "negative",
+                "label": "负面条件",
+                "type": "CONDITIONING",
+                "localized_name": "负面条件"
+              },
+              {
+                "name": "latent_image",
+                "label": "Latent",
+                "type": "LATENT",
+                "localized_name": "Latent图像"
+              }
+            ],
+            "flags": {},
+            "index": 2,
+            "type": "KSampler",
+            "_widget_cache_map": {},
+            "mode": 0,
+            "size": {
+              "0": 315,
+              "1": 262
+            },
+            "pos": {
+              "0": 1998.1126708984375,
+              "1": -485.418701171875
+            },
+            "id": -1,
+            "properties": {
+              "Node name for S&R": "KSampler"
+            },
+            "order": 14
+          },
+          {
+            "mode": 0,
+            "outputs": [
+              {
+                "shape": 3,
+                "name": "IMAGE",
+                "slot_index": 0,
+                "links": [],
+                "label": "图像",
+                "type": "IMAGE",
+                "localized_name": "图像"
+              }
+            ],
+            "size": {
+              "0": 140,
+              "1": 46
+            },
+            "pos": {
+              "0": 2434.2275390625,
+              "1": -458.8684387207031
+            },
+            "inputs": [
+              {
+                "name": "samples",
+                "label": "Latent",
+                "type": "LATENT",
+                "localized_name": "Latent"
+              },
+              {
+                "name": "vae",
+                "label": "VAE",
+                "type": "VAE",
+                "localized_name": "vae"
+              }
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "index": 3,
+            "id": -1,
+            "type": "VAEDecode",
+            "_widget_cache_map": {},
+            "properties": {
+              "Node name for S&R": "VAEDecode"
+            },
+            "order": 15
+          }
+        ],
+        "links": [
+          [
+            0,
+            0,
+            1,
+            0,
+            39,
+            "CONDITIONING"
+          ],
+          [
+            1,
+            0,
+            2,
+            1,
+            40,
+            "CONDITIONING"
+          ],
+          [
+            2,
+            0,
+            3,
+            0,
+            15,
+            "LATENT"
+          ]
+        ]
+      }
+    },
+    "ds": {
+      "offset": [
+        123.0867854824669,
+        1007.3750601326507
+      ],
+      "scale": 1.0610764609500039
+    }
+  },
+  "groups": [
+    {
+      "color": "#3f789e",
+      "font_size": 100,
+      "flags": {},
+      "id": 1,
+      "title": ".....上传一张理想的图反推提示词",
+      "bounding": [
+        -1390.16845703125,
+        -1173.270751953125,
+        145.99734497070312,
+        140.83016967773438
+      ]
+    },
+    {
+      "color": "#3f789e",
+      "font_size": 150,
+      "flags": {},
+      "id": 2,
+      "title": ".....最终保存图",
+      "bounding": [
+        1725.0369873046875,
+        -1306.3916015625,
+        208.3013458251953,
+        212.0492706298828
+      ]
+    }
+  ],
+  "links": [
+    [
+      61,
+      55,
+      0,
+      50,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      65,
+      50,
+      0,
+      54,
+      0,
+      "LATENT"
+    ],
+    [
+      72,
+      56,
+      0,
+      64,
+      0,
+      "MODEL"
+    ],
+    [
+      73,
+      60,
+      0,
+      65,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      78,
+      54,
+      0,
+      44,
+      0,
+      "IMAGE"
+    ],
+    [
+      79,
+      64,
+      0,
+      49,
+      0,
+      "MODEL"
+    ],
+    [
+      80,
+      65,
+      0,
+      49,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      81,
+      61,
+      0,
+      49,
+      3,
+      "LATENT"
+    ],
+    [
+      82,
+      64,
+      0,
+      50,
+      0,
+      "MODEL"
+    ],
+    [
+      83,
+      65,
+      0,
+      50,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      84,
+      61,
+      0,
+      50,
+      3,
+      "LATENT"
+    ],
+    [
+      85,
+      65,
+      0,
+      55,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      86,
+      64,
+      0,
+      59,
+      0,
+      "MODEL"
+    ],
+    [
+      87,
+      65,
+      0,
+      59,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      88,
+      61,
+      0,
+      59,
+      3,
+      "LATENT"
+    ],
+    [
+      89,
+      64,
+      0,
+      53,
+      0,
+      "MODEL"
+    ],
+    [
+      90,
+      65,
+      0,
+      53,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      91,
+      61,
+      0,
+      53,
+      3,
+      "LATENT"
+    ],
+    [
+      92,
+      57,
+      0,
+      60,
+      0,
+      "CLIP"
+    ],
+    [
+      93,
+      58,
+      0,
+      48,
+      1,
+      "VAE"
+    ],
+    [
+      94,
+      58,
+      0,
+      51,
+      1,
+      "VAE"
+    ],
+    [
+      95,
+      58,
+      0,
+      52,
+      1,
+      "VAE"
+    ],
+    [
+      96,
+      58,
+      0,
+      54,
+      1,
+      "VAE"
+    ],
+    [
+      97,
+      68,
+      0,
+      66,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      98,
+      66,
+      0,
+      67,
+      0,
+      "LATENT"
+    ],
+    [
+      99,
+      67,
+      0,
+      69,
+      0,
+      "IMAGE"
+    ],
+    [
+      100,
+      72,
+      0,
+      70,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      101,
+      70,
+      0,
+      71,
+      0,
+      "LATENT"
+    ],
+    [
+      102,
+      75,
+      0,
+      73,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      103,
+      73,
+      0,
+      74,
+      0,
+      "LATENT"
+    ],
+    [
+      104,
+      74,
+      0,
+      76,
+      0,
+      "IMAGE"
+    ],
+    [
+      105,
+      71,
+      0,
+      77,
+      0,
+      "IMAGE"
+    ],
+    [
+      106,
+      80,
+      0,
+      78,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      107,
+      78,
+      0,
+      79,
+      0,
+      "LATENT"
+    ],
+    [
+      108,
+      83,
+      0,
+      81,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      109,
+      81,
+      0,
+      82,
+      0,
+      "LATENT"
+    ],
+    [
+      110,
+      82,
+      0,
+      84,
+      0,
+      "IMAGE"
+    ],
+    [
+      111,
+      79,
+      0,
+      85,
+      0,
+      "IMAGE"
+    ],
+    [
+      112,
+      88,
+      0,
+      86,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      113,
+      86,
+      0,
+      87,
+      0,
+      "LATENT"
+    ],
+    [
+      114,
+      91,
+      0,
+      89,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      115,
+      89,
+      0,
+      90,
+      0,
+      "LATENT"
+    ],
+    [
+      116,
+      90,
+      0,
+      92,
+      0,
+      "IMAGE"
+    ],
+    [
+      117,
+      87,
+      0,
+      93,
+      0,
+      "IMAGE"
+    ],
+    [
+      118,
+      64,
+      0,
+      94,
+      0,
+      "MODEL"
+    ],
+    [
+      119,
+      57,
+      0,
+      94,
+      1,
+      "CLIP"
+    ],
+    [
+      120,
+      58,
+      0,
+      94,
+      2,
+      "VAE"
+    ],
+    [
+      121,
+      61,
+      0,
+      95,
+      0,
+      "LATENT"
+    ],
+    [
+      122,
+      65,
+      0,
+      95,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      164,
+      98,
+      0,
+      96,
+      1,
+      "JOYCAPTIONBETA1_MODEL"
+    ],
+    [
+      165,
+      97,
+      0,
+      96,
+      2,
+      "JoyCaption2ExtraOption"
+    ],
+    [
+      166,
+      24,
+      0,
+      96,
+      0,
+      "IMAGE"
+    ],
+    [
+      167,
+      96,
+      0,
+      60,
+      1,
+      "STRING"
+    ],
+    [
+      168,
+      96,
+      0,
+      34,
+      0,
+      "STRING"
+    ]
+  ],
+  "id": "47518fae-a6ee-4aec-b16c-2d751dae258d",
+  "config": {},
+  "version": 0.4,
+  "last_node_id": 98,
+  "revision": 0
+}
