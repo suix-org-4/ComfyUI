@@ -1,0 +1,94 @@
+name: 同步ComfyUI自定义节点
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+# 授予必要权限（GITHUB_TOKEN 自动获得 contents + workflows 权限）
+permissions:
+  contents: write
+
+jobs:
+  sync-nodes:
+    runs-on: ubuntu-latest
+    steps:
+
+      # 检出主仓库（使用默认 GITHUB_TOKEN，不指定 token）
+      - name: Checkout Your Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 获取完整历史以便 merge
+
+      # 配置 Git 使用 GITHUB_TOKEN 进行推送（关键！）
+      - name: Configure Git credentials for push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # 将 origin URL 改为带 GITHUB_TOKEN 的 HTTPS 格式
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/suix-org-2/ComfyUI.git
+      # 设置 Python 环境
+      - name: Setup Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      # 执行同步脚本
+      - name: Run sync script
+        run: |
+          git remote add upstream https://github.com/comfyanonymous/ComfyUI.git 2>/dev/null || true
+          git fetch upstream
+          git checkout master
+          # 记录当前本地 workflows 状态（如果存在）
+          if [ -d ".github/workflows" ]; then
+            # 备份当前本地 workflows 目录（包括文件和目录结构）
+            cp -r .github/workflows /tmp/workflows.backup
+            LOCAL_WORKFLOWS_EXIST=1
+          else
+            LOCAL_WORKFLOWS_EXIST=0
+          fi
+          # 尝试合并上游
+          if ! git merge -s recursive -X theirs upstream/master; then
+            echo "Merge conflict detected. Resolving by taking upstream version..."
+            git checkout --theirs .
+            git add .
+            git commit -m "Merge upstream/master (auto-resolved in favor of upstream)"
+          fi
+          # 丢弃所有来自 upstream 的 workflows 修改，恢复本地状态
+          if [ "$LOCAL_WORKFLOWS_EXIST" = "1" ]; then
+            # 恢复你原来的 workflows
+            rm -rf .github/workflows
+            cp -r /tmp/workflows.backup .github/workflows
+            git add .github/workflows
+            echo "Restored local .github/workflows"
+          else
+            # 如果你本地原本没有 workflows，就彻底删除 upstream 带来的
+            rm -rf .github/workflows 2>/dev/null || true
+            git add .github 2>/dev/null || true
+            echo "Removed upstream .github/workflows (not present locally)"
+          fi
+          # 如果 workflows 目录为空或不存在，确保 .github 目录干净
+          if [ -d ".github" ] && [ -z "$(ls -A .github)" ]; then
+            rmdir .github
+            git add -A
+          fi
+          # 提交最终结果（如果 workflows 有变更）
+          if ! git diff --quiet --cached; then
+            git commit -m "Revert workflows to local state after upstream merge"
+          fi
+          git push origin master
+          
+          # ========== 后续自定义节点逻辑（不变）==========
+          export MANAGER_REPO_DIR=/tmp/ComfyUI-Manager
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          git clone git@github.com:Comfy-Org/ComfyUI-Manager.git "$MANAGER_REPO_DIR"
+          python -m venv venv
+          source venv/bin/activate
+          pip install requests
+          mkdir -p custom_nodes
+          chmod +x ./sync_comfyui_cust_nodes_suix.sh
+          ./sync_comfyui_cust_nodes_suix.sh --clean
+          ./sync_comfyui_cust_nodes_suix.sh --clean
