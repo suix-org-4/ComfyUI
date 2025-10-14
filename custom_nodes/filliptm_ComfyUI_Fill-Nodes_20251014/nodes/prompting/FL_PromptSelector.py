@@ -22,8 +22,8 @@ class FL_PromptSelector:
 
         num_prompts = len(prompt_lines)
 
-        if index < 0 or index >= num_prompts:
-            raise ValueError(f"Index {index} is out of range. Please provide an index between 0 and {num_prompts - 1}.")
+        # Loop through prompts using modulo
+        index = index % num_prompts
 
         selected_prompt = prompt_lines[index].strip()
 
