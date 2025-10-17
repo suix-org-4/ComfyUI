@@ -125,7 +125,8 @@ class KSamplerX0Inpaint:
 
         IS_FLUX = self.inner_model.inner_model.model_type == ModelType.FLUX
         IS_FLOW = self.inner_model.inner_model.model_type == ModelType.FLOW
-
+        print("model type", self.inner_model.inner_model.model_type, "IS_FLUX", IS_FLUX, "IS_FLOW", IS_FLOW)
+        print("sigma", torch.mean(sigma).item(), torch.min(sigma).item(), torch.max(sigma).item())
         # unify the notations into variance exploding diffusion model
         if IS_FLUX or IS_FLOW:
             Flow_t = sigma
@@ -297,7 +298,7 @@ class LanPaint_KSampler():
 
     def sample(self, model, seed, steps, cfg, sampler_name, scheduler, positive, negative, latent_image, denoise=1.0, LanPaint_NumSteps=5, LanPaint_PromptMode="Image First",  LanPaint_Info="",Inpainting_mode="🖼️ Image Inpainting"):
 
-        model.LanPaint_StepSize = 0.15
+        model.LanPaint_StepSize = 0.2
         model.LanPaint_Lambda = 16.0
         model.LanPaint_Beta = 1.
         model.LanPaint_NumSteps = LanPaint_NumSteps
@@ -335,7 +336,7 @@ class LanPaint_KSamplerAdvanced:
                     "return_with_leftover_noise": (["disable", "enable"], ),
                 "LanPaint_NumSteps": ("INT", {"default": 5, "min": 0, "max": 100, "tooltip": "The number of steps for the Langevin dynamics, representing the turns of thinking per step."}),
                 "LanPaint_Lambda": ("FLOAT", {"default": 16., "min": 0.1, "max": 50.0, "step": 0.1, "round": 0.1, "tooltip": "The bidirectional guidance scale. Higher values align with known regions more closely, but may result in instability."}),
-                "LanPaint_StepSize": ("FLOAT", {"default": 0.15, "min": 0.0001, "max": 1., "step": 0.01, "round": 0.001, "tooltip": "The step size for the Langevin dynamics. Higher values result in faster convergence but may be unstable."}),
+                "LanPaint_StepSize": ("FLOAT", {"default": 0.2, "min": 0.0001, "max": 1., "step": 0.01, "round": 0.001, "tooltip": "The step size for the Langevin dynamics. Higher values result in faster convergence but may be unstable."}),
                 "LanPaint_Beta": ("FLOAT", {"default": 1., "min": 0.0001, "max": 5, "step": 0.1, "round": 0.1, "tooltip": "The step size ratio between masked / unmasked regions. Lower value can compensate high values of LanPaint_Lambda."}),
                 "LanPaint_Friction": ("FLOAT", {"default": 15, "min": 0., "max": 50.0, "step": 0.1, "round": 0.1, "tooltip": "The friction parameter for fast langevin, lower values result in faster convergence but may be unstable."}),
                 "LanPaint_PromptMode": (["Image First", "Prompt First"], {"tooltip": "Image First: emphasis image quality, Prompt First: emphasis prompt following"}),
@@ -350,7 +351,7 @@ class LanPaint_KSamplerAdvanced:
 
     CATEGORY = "sampling"
 
-    def sample(self, model, add_noise, noise_seed, steps, cfg, sampler_name, scheduler, positive, negative, latent_image, start_at_step, end_at_step, return_with_leftover_noise, LanPaint_NumSteps=5, LanPaint_Lambda=16.0, LanPaint_StepSize=0.15, LanPaint_Beta=1.0, LanPaint_Friction=15.0, LanPaint_PromptMode="Image First", LanPaint_EarlyStop=1, LanPaint_Info="", Inpainting_mode="🖼️ Image Inpainting"):
+    def sample(self, model, add_noise, noise_seed, steps, cfg, sampler_name, scheduler, positive, negative, latent_image, start_at_step, end_at_step, return_with_leftover_noise, LanPaint_NumSteps=5, LanPaint_Lambda=16.0, LanPaint_StepSize=0.2, LanPaint_Beta=1.0, LanPaint_Friction=15.0, LanPaint_PromptMode="Image First", LanPaint_EarlyStop=1, LanPaint_Info="", Inpainting_mode="🖼️ Image Inpainting"):
         force_full_denoise = True
         if return_with_leftover_noise == "enable":
             force_full_denoise = False
@@ -470,7 +471,7 @@ class LanPaint_SamplerCustom:
     CATEGORY = "sampling/custom_sampling"
 
     def sample(self, model, sampler, sigmas, add_noise, noise_seed, cfg, positive, negative, latent_image, LanPaint_NumSteps, LanPaint_PromptMode, LanPaint_Info=""):
-        model.LanPaint_StepSize = 0.15
+        model.LanPaint_StepSize = 0.2
         model.LanPaint_Lambda = 16.0
         model.LanPaint_Beta = 1.
         model.LanPaint_NumSteps = LanPaint_NumSteps
@@ -515,16 +516,13 @@ class LanPaint_SamplerCustomAdvanced:
     def INPUT_TYPES(s):
         return {"required":
                     {"noise": ("NOISE",),
-                     "guider": ("GUIDER",),
-                     "sampler": ("SAMPLER",),
-                     "sigmas": ("SIGMAS",),
-                     "latent_image": ("LATENT",),
-                     "start_at_step": ("INT", {"default": 0, "min": 0, "max": 10000}),
-                     "end_at_step": ("INT", {"default": 10000, "min": 0, "max": 10000}),
-                     "return_with_leftover_noise": (["disable", "enable"], ),
+                    "guider": ("GUIDER", ),
+                    "sampler": ("SAMPLER", ),
+                    "sigmas": ("SIGMAS", ),
+                    "latent_image": ("LATENT", ),
                      "LanPaint_NumSteps": ("INT", {"default": 5, "min": 0, "max": 100, "tooltip": "Number of steps for Langevin dynamics, representing turns of thinking per step."}),
                      "LanPaint_Lambda": ("FLOAT", {"default": 16.0, "min": 0.1, "max": 50.0, "step": 0.1, "tooltip": "Bidirectional guidance scale. Higher values align with known regions but may cause instability."}),
-                     "LanPaint_StepSize": ("FLOAT", {"default": 0.15, "min": 0.0001, "max": 1.0, "step": 0.01, "tooltip": "Step size for Langevin dynamics. Higher values speed convergence but may be unstable."}),
+                     "LanPaint_StepSize": ("FLOAT", {"default": 0.2, "min": 0.0001, "max": 1.0, "step": 0.01, "tooltip": "Step size for Langevin dynamics. Higher values speed convergence but may be unstable."}),
                      "LanPaint_Beta": ("FLOAT", {"default": 1.0, "min": 0.0001, "max": 5.0, "step": 0.1, "tooltip": "Step size ratio between masked/unmasked regions. Lower values balance high Lambda."}),
                      "LanPaint_Friction": ("FLOAT", {"default": 15.0, "min": 0.0, "max": 50.0, "step": 0.1, "tooltip": "Friction parameter for fast Langevin. Lower values speed convergence but may be unstable."}),
                      "LanPaint_PromptMode": (["Image First", "Prompt First"], {"tooltip": "Image First: prioritizes image quality; Prompt First: prioritizes prompt adherence."}),
@@ -533,17 +531,14 @@ class LanPaint_SamplerCustomAdvanced:
                     }
                }
 
-    RETURN_TYPES = ("LATENT", "LATENT")
+    RETURN_TYPES = ("LATENT","LATENT")
     RETURN_NAMES = ("output", "denoised_output")
+
     FUNCTION = "sample"
+
     CATEGORY = "sampling/custom_sampling"
 
-    def sample(self, noise, guider, sampler, sigmas, latent_image, start_at_step, end_at_step, return_with_leftover_noise, LanPaint_NumSteps, LanPaint_Lambda, LanPaint_StepSize, LanPaint_Beta, LanPaint_Friction, LanPaint_PromptMode, LanPaint_EarlyStop, LanPaint_Info=""):
-        force_full_denoise = True
-        if end_at_step <= start_at_step:
-            raise ValueError('end_at_step must be larger than start_at_step')
-        if return_with_leftover_noise == "enable":
-            force_full_denoise = False
+    def sample(self, noise, guider, sampler, sigmas, latent_image, LanPaint_NumSteps, LanPaint_Lambda, LanPaint_StepSize, LanPaint_Beta, LanPaint_Friction, LanPaint_PromptMode, LanPaint_EarlyStop, LanPaint_Info=""):
         model = guider.model_patcher
         model.LanPaint_StepSize = LanPaint_StepSize
         model.LanPaint_Lambda = LanPaint_Lambda
@@ -556,46 +551,32 @@ class LanPaint_SamplerCustomAdvanced:
         else:
             model.LanPaint_cfg_BIG = 0 * guider.cfg - 0.5
         with override_sample_function():
-            latent = latent_image.copy()
-            latent_image_samples = latent["samples"]
-            latent_image_samples = comfy.sample.fix_empty_latent_channels(model, latent_image_samples)
-            latent["samples"] = latent_image_samples
+            latent = latent_image
+            latent_image = latent["samples"]
+            latent = latent.copy()
+            latent_image = comfy.sample.fix_empty_latent_channels(guider.model_patcher, latent_image)
+            latent["samples"] = latent_image
 
             noise_mask = None
             if "noise_mask" in latent:
                 noise_mask = latent["noise_mask"]
 
-            # From base comfy samplers.py
-            if end_at_step is not None and end_at_step < (len(sigmas) - 1):
-                sigmas = sigmas[:end_at_step + 1]
-                if force_full_denoise:
-                    sigmas[-1] = 0
-
-            if start_at_step is not None:
-                if start_at_step < (len(sigmas) - 1):
-                    sigmas = sigmas[start_at_step:]
-                else:
-                    if latent_image is not None:
-                        return latent_image
-                    else:
-                        return torch.zeros_like(noise)
-
             x0_output = {}
-            callback = latent_preview.prepare_callback(model, sigmas.shape[-1] - 1, x0_output)
+            callback = latent_preview.prepare_callback(guider.model_patcher, sigmas.shape[-1] - 1, x0_output)
+
             disable_pbar = not comfy.utils.PROGRESS_BAR_ENABLED
-
-            samples = guider.sample( noise.generate_noise(latent), latent_image_samples, sampler, sigmas, denoise_mask=noise_mask, callback=callback,disable_pbar=disable_pbar, seed=noise.seed
-            )
-
+            samples = guider.sample(noise.generate_noise(latent), latent_image, sampler, sigmas, denoise_mask=noise_mask, callback=callback, disable_pbar=disable_pbar, seed=noise.seed)
             samples = samples.to(comfy.model_management.intermediate_device())
+
             out = latent.copy()
             out["samples"] = samples
             if "x0" in x0_output:
                 out_denoised = latent.copy()
-                out_denoised["samples"] = model.model.process_latent_out(x0_output["x0"].cpu())
+                out_denoised["samples"] = guider.model_patcher.model.process_latent_out(x0_output["x0"].cpu())
             else:
                 out_denoised = out
             return (out, out_denoised)
+
 
 # A dictionary that contains all nodes you want to export with their names
 # NOTE: names should be globally unique

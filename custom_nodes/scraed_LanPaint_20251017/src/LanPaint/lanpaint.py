@@ -38,8 +38,11 @@ class LanPaint():
         step_size = self.add_none_dims(step_size)
         # self.inner_model.inner_model.scale_latent_inpaint returns variance exploding x_t values
         # This is the replace step
-        x = x * (1 - latent_mask) +  self.inner_model.inner_model.scale_latent_inpaint(x=x, sigma=sigma, noise=self.noise, latent_image=self.latent_image)* latent_mask
-        
+        def scale_latent_inpaint(x, sigma, noise, latent_image):
+            return self.inner_model.inner_model.model_sampling.noise_scaling(sigma.reshape([sigma.shape[0]] + [1] * (len(noise.shape) - 1)), noise, latent_image)
+
+        x = x * (1 - latent_mask) +  scale_latent_inpaint(x=x, sigma=sigma, noise=self.noise, latent_image=self.latent_image)* latent_mask
+
         if IS_FLUX or IS_FLOW:
             x_t = x * ( self.add_none_dims(abt)**0.5 + (1-self.add_none_dims(abt))**0.5 )
         else:

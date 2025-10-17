@@ -39,6 +39,7 @@ Check our latest [Wan 2.2 Video Examples](#video-examples-beta), [Wan 2.2 Image 
   - [Wan 2.2 Video Outpainting](#wan-22-video-outpainting)
   - [Resource Consumption](#resource-consumption)
 - [Image Examples](#image-examples)
+  - [Hunyuan T2I](#example-hunyuan-t2i-inpaintlanpaint-k-sampler-5-steps-of-thinking)
   - [Wan 2.2 T2I](#example-wan22-inpaintlanpaint-k-sampler-5-steps-of-thinking)
   - [Wan 2.2 T2I with reference](#example-wan22-partial-inpaintlanpaint-k-sampler-5-steps-of-thinking)
   - [Qwen Image Edit 2509](#example-qwen-edit-2509-inpaint)
@@ -193,6 +194,14 @@ You need to follow the ComfyUI version of [Wan2.2 T2V workflow](https://docs.com
 **Note:** To further reduce VRAM requirements, we recommend loading CLIP on CPU.
 
 ## Image Examples
+
+### Example Hunyuan T2I: InPaint(LanPaint K Sampler, 5 steps of thinking)
+We are excited to announce that LanPaint now supports inpainting with Hunyuan text to image generation.
+
+[View Workflow & Masks](https://github.com/scraed/LanPaint/tree/master/examples/Example_20)
+
+
+You need to follow the ComfyUI version of [Hunyuan workflow](https://docs.comfy.org/tutorials/video/hunyuan-video#hunyuan-text-to-video-workflow) to download and install the model.
 
 ### Example Wan2.2: InPaint(LanPaint K Sampler, 5 steps of thinking)
 We are excited to announce that LanPaint now supports Wan2.2 text to image generation with Wan2.2 T2V model.
