@@ -11,6 +11,15 @@ A collection of utility nodes for Qwen-based image editing in ComfyUI.
 
 You can find a complete ComfyUI workflow example in the [`qwen-edit-plus_example.json`](qwen-edit-plus_example.json) file. This workflow demonstrates how to use the TextEncodeQwenImageEditPlus node with two reference images to create an outfit transfer effect.
 
+## Update Log
+### v1.1.5
+- Rollback the vl resize and not resize output sequence
+
+### v1.1.4
+- Updated crop method pad to preserve most of the image
+- Add CropWithPadInfo to crop generated image with pad info
+- Add the initial version node for running hub
+
 ## Node
 
 ### TextEncodeQwenImageEditPlus 小志Jason(xiaozhijason)
@@ -108,6 +117,9 @@ This advanced node provides enhanced text encoding functionality with reference 
 3. The node will be available in the "advanced/conditioning" category.
 
 ## Update Log
+### v1.1.3
+- Updated crop method pad to preserve most of the image
+- Add CropWithPadInfo to crop generated image with pad info
 
 ### v1.0.6
 - Updated advance node
